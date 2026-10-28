@@ -22,7 +22,14 @@ The old sources are the misattribution paradigm (Schachter & Singer 1962; Storms
 
 This folder holds everything for the experiment: code, configs, tests, mock validation and live runs. "Believes", "credulous" and "distrust" name behavioral patterns only.
 
-## Resume here: study W2-C done (2026-10-28)
+## Resume here: public release and the Anthropic application (2026-10-28)
+
+- **Public repository:** [github.com/XGenic/believe-the-error-message](https://github.com/XGenic/believe-the-error-message), made public on the owner's word on 2026-10-28. It holds this folder without the per-run caches, as one commit by Denis Gurskiy (GitHub no-reply address). Code under MIT, data and documents under CC BY 4.0. Tests and `reproduce` pass there.
+- **Preprint draft:** [`paper/PAPER.md`](paper/PAPER.md).
+- **Anthropic External Researcher Access:** a proposal for $1,000 to run Claude Sonnet 5.5, Opus 5.5 and Fable 5.1; the owner submits it before the November 2 review.
+- **Keeping the two in step:** this folder is the source. Changes are made here, then copied to the public repository.
+
+## Earlier note: study W2-C done (2026-10-28)
 
 - **The Anthropic transport** (`anthropic_messages_native` in `causetest/transports.py`) works live: Claude models through the Messages API with native tool use.
 - **Study W2-C is done** (Claude Haiku 5.5, thinking off and on; $2.65): both traps hold (0%), "three attempts in a row" is RECOMMENDABLE in both arms, and E5's mechanism does not apply to Haiku. See "W2-C results" and `REPORT.md` §4.13.
