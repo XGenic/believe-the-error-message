@@ -4,7 +4,7 @@ When a tool call fails, the error message usually states a cause: "invalid forma
 
 **Short answer: they act on the stated cause and rarely revise it, and two traps follow.** A brief caution paired with a counted stopping rule fixes the worse of the two on every model tested, in this environment.
 
-Results to 2026-10-28: 13 pre-registered studies on 5 models from 4 developers (13 model-and-setting arms), about $65 of API spend. **Paper draft:** [`paper/PAPER.md`](paper/PAPER.md) (preprint draft, not peer reviewed). The consolidated write-up is [`REPORT.md`](REPORT.md).
+Results to 2026-10-28: 13 pre-specified studies on 5 models from 4 developers (13 model-and-setting arms), about $65 of API spend. **Paper draft:** [`paper/PAPER.md`](paper/PAPER.md) (preprint draft, not peer reviewed). The consolidated write-up is [`REPORT.md`](REPORT.md).
 
 ## The two traps
 
@@ -48,7 +48,7 @@ The numbers come from [`runs/panel/PANEL.md`](runs/panel/PANEL.md), which puts e
 
 ## Studies
 
-Each study's protocol, decision rule and predictions were committed before its first model call. Deviations are logged in [`NOTEBOOK.md`](NOTEBOOK.md), and every prediction is scored in `REPORT.md` §5, misses included.
+Each study's protocol, decision rule and predictions were committed before its first model call, in the author's private working repository. This repository is an export of that work made on 2026-10-28, so its history cannot independently confirm that timing: the studies are pre-specified, not independently timestamped pre-registrations, and that is what "pre-registered" means in the older documents here. Future studies will be registered publicly, as a tagged release and on OSF, before any call. Deviations are logged in [`NOTEBOOK.md`](NOTEBOOK.md), and every prediction is scored in `REPORT.md` §5, misses included.
 
 | Study | Question | Models | Protocol | Result |
 |---|---|---|---|---|

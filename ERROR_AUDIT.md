@@ -106,6 +106,16 @@ Cases 14–16 are coded under "retry" because a 5xx error tells a client that th
 - **Honest two-cause messages already exist** (cases 26–28). E2's "honest" arm is a realistic design option, not an artificial one.
 - **The status code and the text can disagree** (cases 8 and 25). Which one an agent attends to is a measurable question; C4 used text only.
 
+## How the wrong cause is carried
+
+*Added 2026-10-28, after an external review.* The cases differ in where the wrong cause sits, and C4 manipulates only the first kind: a cause stated in words. The coding is the author's judgment.
+
+| Carrier | Cases | Count |
+|---|---|---|
+| **Stated in text:** the message text itself names a wrong cause | 4, 5, 6, 7, 17, 18, 19, 23 | 8 |
+| **Implied by true text:** the text is literally true but points to the wrong cause | 9, 12, 13, 20, 21, 22 | 6 |
+| **Status code:** a status code and its standard phrase carry the wrong cause; any text is generic, or even accurate | 1, 2, 3, 8, 10, 11, 14, 15, 16, 24, 25 | 11 |
+
 ## Limits
 
 - **Targeted search, not a sample.** The audit shows that these patterns exist, not how often they occur. A frequency estimate would need a corpus of real tool-call logs.
