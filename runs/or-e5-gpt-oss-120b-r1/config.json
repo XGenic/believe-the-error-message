@@ -1,0 +1,61 @@
+{
+  "base_seed": 20261701,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261701,
+  "cells": [
+    "control|none",
+    "control|cleared",
+    "control|not_cleared"
+  ],
+  "cost_note": "Proposed with a $0 cap: live calls are refused until the owner approves a cap (proposed $1, 3x the estimate). Estimate: N1's calls per run and input tokens per call, and a guessed 600 output tokens per call for reasoning 'low'; the pilot measures both.",
+  "design": "E5",
+  "dev_seed": 20269701,
+  "expected_host": "DeepInfra",
+  "label": "PROPOSED, NOT APPROVED (W2 open-weight panel: E5 through OpenRouter, OpenAI, reasoning r1 = {\"effort\": \"low\"})",
+  "max_calls": 5000,
+  "max_equiv_usd": 1.0,
+  "model": "openai/gpt-oss-120b",
+  "n_tasks": 3,
+  "pass_reasoning_back": false,
+  "planning": {
+    "calls_per_run": 12,
+    "proposed_cap_usd": 1.0,
+    "usd_per_call": 0.000128
+  },
+  "prices_usd_per_mtok": {
+    "input": 0.04,
+    "output": 0.17,
+    "source": "DeepInfra (bf16) on the OpenRouter endpoints listing, read 2026-10-22. Planning and fallback only; recorded cost is OpenRouter's billed usage.cost."
+  },
+  "provider": {
+    "order": [
+      "deepinfra/bf16"
+    ]
+  },
+  "request_options": {
+    "max_tokens": 8000,
+    "reasoning": {
+      "effort": "low"
+    },
+    "temperature": 1.0
+  },
+  "run_name": "or-e5-gpt-oss-120b-r1",
+  "runs_per_cell": 60,
+  "thresholds": {
+    "e5_confirm_ci_lo": 0.15,
+    "e5_confirm_min": 0.3,
+    "e5_none_abs": 0.1,
+    "e5_none_ci": 0.2,
+    "e5_specific_ci_lo": 0.15,
+    "e5_specific_min": 0.3,
+    "max_protocol_failure": 0.1,
+    "max_unclassifiable": 0.1,
+    "min_completion": 0.95,
+    "min_engagement": 0.9,
+    "min_manipulation": 0.8
+  },
+  "timeout_seconds": 180,
+  "transport": "openrouter_chat_native",
+  "workers": 10,
+  "worst_case_usd_per_call": 0.0015
+}

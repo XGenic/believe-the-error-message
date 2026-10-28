@@ -1,0 +1,16 @@
+# Mock runs regenerate exactly from the README commands; keep only their summaries and verdicts.
+runs/mock-*/*
+!runs/mock-*/analysis/
+runs/mock-*/analysis/*
+!runs/mock-*/analysis/VERDICT.md
+!runs/mock-*/analysis/summary.json
+runs/power-scratch/
+# The subject's empty working directory holds no evidence.
+runs/*/subject_cwd/
+
+# Public release: credentials, local caches and generated files stay out of the repository.
+.env
+.env.*
+__pycache__/
+*.py[cod]
+runs/*/cache/

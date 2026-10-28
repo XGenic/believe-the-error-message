@@ -1,0 +1,36 @@
+{
+  "base_seed": 20261201,
+  "runs_per_cell": 30,
+  "dev_seed": 20269201,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261201,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1,
+    "kill_s_max": 0.1,
+    "kill_s_ci_hi": 0.2,
+    "cont_s_min": 0.25,
+    "cont_s_ci_lo": 0.1,
+    "cred_l_max": 0.1,
+    "cred_l_ci_hi": 0.2,
+    "self_l_min": 0.15,
+    "self_l_ci_lo": 0.0,
+    "kill_s_ci_lo": -0.2
+  },
+  "run_name": "live-claude-haiku-5-5",
+  "transport": "claude_cli",
+  "model": "claude-haiku-5-5",
+  "label": "LIVE MODEL RUN",
+  "worst_case_usd_per_call": 0.01,
+  "max_equiv_usd": 22.0,
+  "max_calls": 12000,
+  "planning": {
+    "calls_per_run": 26,
+    "usd_per_call": 0.0015
+  },
+  "cost_note": "Claude CLI costs are the CLI's reported API-equivalent figures; the calls draw on the account's Claude usage, not a separate API bill. usd_per_call is from C3's A1 Haiku run; the pilot re-measures it.",
+  "cli_timeout_seconds": 480
+}

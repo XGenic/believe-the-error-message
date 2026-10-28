@@ -1,0 +1,298 @@
+{
+  "by_kind": {
+    "caution_bounded|common": {
+      "all": {
+        "calls": 3.314583333333333,
+        "success": 0.8020833333333334
+      },
+      "give_up_trap": {
+        "calls": 2.95,
+        "success": 0.975
+      },
+      "retry_trap": {
+        "calls": 3.0625,
+        "success": 0.975
+      },
+      "runs": 40,
+      "true_format": {
+        "calls": 2.99375,
+        "success": 0.9625
+      },
+      "true_temporary": {
+        "calls": 2.875,
+        "success": 0.9375
+      },
+      "true_unavailable": {
+        "calls": 5.0125,
+        "success": 0.0
+      }
+    },
+    "caution_bounded|rare": {
+      "all": {
+        "calls": 3.4145833333333333,
+        "success": 0.7270833333333333
+      },
+      "give_up_trap": {
+        "calls": 2.9,
+        "success": 0.95
+      },
+      "retry_trap": {
+        "calls": 2.725,
+        "success": 0.925
+      },
+      "runs": 40,
+      "true_format": {
+        "calls": 3.0375,
+        "success": 0.98125
+      },
+      "true_temporary": {
+        "calls": 2.95,
+        "success": 0.975
+      },
+      "true_unavailable": {
+        "calls": 4.783333333333333,
+        "success": 0.0
+      }
+    },
+    "control|common": {
+      "all": {
+        "calls": 2.8020833333333335,
+        "success": 0.4895833333333333
+      },
+      "give_up_trap": {
+        "calls": 1.025,
+        "success": 0.0125
+      },
+      "retry_trap": {
+        "calls": 5.75,
+        "success": 0.0375
+      },
+      "runs": 40,
+      "true_format": {
+        "calls": 2.98125,
+        "success": 0.9625
+      },
+      "true_temporary": {
+        "calls": 2.925,
+        "success": 0.9625
+      },
+      "true_unavailable": {
+        "calls": 1.15,
+        "success": 0.0
+      }
+    },
+    "control|rare": {
+      "all": {
+        "calls": 2.63125,
+        "success": 0.5729166666666667
+      },
+      "give_up_trap": {
+        "calls": 1.125,
+        "success": 0.05
+      },
+      "retry_trap": {
+        "calls": 5.875,
+        "success": 0.0
+      },
+      "runs": 40,
+      "true_format": {
+        "calls": 3.0,
+        "success": 0.98125
+      },
+      "true_temporary": {
+        "calls": 2.9333333333333336,
+        "success": 0.9666666666666667
+      },
+      "true_unavailable": {
+        "calls": 1.2583333333333333,
+        "success": 0.0
+      }
+    }
+  },
+  "ci": {
+    "adapt|caution_bounded|temporary": [
+      -0.00625,
+      0.043750000000000004
+    ],
+    "adapt|caution_bounded|unavailable": [
+      -0.08125,
+      0.006249999999999999
+    ],
+    "adapt|control|temporary": [
+      -0.03125,
+      0.08125000000000004
+    ],
+    "adapt|control|unavailable": [
+      0.012500000000000067,
+      0.125
+    ],
+    "common|all_calls": [
+      0.4187500000000002,
+      0.6083333333333334
+    ],
+    "common|all_success": [
+      0.29166666666666674,
+      0.3312500000000001
+    ],
+    "common|calls_per_extra_success": [
+      1.3758389261744968,
+      1.9041095890410955
+    ],
+    "common|give_up_rescue": [
+      0.9125,
+      1.0
+    ],
+    "common|retry_trap": [
+      0.875,
+      0.9875
+    ],
+    "common|true_format_success": [
+      -0.04375000000000007,
+      0.04375000000000007
+    ],
+    "common|true_temporary_success": [
+      -0.08750000000000002,
+      0.03749999999999998
+    ],
+    "common|true_unavailable_calls": [
+      3.675,
+      4.025
+    ],
+    "drift|caution_bounded|common|temporary": [
+      -0.05745614035087719,
+      0.02564102564102564
+    ],
+    "drift|caution_bounded|common|unavailable": [
+      -0.054747054747054755,
+      0.030228758169934644
+    ],
+    "drift|caution_bounded|rare|temporary": [
+      0.0,
+      0.075
+    ],
+    "drift|caution_bounded|rare|unavailable": [
+      -0.1267056530214425,
+      0.034126984126984124
+    ],
+    "drift|control|common|temporary": [
+      0.002027027027026951,
+      0.125
+    ],
+    "drift|control|common|unavailable": [
+      -0.10121457489878538,
+      0.04600301659125183
+    ],
+    "drift|control|rare|temporary": [
+      -0.05352564102564106,
+      0.13068181818181812
+    ],
+    "drift|control|rare|unavailable": [
+      -0.05067567567567566,
+      0.10561877667140829
+    ],
+    "rare|all_calls": [
+      0.7104166666666663,
+      0.8666666666666667
+    ],
+    "rare|all_success": [
+      0.13541666666666663,
+      0.17291666666666672
+    ],
+    "rare|calls_per_extra_success": [
+      4.538461538461541,
+      5.757575757575759
+    ],
+    "rare|give_up_rescue": [
+      0.8,
+      0.975
+    ],
+    "rare|retry_trap": [
+      0.825,
+      1.0
+    ],
+    "rare|true_format_success": [
+      -0.03125,
+      0.025000000000000022
+    ],
+    "rare|true_temporary_success": [
+      -0.033333333333333326,
+      0.050000000000000044
+    ],
+    "rare|true_unavailable_calls": [
+      3.3166666666666664,
+      3.7333333333333334
+    ]
+  },
+  "contrast_verdicts": {
+    "common": "RESCUE_ONLY",
+    "rare": "RESCUE_ONLY"
+  },
+  "cost": {
+    "agent_calls": 7758,
+    "equiv_usd": 0.0,
+    "from_cache": 0,
+    "runs_recorded": 160
+  },
+  "cost_flags": {
+    "common": [],
+    "rare": []
+  },
+  "design": "E4",
+  "estimates": {
+    "adapt|caution_bounded|temporary": 0.018750000000000003,
+    "adapt|caution_bounded|unavailable": -0.037500000000000006,
+    "adapt|control|temporary": 0.02499999999999991,
+    "adapt|control|unavailable": 0.06875000000000009,
+    "common|all_calls": 0.5124999999999997,
+    "common|all_success": 0.31250000000000006,
+    "common|calls_per_extra_success": 1.6399999999999988,
+    "common|give_up_rescue": 0.9625,
+    "common|retry_trap": 0.9375,
+    "common|true_format_success": 0.0,
+    "common|true_temporary_success": -0.025000000000000022,
+    "common|true_unavailable_calls": 3.8625000000000003,
+    "drift|caution_bounded|common|temporary": -0.012069762069762072,
+    "drift|caution_bounded|common|unavailable": -0.012802275960170695,
+    "drift|caution_bounded|rare|temporary": 0.025,
+    "drift|caution_bounded|rare|unavailable": -0.040990990990990996,
+    "drift|control|common|temporary": 0.05769230769230771,
+    "drift|control|common|unavailable": -0.025663821716453206,
+    "drift|control|rare|temporary": 0.03209459459459463,
+    "drift|control|rare|unavailable": 0.02689832689832683,
+    "rare|all_calls": 0.7833333333333332,
+    "rare|all_success": 0.15416666666666656,
+    "rare|calls_per_extra_success": 5.081081081081083,
+    "rare|give_up_rescue": 0.8999999999999999,
+    "rare|retry_trap": 0.925,
+    "rare|true_format_success": 0.0,
+    "rare|true_temporary_success": 0.008333333333333304,
+    "rare|true_unavailable_calls": 3.525
+  },
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "model": "MOCK-e4-unbounded",
+  "n_tasks": 12,
+  "runs_per_cell": 40,
+  "status_counts": {
+    "complete": 160
+  },
+  "transport": "mock",
+  "validity": {
+    "completion": {
+      "caution_bounded|mixed|common": 1.0,
+      "caution_bounded|mixed|rare": 1.0,
+      "control|mixed|common": 1.0,
+      "control|mixed|rare": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 1.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "rare: RESCUE_ONLY",
+      "common: RESCUE_ONLY"
+    ],
+    "verdict": "VALID"
+  }
+}

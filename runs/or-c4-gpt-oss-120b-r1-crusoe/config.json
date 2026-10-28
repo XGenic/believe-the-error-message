@@ -1,0 +1,56 @@
+{
+  "base_seed": 20261201,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261201,
+  "cost_note": "Deviation W2-7: the same arm as live_or_c4_gpt_oss_120b_r1.json, whose DeepInfra pilot failed the health gate, moved to Crusoe (bf16). Cap $4 as approved for gpt-oss C4 under W2-6. Estimate scaled from the DeepInfra pilot's measured cost per call by Crusoe's prices.",
+  "dev_seed": 20269201,
+  "expected_host": "Crusoe",
+  "label": "LIVE MODEL RUN (study W2-A, deviation W2-7: C4 through OpenRouter, OpenAI gpt-oss-120b on Crusoe bf16, reasoning r1 = {\"effort\": \"low\"})",
+  "max_calls": 12000,
+  "max_equiv_usd": 4.0,
+  "model": "openai/gpt-oss-120b",
+  "pass_reasoning_back": false,
+  "planning": {
+    "calls_per_run": 25,
+    "proposed_cap_usd": 4,
+    "usd_per_call": 7e-05
+  },
+  "prices_usd_per_mtok": {
+    "input": 0.05,
+    "output": 0.25,
+    "source": "Crusoe (bf16) on the OpenRouter endpoints listing, read 2026-10-24. Planning and fallback only; recorded cost is OpenRouter's billed usage.cost."
+  },
+  "provider": {
+    "order": [
+      "crusoe/bf16"
+    ]
+  },
+  "request_options": {
+    "max_tokens": 8000,
+    "reasoning": {
+      "effort": "low"
+    },
+    "temperature": 1.0
+  },
+  "run_name": "or-c4-gpt-oss-120b-r1-crusoe",
+  "runs_per_cell": 30,
+  "thresholds": {
+    "cont_s_ci_lo": 0.1,
+    "cont_s_min": 0.25,
+    "cred_l_ci_hi": 0.2,
+    "cred_l_max": 0.1,
+    "kill_s_ci_hi": 0.2,
+    "kill_s_ci_lo": -0.2,
+    "kill_s_max": 0.1,
+    "max_protocol_failure": 0.1,
+    "max_unclassifiable": 0.1,
+    "min_completion": 0.95,
+    "min_engagement": 0.9,
+    "self_l_ci_lo": 0.0,
+    "self_l_min": 0.15
+  },
+  "timeout_seconds": 180,
+  "transport": "openrouter_chat_native",
+  "workers": 10,
+  "worst_case_usd_per_call": 0.0015
+}

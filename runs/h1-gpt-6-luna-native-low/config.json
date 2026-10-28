@@ -1,0 +1,51 @@
+{
+  "base_seed": 20261901,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261901,
+  "cells": [
+    "control|no_failure",
+    "control|controllable",
+    "control|uncontrollable",
+    "control|uncontrollable_temporary"
+  ],
+  "cost_note": "Study H1, reference model. Settings as N1-A (native calls, reasoning low). Estimate from E4's 12-request Luna runs; the pilot measures it.",
+  "design": "H1",
+  "dev_seed": 20269901,
+  "label": "LIVE MODEL RUN (study H1: GPT-6-luna, native calls, reasoning low)",
+  "max_calls": 12000,
+  "max_equiv_usd": 2.5,
+  "model": "gpt-6-luna",
+  "n_tasks": 12,
+  "planning": {
+    "calls_per_run": 30,
+    "usd_per_call": 0.00025
+  },
+  "prices_usd_per_mtok": {
+    "cached_input": 0.01,
+    "input": 0.1,
+    "output": 0.5,
+    "source": "third-party listings, Oct 2026 (as in C1/C2); not checked against the provider's page or an invoice. The transport bills all input at the uncached rate, so recorded cost is an upper bound."
+  },
+  "request_options": {
+    "max_output_tokens": 2000,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "run_name": "h1-gpt-6-luna-native-low",
+  "runs_per_cell": 30,
+  "thresholds": {
+    "h1_effect_ci_lo": 0.1,
+    "h1_effect_min": 0.2,
+    "h1_min_controllable_success": 0.5,
+    "h1_none_abs": 0.1,
+    "h1_none_ci": 0.2,
+    "max_protocol_failure": 0.1,
+    "max_unclassifiable": 0.1,
+    "min_completion": 0.95,
+    "min_engagement": 0.9
+  },
+  "transport": "openai_responses_native",
+  "workers": 10,
+  "worst_case_usd_per_call": 0.005
+}

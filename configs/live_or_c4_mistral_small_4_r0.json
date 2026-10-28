@@ -1,0 +1,56 @@
+{
+  "base_seed": 20261201,
+  "runs_per_cell": 30,
+  "dev_seed": 20269201,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261201,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1,
+    "kill_s_max": 0.1,
+    "kill_s_ci_hi": 0.2,
+    "cont_s_min": 0.25,
+    "cont_s_ci_lo": 0.1,
+    "cred_l_max": 0.1,
+    "cred_l_ci_hi": 0.2,
+    "self_l_min": 0.15,
+    "self_l_ci_lo": 0.0,
+    "kill_s_ci_lo": -0.2
+  },
+  "run_name": "or-c4-mistral-small-4-r0",
+  "transport": "openrouter_chat_native",
+  "model": "mistralai/mistral-small-2603",
+  "label": "PROPOSED, NOT APPROVED (W2 open-weight panel: C4 through OpenRouter, Mistral, reasoning r0 = {\"effort\": \"none\"})",
+  "request_options": {
+    "max_tokens": 2000,
+    "temperature": 1.0,
+    "reasoning": {
+      "effort": "none"
+    }
+  },
+  "prices_usd_per_mtok": {
+    "input": 0.15,
+    "output": 0.6,
+    "source": "Mistral (unlisted (first party)) on the OpenRouter endpoints listing, read 2026-10-22. Planning and fallback only; recorded cost is OpenRouter's billed usage.cost."
+  },
+  "worst_case_usd_per_call": 0.0016,
+  "max_equiv_usd": 0.0,
+  "max_calls": 12000,
+  "planning": {
+    "calls_per_run": 25,
+    "usd_per_call": 0.000213,
+    "proposed_cap_usd": 6
+  },
+  "cost_note": "Proposed with a $0 cap: live calls are refused until the owner approves a cap (proposed $6, 3x the estimate). Estimate: N1's calls per run and input tokens per call, and a guessed 100 output tokens per call for reasoning 'off'; the pilot measures both.",
+  "provider": {
+    "order": [
+      "mistral"
+    ]
+  },
+  "expected_host": "Mistral",
+  "timeout_seconds": 180,
+  "pass_reasoning_back": false
+}

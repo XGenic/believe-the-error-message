@@ -1,0 +1,56 @@
+{
+  "a": "runs/or-e5-deepseek-v4-1-flash-r1",
+  "b": "runs/n1-e5-native-low-gpt-6-luna",
+  "bootstrap": {
+    "reps": 2000,
+    "seed": 20261801
+  },
+  "design": "E5",
+  "measures": {
+    "D1": {
+      "a": 0.4166666666666667,
+      "b": 0.9333333333333333,
+      "ci": [
+        -0.65,
+        -0.3666666666666667
+      ],
+      "diff": -0.5166666666666666,
+      "primary": true,
+      "verdict": "DIFFERENT"
+    },
+    "stop|cleared": {
+      "a": 0.016666666666666666,
+      "b": 0.06666666666666667,
+      "ci": [
+        -0.11666666666666667,
+        0.016666666666666666
+      ],
+      "diff": -0.05,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "stop|none": {
+      "a": 0.43333333333333335,
+      "b": 1.0,
+      "ci": [
+        -0.6833333333333333,
+        -0.43333333333333335
+      ],
+      "diff": -0.5666666666666667,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "stop|not_cleared": {
+      "a": 0.016666666666666666,
+      "b": 0.6333333333333333,
+      "ci": [
+        -0.75,
+        -0.4833333333333334
+      ],
+      "diff": -0.6166666666666666,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    }
+  },
+  "overall": "DIFFERENT"
+}

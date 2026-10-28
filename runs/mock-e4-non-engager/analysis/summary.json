@@ -1,0 +1,242 @@
+{
+  "by_kind": {
+    "caution_bounded|common": {
+      "all": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "give_up_trap": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "retry_trap": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "runs": 40,
+      "true_format": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "true_temporary": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "true_unavailable": {
+        "calls": 0,
+        "success": 0.0
+      }
+    },
+    "caution_bounded|rare": {
+      "all": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "give_up_trap": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "retry_trap": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "runs": 40,
+      "true_format": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "true_temporary": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "true_unavailable": {
+        "calls": 0,
+        "success": 0.0
+      }
+    },
+    "control|common": {
+      "all": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "give_up_trap": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "retry_trap": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "runs": 40,
+      "true_format": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "true_temporary": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "true_unavailable": {
+        "calls": 0,
+        "success": 0.0
+      }
+    },
+    "control|rare": {
+      "all": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "give_up_trap": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "retry_trap": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "runs": 40,
+      "true_format": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "true_temporary": {
+        "calls": 0,
+        "success": 0.0
+      },
+      "true_unavailable": {
+        "calls": 0,
+        "success": 0.0
+      }
+    }
+  },
+  "ci": {
+    "common|all_calls": [
+      0,
+      0
+    ],
+    "common|all_success": [
+      0.0,
+      0.0
+    ],
+    "common|give_up_rescue": [
+      0.0,
+      0.0
+    ],
+    "common|retry_trap": [
+      0.0,
+      0.0
+    ],
+    "common|true_format_success": [
+      0.0,
+      0.0
+    ],
+    "common|true_temporary_success": [
+      0.0,
+      0.0
+    ],
+    "common|true_unavailable_calls": [
+      0,
+      0
+    ],
+    "rare|all_calls": [
+      0,
+      0
+    ],
+    "rare|all_success": [
+      0.0,
+      0.0
+    ],
+    "rare|give_up_rescue": [
+      0.0,
+      0.0
+    ],
+    "rare|retry_trap": [
+      0.0,
+      0.0
+    ],
+    "rare|true_format_success": [
+      0.0,
+      0.0
+    ],
+    "rare|true_temporary_success": [
+      0.0,
+      0.0
+    ],
+    "rare|true_unavailable_calls": [
+      0,
+      0
+    ]
+  },
+  "contrast_verdicts": {
+    "common": "FADES",
+    "rare": "FADES"
+  },
+  "cost": {
+    "agent_calls": 1920,
+    "equiv_usd": 0.0,
+    "from_cache": 0,
+    "runs_recorded": 160
+  },
+  "cost_flags": {
+    "common": [],
+    "rare": []
+  },
+  "design": "E4",
+  "estimates": {
+    "adapt|caution_bounded|temporary": null,
+    "adapt|caution_bounded|unavailable": null,
+    "adapt|control|temporary": null,
+    "adapt|control|unavailable": null,
+    "common|all_calls": 0,
+    "common|all_success": 0.0,
+    "common|calls_per_extra_success": null,
+    "common|give_up_rescue": 0.0,
+    "common|retry_trap": 0.0,
+    "common|true_format_success": 0.0,
+    "common|true_temporary_success": 0.0,
+    "common|true_unavailable_calls": 0,
+    "drift|caution_bounded|common|temporary": null,
+    "drift|caution_bounded|common|unavailable": null,
+    "drift|caution_bounded|rare|temporary": null,
+    "drift|caution_bounded|rare|unavailable": null,
+    "drift|control|common|temporary": null,
+    "drift|control|common|unavailable": null,
+    "drift|control|rare|temporary": null,
+    "drift|control|rare|unavailable": null,
+    "rare|all_calls": 0,
+    "rare|all_success": 0.0,
+    "rare|calls_per_extra_success": null,
+    "rare|give_up_rescue": 0.0,
+    "rare|retry_trap": 0.0,
+    "rare|true_format_success": 0.0,
+    "rare|true_temporary_success": 0.0,
+    "rare|true_unavailable_calls": 0
+  },
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "model": "MOCK-e4-non-engager",
+  "n_tasks": 12,
+  "runs_per_cell": 40,
+  "status_counts": {
+    "complete": 160
+  },
+  "transport": "mock",
+  "validity": {
+    "completion": {
+      "caution_bounded|mixed|common": 1.0,
+      "caution_bounded|mixed|rare": 1.0,
+      "control|mixed|common": 1.0,
+      "control|mixed|rare": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 0.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": null
+  },
+  "verdict": {
+    "reasons": [
+      "tool use on request 1 0.0 below 0.9 in some cell: agents did not engage",
+      "unclassifiable responses None above 0.1"
+    ],
+    "verdict": "INVALID"
+  }
+}

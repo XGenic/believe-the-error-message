@@ -1,0 +1,188 @@
+{
+  "a": "runs/w2c-c4-claude-haiku-5-5-t0",
+  "b": "runs/live-claude-haiku-5-5",
+  "bootstrap": {
+    "reps": 2000,
+    "seed": 20261801
+  },
+  "design": "C4",
+  "measures": {
+    "L_star": {
+      "a": 0.11093567251461986,
+      "b": -0.004152046783625719,
+      "ci": [
+        0.042141424414498425,
+        0.1902198455139632
+      ],
+      "diff": 0.11508771929824557,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "S": {
+      "a": 0.6944444444444444,
+      "b": 0.34444444444444444,
+      "ci": [
+        0.3055555555555556,
+        0.39444444444444443
+      ],
+      "diff": 0.35,
+      "primary": true,
+      "verdict": "DIFFERENT"
+    },
+    "give_up_trap_success": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "retry_trap_success": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "success|format|fixable": {
+      "a": 0.40555555555555556,
+      "b": 0.9722222222222222,
+      "ci": [
+        -0.6444444444444444,
+        -0.4888888888888889
+      ],
+      "diff": -0.5666666666666667,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|format|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|format|transient": {
+      "a": 0.03333333333333333,
+      "b": 1.0,
+      "ci": [
+        -1.0,
+        -0.9
+      ],
+      "diff": -0.9666666666666667,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|neutral|fixable": {
+      "a": 0.0,
+      "b": 0.09999999999999999,
+      "ci": [
+        -0.15555555555555556,
+        -0.04444444444444444
+      ],
+      "diff": -0.09999999999999999,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|transient": {
+      "a": 0.0,
+      "b": 0.9666666666666667,
+      "ci": [
+        -1.0,
+        -0.9
+      ],
+      "diff": -0.9666666666666667,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|permanent|fixable": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|transient": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|fixable": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|transient": {
+      "a": 0.36666666666666664,
+      "b": 1.0,
+      "ci": [
+        -0.8,
+        -0.4666666666666667
+      ],
+      "diff": -0.6333333333333333,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    }
+  },
+  "overall": "DIFFERENT"
+}

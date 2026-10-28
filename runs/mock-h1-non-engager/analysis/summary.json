@@ -1,0 +1,183 @@
+{
+  "ci": {
+    "temporary_minus_uncontrollable|test_no_call": [
+      0.0,
+      0.0
+    ],
+    "temporary_minus_uncontrollable|test_success": [
+      0.0,
+      0.0
+    ],
+    "temporary_minus_uncontrollable|train_late_no_call": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_controllable|test_no_call": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_controllable|test_success": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_controllable|train_late_no_call": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_no_failure|test_no_call": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_no_failure|test_success": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_no_failure|train_late_no_call": [
+      0.0,
+      0.0
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "NO_CARRYOVER",
+    "secondary": "NOT_APPLICABLE"
+  },
+  "cost": {
+    "agent_calls": 1440,
+    "equiv_usd": 0.0,
+    "from_cache": 120,
+    "runs_recorded": 120
+  },
+  "design": "H1",
+  "estimates": {
+    "temporary_minus_uncontrollable|test_no_call": 0.0,
+    "temporary_minus_uncontrollable|test_success": 0.0,
+    "temporary_minus_uncontrollable|train_late_no_call": 0.0,
+    "uncontrollable_minus_controllable|test_no_call": 0.0,
+    "uncontrollable_minus_controllable|test_success": 0.0,
+    "uncontrollable_minus_controllable|train_late_no_call": 0.0,
+    "uncontrollable_minus_no_failure|test_no_call": 0.0,
+    "uncontrollable_minus_no_failure|test_success": 0.0,
+    "uncontrollable_minus_no_failure|train_late_no_call": 0.0
+  },
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "model": "MOCK-h1-non-engager",
+  "n_tasks": 12,
+  "per_condition": {
+    "controllable": {
+      "no_call_by_request": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "runs": 30,
+      "test_no_call": 1.0,
+      "test_success": 0.0,
+      "train_failed_calls": 0,
+      "train_late_no_call": 1.0,
+      "train_no_call": 1.0,
+      "train_success": 0.0
+    },
+    "no_failure": {
+      "no_call_by_request": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "runs": 30,
+      "test_no_call": 1.0,
+      "test_success": 0.0,
+      "train_failed_calls": 0,
+      "train_late_no_call": 1.0,
+      "train_no_call": 1.0,
+      "train_success": 0.0
+    },
+    "uncontrollable": {
+      "no_call_by_request": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "runs": 30,
+      "test_no_call": 1.0,
+      "test_success": 0.0,
+      "train_failed_calls": 0,
+      "train_late_no_call": 1.0,
+      "train_no_call": 1.0,
+      "train_success": 0.0
+    },
+    "uncontrollable_temporary": {
+      "no_call_by_request": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "runs": 30,
+      "test_no_call": 1.0,
+      "test_success": 0.0,
+      "train_failed_calls": 0,
+      "train_late_no_call": 1.0,
+      "train_no_call": 1.0,
+      "train_success": 0.0
+    }
+  },
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 120
+  },
+  "transport": "mock",
+  "validity": {
+    "completion": {
+      "control|helpless|controllable": 1.0,
+      "control|helpless|no_failure": 1.0,
+      "control|helpless|uncontrollable": 1.0,
+      "control|helpless|uncontrollable_temporary": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 0.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": null
+  },
+  "verdict": {
+    "reasons": [
+      "tool use on request 1 0.0 below 0.9 in some cell: agents did not engage",
+      "unclassifiable responses None above 0.1"
+    ],
+    "verdict": "INVALID"
+  }
+}

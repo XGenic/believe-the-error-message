@@ -1,0 +1,130 @@
+{
+  "ci": {
+    "none_minus_cleared|after_calls": [
+      -3.4108734402852052,
+      -2.209447415329768
+    ],
+    "none_minus_cleared|stop": [
+      0.29411764705882354,
+      0.6176470588235294
+    ],
+    "none_minus_cleared|target_calls": [
+      -1.2557932263814615,
+      -0.7807486631016043
+    ],
+    "none_minus_cleared|target_success": [
+      -0.7272727272727273,
+      -0.3939393939393939
+    ],
+    "none_minus_not_cleared|after_calls": [
+      -2.523529411764706,
+      -1.2915966386554623
+    ],
+    "none_minus_not_cleared|stop": [
+      0.23781512605042018,
+      0.5890756302521009
+    ],
+    "none_minus_not_cleared|target_calls": [
+      -1.2445378151260502,
+      -0.7277310924369749
+    ],
+    "none_minus_not_cleared|target_success": [
+      -0.5714285714285714,
+      -0.22857142857142856
+    ],
+    "not_cleared_minus_cleared|after_calls": [
+      -1.728138528138528,
+      -0.0969696969696976
+    ],
+    "not_cleared_minus_cleared|stop": [
+      0.0,
+      0.08571428571428572
+    ],
+    "not_cleared_minus_cleared|target_calls": [
+      -0.29350649350649327,
+      0.2311688311688309
+    ],
+    "not_cleared_minus_cleared|target_success": [
+      -0.412987012987013,
+      0.061471861471861455
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "CONFIRMED",
+    "secondary": "EXPOSURE_GENERAL"
+  },
+  "cost": {
+    "agent_calls": 1289,
+    "equiv_usd": 0.0622,
+    "from_cache": 0,
+    "runs_recorded": 278
+  },
+  "design": "E5",
+  "estimates": {
+    "none_minus_cleared|after_calls": -2.8137254901960786,
+    "none_minus_cleared|stop": 0.4411764705882353,
+    "none_minus_cleared|target_calls": -1.016934046345811,
+    "none_minus_cleared|target_success": -0.5757575757575758,
+    "none_minus_not_cleared|after_calls": -1.8899159663865546,
+    "none_minus_not_cleared|stop": 0.4126050420168067,
+    "none_minus_not_cleared|target_calls": -0.984033613445378,
+    "none_minus_not_cleared|target_success": -0.4,
+    "not_cleared_minus_cleared|after_calls": -0.9238095238095241,
+    "not_cleared_minus_cleared|stop": 0.02857142857142857,
+    "not_cleared_minus_cleared|target_calls": -0.032900432900432985,
+    "not_cleared_minus_cleared|target_success": -0.17575757575757578
+  },
+  "label": "LIVE MODEL RUN (study W2-A) (W2 open-weight panel: E5 through OpenRouter, DeepSeek, reasoning r1 = {\"effort\": \"low\"})",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "n_tasks": 3,
+  "per_prime": {
+    "cleared": {
+      "after_calls": 4.666666666666667,
+      "manipulation": 1.0,
+      "runs": 33,
+      "stop": 0.0,
+      "target_calls": 2.5757575757575757,
+      "target_success": 0.5757575757575758
+    },
+    "none": {
+      "after_calls": 1.8529411764705883,
+      "manipulation": 1.0,
+      "runs": 34,
+      "stop": 0.4411764705882353,
+      "target_calls": 1.5588235294117647,
+      "target_success": 0.0
+    },
+    "not_cleared": {
+      "after_calls": 3.742857142857143,
+      "manipulation": 1.0,
+      "runs": 35,
+      "stop": 0.02857142857142857,
+      "target_calls": 2.5428571428571427,
+      "target_success": 0.4
+    }
+  },
+  "runs_per_cell": 60,
+  "status_counts": {
+    "complete": 102,
+    "failed": 176
+  },
+  "transport": "openrouter_chat_native",
+  "validity": {
+    "completion": {
+      "control|primed|cleared": 0.55,
+      "control|primed|none": 0.5666666666666667,
+      "control|primed|not_cleared": 0.5833333333333334
+    },
+    "completion_min": 0.55,
+    "engagement_min": 1.0,
+    "manipulation_min": 1.0,
+    "protocol_failure_share": 0.0008169934640522876,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "completion 0.550 below 0.95 in some cell"
+    ],
+    "verdict": "INVALID"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "runs": 20,
+  "complete": 20,
+  "agent_calls": 491,
+  "cost_equiv_usd": 0.0188,
+  "usd_per_call": 4e-05,
+  "calls_per_run": 24.55,
+  "protocol_failure_share": 0.0041,
+  "engaged_request1": 1.0,
+  "model": "deepseek/deepseek-v4.1-flash",
+  "label": "LIVE MODEL RUN (study W6: wordings of the bounded caution, deepseek/deepseek-v4.1-flash, DeepInfra, reasoning {\"effort\": \"none\"})",
+  "dev_seed": 20262901,
+  "kill_test_estimate_equiv_usd": 0.56
+}

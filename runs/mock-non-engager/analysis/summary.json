@@ -1,0 +1,468 @@
+{
+  "H3_stability": {
+    "fixable": {
+      "calls_late_stable_claim": 0,
+      "calls_late_unstable_claim": 0,
+      "difference": 0
+    },
+    "permanent": {
+      "calls_late_stable_claim": 0,
+      "calls_late_unstable_claim": 0,
+      "difference": 0
+    },
+    "transient": {
+      "calls_late_stable_claim": 0,
+      "calls_late_unstable_claim": 0,
+      "difference": 0
+    }
+  },
+  "H4_talked_out_of_fixable": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "L_accurate": {
+    "format|fixable": null,
+    "permanent|permanent": null,
+    "transient|transient": null
+  },
+  "L_misleading": {
+    "format|permanent": null,
+    "format|transient": null,
+    "permanent|fixable": null,
+    "permanent|transient": null,
+    "transient|fixable": null,
+    "transient|permanent": null
+  },
+  "L_star": null,
+  "L_star_ci": [
+    null,
+    null
+  ],
+  "S": null,
+  "S_ci": [
+    null,
+    null
+  ],
+  "cells": {
+    "format|fixable": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "format|permanent": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "format|transient": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "neutral|fixable": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "neutral|permanent": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "neutral|transient": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "permanent|fixable": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "permanent|permanent": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "permanent|transient": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "transient|fixable": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "transient|permanent": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "transient|transient": {
+      "calls_by_request": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "calls_late": 0,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {},
+      "first_response_late": {},
+      "first_response_request1": {},
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    }
+  },
+  "cost": {
+    "agent_calls": 2160,
+    "equiv_usd": 0.0,
+    "from_cache": 0,
+    "runs_recorded": 360
+  },
+  "deltas": {
+    "format|permanent": null,
+    "format|transient": null,
+    "permanent|fixable": null,
+    "permanent|transient": null,
+    "transient|fixable": null,
+    "transient|permanent": null
+  },
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "model": "MOCK-non_engager",
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 360
+  },
+  "superstition_probe": {
+    "format_claim": 0.0,
+    "index": 0.0,
+    "neutral_claim": 0.0
+  },
+  "transport": "mock",
+  "validity": {
+    "completion": {
+      "format|fixable": 1.0,
+      "format|permanent": 1.0,
+      "format|transient": 1.0,
+      "neutral|fixable": 1.0,
+      "neutral|permanent": 1.0,
+      "neutral|transient": 1.0,
+      "permanent|fixable": 1.0,
+      "permanent|permanent": 1.0,
+      "permanent|transient": 1.0,
+      "transient|fixable": 1.0,
+      "transient|permanent": 1.0,
+      "transient|transient": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement": {
+      "format|fixable": 0.0,
+      "format|permanent": 0.0,
+      "format|transient": 0.0,
+      "neutral|fixable": 0.0,
+      "neutral|permanent": 0.0,
+      "neutral|transient": 0.0,
+      "permanent|fixable": 0.0,
+      "permanent|permanent": 0.0,
+      "permanent|transient": 0.0,
+      "transient|fixable": 0.0,
+      "transient|permanent": 0.0,
+      "transient|transient": 0.0
+    },
+    "engagement_min": 0.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": null
+  },
+  "verdict": {
+    "reasons": [
+      "tool use on request 1 0.0 below 0.9 in some cell: agents did not engage",
+      "unclassifiable responses None above 0.1",
+      "S or L* could not be computed (a cell had no classified responses)"
+    ],
+    "verdict": "INVALID"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "design": "W6",
+  "cells": [
+    "control|transient|fixable",
+    "control|transient|transient",
+    "control|permanent|transient",
+    "control|permanent|permanent",
+    "caution|transient|fixable",
+    "caution|transient|transient",
+    "caution|permanent|transient",
+    "caution|permanent|permanent",
+    "caution_bounded|transient|fixable",
+    "caution_bounded|transient|transient",
+    "caution_bounded|permanent|transient",
+    "caution_bounded|permanent|permanent",
+    "caution_few|transient|fixable",
+    "caution_few|transient|transient",
+    "caution_few|permanent|transient",
+    "caution_few|permanent|permanent",
+    "caution_three|transient|fixable",
+    "caution_three|transient|transient",
+    "caution_three|permanent|transient",
+    "caution_three|permanent|permanent"
+  ],
+  "base_seed": 20262001,
+  "runs_per_cell": 30,
+  "dev_seed": 20262901,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20262001,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1,
+    "e3_rescue_min": 0.5,
+    "e3_rescue_ci_lo": 0.3,
+    "e3_cut_calls": -1.0,
+    "e3_cut_ci_hi": 0.0,
+    "e3_harm_drop": -0.15,
+    "e3_harm_ci_hi": 0.0,
+    "w6_calls_max": 3.5,
+    "w6_calls_ci_hi": 4.0
+  },
+  "run_name": "w6-qwen3-8-27b-r0",
+  "label": "LIVE MODEL RUN (study W6: wordings of the bounded caution, qwen/qwen3.8-27b, DeepInfra, reasoning {\"effort\": \"none\"})",
+  "transport": "openrouter_chat_native",
+  "model": "qwen/qwen3.8-27b",
+  "request_options": {
+    "max_tokens": 2000,
+    "temperature": 1.0,
+    "reasoning": {
+      "effort": "none"
+    }
+  },
+  "prices_usd_per_mtok": {
+    "input": 0.15,
+    "output": 1.88,
+    "source": "DeepInfra (bf16) on the OpenRouter endpoints listing, read 2026-10-22. Planning and fallback only; recorded cost is OpenRouter's billed usage.cost."
+  },
+  "provider": {
+    "order": [
+      "deepinfra/bf16"
+    ]
+  },
+  "expected_host": "DeepInfra",
+  "timeout_seconds": 180,
+  "pass_reasoning_back": false,
+  "worst_case_usd_per_call": 0.0042,
+  "max_calls": 21600,
+  "max_equiv_usd": 6.0,
+  "planning": {
+    "calls_per_run": 26,
+    "usd_per_call": 0.0002072,
+    "proposed_cap_usd": 6.0,
+    "estimate_usd": 3.23
+  },
+  "cost_note": "Study W6. Settings as live_or_c4_qwen3_8_27b_r0.json. Estimate: the subject's measured cost per run in its latest main run with cautions (W2-B; Luna: E3), plus 10% for the extra caution arms; the pilot measures it."
+}

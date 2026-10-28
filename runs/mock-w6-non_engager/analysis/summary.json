@@ -1,0 +1,968 @@
+{
+  "cells": {
+    "caution_bounded|permanent|permanent": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution_bounded|permanent|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution_bounded|transient|fixable": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution_bounded|transient|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution_few|permanent|permanent": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution_few|permanent|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution_few|transient|fixable": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution_few|transient|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution_three|permanent|permanent": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution_three|permanent|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution_three|transient|fixable": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution_three|transient|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution|permanent|permanent": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution|permanent|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution|transient|fixable": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "caution|transient|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "control|permanent|permanent": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "control|permanent|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "control|transient|fixable": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "control|transient|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    }
+  },
+  "ci": {
+    "caution_bounded|give_up_rescue": [
+      0.0,
+      0.0
+    ],
+    "caution_bounded|outage_calls": [
+      0,
+      0
+    ],
+    "caution_bounded|outage_calls_vs_caution": [
+      0,
+      0
+    ],
+    "caution_bounded|retry_trap": [
+      0.0,
+      0.0
+    ],
+    "caution_bounded|true_temporary_success": [
+      0.0,
+      0.0
+    ],
+    "caution_few_vs_bounded|give_up_trap": [
+      0.0,
+      0.0
+    ],
+    "caution_few_vs_bounded|retry_trap": [
+      0.0,
+      0.0
+    ],
+    "caution_few_vs_bounded|true_temporary": [
+      0.0,
+      0.0
+    ],
+    "caution_few|give_up_rescue": [
+      0.0,
+      0.0
+    ],
+    "caution_few|outage_calls": [
+      0,
+      0
+    ],
+    "caution_few|outage_calls_vs_caution": [
+      0,
+      0
+    ],
+    "caution_few|retry_trap": [
+      0.0,
+      0.0
+    ],
+    "caution_few|true_temporary_success": [
+      0.0,
+      0.0
+    ],
+    "caution_three_vs_bounded|give_up_trap": [
+      0.0,
+      0.0
+    ],
+    "caution_three_vs_bounded|retry_trap": [
+      0.0,
+      0.0
+    ],
+    "caution_three_vs_bounded|true_temporary": [
+      0.0,
+      0.0
+    ],
+    "caution_three|give_up_rescue": [
+      0.0,
+      0.0
+    ],
+    "caution_three|outage_calls": [
+      0,
+      0
+    ],
+    "caution_three|outage_calls_vs_caution": [
+      0,
+      0
+    ],
+    "caution_three|retry_trap": [
+      0.0,
+      0.0
+    ],
+    "caution_three|true_temporary_success": [
+      0.0,
+      0.0
+    ],
+    "caution|give_up_rescue": [
+      0.0,
+      0.0
+    ],
+    "caution|outage_calls": [
+      0,
+      0
+    ],
+    "caution|retry_trap": [
+      0.0,
+      0.0
+    ],
+    "caution|true_temporary_success": [
+      0.0,
+      0.0
+    ]
+  },
+  "contrast_verdicts": {
+    "caution_bounded": "WEAK_RESCUE",
+    "caution_few": "WEAK_RESCUE",
+    "caution_three": "WEAK_RESCUE"
+  },
+  "cost": {
+    "agent_calls": 3600,
+    "equiv_usd": 0.0,
+    "from_cache": 600,
+    "runs_recorded": 600
+  },
+  "design": "W6",
+  "e3_verdicts": {
+    "caution_bounded": "NO_GAIN",
+    "caution_few": "NO_GAIN",
+    "caution_three": "NO_GAIN"
+  },
+  "estimates": {
+    "caution_bounded|give_up_rescue": 0.0,
+    "caution_bounded|outage_calls": 0,
+    "caution_bounded|outage_calls_vs_caution": 0,
+    "caution_bounded|retry_trap": 0.0,
+    "caution_bounded|true_temporary_success": 0.0,
+    "caution_few_vs_bounded|give_up_trap": 0.0,
+    "caution_few_vs_bounded|retry_trap": 0.0,
+    "caution_few_vs_bounded|true_temporary": 0.0,
+    "caution_few|give_up_rescue": 0.0,
+    "caution_few|outage_calls": 0,
+    "caution_few|outage_calls_vs_caution": 0,
+    "caution_few|retry_trap": 0.0,
+    "caution_few|true_temporary_success": 0.0,
+    "caution_three_vs_bounded|give_up_trap": 0.0,
+    "caution_three_vs_bounded|retry_trap": 0.0,
+    "caution_three_vs_bounded|true_temporary": 0.0,
+    "caution_three|give_up_rescue": 0.0,
+    "caution_three|outage_calls": 0,
+    "caution_three|outage_calls_vs_caution": 0,
+    "caution_three|retry_trap": 0.0,
+    "caution_three|true_temporary_success": 0.0,
+    "caution|give_up_rescue": 0.0,
+    "caution|outage_calls": 0,
+    "caution|retry_trap": 0.0,
+    "caution|true_temporary_success": 0.0
+  },
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "model": "MOCK-w6-non_engager",
+  "n_tasks": 6,
+  "pair_labels": {
+    "caution_few_vs_bounded|give_up_trap": "SAME",
+    "caution_few_vs_bounded|retry_trap": "SAME",
+    "caution_few_vs_bounded|true_temporary": "SAME",
+    "caution_three_vs_bounded|give_up_trap": "SAME",
+    "caution_three_vs_bounded|retry_trap": "SAME",
+    "caution_three_vs_bounded|true_temporary": "SAME"
+  },
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 600
+  },
+  "transport": "mock",
+  "true_temporary_variation": {
+    "caution": {
+      "of_which_failed": 0,
+      "requests": 180,
+      "varied_every_call": 0
+    },
+    "caution_bounded": {
+      "of_which_failed": 0,
+      "requests": 180,
+      "varied_every_call": 0
+    },
+    "caution_few": {
+      "of_which_failed": 0,
+      "requests": 180,
+      "varied_every_call": 0
+    },
+    "caution_three": {
+      "of_which_failed": 0,
+      "requests": 180,
+      "varied_every_call": 0
+    },
+    "control": {
+      "of_which_failed": 0,
+      "requests": 180,
+      "varied_every_call": 0
+    }
+  },
+  "validity": {
+    "completion": {
+      "caution_bounded|permanent|permanent": 1.0,
+      "caution_bounded|permanent|transient": 1.0,
+      "caution_bounded|transient|fixable": 1.0,
+      "caution_bounded|transient|transient": 1.0,
+      "caution_few|permanent|permanent": 1.0,
+      "caution_few|permanent|transient": 1.0,
+      "caution_few|transient|fixable": 1.0,
+      "caution_few|transient|transient": 1.0,
+      "caution_three|permanent|permanent": 1.0,
+      "caution_three|permanent|transient": 1.0,
+      "caution_three|transient|fixable": 1.0,
+      "caution_three|transient|transient": 1.0,
+      "caution|permanent|permanent": 1.0,
+      "caution|permanent|transient": 1.0,
+      "caution|transient|fixable": 1.0,
+      "caution|transient|transient": 1.0,
+      "control|permanent|permanent": 1.0,
+      "control|permanent|transient": 1.0,
+      "control|transient|fixable": 1.0,
+      "control|transient|transient": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 0.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": null
+  },
+  "verdict": {
+    "reasons": [
+      "tool use on request 1 0.0 below 0.9 in some cell: agents did not engage",
+      "unclassifiable responses None above 0.1"
+    ],
+    "verdict": "INVALID"
+  }
+}

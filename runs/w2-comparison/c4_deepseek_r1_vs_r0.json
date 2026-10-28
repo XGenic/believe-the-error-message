@@ -1,0 +1,188 @@
+{
+  "a": "runs/or-c4-deepseek-v4-1-flash-r1",
+  "b": "runs/or-c4-deepseek-v4-1-flash-r0",
+  "bootstrap": {
+    "reps": 2000,
+    "seed": 20261801
+  },
+  "design": "C4",
+  "measures": {
+    "L_star": {
+      "a": -0.010067830917714564,
+      "b": 0.026805376277992933,
+      "ci": [
+        -0.12591512120760476,
+        0.04800567248843107
+      ],
+      "diff": -0.0368732071957075,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "S": {
+      "a": 0.6611111111111111,
+      "b": 0.7833333333333333,
+      "ci": [
+        -0.18333333333333324,
+        -0.061111111111111116
+      ],
+      "diff": -0.12222222222222223,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "give_up_trap_success": {
+      "a": 0.016666666666666666,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.05
+      ],
+      "diff": 0.016666666666666666,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "retry_trap_success": {
+      "a": 0.1611111111111111,
+      "b": 0.0,
+      "ci": [
+        0.09444444444444444,
+        0.22777777777777777
+      ],
+      "diff": 0.1611111111111111,
+      "primary": true,
+      "verdict": "DIFFERENT"
+    },
+    "success|format|fixable": {
+      "a": 0.9444444444444444,
+      "b": 0.7777777777777778,
+      "ci": [
+        0.07222222222222219,
+        0.2666666666666667
+      ],
+      "diff": 0.16666666666666663,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|format|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|format|transient": {
+      "a": 1.0,
+      "b": 0.6333333333333333,
+      "ci": [
+        0.21111111111111114,
+        0.5333333333333333
+      ],
+      "diff": 0.3666666666666667,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|neutral|fixable": {
+      "a": 0.45555555555555555,
+      "b": 0.027777777777777776,
+      "ci": [
+        0.3277777777777778,
+        0.5222222222222223
+      ],
+      "diff": 0.42777777777777776,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|neutral|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|transient": {
+      "a": 1.0,
+      "b": 0.2833333333333333,
+      "ci": [
+        0.55,
+        0.8666666666666667
+      ],
+      "diff": 0.7166666666666667,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|permanent|fixable": {
+      "a": 0.01111111111111111,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.03333333333333333
+      ],
+      "diff": 0.01111111111111111,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|transient": {
+      "a": 0.016666666666666666,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.05
+      ],
+      "diff": 0.016666666666666666,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|fixable": {
+      "a": 0.1611111111111111,
+      "b": 0.0,
+      "ci": [
+        0.09444444444444444,
+        0.22777777777777777
+      ],
+      "diff": 0.1611111111111111,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|transient|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|transient": {
+      "a": 1.0,
+      "b": 0.9942528735632183,
+      "ci": [
+        0.0,
+        0.02298850574712641
+      ],
+      "diff": 0.005747126436781658,
+      "primary": false,
+      "verdict": "SAME"
+    }
+  },
+  "overall": "DIFFERENT"
+}

@@ -1,0 +1,818 @@
+[
+  {
+    "run_name": "mock-credulous",
+    "checks": {
+      "verdict": [
+        "CONTINUE_CREDULOUS",
+        true
+      ],
+      "S": [
+        0.639,
+        true
+      ],
+      "L_star": [
+        0.003,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-credulous-superstitious",
+    "checks": {
+      "verdict": [
+        "CONTINUE_CREDULOUS",
+        true
+      ],
+      "S": [
+        0.633,
+        true
+      ],
+      "superstition_index": [
+        0.953,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e1-credulous",
+    "checks": {
+      "verdict": [
+        "NO_LEARNING",
+        true
+      ],
+      "L_E1": [
+        -0.028,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e1-entrencher",
+    "checks": {
+      "verdict": [
+        "ENTRENCHMENT",
+        true
+      ],
+      "L_E1": [
+        -0.319,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e1-non-engager",
+    "checks": {
+      "verdict": [
+        "INVALID",
+        true
+      ],
+      "invalid_reason": [
+        "did not engage",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e1-slow-learner",
+    "checks": {
+      "verdict": [
+        "LEARNS",
+        true
+      ],
+      "L_E1": [
+        0.847,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e2-deaf",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution|retry_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict caution|give_up_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict caution_strategy|retry_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict caution_strategy|give_up_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict mixed|retry_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict mixed|give_up_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict honest|retry_trap": [
+        "RESCUES",
+        true
+      ],
+      "verdict honest|give_up_trap": [
+        "RESCUES",
+        true
+      ],
+      "costly caution": [
+        false,
+        true
+      ],
+      "costly caution_strategy": [
+        false,
+        true
+      ],
+      "costly mixed": [
+        false,
+        true
+      ],
+      "costly honest": [
+        true,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e2-instruction-follower",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution|retry_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict caution|give_up_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict caution_strategy|retry_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict caution_strategy|give_up_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict mixed|retry_trap": [
+        "RESCUES",
+        true
+      ],
+      "verdict mixed|give_up_trap": [
+        "RESCUES",
+        true
+      ],
+      "verdict honest|retry_trap": [
+        "RESCUES",
+        true
+      ],
+      "verdict honest|give_up_trap": [
+        "RESCUES",
+        true
+      ],
+      "costly caution": [
+        false,
+        true
+      ],
+      "costly caution_strategy": [
+        false,
+        true
+      ],
+      "costly mixed": [
+        true,
+        true
+      ],
+      "costly honest": [
+        true,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e2-non-engager",
+    "checks": {
+      "verdict": [
+        "INVALID",
+        true
+      ],
+      "invalid_reason": [
+        "did not engage",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e2-prompt-responsive",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution|retry_trap": [
+        "HELPS",
+        true
+      ],
+      "verdict caution|give_up_trap": [
+        "HELPS",
+        true
+      ],
+      "verdict caution_strategy|retry_trap": [
+        "RESCUES",
+        true
+      ],
+      "verdict caution_strategy|give_up_trap": [
+        "RESCUES",
+        true
+      ],
+      "verdict mixed|retry_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict mixed|give_up_trap": [
+        "NO_EFFECT",
+        true
+      ],
+      "verdict honest|retry_trap": [
+        "RESCUES",
+        true
+      ],
+      "verdict honest|give_up_trap": [
+        "RESCUES",
+        true
+      ],
+      "costly caution": [
+        true,
+        true
+      ],
+      "costly caution_strategy": [
+        true,
+        true
+      ],
+      "costly mixed": [
+        false,
+        true
+      ],
+      "costly honest": [
+        true,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e3-bounded",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution_bounded": [
+        "COST_AWARE",
+        true
+      ],
+      "verdict caution_three": [
+        "COST_AWARE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e3-deaf",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution_bounded": [
+        "NO_GAIN",
+        true
+      ],
+      "verdict caution_three": [
+        "NO_GAIN",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e3-non-engager",
+    "checks": {
+      "verdict": [
+        "INVALID",
+        true
+      ],
+      "invalid_reason": [
+        "did not engage",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e3-overcautious",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution_bounded": [
+        "HARMS_TRUE_TEMPORARY",
+        true
+      ],
+      "verdict caution_three": [
+        "HARMS_TRUE_TEMPORARY",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e3-unbounded",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution_bounded": [
+        "RESCUE_ONLY",
+        true
+      ],
+      "verdict caution_three": [
+        "RESCUE_ONLY",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e4-bounded",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict rare": [
+        "HOLDS",
+        true
+      ],
+      "verdict common": [
+        "HOLDS",
+        true
+      ],
+      "costly rare": [
+        true,
+        true
+      ],
+      "costly common": [
+        true,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e4-deaf",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict rare": [
+        "FADES",
+        true
+      ],
+      "verdict common": [
+        "FADES",
+        true
+      ],
+      "costly rare": [
+        false,
+        true
+      ],
+      "costly common": [
+        false,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e4-non-engager",
+    "checks": {
+      "verdict": [
+        "INVALID",
+        true
+      ],
+      "invalid_reason": [
+        "did not engage",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e4-unbounded",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict rare": [
+        "RESCUE_ONLY",
+        true
+      ],
+      "verdict common": [
+        "RESCUE_ONLY",
+        true
+      ],
+      "costly rare": [
+        false,
+        true
+      ],
+      "costly common": [
+        false,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e5-clear-learner",
+    "checks": {
+      "verdict": [
+        "CONFIRMED",
+        true
+      ],
+      "verdict primary": [
+        "CONFIRMED",
+        true
+      ],
+      "verdict secondary": [
+        "CLEARING_SPECIFIC",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e5-credulous",
+    "checks": {
+      "verdict": [
+        "NOT_CONFIRMED",
+        true
+      ],
+      "verdict primary": [
+        "NOT_CONFIRMED",
+        true
+      ],
+      "verdict secondary": [
+        "NOT_APPLICABLE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e5-exposure-learner",
+    "checks": {
+      "verdict": [
+        "CONFIRMED",
+        true
+      ],
+      "verdict primary": [
+        "CONFIRMED",
+        true
+      ],
+      "verdict secondary": [
+        "EXPOSURE_GENERAL",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-e5-non-engager",
+    "checks": {
+      "verdict": [
+        "INVALID",
+        true
+      ],
+      "invalid_reason": [
+        "did not engage",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-evidence-learner",
+    "checks": {
+      "verdict": [
+        "CONTINUE_SELF_CORRECTING",
+        true
+      ],
+      "S": [
+        0.639,
+        true
+      ],
+      "L_star": [
+        0.856,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-format-violator",
+    "checks": {
+      "verdict": [
+        "INVALID",
+        true
+      ],
+      "invalid_reason": [
+        "protocol failures",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-h1-failure-counter",
+    "checks": {
+      "verdict": [
+        "CARRYOVER",
+        true
+      ],
+      "verdict primary": [
+        "CARRYOVER",
+        true
+      ],
+      "verdict secondary": [
+        "FAILURE_GENERAL",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-h1-fatigue",
+    "checks": {
+      "verdict": [
+        "NO_CARRYOVER",
+        true
+      ],
+      "verdict primary": [
+        "NO_CARRYOVER",
+        true
+      ],
+      "verdict secondary": [
+        "NOT_APPLICABLE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-h1-helpless",
+    "checks": {
+      "verdict": [
+        "CARRYOVER",
+        true
+      ],
+      "verdict primary": [
+        "CARRYOVER",
+        true
+      ],
+      "verdict secondary": [
+        "CONTROLLABILITY_MATTERS",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-h1-non-engager",
+    "checks": {
+      "verdict": [
+        "INVALID",
+        true
+      ],
+      "invalid_reason": [
+        "did not engage",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-h1-persistent",
+    "checks": {
+      "verdict": [
+        "NO_CARRYOVER",
+        true
+      ],
+      "verdict primary": [
+        "NO_CARRYOVER",
+        true
+      ],
+      "verdict secondary": [
+        "NOT_APPLICABLE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-message-blind",
+    "checks": {
+      "verdict": [
+        "KILL_WORDING_IRRELEVANT",
+        true
+      ],
+      "S": [
+        0.028,
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-non-engager",
+    "checks": {
+      "verdict": [
+        "INVALID",
+        true
+      ],
+      "invalid_reason": [
+        "did not engage",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-w2b-bounded",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution_bounded": [
+        "COST_AWARE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-w2b-deaf",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution_bounded": [
+        "NO_GAIN",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-w2b-unbounded",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution_bounded": [
+        "RESCUE_ONLY",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-w6-bounded",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution_bounded": [
+        "RECOMMENDABLE",
+        true
+      ],
+      "verdict caution_few": [
+        "RECOMMENDABLE",
+        true
+      ],
+      "verdict caution_three": [
+        "RECOMMENDABLE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-w6-deaf",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution_bounded": [
+        "WEAK_RESCUE",
+        true
+      ],
+      "verdict caution_few": [
+        "WEAK_RESCUE",
+        true
+      ],
+      "verdict caution_three": [
+        "WEAK_RESCUE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-w6-different_harms",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution_bounded": [
+        "HARMS_TRUE_TEMPORARY",
+        true
+      ],
+      "verdict caution_few": [
+        "RECOMMENDABLE",
+        true
+      ],
+      "verdict caution_three": [
+        "RECOMMENDABLE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-w6-non_engager",
+    "checks": {
+      "verdict": [
+        "INVALID",
+        true
+      ],
+      "invalid_reason": [
+        "did not engage",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-w6-unbounded",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict caution_bounded": [
+        "RESCUE_COSTLY",
+        true
+      ],
+      "verdict caution_few": [
+        "RESCUE_COSTLY",
+        true
+      ],
+      "verdict caution_three": [
+        "RESCUE_COSTLY",
+        true
+      ]
+    },
+    "passed": true
+  }
+]

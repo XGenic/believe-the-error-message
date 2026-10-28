@@ -1,0 +1,13 @@
+# C4 development pilot: openai/gpt-oss-120b
+
+**PROPOSED, NOT APPROVED (W2 open-weight panel: E5 through OpenRouter, OpenAI, reasoning r1 = {"effort": "low"})**. One run per cell on development seed 20269701; not evidence.
+
+- runs: 3
+- complete: 3
+- agent_calls: 24
+- cost_equiv_usd: 0.0006
+- usd_per_call: 3e-05
+- calls_per_run: 8.0
+- protocol_failure_share: 0.0417
+- engaged_request1: 1.0
+- kill_test_estimate_equiv_usd: 0.04

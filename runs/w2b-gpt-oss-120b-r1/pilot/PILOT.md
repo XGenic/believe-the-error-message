@@ -1,0 +1,13 @@
+# C4 development pilot: openai/gpt-oss-120b
+
+**LIVE MODEL RUN (study W2-B: E3's bounded caution, openai/gpt-oss-120b, Crusoe, reasoning {"effort": "low"})**. One run per cell on development seed 20269501; not evidence.
+
+- runs: 14
+- complete: 12
+- agent_calls: 210
+- cost_equiv_usd: 0.0113
+- usd_per_call: 5e-05
+- calls_per_run: 17.5
+- protocol_failure_share: 0.0619
+- engaged_request1: 1.0
+- kill_test_estimate_equiv_usd: 0.34

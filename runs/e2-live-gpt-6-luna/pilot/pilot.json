@@ -1,0 +1,14 @@
+{
+  "runs": 21,
+  "complete": 21,
+  "agent_calls": 598,
+  "cost_equiv_usd": 0.0692,
+  "usd_per_call": 0.00012,
+  "calls_per_run": 28.48,
+  "protocol_failure_share": 0.0084,
+  "engaged_request1": 1.0,
+  "model": "gpt-6-luna",
+  "label": "LIVE MODEL RUN (extension E2)",
+  "dev_seed": 20269401,
+  "kill_test_estimate_equiv_usd": 2.08
+}

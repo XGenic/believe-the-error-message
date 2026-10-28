@@ -1,0 +1,54 @@
+{
+  "base_seed": 20261701,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261701,
+  "cells": [
+    "control|none",
+    "control|cleared",
+    "control|not_cleared"
+  ],
+  "cost_note": "third-party prices, Oct 2026. Study W5 (PROTOCOL_W5.md): reasoning effort low. Settings as live_n1_e5_native_low.json, except reasoning effort.",
+  "design": "E5",
+  "dev_seed": 20269701,
+  "label": "LIVE MODEL RUN (study W5: E5 through native tool calls, reasoning low)",
+  "max_calls": 5000,
+  "max_equiv_usd": 0.5,
+  "model": "gpt-6-luna",
+  "n_tasks": 3,
+  "planning": {
+    "calls_per_run": 9,
+    "estimate_usd": 0.16,
+    "proposed_cap_usd": 0.5,
+    "usd_per_call": 0.0001
+  },
+  "prices_usd_per_mtok": {
+    "cached_input": 0.01,
+    "input": 0.1,
+    "output": 0.5,
+    "source": "third-party listings, Oct 2026 (as in C1/C2); not checked against the provider's page or an invoice. The transport bills all input at the uncached rate, so recorded cost is an upper bound."
+  },
+  "request_options": {
+    "max_output_tokens": 2000,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "run_name": "w5-e5-low-gpt-6-luna",
+  "runs_per_cell": 60,
+  "thresholds": {
+    "e5_confirm_ci_lo": 0.15,
+    "e5_confirm_min": 0.3,
+    "e5_none_abs": 0.1,
+    "e5_none_ci": 0.2,
+    "e5_specific_ci_lo": 0.15,
+    "e5_specific_min": 0.3,
+    "max_protocol_failure": 0.1,
+    "max_unclassifiable": 0.1,
+    "min_completion": 0.95,
+    "min_engagement": 0.9,
+    "min_manipulation": 0.8
+  },
+  "transport": "openai_responses_native",
+  "workers": 10,
+  "worst_case_usd_per_call": 0.005
+}

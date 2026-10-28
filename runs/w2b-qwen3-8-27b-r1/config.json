@@ -1,0 +1,68 @@
+{
+  "base_seed": 20261501,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261501,
+  "cells": [
+    "control|transient|fixable",
+    "control|transient|transient",
+    "control|permanent|transient",
+    "control|permanent|permanent",
+    "caution|transient|fixable",
+    "caution|transient|transient",
+    "caution|permanent|transient",
+    "caution|permanent|permanent",
+    "caution_bounded|transient|fixable",
+    "caution_bounded|transient|transient",
+    "caution_bounded|permanent|transient",
+    "caution_bounded|permanent|permanent"
+  ],
+  "cost_note": "Study W2-B. Settings as live_or_c4_qwen3_8_27b_r1.json. Estimate: that run's billed cost per run, plus 20% for the cautions' extra calls; the pilot measures it.",
+  "design": "E3",
+  "dev_seed": 20269501,
+  "expected_host": "DeepInfra",
+  "label": "LIVE MODEL RUN (study W2-B: E3's bounded caution, qwen/qwen3.8-27b, DeepInfra, reasoning {\"effort\": \"low\"})",
+  "max_calls": 12000,
+  "max_equiv_usd": 8.5,
+  "model": "qwen/qwen3.8-27b",
+  "pass_reasoning_back": false,
+  "planning": {
+    "calls_per_run": 25,
+    "proposed_cap_usd": 8.5,
+    "usd_per_call": 0.0003096
+  },
+  "prices_usd_per_mtok": {
+    "input": 0.15,
+    "output": 1.88,
+    "source": "DeepInfra (bf16) on the OpenRouter endpoints listing, read 2026-10-22. Planning and fallback only; recorded cost is OpenRouter's billed usage.cost."
+  },
+  "provider": {
+    "order": [
+      "deepinfra/bf16"
+    ]
+  },
+  "request_options": {
+    "max_tokens": 8000,
+    "reasoning": {
+      "effort": "low"
+    },
+    "temperature": 1.0
+  },
+  "run_name": "w2b-qwen3-8-27b-r1",
+  "runs_per_cell": 30,
+  "thresholds": {
+    "e3_cut_calls": -1.0,
+    "e3_cut_ci_hi": 0.0,
+    "e3_harm_ci_hi": 0.0,
+    "e3_harm_drop": -0.15,
+    "e3_rescue_ci_lo": 0.3,
+    "e3_rescue_min": 0.5,
+    "max_protocol_failure": 0.1,
+    "max_unclassifiable": 0.1,
+    "min_completion": 0.95,
+    "min_engagement": 0.9
+  },
+  "timeout_seconds": 180,
+  "transport": "openrouter_chat_native",
+  "workers": 10,
+  "worst_case_usd_per_call": 0.0155
+}

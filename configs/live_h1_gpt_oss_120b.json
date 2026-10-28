@@ -1,0 +1,59 @@
+{
+  "design": "H1",
+  "n_tasks": 12,
+  "cells": [
+    "control|no_failure",
+    "control|controllable",
+    "control|uncontrollable",
+    "control|uncontrollable_temporary"
+  ],
+  "base_seed": 20261901,
+  "runs_per_cell": 30,
+  "dev_seed": 20269901,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261901,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1,
+    "h1_effect_min": 0.2,
+    "h1_effect_ci_lo": 0.1,
+    "h1_none_abs": 0.1,
+    "h1_none_ci": 0.2,
+    "h1_min_controllable_success": 0.5
+  },
+  "run_name": "h1-gpt-oss-120b-crusoe",
+  "label": "LIVE MODEL RUN (study H1: gpt-oss-120b on Crusoe bf16, reasoning low)",
+  "transport": "openrouter_chat_native",
+  "model": "openai/gpt-oss-120b",
+  "request_options": {
+    "max_tokens": 8000,
+    "temperature": 1.0,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "prices_usd_per_mtok": {
+    "input": 0.05,
+    "output": 0.25,
+    "source": "Crusoe (bf16) on the OpenRouter endpoints listing, read 2026-10-24. Planning and fallback only; recorded cost is OpenRouter's billed usage.cost."
+  },
+  "provider": {
+    "order": [
+      "crusoe/bf16"
+    ]
+  },
+  "expected_host": "Crusoe",
+  "timeout_seconds": 180,
+  "pass_reasoning_back": false,
+  "worst_case_usd_per_call": 0.0015,
+  "max_calls": 12000,
+  "max_equiv_usd": 0.1,
+  "planning": {
+    "calls_per_run": 30,
+    "usd_per_call": 0.0001
+  },
+  "cost_note": "Study H1. Settings as the W2-7 gpt-oss C4 run (Crusoe bf16, reasoning low). Estimate from that run's billed cost per call, raised for 12-request conversations; the pilot measures it."
+}

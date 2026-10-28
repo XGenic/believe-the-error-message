@@ -1,0 +1,129 @@
+{
+  "ci": {
+    "none_minus_cleared|after_calls": [
+      -0.2333333333333334,
+      0.18333333333333335
+    ],
+    "none_minus_cleared|stop": [
+      -0.08333333333333333,
+      0.13333333333333336
+    ],
+    "none_minus_cleared|target_calls": [
+      -0.16666666666666652,
+      0.06666666666666665
+    ],
+    "none_minus_cleared|target_success": [
+      -0.05,
+      0.0
+    ],
+    "none_minus_not_cleared|after_calls": [
+      0.3666666666666667,
+      0.6500000000000001
+    ],
+    "none_minus_not_cleared|stop": [
+      -0.9,
+      -0.6833333333333333
+    ],
+    "none_minus_not_cleared|target_calls": [
+      0.6833333333333333,
+      0.8999999999999999
+    ],
+    "none_minus_not_cleared|target_success": [
+      0.0,
+      0.0
+    ],
+    "not_cleared_minus_cleared|after_calls": [
+      -0.7166666666666668,
+      -0.3666666666666667
+    ],
+    "not_cleared_minus_cleared|stop": [
+      0.7333333333333333,
+      0.9333333333333332
+    ],
+    "not_cleared_minus_cleared|target_calls": [
+      -0.95,
+      -0.75
+    ],
+    "not_cleared_minus_cleared|target_success": [
+      -0.05,
+      0.0
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "NOT_CONFIRMED",
+    "secondary": "NOT_APPLICABLE"
+  },
+  "cost": {
+    "agent_calls": 1525,
+    "equiv_usd": 0.1043,
+    "from_cache": 0,
+    "runs_recorded": 180
+  },
+  "design": "E5",
+  "estimates": {
+    "none_minus_cleared|after_calls": -0.016666666666666607,
+    "none_minus_cleared|stop": 0.03333333333333334,
+    "none_minus_cleared|target_calls": -0.050000000000000044,
+    "none_minus_cleared|target_success": -0.016666666666666666,
+    "none_minus_not_cleared|after_calls": 0.5166666666666668,
+    "none_minus_not_cleared|stop": -0.7999999999999999,
+    "none_minus_not_cleared|target_calls": 0.8,
+    "none_minus_not_cleared|target_success": 0.0,
+    "not_cleared_minus_cleared|after_calls": -0.5333333333333334,
+    "not_cleared_minus_cleared|stop": 0.8333333333333333,
+    "not_cleared_minus_cleared|target_calls": -0.8500000000000001,
+    "not_cleared_minus_cleared|target_success": -0.016666666666666666
+  },
+  "label": "LIVE MODEL RUN (study W2-C: E5, the first-encounter test, claude-haiku-5-5, native tool use, thinking on)",
+  "model": "claude-haiku-5-5",
+  "n_tasks": 3,
+  "per_prime": {
+    "cleared": {
+      "after_calls": 1.6166666666666667,
+      "manipulation": 1.0,
+      "runs": 60,
+      "stop": 0.08333333333333333,
+      "target_calls": 1.9333333333333333,
+      "target_success": 0.016666666666666666
+    },
+    "none": {
+      "after_calls": 1.6,
+      "manipulation": 1.0,
+      "runs": 60,
+      "stop": 0.11666666666666667,
+      "target_calls": 1.8833333333333333,
+      "target_success": 0.0
+    },
+    "not_cleared": {
+      "after_calls": 1.0833333333333333,
+      "manipulation": 1.0,
+      "runs": 60,
+      "stop": 0.9166666666666666,
+      "target_calls": 1.0833333333333333,
+      "target_success": 0.0
+    }
+  },
+  "runs_per_cell": 60,
+  "status_counts": {
+    "complete": 180
+  },
+  "transport": "anthropic_messages_native",
+  "validity": {
+    "completion": {
+      "control|primed|cleared": 1.0,
+      "control|primed|none": 1.0,
+      "control|primed|not_cleared": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 1.0,
+    "manipulation_min": 1.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "secondary: NOT_APPLICABLE"
+    ],
+    "verdict": "NOT_CONFIRMED"
+  }
+}

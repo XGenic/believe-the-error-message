@@ -1,0 +1,157 @@
+model,setting,run,stated_cause,true_fault,success
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,format,fixable,0.9722222222222222
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,format,transient,1.0
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,format,permanent,0.0
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,transient,fixable,0.0
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,transient,transient,1.0
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,transient,permanent,0.0
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,permanent,fixable,0.0
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,permanent,transient,0.0
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,permanent,permanent,0.0
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,neutral,fixable,0.09999999999999999
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,neutral,transient,0.9666666666666667
+Claude Haiku 5.5,"text, no reasoning",live-claude-haiku-5-5,neutral,permanent,0.0
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,format,fixable,0.4055555555555556
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,format,transient,0.03333333333333333
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,format,permanent,0.0
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,transient,fixable,0.0
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,transient,transient,0.36666666666666664
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,transient,permanent,0.0
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,permanent,fixable,0.0
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,permanent,transient,0.0
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,permanent,permanent,0.0
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,neutral,fixable,0.0
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,neutral,transient,0.0
+Claude Haiku 5.5,"native, thinking off",w2c-c4-claude-haiku-5-5-t0,neutral,permanent,0.0
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,format,fixable,0.7777777777777778
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,format,transient,1.0
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,format,permanent,0.0
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,transient,fixable,0.0
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,transient,transient,1.0
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,transient,permanent,0.0
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,permanent,fixable,0.0
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,permanent,transient,0.0
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,permanent,permanent,0.0
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,neutral,fixable,0.044444444444444446
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,neutral,transient,0.4666666666666666
+Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,neutral,permanent,0.0
+GPT-6-luna,"text, low",live-gpt-6-luna,format,fixable,0.9555555555555556
+GPT-6-luna,"text, low",live-gpt-6-luna,format,transient,0.9944444444444445
+GPT-6-luna,"text, low",live-gpt-6-luna,format,permanent,0.0
+GPT-6-luna,"text, low",live-gpt-6-luna,transient,fixable,0.0
+GPT-6-luna,"text, low",live-gpt-6-luna,transient,transient,1.0
+GPT-6-luna,"text, low",live-gpt-6-luna,transient,permanent,0.0
+GPT-6-luna,"text, low",live-gpt-6-luna,permanent,fixable,0.0
+GPT-6-luna,"text, low",live-gpt-6-luna,permanent,transient,0.0
+GPT-6-luna,"text, low",live-gpt-6-luna,permanent,permanent,0.0
+GPT-6-luna,"text, low",live-gpt-6-luna,neutral,fixable,0.20555555555555557
+GPT-6-luna,"text, low",live-gpt-6-luna,neutral,transient,0.6722222222222222
+GPT-6-luna,"text, low",live-gpt-6-luna,neutral,permanent,0.0
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,format,fixable,0.8277777777777778
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,format,transient,0.9777777777777779
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,format,permanent,0.0
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,transient,fixable,0.011111111111111112
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,transient,transient,0.9555555555555556
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,transient,permanent,0.0
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,permanent,fixable,0.03888888888888889
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,permanent,transient,0.049999999999999996
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,permanent,permanent,0.0
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,neutral,fixable,0.044444444444444446
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,neutral,transient,0.25
+GPT-6-luna,"native, none",n1-c4-native-none-gpt-6-luna,neutral,permanent,0.0
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,format,fixable,0.8666666666666667
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,format,transient,1.0
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,format,permanent,0.0
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,transient,fixable,0.0
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,transient,transient,0.9611111111111111
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,transient,permanent,0.0
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,permanent,fixable,0.0
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,permanent,transient,0.027777777777777776
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,permanent,permanent,0.0
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,neutral,fixable,0.15555555555555556
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,neutral,transient,0.49444444444444446
+GPT-6-luna,"native, low",n1-c4-native-low-gpt-6-luna,neutral,permanent,0.0
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,format,fixable,0.888888888888889
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,format,transient,0.9888888888888889
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,format,permanent,0.0
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,transient,fixable,0.011111111111111112
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,transient,transient,1.0
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,transient,permanent,0.0
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,permanent,fixable,0.0
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,permanent,transient,0.14444444444444446
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,permanent,permanent,0.0
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,neutral,fixable,0.2611111111111111
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,neutral,transient,0.8055555555555557
+GPT-6-luna,"native, medium",w5-c4-medium-gpt-6-luna,neutral,permanent,0.0
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,format,fixable,0.9111111111111111
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,format,transient,1.0
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,format,permanent,0.0
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,transient,fixable,0.011111111111111112
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,transient,transient,1.0
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,transient,permanent,0.0
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,permanent,fixable,0.0
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,permanent,transient,0.10555555555555556
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,permanent,permanent,0.0
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,neutral,fixable,0.31666666666666665
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,neutral,transient,0.888888888888889
+GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,neutral,permanent,0.0
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,format,fixable,0.7777777777777778
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,format,transient,0.6333333333333333
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,format,permanent,0.0
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,transient,fixable,0.0
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,transient,transient,0.9942528735632185
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,transient,permanent,0.0
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,permanent,fixable,0.0
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,permanent,transient,0.0
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,permanent,permanent,0.0
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,neutral,fixable,0.027777777777777776
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,neutral,transient,0.2833333333333333
+DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,neutral,permanent,0.0
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,format,fixable,0.9444444444444445
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,format,transient,1.0
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,format,permanent,0.0
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,transient,fixable,0.16111111111111112
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,transient,transient,1.0
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,transient,permanent,0.0
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,permanent,fixable,0.011111111111111112
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,permanent,transient,0.016666666666666666
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,permanent,permanent,0.0
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,neutral,fixable,0.45555555555555555
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,neutral,transient,1.0
+DeepSeek V4.1 Flash,"native, r1",or-c4-deepseek-v4-1-flash-r1,neutral,permanent,0.0
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,format,fixable,0.7444444444444445
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,format,transient,0.9777777777777779
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,format,permanent,0.0
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,transient,fixable,0.027777777777777776
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,transient,transient,0.9666666666666667
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,transient,permanent,0.0
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,permanent,fixable,0.0
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,permanent,transient,0.03333333333333333
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,permanent,permanent,0.0
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,neutral,fixable,0.15555555555555556
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,neutral,transient,0.5277777777777778
+Qwen3.8-27B,"native, r0",or-c4-qwen3-8-27b-r0,neutral,permanent,0.0
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,format,fixable,0.9222222222222222
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,format,transient,0.9722222222222222
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,format,permanent,0.0
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,transient,fixable,0.011111111111111112
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,transient,transient,0.9944444444444445
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,transient,permanent,0.0
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,permanent,fixable,0.011111111111111112
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,permanent,transient,0.06111111111111111
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,permanent,permanent,0.0
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,neutral,fixable,0.18888888888888888
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,neutral,transient,0.7444444444444445
+Qwen3.8-27B,"native, r1",or-c4-qwen3-8-27b-r1,neutral,permanent,0.0
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,format,fixable,0.8333333333333334
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,format,transient,1.0
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,format,permanent,0.0
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,transient,fixable,0.0
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,transient,transient,0.4611111111111111
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,transient,permanent,0.0
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,permanent,fixable,0.0
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,permanent,transient,0.03333333333333333
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,permanent,permanent,0.0
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,neutral,fixable,0.02777777777777778
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,neutral,transient,1.0
+gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,neutral,permanent,0.0

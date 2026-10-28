@@ -1,0 +1,188 @@
+{
+  "a": "runs/or-c4-gpt-oss-120b-r1-crusoe",
+  "b": "runs/n1-c4-native-low-gpt-6-luna",
+  "bootstrap": {
+    "reps": 2000,
+    "seed": 20261801
+  },
+  "design": "C4",
+  "measures": {
+    "L_star": {
+      "a": 0.1397415294955905,
+      "b": 0.028700564971751406,
+      "ci": [
+        -0.009715289910447664,
+        0.23297824280728302
+      ],
+      "diff": 0.11104096452383908,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "S": {
+      "a": 0.9222222222222223,
+      "b": 0.7888888888888889,
+      "ci": [
+        0.06666666666666676,
+        0.20000000000000007
+      ],
+      "diff": 0.13333333333333341,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "give_up_trap_success": {
+      "a": 0.03333333333333333,
+      "b": 0.02777777777777778,
+      "ci": [
+        -0.06111111111111112,
+        0.07222222222222222
+      ],
+      "diff": 0.005555555555555553,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "retry_trap_success": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "success|format|fixable": {
+      "a": 0.8333333333333334,
+      "b": 0.8666666666666667,
+      "ci": [
+        -0.12777777777777777,
+        0.061111111111111116
+      ],
+      "diff": -0.033333333333333326,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|format|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|format|transient": {
+      "a": 1.0,
+      "b": 1.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|fixable": {
+      "a": 0.027777777777777776,
+      "b": 0.15555555555555556,
+      "ci": [
+        -0.19999999999999998,
+        -0.05
+      ],
+      "diff": -0.12777777777777777,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|transient": {
+      "a": 1.0,
+      "b": 0.49444444444444446,
+      "ci": [
+        0.34444444444444444,
+        0.6666666666666667
+      ],
+      "diff": 0.5055555555555555,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|permanent|fixable": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|transient": {
+      "a": 0.03333333333333333,
+      "b": 0.02777777777777778,
+      "ci": [
+        -0.06111111111111112,
+        0.07222222222222222
+      ],
+      "diff": 0.005555555555555553,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|fixable": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|transient": {
+      "a": 0.46111111111111114,
+      "b": 0.9611111111111111,
+      "ci": [
+        -0.6888888888888889,
+        -0.31666666666666665
+      ],
+      "diff": -0.5,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    }
+  },
+  "overall": "SAME"
+}

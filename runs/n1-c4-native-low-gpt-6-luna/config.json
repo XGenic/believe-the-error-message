@@ -1,0 +1,47 @@
+{
+  "base_seed": 20261201,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261201,
+  "cost_note": "third-party prices, Oct 2026. Study N1 (PROTOCOL_N1.md): native function calling through the Responses API; no history cut (L1) is needed, because the model's call never shares a reply with text.",
+  "dev_seed": 20269201,
+  "label": "LIVE MODEL RUN (study N1-A: native tool calls, reasoning low)",
+  "max_calls": 12000,
+  "max_equiv_usd": 2.0,
+  "model": "gpt-6-luna",
+  "planning": {
+    "calls_per_run": 26,
+    "usd_per_call": 0.00011
+  },
+  "prices_usd_per_mtok": {
+    "cached_input": 0.01,
+    "input": 0.1,
+    "output": 0.5,
+    "source": "third-party listings, Oct 2026 (as in C1/C2); not checked against the provider's page or an invoice. The transport bills all input at the uncached rate, so recorded cost is an upper bound."
+  },
+  "request_options": {
+    "max_output_tokens": 2000,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "run_name": "n1-c4-native-low-gpt-6-luna",
+  "runs_per_cell": 30,
+  "thresholds": {
+    "cont_s_ci_lo": 0.1,
+    "cont_s_min": 0.25,
+    "cred_l_ci_hi": 0.2,
+    "cred_l_max": 0.1,
+    "kill_s_ci_hi": 0.2,
+    "kill_s_ci_lo": -0.2,
+    "kill_s_max": 0.1,
+    "max_protocol_failure": 0.1,
+    "max_unclassifiable": 0.1,
+    "min_completion": 0.95,
+    "min_engagement": 0.9,
+    "self_l_ci_lo": 0.0,
+    "self_l_min": 0.15
+  },
+  "transport": "openai_responses_native",
+  "workers": 10,
+  "worst_case_usd_per_call": 0.005
+}

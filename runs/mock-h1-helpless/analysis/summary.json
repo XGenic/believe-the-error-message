@@ -1,0 +1,182 @@
+{
+  "ci": {
+    "temporary_minus_uncontrollable|test_no_call": [
+      -0.025000000000000022,
+      0.17500000000000004
+    ],
+    "temporary_minus_uncontrollable|test_success": [
+      -0.175,
+      0.024999999999999994
+    ],
+    "temporary_minus_uncontrollable|train_late_no_call": [
+      -0.1333333333333333,
+      0.11111111111111116
+    ],
+    "uncontrollable_minus_controllable|test_no_call": [
+      0.6916666666666667,
+      0.8416666666666667
+    ],
+    "uncontrollable_minus_controllable|test_success": [
+      -0.8416666666666667,
+      -0.6916666666666667
+    ],
+    "uncontrollable_minus_controllable|train_late_no_call": [
+      0.6888888888888889,
+      0.8777777777777778
+    ],
+    "uncontrollable_minus_no_failure|test_no_call": [
+      0.6916666666666667,
+      0.8416666666666667
+    ],
+    "uncontrollable_minus_no_failure|test_success": [
+      -0.8416666666666667,
+      -0.6916666666666667
+    ],
+    "uncontrollable_minus_no_failure|train_late_no_call": [
+      0.6888888888888889,
+      0.8777777777777778
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "CARRYOVER",
+    "secondary": "CONTROLLABILITY_MATTERS"
+  },
+  "cost": {
+    "agent_calls": 3833,
+    "equiv_usd": 0.0,
+    "from_cache": 120,
+    "runs_recorded": 120
+  },
+  "design": "H1",
+  "estimates": {
+    "temporary_minus_uncontrollable|test_no_call": 0.07499999999999996,
+    "temporary_minus_uncontrollable|test_success": -0.07500000000000001,
+    "temporary_minus_uncontrollable|train_late_no_call": -0.011111111111111072,
+    "uncontrollable_minus_controllable|test_no_call": 0.7666666666666667,
+    "uncontrollable_minus_controllable|test_success": -0.7666666666666666,
+    "uncontrollable_minus_controllable|train_late_no_call": 0.7888888888888889,
+    "uncontrollable_minus_no_failure|test_no_call": 0.7666666666666667,
+    "uncontrollable_minus_no_failure|test_success": -0.7666666666666666,
+    "uncontrollable_minus_no_failure|train_late_no_call": 0.7888888888888889
+  },
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "model": "MOCK-h1-helpless",
+  "n_tasks": 12,
+  "per_condition": {
+    "controllable": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "runs": 30,
+      "test_no_call": 0.0,
+      "test_success": 1.0,
+      "train_failed_calls": 16.033333333333335,
+      "train_late_no_call": 0.0,
+      "train_no_call": 0.0,
+      "train_success": 0.9375
+    },
+    "no_failure": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "runs": 30,
+      "test_no_call": 0.0,
+      "test_success": 1.0,
+      "train_failed_calls": 0,
+      "train_late_no_call": 0.0,
+      "train_no_call": 0.0,
+      "train_success": 1.0
+    },
+    "uncontrollable": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.8333333333333334,
+        0.9666666666666667,
+        0.8666666666666667,
+        0.7666666666666667,
+        0.7333333333333333,
+        0.7333333333333333,
+        0.7666666666666667,
+        0.7333333333333333,
+        0.8333333333333334
+      ],
+      "runs": 30,
+      "test_no_call": 0.7666666666666667,
+      "test_success": 0.23333333333333334,
+      "train_failed_calls": 14.966666666666667,
+      "train_late_no_call": 0.7888888888888889,
+      "train_no_call": 0.5208333333333334,
+      "train_success": 0.0
+    },
+    "uncontrollable_temporary": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.8333333333333334,
+        0.8,
+        0.8,
+        0.7666666666666667,
+        0.7666666666666667,
+        0.8666666666666667,
+        0.9,
+        0.8,
+        0.8
+      ],
+      "runs": 30,
+      "test_no_call": 0.8416666666666667,
+      "test_success": 0.15833333333333333,
+      "train_failed_calls": 23.7,
+      "train_late_no_call": 0.7777777777777778,
+      "train_no_call": 0.49583333333333335,
+      "train_success": 0.0
+    }
+  },
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 120
+  },
+  "transport": "mock",
+  "validity": {
+    "completion": {
+      "control|helpless|controllable": 1.0,
+      "control|helpless|no_failure": 1.0,
+      "control|helpless|uncontrollable": 1.0,
+      "control|helpless|uncontrollable_temporary": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 1.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "secondary: CONTROLLABILITY_MATTERS"
+    ],
+    "verdict": "CARRYOVER"
+  }
+}

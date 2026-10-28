@@ -1,0 +1,182 @@
+{
+  "ci": {
+    "temporary_minus_uncontrollable|test_no_call": [
+      -0.08333333333333337,
+      0.1416666666666666
+    ],
+    "temporary_minus_uncontrollable|test_success": [
+      -0.13333333333333336,
+      0.08333333333333334
+    ],
+    "temporary_minus_uncontrollable|train_late_no_call": [
+      -0.10000000000000009,
+      0.15555555555555556
+    ],
+    "uncontrollable_minus_controllable|test_no_call": [
+      -0.14166666666666672,
+      0.06666666666666665
+    ],
+    "uncontrollable_minus_controllable|test_success": [
+      -0.06666666666666668,
+      0.1416666666666667
+    ],
+    "uncontrollable_minus_controllable|train_late_no_call": [
+      0.12222222222222223,
+      0.3888888888888889
+    ],
+    "uncontrollable_minus_no_failure|test_no_call": [
+      0.7083333333333334,
+      0.8583333333333333
+    ],
+    "uncontrollable_minus_no_failure|test_success": [
+      -0.8583333333333334,
+      -0.7083333333333333
+    ],
+    "uncontrollable_minus_no_failure|train_late_no_call": [
+      0.6666666666666666,
+      0.8666666666666667
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "CARRYOVER",
+    "secondary": "FAILURE_GENERAL"
+  },
+  "cost": {
+    "agent_calls": 3478,
+    "equiv_usd": 0.0,
+    "from_cache": 120,
+    "runs_recorded": 120
+  },
+  "design": "H1",
+  "estimates": {
+    "temporary_minus_uncontrollable|test_no_call": 0.025000000000000022,
+    "temporary_minus_uncontrollable|test_success": -0.024999999999999994,
+    "temporary_minus_uncontrollable|train_late_no_call": 0.022222222222222254,
+    "uncontrollable_minus_controllable|test_no_call": -0.033333333333333326,
+    "uncontrollable_minus_controllable|test_success": 0.033333333333333354,
+    "uncontrollable_minus_controllable|train_late_no_call": 0.25555555555555554,
+    "uncontrollable_minus_no_failure|test_no_call": 0.7833333333333333,
+    "uncontrollable_minus_no_failure|test_success": -0.7833333333333333,
+    "uncontrollable_minus_no_failure|train_late_no_call": 0.7666666666666666
+  },
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "model": "MOCK-h1-failure-counter",
+  "n_tasks": 12,
+  "per_condition": {
+    "controllable": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03333333333333333,
+        0.16666666666666666,
+        0.5333333333333333,
+        0.8333333333333334,
+        0.7666666666666667,
+        0.8666666666666667,
+        0.7666666666666667,
+        0.8666666666666667
+      ],
+      "runs": 30,
+      "test_no_call": 0.8166666666666667,
+      "test_success": 0.18333333333333332,
+      "train_failed_calls": 13.3,
+      "train_late_no_call": 0.5111111111111111,
+      "train_no_call": 0.19583333333333333,
+      "train_success": 0.7583333333333333
+    },
+    "no_failure": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "runs": 30,
+      "test_no_call": 0.0,
+      "test_success": 1.0,
+      "train_failed_calls": 0,
+      "train_late_no_call": 0.0,
+      "train_no_call": 0.0,
+      "train_success": 1.0
+    },
+    "uncontrollable": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.7666666666666667,
+        0.9333333333333333,
+        0.8333333333333334,
+        0.7666666666666667,
+        0.7,
+        0.8,
+        0.7666666666666667,
+        0.7333333333333333,
+        0.8333333333333334
+      ],
+      "runs": 30,
+      "test_no_call": 0.7833333333333333,
+      "test_success": 0.21666666666666667,
+      "train_failed_calls": 15.533333333333333,
+      "train_late_no_call": 0.7666666666666666,
+      "train_no_call": 0.5,
+      "train_success": 0.0
+    },
+    "uncontrollable_temporary": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.7,
+        0.8333333333333334,
+        0.9333333333333333,
+        0.7333333333333333,
+        0.8,
+        0.8333333333333334,
+        0.8,
+        0.8,
+        0.8333333333333334,
+        0.8
+      ],
+      "runs": 30,
+      "test_no_call": 0.8083333333333333,
+      "test_success": 0.19166666666666668,
+      "train_failed_calls": 18.666666666666668,
+      "train_late_no_call": 0.7888888888888889,
+      "train_no_call": 0.6041666666666666,
+      "train_success": 0.0
+    }
+  },
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 120
+  },
+  "transport": "mock",
+  "validity": {
+    "completion": {
+      "control|helpless|controllable": 1.0,
+      "control|helpless|no_failure": 1.0,
+      "control|helpless|uncontrollable": 1.0,
+      "control|helpless|uncontrollable_temporary": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 1.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "secondary: FAILURE_GENERAL"
+    ],
+    "verdict": "CARRYOVER"
+  }
+}

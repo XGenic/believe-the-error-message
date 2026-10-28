@@ -1,0 +1,47 @@
+{
+  "design": "E5",
+  "n_tasks": 3,
+  "cells": [
+    "control|none",
+    "control|cleared",
+    "control|not_cleared"
+  ],
+  "base_seed": 20261701,
+  "runs_per_cell": 60,
+  "dev_seed": 20269701,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261701,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1,
+    "min_manipulation": 0.8,
+    "e5_confirm_min": 0.3,
+    "e5_confirm_ci_lo": 0.15,
+    "e5_specific_min": 0.3,
+    "e5_specific_ci_lo": 0.15,
+    "e5_none_abs": 0.1,
+    "e5_none_ci": 0.2
+  },
+  "run_name": "mock-e5-non-engager",
+  "transport": "mock",
+  "model": "MOCK-e5-non-engager",
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "worst_case_usd_per_call": 0.0,
+  "max_equiv_usd": 0.0,
+  "max_calls": 1000000,
+  "planning": {
+    "calls_per_run": 9,
+    "usd_per_call": 0.0
+  },
+  "mock": {
+    "kind": "non_engager",
+    "params": {}
+  },
+  "expect": {
+    "verdict": "INVALID",
+    "invalid_reason_contains": "did not engage"
+  }
+}

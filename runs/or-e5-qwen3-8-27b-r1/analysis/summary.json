@@ -1,0 +1,129 @@
+{
+  "ci": {
+    "none_minus_cleared|after_calls": [
+      -3.1000000000000005,
+      -2.2333333333333334
+    ],
+    "none_minus_cleared|stop": [
+      0.5666666666666667,
+      0.8166666666666667
+    ],
+    "none_minus_cleared|target_calls": [
+      -1.4666666666666666,
+      -1.0499999999999998
+    ],
+    "none_minus_cleared|target_success": [
+      -0.6833333333333333,
+      -0.43333333333333335
+    ],
+    "none_minus_not_cleared|after_calls": [
+      -2.716666666666667,
+      -1.6833333333333331
+    ],
+    "none_minus_not_cleared|stop": [
+      0.4,
+      0.6833333333333333
+    ],
+    "none_minus_not_cleared|target_calls": [
+      -1.2333333333333332,
+      -0.7499999999999998
+    ],
+    "none_minus_not_cleared|target_success": [
+      -0.5833333333333333,
+      -0.31666666666666665
+    ],
+    "not_cleared_minus_cleared|after_calls": [
+      -1.1333333333333333,
+      0.18333333333333313
+    ],
+    "not_cleared_minus_cleared|stop": [
+      0.016666666666666663,
+      0.2833333333333333
+    ],
+    "not_cleared_minus_cleared|target_calls": [
+      -0.5166666666666666,
+      0.0
+    ],
+    "not_cleared_minus_cleared|target_success": [
+      -0.2833333333333333,
+      0.06666666666666665
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "CONFIRMED",
+    "secondary": "INCONCLUSIVE"
+  },
+  "cost": {
+    "agent_calls": 1994,
+    "equiv_usd": 0.468,
+    "from_cache": 0,
+    "runs_recorded": 180
+  },
+  "design": "E5",
+  "estimates": {
+    "none_minus_cleared|after_calls": -2.6833333333333336,
+    "none_minus_cleared|stop": 0.7000000000000001,
+    "none_minus_cleared|target_calls": -1.2666666666666666,
+    "none_minus_cleared|target_success": -0.5666666666666667,
+    "none_minus_not_cleared|after_calls": -2.2,
+    "none_minus_not_cleared|stop": 0.55,
+    "none_minus_not_cleared|target_calls": -1.0,
+    "none_minus_not_cleared|target_success": -0.45,
+    "not_cleared_minus_cleared|after_calls": -0.4833333333333334,
+    "not_cleared_minus_cleared|stop": 0.15,
+    "not_cleared_minus_cleared|target_calls": -0.2666666666666666,
+    "not_cleared_minus_cleared|target_success": -0.11666666666666664
+  },
+  "label": "LIVE MODEL RUN (study W2-A) (W2 open-weight panel: E5 through OpenRouter, Alibaba (Qwen), reasoning r1 = {\"effort\": \"low\"})",
+  "model": "qwen/qwen3.8-27b",
+  "n_tasks": 3,
+  "per_prime": {
+    "cleared": {
+      "after_calls": 3.9,
+      "manipulation": 0.9833333333333333,
+      "runs": 60,
+      "stop": 0.1,
+      "target_calls": 2.5,
+      "target_success": 0.6
+    },
+    "none": {
+      "after_calls": 1.2166666666666666,
+      "manipulation": 1.0,
+      "runs": 60,
+      "stop": 0.8,
+      "target_calls": 1.2333333333333334,
+      "target_success": 0.03333333333333333
+    },
+    "not_cleared": {
+      "after_calls": 3.4166666666666665,
+      "manipulation": 1.0,
+      "runs": 60,
+      "stop": 0.25,
+      "target_calls": 2.2333333333333334,
+      "target_success": 0.48333333333333334
+    }
+  },
+  "runs_per_cell": 60,
+  "status_counts": {
+    "complete": 180
+  },
+  "transport": "openrouter_chat_native",
+  "validity": {
+    "completion": {
+      "control|primed|cleared": 1.0,
+      "control|primed|none": 1.0,
+      "control|primed|not_cleared": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 1.0,
+    "manipulation_min": 0.9833333333333333,
+    "protocol_failure_share": 0.0020060180541624875,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "secondary: INCONCLUSIVE"
+    ],
+    "verdict": "CONFIRMED"
+  }
+}

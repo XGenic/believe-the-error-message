@@ -1,0 +1,53 @@
+{
+  "design": "H1",
+  "n_tasks": 12,
+  "cells": [
+    "control|no_failure",
+    "control|controllable",
+    "control|uncontrollable",
+    "control|uncontrollable_temporary"
+  ],
+  "base_seed": 20261901,
+  "runs_per_cell": 30,
+  "dev_seed": 20269901,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261901,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1,
+    "h1_effect_min": 0.2,
+    "h1_effect_ci_lo": 0.1,
+    "h1_none_abs": 0.1,
+    "h1_none_ci": 0.2,
+    "h1_min_controllable_success": 0.5
+  },
+  "run_name": "mock-h1-fatigue",
+  "transport": "mock",
+  "model": "MOCK-h1-fatigue",
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "worst_case_usd_per_call": 0.0,
+  "max_equiv_usd": 0.0,
+  "max_calls": 1000000,
+  "planning": {
+    "calls_per_run": 30,
+    "usd_per_call": 0.0
+  },
+  "mock": {
+    "kind": "credulous",
+    "params": {
+      "noise": 0.1,
+      "withdraw_after_requests": 8,
+      "withdraw_p": 0.8
+    }
+  },
+  "expect": {
+    "verdict": "NO_CARRYOVER",
+    "contrast_verdicts": {
+      "primary": "NO_CARRYOVER",
+      "secondary": "NOT_APPLICABLE"
+    }
+  }
+}

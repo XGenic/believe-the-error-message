@@ -1,0 +1,129 @@
+{
+  "ci": {
+    "none_minus_cleared|after_calls": [
+      -3.8500000000000005,
+      -3.2333333333333334
+    ],
+    "none_minus_cleared|stop": [
+      0.75,
+      0.9333333333333333
+    ],
+    "none_minus_cleared|target_calls": [
+      -1.8833333333333335,
+      -1.5500000000000003
+    ],
+    "none_minus_cleared|target_success": [
+      -0.9666666666666666,
+      -0.7999999999999999
+    ],
+    "none_minus_not_cleared|after_calls": [
+      -0.30000000000000004,
+      0.33333333333333326
+    ],
+    "none_minus_not_cleared|stop": [
+      -0.1333333333333333,
+      0.050000000000000044
+    ],
+    "none_minus_not_cleared|target_calls": [
+      -0.10000000000000009,
+      0.19999999999999996
+    ],
+    "none_minus_not_cleared|target_success": [
+      -0.05,
+      0.08333333333333334
+    ],
+    "not_cleared_minus_cleared|after_calls": [
+      -3.8500000000000005,
+      -3.266666666666667
+    ],
+    "not_cleared_minus_cleared|stop": [
+      0.7999999999999999,
+      0.9666666666666666
+    ],
+    "not_cleared_minus_cleared|target_calls": [
+      -1.9333333333333331,
+      -1.6166666666666667
+    ],
+    "not_cleared_minus_cleared|target_success": [
+      -0.9666666666666667,
+      -0.8166666666666667
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "CONFIRMED",
+    "secondary": "CLEARING_SPECIFIC"
+  },
+  "cost": {
+    "agent_calls": 1873,
+    "equiv_usd": 0.0,
+    "from_cache": 0,
+    "runs_recorded": 180
+  },
+  "design": "E5",
+  "estimates": {
+    "none_minus_cleared|after_calls": -3.5666666666666664,
+    "none_minus_cleared|stop": 0.85,
+    "none_minus_cleared|target_calls": -1.7333333333333334,
+    "none_minus_cleared|target_success": -0.8833333333333333,
+    "none_minus_not_cleared|after_calls": 0.01666666666666683,
+    "none_minus_not_cleared|stop": -0.033333333333333326,
+    "none_minus_not_cleared|target_calls": 0.050000000000000044,
+    "none_minus_not_cleared|target_success": 0.01666666666666667,
+    "not_cleared_minus_cleared|after_calls": -3.583333333333333,
+    "not_cleared_minus_cleared|stop": 0.8833333333333333,
+    "not_cleared_minus_cleared|target_calls": -1.7833333333333334,
+    "not_cleared_minus_cleared|target_success": -0.9
+  },
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "model": "MOCK-e5-clear-learner",
+  "n_tasks": 3,
+  "per_prime": {
+    "cleared": {
+      "after_calls": 4.8,
+      "manipulation": 0.9833333333333333,
+      "runs": 60,
+      "stop": 0.06666666666666667,
+      "target_calls": 2.8666666666666667,
+      "target_success": 0.9333333333333333
+    },
+    "none": {
+      "after_calls": 1.2333333333333334,
+      "manipulation": 1.0,
+      "runs": 60,
+      "stop": 0.9166666666666666,
+      "target_calls": 1.1333333333333333,
+      "target_success": 0.05
+    },
+    "not_cleared": {
+      "after_calls": 1.2166666666666666,
+      "manipulation": 0.9833333333333333,
+      "runs": 60,
+      "stop": 0.95,
+      "target_calls": 1.0833333333333333,
+      "target_success": 0.03333333333333333
+    }
+  },
+  "runs_per_cell": 60,
+  "status_counts": {
+    "complete": 180
+  },
+  "transport": "mock",
+  "validity": {
+    "completion": {
+      "control|primed|cleared": 1.0,
+      "control|primed|none": 1.0,
+      "control|primed|not_cleared": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 1.0,
+    "manipulation_min": 0.9833333333333333,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "secondary: CLEARING_SPECIFIC"
+    ],
+    "verdict": "CONFIRMED"
+  }
+}

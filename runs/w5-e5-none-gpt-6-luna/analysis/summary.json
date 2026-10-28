@@ -1,0 +1,129 @@
+{
+  "ci": {
+    "none_minus_cleared|after_calls": [
+      -4.366666666666667,
+      -3.4166666666666665
+    ],
+    "none_minus_cleared|stop": [
+      0.7833333333333333,
+      0.95
+    ],
+    "none_minus_cleared|target_calls": [
+      -1.9,
+      -1.5833333333333335
+    ],
+    "none_minus_cleared|target_success": [
+      -0.95,
+      -0.8
+    ],
+    "none_minus_not_cleared|after_calls": [
+      -3.75,
+      -2.4500000000000006
+    ],
+    "none_minus_not_cleared|stop": [
+      0.4833333333333333,
+      0.7333333333333334
+    ],
+    "none_minus_not_cleared|target_calls": [
+      -1.4500000000000002,
+      -0.95
+    ],
+    "none_minus_not_cleared|target_success": [
+      -0.7166666666666667,
+      -0.4666666666666667
+    ],
+    "not_cleared_minus_cleared|after_calls": [
+      -1.2999999999999998,
+      -0.33333333333333304
+    ],
+    "not_cleared_minus_cleared|stop": [
+      0.11666666666666668,
+      0.4166666666666667
+    ],
+    "not_cleared_minus_cleared|target_calls": [
+      -0.8499999999999999,
+      -0.2666666666666666
+    ],
+    "not_cleared_minus_cleared|target_success": [
+      -0.4333333333333333,
+      -0.13333333333333341
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "CONFIRMED",
+    "secondary": "INCONCLUSIVE"
+  },
+  "cost": {
+    "agent_calls": 2236,
+    "equiv_usd": 0.1732,
+    "from_cache": 0,
+    "runs_recorded": 180
+  },
+  "design": "E5",
+  "estimates": {
+    "none_minus_cleared|after_calls": -3.9000000000000004,
+    "none_minus_cleared|stop": 0.8833333333333333,
+    "none_minus_cleared|target_calls": -1.7666666666666666,
+    "none_minus_cleared|target_success": -0.8833333333333333,
+    "none_minus_not_cleared|after_calls": -3.116666666666667,
+    "none_minus_not_cleared|stop": 0.6166666666666667,
+    "none_minus_not_cleared|target_calls": -1.2166666666666668,
+    "none_minus_not_cleared|target_success": -0.6,
+    "not_cleared_minus_cleared|after_calls": -0.7833333333333332,
+    "not_cleared_minus_cleared|stop": 0.2666666666666666,
+    "not_cleared_minus_cleared|target_calls": -0.5499999999999998,
+    "not_cleared_minus_cleared|target_success": -0.2833333333333333
+  },
+  "label": "LIVE MODEL RUN (study W5: E5 through native tool calls, reasoning none)",
+  "model": "gpt-6-luna",
+  "n_tasks": 3,
+  "per_prime": {
+    "cleared": {
+      "after_calls": 5.916666666666667,
+      "manipulation": 0.9333333333333333,
+      "runs": 60,
+      "stop": 0.1,
+      "target_calls": 2.783333333333333,
+      "target_success": 0.8833333333333333
+    },
+    "none": {
+      "after_calls": 2.0166666666666666,
+      "manipulation": 1.0,
+      "runs": 60,
+      "stop": 0.9833333333333333,
+      "target_calls": 1.0166666666666666,
+      "target_success": 0.0
+    },
+    "not_cleared": {
+      "after_calls": 5.133333333333334,
+      "manipulation": 0.9333333333333333,
+      "runs": 60,
+      "stop": 0.36666666666666664,
+      "target_calls": 2.2333333333333334,
+      "target_success": 0.6
+    }
+  },
+  "runs_per_cell": 60,
+  "status_counts": {
+    "complete": 180
+  },
+  "transport": "openai_responses_native",
+  "validity": {
+    "completion": {
+      "control|primed|cleared": 1.0,
+      "control|primed|none": 1.0,
+      "control|primed|not_cleared": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 1.0,
+    "manipulation_min": 0.9333333333333333,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "secondary: INCONCLUSIVE"
+    ],
+    "verdict": "CONFIRMED"
+  }
+}

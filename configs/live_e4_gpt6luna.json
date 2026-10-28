@@ -1,0 +1,53 @@
+{
+  "design": "E4",
+  "n_tasks": 12,
+  "cells": [
+    "control|rare",
+    "control|common",
+    "caution_bounded|rare",
+    "caution_bounded|common"
+  ],
+  "base_seed": 20261601,
+  "runs_per_cell": 40,
+  "dev_seed": 20269601,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261601,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1,
+    "e4_rescue_min": 0.5,
+    "e4_rescue_ci_lo": 0.3,
+    "e4_cost_max": 2.5,
+    "e4_cost_ci_hi": 3.0,
+    "e4_harm_drop": -0.15,
+    "e4_harm_ci_hi": 0.0
+  },
+  "run_name": "e4-live-gpt-6-luna",
+  "transport": "openai_responses",
+  "model": "gpt-6-luna",
+  "label": "LIVE MODEL RUN (extension E4)",
+  "request_options": {
+    "max_output_tokens": 2000,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "prices_usd_per_mtok": {
+    "input": 0.1,
+    "cached_input": 0.01,
+    "output": 0.5,
+    "source": "third-party listings, Oct 2026 (as in C1/C2); not checked against the provider's page or an invoice. The transport bills all input at the uncached rate, so recorded cost is an upper bound."
+  },
+  "history_cut_after_first_protocol_line": true,
+  "worst_case_usd_per_call": 0.006,
+  "max_equiv_usd": 4.0,
+  "max_calls": 15000,
+  "planning": {
+    "calls_per_run": 36,
+    "usd_per_call": 0.00025
+  },
+  "cost_note": "third-party prices, Oct 2026; the full history is resent each turn, so 12-request runs cost more per call than 6-request ones (E1's 18-request runs: $0.00021 per call). Luna settings as in C4 and E1-E3: deviations L1 and L2."
+}

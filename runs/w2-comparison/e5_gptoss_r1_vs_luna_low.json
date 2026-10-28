@@ -1,0 +1,56 @@
+{
+  "a": "runs/or-e5-gpt-oss-120b-r1",
+  "b": "runs/n1-e5-native-low-gpt-6-luna",
+  "bootstrap": {
+    "reps": 2000,
+    "seed": 20261801
+  },
+  "design": "E5",
+  "measures": {
+    "D1": {
+      "a": 0.25,
+      "b": 0.9333333333333333,
+      "ci": [
+        -0.8333333333333334,
+        -0.5333333333333333
+      ],
+      "diff": -0.6833333333333333,
+      "primary": true,
+      "verdict": "DIFFERENT"
+    },
+    "stop|cleared": {
+      "a": 0.6833333333333333,
+      "b": 0.06666666666666667,
+      "ci": [
+        0.4833333333333333,
+        0.75
+      ],
+      "diff": 0.6166666666666667,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "stop|none": {
+      "a": 0.9333333333333333,
+      "b": 1.0,
+      "ci": [
+        -0.1333333333333333,
+        -0.01666666666666672
+      ],
+      "diff": -0.06666666666666665,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "stop|not_cleared": {
+      "a": 0.9833333333333333,
+      "b": 0.6333333333333333,
+      "ci": [
+        0.21666666666666667,
+        0.4833333333333333
+      ],
+      "diff": 0.35,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    }
+  },
+  "overall": "DIFFERENT"
+}

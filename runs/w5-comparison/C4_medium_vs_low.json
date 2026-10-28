@@ -1,0 +1,188 @@
+{
+  "a": "runs/w5-c4-medium-gpt-6-luna",
+  "b": "runs/w5-c4-low-gpt-6-luna",
+  "bootstrap": {
+    "reps": 2000,
+    "seed": 20261801
+  },
+  "design": "C4",
+  "measures": {
+    "L_star": {
+      "a": 0.06666666666666671,
+      "b": 0.0077777777777777515,
+      "ci": [
+        -0.014444444444444399,
+        0.13111111111111115
+      ],
+      "diff": 0.058888888888888956,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "S": {
+      "a": 0.9222222222222223,
+      "b": 0.7944444444444445,
+      "ci": [
+        0.061111111111111116,
+        0.19444444444444442
+      ],
+      "diff": 0.12777777777777777,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "give_up_trap_success": {
+      "a": 0.14444444444444443,
+      "b": 0.02222222222222222,
+      "ci": [
+        0.022222222222222227,
+        0.23333333333333334
+      ],
+      "diff": 0.1222222222222222,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "retry_trap_success": {
+      "a": 0.01111111111111111,
+      "b": 0.01111111111111111,
+      "ci": [
+        -0.03333333333333333,
+        0.03333333333333333
+      ],
+      "diff": 0.0,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "success|format|fixable": {
+      "a": 0.8888888888888888,
+      "b": 0.8944444444444445,
+      "ci": [
+        -0.0888888888888889,
+        0.0888888888888889
+      ],
+      "diff": -0.005555555555555647,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|format|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|format|transient": {
+      "a": 0.9888888888888889,
+      "b": 0.9944444444444445,
+      "ci": [
+        -0.02777777777777779,
+        0.011111111111111072
+      ],
+      "diff": -0.005555555555555536,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|fixable": {
+      "a": 0.26111111111111107,
+      "b": 0.19444444444444445,
+      "ci": [
+        -0.033333333333333326,
+        0.16111111111111115
+      ],
+      "diff": 0.06666666666666662,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|transient": {
+      "a": 0.8055555555555556,
+      "b": 0.46111111111111114,
+      "ci": [
+        0.13888888888888884,
+        0.538888888888889
+      ],
+      "diff": 0.34444444444444444,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|permanent|fixable": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|transient": {
+      "a": 0.14444444444444443,
+      "b": 0.02222222222222222,
+      "ci": [
+        0.022222222222222227,
+        0.23333333333333334
+      ],
+      "diff": 0.1222222222222222,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|fixable": {
+      "a": 0.01111111111111111,
+      "b": 0.01111111111111111,
+      "ci": [
+        -0.03333333333333333,
+        0.03333333333333333
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|transient": {
+      "a": 1.0,
+      "b": 1.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    }
+  },
+  "overall": "SAME"
+}

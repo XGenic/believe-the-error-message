@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 898 890" width="898" height="890" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">Give-up rescue against its cost on a true outage, per model and wording</title>
+<desc id="d">Small multiples, one per model. x: calls per request on a true outage; y: give-up-trap success minus control. The shaded corner is W6's RECOMMENDABLE region. Data in rescue_cost.csv.</desc>
+<rect width="898" height="890" fill="#fcfcfb"/>
+<text x="56" y="26" font-size="16" font-weight="600" fill="#0b0b0b">A stated count keeps the rescue at the floor cost</text>
+<text x="56" y="46" font-size="12" fill="#52514e">Give-up-trap rescue (vs control) against calls per request on a true outage. Floor: 3 calls. Whiskers: 95% intervals.</text>
+<path d="M62.0,64.0 L68.0,70.0 L62.0,76.0 L56.0,70.0 Z" fill="#fcfcfb" stroke="#898781" stroke-width="2"/>
+<text x="72" y="74" font-size="12" fill="#0b0b0b">plain caution (no stopping rule)</text>
+<circle cx="295.2" cy="70.0" r="5.0" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="305.2" y="74" font-size="12" fill="#0b0b0b">“a few different attempts”</text>
+<rect x="483.8" y="65.0" width="10.0" height="10.0" rx="1.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<text x="498.79999999999995" y="74" font-size="12" fill="#0b0b0b">“a few attempts”</text>
+<path d="M616.4,64.0 L622.4,74.8 L610.4,74.8 Z" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<text x="626.4" y="74" font-size="12" fill="#0b0b0b">“three attempts in a row”</text>
+<text x="56" y="106" font-size="12" font-weight="600" fill="#0b0b0b">GPT-6-luna, text, low (E3)</text>
+<rect x="56.0" y="116.0" width="145.8" height="83.6" fill="#eef5ec"/>
+<line x1="56.0" x2="306.0" y1="275.6" y2="275.6" stroke="#c3c2b7" stroke-width="1"/>
+<text x="50.0" y="279.6" font-size="11" fill="#898781" text-anchor="end">+0.0</text>
+<line x1="56.0" x2="306.0" y1="199.6" y2="199.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="203.6" font-size="11" fill="#898781" text-anchor="end">+0.5</text>
+<line x1="56.0" x2="306.0" y1="123.6" y2="123.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="127.6" font-size="11" fill="#898781" text-anchor="end">+1.0</text>
+<text x="56.0" y="322.0" font-size="11" fill="#898781" text-anchor="middle">0</text>
+<text x="97.7" y="322.0" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<text x="139.3" y="322.0" font-size="11" fill="#898781" text-anchor="middle">2</text>
+<text x="181.0" y="322.0" font-size="11" fill="#898781" text-anchor="middle">3</text>
+<text x="222.7" y="322.0" font-size="11" fill="#898781" text-anchor="middle">4</text>
+<text x="264.3" y="322.0" font-size="11" fill="#898781" text-anchor="middle">5</text>
+<text x="306.0" y="322.0" font-size="11" fill="#898781" text-anchor="middle">6</text>
+<line x1="181.0" x2="181.0" y1="116.0" y2="306.0" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="185.0" y="302.0" font-size="10" fill="#52514e">floor</text>
+<line x1="274.5" x2="274.5" y1="130.4" y2="124.4" stroke="#898781" stroke-width="1.5"/>
+<line x1="258.5" x2="287.9" y1="127.0" y2="127.0" stroke="#898781" stroke-width="1.5"/>
+<path d="M274.5,121.0 L280.5,127.0 L274.5,133.0 L268.5,127.0 Z" fill="#fcfcfb" stroke="#898781" stroke-width="2"/>
+<line x1="184.2" x2="184.2" y1="148.9" y2="127.8" stroke="#2a78d6" stroke-width="1.5"/>
+<line x1="180.1" x2="189.1" y1="136.3" y2="136.3" stroke="#2a78d6" stroke-width="1.5"/>
+<circle cx="184.2" cy="136.3" r="5.0" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="181.5" x2="181.5" y1="132.0" y2="125.3" stroke="#1baf7a" stroke-width="1.5"/>
+<line x1="180.3" x2="182.6" y1="128.7" y2="128.7" stroke="#1baf7a" stroke-width="1.5"/>
+<path d="M181.5,122.7 L187.5,133.5 L175.5,133.5 Z" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<text x="340" y="106" font-size="12" font-weight="600" fill="#0b0b0b">GPT-6-luna, native, low</text>
+<rect x="340.0" y="116.0" width="145.8" height="83.6" fill="#eef5ec"/>
+<line x1="340.0" x2="590.0" y1="275.6" y2="275.6" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="340.0" x2="590.0" y1="199.6" y2="199.6" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="340.0" x2="590.0" y1="123.6" y2="123.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="340.0" y="322.0" font-size="11" fill="#898781" text-anchor="middle">0</text>
+<text x="381.7" y="322.0" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<text x="423.3" y="322.0" font-size="11" fill="#898781" text-anchor="middle">2</text>
+<text x="465.0" y="322.0" font-size="11" fill="#898781" text-anchor="middle">3</text>
+<text x="506.7" y="322.0" font-size="11" fill="#898781" text-anchor="middle">4</text>
+<text x="548.3" y="322.0" font-size="11" fill="#898781" text-anchor="middle">5</text>
+<text x="590.0" y="322.0" font-size="11" fill="#898781" text-anchor="middle">6</text>
+<line x1="465.0" x2="465.0" y1="116.0" y2="306.0" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="577.7" x2="577.7" y1="130.4" y2="123.6" stroke="#898781" stroke-width="1.5"/>
+<line x1="566.9" x2="585.1" y1="126.1" y2="126.1" stroke="#898781" stroke-width="1.5"/>
+<path d="M577.7,120.1 L583.7,126.1 L577.7,132.1 L571.7,126.1 Z" fill="#fcfcfb" stroke="#898781" stroke-width="2"/>
+<line x1="545.8" x2="545.8" y1="143.0" y2="126.1" stroke="#2a78d6" stroke-width="1.5"/>
+<line x1="535.4" x2="555.7" y1="133.7" y2="133.7" stroke="#2a78d6" stroke-width="1.5"/>
+<circle cx="545.8" cy="133.7" r="5.0" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="555.7" x2="555.7" y1="123.6" y2="123.6" stroke="#eb6834" stroke-width="1.5"/>
+<line x1="544.4" x2="566.6" y1="123.6" y2="123.6" stroke="#eb6834" stroke-width="1.5"/>
+<rect x="550.7" y="118.6" width="10.0" height="10.0" rx="1.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="465.2" x2="465.2" y1="123.6" y2="123.6" stroke="#1baf7a" stroke-width="1.5"/>
+<line x1="465.0" x2="465.7" y1="123.6" y2="123.6" stroke="#1baf7a" stroke-width="1.5"/>
+<path d="M465.2,117.6 L471.2,128.4 L459.2,128.4 Z" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<text x="624" y="106" font-size="12" font-weight="600" fill="#0b0b0b">DeepSeek V4.1 Flash r0</text>
+<rect x="624.0" y="116.0" width="145.8" height="83.6" fill="#eef5ec"/>
+<line x1="624.0" x2="874.0" y1="275.6" y2="275.6" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="624.0" x2="874.0" y1="199.6" y2="199.6" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="624.0" x2="874.0" y1="123.6" y2="123.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="624.0" y="322.0" font-size="11" fill="#898781" text-anchor="middle">0</text>
+<text x="665.7" y="322.0" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<text x="707.3" y="322.0" font-size="11" fill="#898781" text-anchor="middle">2</text>
+<text x="749.0" y="322.0" font-size="11" fill="#898781" text-anchor="middle">3</text>
+<text x="790.7" y="322.0" font-size="11" fill="#898781" text-anchor="middle">4</text>
+<text x="832.3" y="322.0" font-size="11" fill="#898781" text-anchor="middle">5</text>
+<text x="874.0" y="322.0" font-size="11" fill="#898781" text-anchor="middle">6</text>
+<line x1="749.0" x2="749.0" y1="116.0" y2="306.0" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="695.1" x2="695.1" y1="265.5" y2="228.3" stroke="#898781" stroke-width="1.5"/>
+<line x1="687.7" x2="703.6" y1="248.6" y2="248.6" stroke="#898781" stroke-width="1.5"/>
+<path d="M695.1,242.6 L701.1,248.6 L695.1,254.6 L689.1,248.6 Z" fill="#fcfcfb" stroke="#898781" stroke-width="2"/>
+<line x1="727.7" x2="727.7" y1="219.9" y2="169.2" stroke="#2a78d6" stroke-width="1.5"/>
+<line x1="721.5" x2="733.5" y1="194.5" y2="194.5" stroke="#2a78d6" stroke-width="1.5"/>
+<circle cx="727.7" cy="194.5" r="5.0" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="736.0" x2="736.0" y1="166.7" y2="129.5" stroke="#eb6834" stroke-width="1.5"/>
+<line x1="730.7" x2="741.4" y1="146.4" y2="146.4" stroke="#eb6834" stroke-width="1.5"/>
+<rect x="731.0" y="141.4" width="10.0" height="10.0" rx="1.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="748.3" x2="748.3" y1="129.5" y2="123.6" stroke="#1baf7a" stroke-width="1.5"/>
+<line x1="747.4" x2="749.0" y1="126.1" y2="126.1" stroke="#1baf7a" stroke-width="1.5"/>
+<path d="M748.3,120.1 L754.3,130.9 L742.3,130.9 Z" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<text x="56" y="360" font-size="12" font-weight="600" fill="#0b0b0b">DeepSeek V4.1 Flash r1</text>
+<rect x="56.0" y="370.0" width="145.8" height="83.6" fill="#eef5ec"/>
+<line x1="56.0" x2="306.0" y1="529.6" y2="529.6" stroke="#c3c2b7" stroke-width="1"/>
+<text x="50.0" y="533.6" font-size="11" fill="#898781" text-anchor="end">+0.0</text>
+<line x1="56.0" x2="306.0" y1="453.6" y2="453.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="457.6" font-size="11" fill="#898781" text-anchor="end">+0.5</text>
+<line x1="56.0" x2="306.0" y1="377.6" y2="377.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="381.6" font-size="11" fill="#898781" text-anchor="end">+1.0</text>
+<text x="56.0" y="576.0" font-size="11" fill="#898781" text-anchor="middle">0</text>
+<text x="97.7" y="576.0" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<text x="139.3" y="576.0" font-size="11" fill="#898781" text-anchor="middle">2</text>
+<text x="181.0" y="576.0" font-size="11" fill="#898781" text-anchor="middle">3</text>
+<text x="222.7" y="576.0" font-size="11" fill="#898781" text-anchor="middle">4</text>
+<text x="264.3" y="576.0" font-size="11" fill="#898781" text-anchor="middle">5</text>
+<text x="306.0" y="576.0" font-size="11" fill="#898781" text-anchor="middle">6</text>
+<line x1="181.0" x2="181.0" y1="370.0" y2="560.0" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="204.8" x2="204.8" y1="397.0" y2="378.4" stroke="#898781" stroke-width="1.5"/>
+<line x1="197.0" x2="212.9" y1="386.0" y2="386.0" stroke="#898781" stroke-width="1.5"/>
+<path d="M204.8,380.0 L210.8,386.0 L204.8,392.0 L198.8,386.0 Z" fill="#fcfcfb" stroke="#898781" stroke-width="2"/>
+<line x1="162.7" x2="162.7" y1="434.2" y2="397.9" stroke="#2a78d6" stroke-width="1.5"/>
+<line x1="157.4" x2="168.0" y1="414.8" y2="414.8" stroke="#2a78d6" stroke-width="1.5"/>
+<circle cx="162.7" cy="414.8" r="5.0" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="155.5" x2="155.5" y1="462.9" y2="413.9" stroke="#eb6834" stroke-width="1.5"/>
+<line x1="150.7" x2="160.4" y1="438.4" y2="438.4" stroke="#eb6834" stroke-width="1.5"/>
+<rect x="150.5" y="433.4" width="10.0" height="10.0" rx="1.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="183.5" x2="183.5" y1="408.0" y2="381.0" stroke="#1baf7a" stroke-width="1.5"/>
+<line x1="182.2" x2="184.9" y1="392.8" y2="392.8" stroke="#1baf7a" stroke-width="1.5"/>
+<path d="M183.5,386.8 L189.5,397.6 L177.5,397.6 Z" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<text x="340" y="360" font-size="12" font-weight="600" fill="#0b0b0b">Qwen3.8-27B r0</text>
+<rect x="340.0" y="370.0" width="145.8" height="83.6" fill="#eef5ec"/>
+<line x1="340.0" x2="590.0" y1="529.6" y2="529.6" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="340.0" x2="590.0" y1="453.6" y2="453.6" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="340.0" x2="590.0" y1="377.6" y2="377.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="340.0" y="576.0" font-size="11" fill="#898781" text-anchor="middle">0</text>
+<text x="381.7" y="576.0" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<text x="423.3" y="576.0" font-size="11" fill="#898781" text-anchor="middle">2</text>
+<text x="465.0" y="576.0" font-size="11" fill="#898781" text-anchor="middle">3</text>
+<text x="506.7" y="576.0" font-size="11" fill="#898781" text-anchor="middle">4</text>
+<text x="548.3" y="576.0" font-size="11" fill="#898781" text-anchor="middle">5</text>
+<text x="590.0" y="576.0" font-size="11" fill="#898781" text-anchor="middle">6</text>
+<line x1="465.0" x2="465.0" y1="370.0" y2="560.0" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="468.0" x2="468.0" y1="514.4" y2="443.5" stroke="#898781" stroke-width="1.5"/>
+<line x1="447.4" x2="489.8" y1="478.9" y2="478.9" stroke="#898781" stroke-width="1.5"/>
+<path d="M468.0,472.9 L474.0,478.9 L468.0,484.9 L462.0,478.9 Z" fill="#fcfcfb" stroke="#898781" stroke-width="2"/>
+<line x1="453.9" x2="453.9" y1="495.8" y2="428.3" stroke="#2a78d6" stroke-width="1.5"/>
+<line x1="440.2" x2="469.9" y1="462.0" y2="462.0" stroke="#2a78d6" stroke-width="1.5"/>
+<circle cx="453.9" cy="462.0" r="5.0" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="456.4" x2="456.4" y1="478.9" y2="414.8" stroke="#eb6834" stroke-width="1.5"/>
+<line x1="442.8" x2="471.2" y1="445.2" y2="445.2" stroke="#eb6834" stroke-width="1.5"/>
+<rect x="451.4" y="440.2" width="10.0" height="10.0" rx="1.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="465.0" x2="465.0" y1="438.4" y2="392.8" stroke="#1baf7a" stroke-width="1.5"/>
+<line x1="465.0" x2="465.0" y1="413.9" y2="413.9" stroke="#1baf7a" stroke-width="1.5"/>
+<path d="M465.0,407.9 L471.0,418.7 L459.0,418.7 Z" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<text x="624" y="360" font-size="12" font-weight="600" fill="#0b0b0b">gpt-oss-120b r1</text>
+<rect x="624.0" y="370.0" width="145.8" height="83.6" fill="#eef5ec"/>
+<line x1="624.0" x2="874.0" y1="529.6" y2="529.6" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="624.0" x2="874.0" y1="453.6" y2="453.6" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="624.0" x2="874.0" y1="377.6" y2="377.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="624.0" y="576.0" font-size="11" fill="#898781" text-anchor="middle">0</text>
+<text x="665.7" y="576.0" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<text x="707.3" y="576.0" font-size="11" fill="#898781" text-anchor="middle">2</text>
+<text x="749.0" y="576.0" font-size="11" fill="#898781" text-anchor="middle">3</text>
+<text x="790.7" y="576.0" font-size="11" fill="#898781" text-anchor="middle">4</text>
+<text x="832.3" y="576.0" font-size="11" fill="#898781" text-anchor="middle">5</text>
+<text x="874.0" y="576.0" font-size="11" fill="#898781" text-anchor="middle">6</text>
+<line x1="749.0" x2="749.0" y1="370.0" y2="560.0" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="674.2" x2="674.2" y1="552.4" y2="515.2" stroke="#898781" stroke-width="1.5"/>
+<line x1="671.0" x2="677.7" y1="533.8" y2="533.8" stroke="#898781" stroke-width="1.5"/>
+<path d="M674.2,527.8 L680.2,533.8 L674.2,539.8 L668.2,533.8 Z" fill="#fcfcfb" stroke="#898781" stroke-width="2"/>
+<line x1="678.9" x2="678.9" y1="527.9" y2="469.6" stroke="#2a78d6" stroke-width="1.5"/>
+<line x1="675.4" x2="682.3" y1="499.2" y2="499.2" stroke="#2a78d6" stroke-width="1.5"/>
+<circle cx="678.9" cy="499.2" r="5.0" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="676.3" x2="676.3" y1="528.8" y2="472.2" stroke="#eb6834" stroke-width="1.5"/>
+<line x1="672.8" x2="679.8" y1="500.9" y2="500.9" stroke="#eb6834" stroke-width="1.5"/>
+<rect x="671.3" y="495.9" width="10.0" height="10.0" rx="1.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="696.5" x2="696.5" y1="444.3" y2="407.2" stroke="#1baf7a" stroke-width="1.5"/>
+<line x1="690.4" x2="702.2" y1="424.9" y2="424.9" stroke="#1baf7a" stroke-width="1.5"/>
+<path d="M696.5,418.9 L702.5,429.7 L690.5,429.7 Z" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<text x="56" y="614" font-size="12" font-weight="600" fill="#0b0b0b">Claude Haiku 5.5, thinking off</text>
+<rect x="56.0" y="624.0" width="145.8" height="83.6" fill="#eef5ec"/>
+<line x1="56.0" x2="306.0" y1="783.6" y2="783.6" stroke="#c3c2b7" stroke-width="1"/>
+<text x="50.0" y="787.6" font-size="11" fill="#898781" text-anchor="end">+0.0</text>
+<line x1="56.0" x2="306.0" y1="707.6" y2="707.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="711.6" font-size="11" fill="#898781" text-anchor="end">+0.5</text>
+<line x1="56.0" x2="306.0" y1="631.6" y2="631.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="50.0" y="635.6" font-size="11" fill="#898781" text-anchor="end">+1.0</text>
+<text x="56.0" y="830.0" font-size="11" fill="#898781" text-anchor="middle">0</text>
+<text x="97.7" y="830.0" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<text x="139.3" y="830.0" font-size="11" fill="#898781" text-anchor="middle">2</text>
+<text x="181.0" y="830.0" font-size="11" fill="#898781" text-anchor="middle">3</text>
+<text x="222.7" y="830.0" font-size="11" fill="#898781" text-anchor="middle">4</text>
+<text x="264.3" y="830.0" font-size="11" fill="#898781" text-anchor="middle">5</text>
+<text x="306.0" y="830.0" font-size="11" fill="#898781" text-anchor="middle">6</text>
+<line x1="181.0" x2="181.0" y1="624.0" y2="814.0" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="117.8" x2="117.8" y1="783.6" y2="783.6" stroke="#898781" stroke-width="1.5"/>
+<line x1="112.5" x2="123.4" y1="783.6" y2="783.6" stroke="#898781" stroke-width="1.5"/>
+<path d="M117.8,777.6 L123.8,783.6 L117.8,789.6 L111.8,783.6 Z" fill="#fcfcfb" stroke="#898781" stroke-width="2"/>
+<line x1="117.8" x2="117.8" y1="743.1" y2="692.4" stroke="#2a78d6" stroke-width="1.5"/>
+<line x1="114.6" x2="121.3" y1="717.7" y2="717.7" stroke="#2a78d6" stroke-width="1.5"/>
+<circle cx="117.8" cy="717.7" r="5.0" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="114.8" x2="114.8" y1="763.3" y2="712.7" stroke="#eb6834" stroke-width="1.5"/>
+<line x1="109.7" x2="121.5" y1="738.0" y2="738.0" stroke="#eb6834" stroke-width="1.5"/>
+<rect x="109.8" y="733.0" width="10.0" height="10.0" rx="1.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="161.6" x2="161.6" y1="646.8" y2="631.6" stroke="#1baf7a" stroke-width="1.5"/>
+<line x1="152.3" x2="170.4" y1="636.7" y2="636.7" stroke="#1baf7a" stroke-width="1.5"/>
+<path d="M161.6,630.7 L167.6,641.5 L155.6,641.5 Z" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<text x="340" y="614" font-size="12" font-weight="600" fill="#0b0b0b">Claude Haiku 5.5, thinking on</text>
+<rect x="340.0" y="624.0" width="145.8" height="83.6" fill="#eef5ec"/>
+<line x1="340.0" x2="590.0" y1="783.6" y2="783.6" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="340.0" x2="590.0" y1="707.6" y2="707.6" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="340.0" x2="590.0" y1="631.6" y2="631.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="340.0" y="830.0" font-size="11" fill="#898781" text-anchor="middle">0</text>
+<text x="381.7" y="830.0" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<text x="423.3" y="830.0" font-size="11" fill="#898781" text-anchor="middle">2</text>
+<text x="465.0" y="830.0" font-size="11" fill="#898781" text-anchor="middle">3</text>
+<text x="506.7" y="830.0" font-size="11" fill="#898781" text-anchor="middle">4</text>
+<text x="548.3" y="830.0" font-size="11" fill="#898781" text-anchor="middle">5</text>
+<text x="590.0" y="830.0" font-size="11" fill="#898781" text-anchor="middle">6</text>
+<line x1="465.0" x2="465.0" y1="624.0" y2="814.0" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="418.0" x2="418.0" y1="662.0" y2="631.6" stroke="#898781" stroke-width="1.5"/>
+<line x1="412.9" x2="423.3" y1="646.0" y2="646.0" stroke="#898781" stroke-width="1.5"/>
+<path d="M418.0,640.0 L424.0,646.0 L418.0,652.0 L412.0,646.0 Z" fill="#fcfcfb" stroke="#898781" stroke-width="2"/>
+<line x1="420.3" x2="420.3" y1="631.6" y2="631.6" stroke="#2a78d6" stroke-width="1.5"/>
+<line x1="414.5" x2="426.8" y1="631.6" y2="631.6" stroke="#2a78d6" stroke-width="1.5"/>
+<circle cx="420.3" cy="631.6" r="5.0" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="439.1" x2="439.1" y1="631.6" y2="631.6" stroke="#eb6834" stroke-width="1.5"/>
+<line x1="432.4" x2="445.8" y1="631.6" y2="631.6" stroke="#eb6834" stroke-width="1.5"/>
+<rect x="434.1" y="626.6" width="10.0" height="10.0" rx="1.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="457.4" x2="457.4" y1="631.6" y2="631.6" stroke="#1baf7a" stroke-width="1.5"/>
+<line x1="451.1" x2="462.7" y1="631.6" y2="631.6" stroke="#1baf7a" stroke-width="1.5"/>
+<path d="M457.4,625.6 L463.4,636.4 L451.4,636.4 Z" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<text x="465.0" y="850" font-size="12" fill="#52514e" text-anchor="middle">calls per request on a true outage (lower is cheaper; the rescue needs 3)</text>
+<text transform="translate(16,401.0) rotate(-90)" font-size="12" fill="#52514e" text-anchor="middle">give-up rescue vs control</text>
+<text x="874" y="880" font-size="10" fill="#898781" text-anchor="end">Shaded: RECOMMENDABLE region (rescue ≥ 0.5, at most 3.5 calls)</text>
+</svg>

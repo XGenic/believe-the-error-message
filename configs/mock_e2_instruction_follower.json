@@ -1,0 +1,85 @@
+{
+  "design": "E2",
+  "cells": [
+    "control|transient|fixable",
+    "control|transient|transient",
+    "control|permanent|transient",
+    "control|permanent|permanent",
+    "control|neutral|fixable",
+    "control|neutral|transient",
+    "caution|transient|fixable",
+    "caution|transient|transient",
+    "caution|permanent|transient",
+    "caution|permanent|permanent",
+    "caution_strategy|transient|fixable",
+    "caution_strategy|transient|transient",
+    "caution_strategy|permanent|transient",
+    "caution_strategy|permanent|permanent",
+    "mixed|transient|fixable",
+    "mixed|transient|transient",
+    "mixed|permanent|transient",
+    "mixed|permanent|permanent",
+    "honest|unknown|fixable",
+    "honest|unknown|transient",
+    "honest|unknown|permanent"
+  ],
+  "base_seed": 20261401,
+  "runs_per_cell": 30,
+  "dev_seed": 20269401,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261401,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1,
+    "e2_rescue_min": 0.5,
+    "e2_rescue_ci_lo": 0.3,
+    "e2_helps_min": 0.15,
+    "e2_helps_ci_lo": 0.0,
+    "e2_harms_max": -0.15,
+    "e2_harms_ci_hi": 0.0,
+    "e2_none_abs": 0.1,
+    "e2_none_ci": 0.2,
+    "e2_cost_success_drop": -0.15,
+    "e2_cost_calls_rise": 1.0
+  },
+  "run_name": "mock-e2-instruction-follower",
+  "transport": "mock",
+  "model": "MOCK-e2-instruction-follower",
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "worst_case_usd_per_call": 0.0,
+  "max_equiv_usd": 0.0,
+  "max_calls": 1000000,
+  "planning": {
+    "calls_per_run": 26,
+    "usd_per_call": 0.0
+  },
+  "mock": {
+    "kind": "credulous",
+    "params": {
+      "noise": 0.1,
+      "instruction_effect": 1.0
+    }
+  },
+  "expect": {
+    "verdict": "VALID",
+    "contrast_verdicts": {
+      "caution|retry_trap": "NO_EFFECT",
+      "caution|give_up_trap": "NO_EFFECT",
+      "caution_strategy|retry_trap": "NO_EFFECT",
+      "caution_strategy|give_up_trap": "NO_EFFECT",
+      "mixed|retry_trap": "RESCUES",
+      "mixed|give_up_trap": "RESCUES",
+      "honest|retry_trap": "RESCUES",
+      "honest|give_up_trap": "RESCUES"
+    },
+    "costly": {
+      "caution": false,
+      "caution_strategy": false,
+      "mixed": true,
+      "honest": true
+    }
+  }
+}

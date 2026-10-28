@@ -1,0 +1,120 @@
+{
+  "ci": {
+    "none_minus_cleared|after_calls": [
+      0,
+      0
+    ],
+    "none_minus_cleared|target_calls": [
+      0,
+      0
+    ],
+    "none_minus_cleared|target_success": [
+      0.0,
+      0.0
+    ],
+    "none_minus_not_cleared|after_calls": [
+      0,
+      0
+    ],
+    "none_minus_not_cleared|target_calls": [
+      0,
+      0
+    ],
+    "none_minus_not_cleared|target_success": [
+      0.0,
+      0.0
+    ],
+    "not_cleared_minus_cleared|after_calls": [
+      0,
+      0
+    ],
+    "not_cleared_minus_cleared|target_calls": [
+      0,
+      0
+    ],
+    "not_cleared_minus_cleared|target_success": [
+      0.0,
+      0.0
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "NOT_ESTIMABLE",
+    "secondary": "NOT_APPLICABLE"
+  },
+  "cost": {
+    "agent_calls": 540,
+    "equiv_usd": 0.0,
+    "from_cache": 0,
+    "runs_recorded": 180
+  },
+  "design": "E5",
+  "estimates": {
+    "none_minus_cleared|after_calls": 0,
+    "none_minus_cleared|stop": null,
+    "none_minus_cleared|target_calls": 0,
+    "none_minus_cleared|target_success": 0.0,
+    "none_minus_not_cleared|after_calls": 0,
+    "none_minus_not_cleared|stop": null,
+    "none_minus_not_cleared|target_calls": 0,
+    "none_minus_not_cleared|target_success": 0.0,
+    "not_cleared_minus_cleared|after_calls": 0,
+    "not_cleared_minus_cleared|stop": null,
+    "not_cleared_minus_cleared|target_calls": 0,
+    "not_cleared_minus_cleared|target_success": 0.0
+  },
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "model": "MOCK-e5-non-engager",
+  "n_tasks": 3,
+  "per_prime": {
+    "cleared": {
+      "after_calls": 0,
+      "manipulation": 0.0,
+      "runs": 60,
+      "stop": null,
+      "target_calls": 0,
+      "target_success": 0.0
+    },
+    "none": {
+      "after_calls": 0,
+      "manipulation": 0.0,
+      "runs": 60,
+      "stop": null,
+      "target_calls": 0,
+      "target_success": 0.0
+    },
+    "not_cleared": {
+      "after_calls": 0,
+      "manipulation": 0.0,
+      "runs": 60,
+      "stop": null,
+      "target_calls": 0,
+      "target_success": 0.0
+    }
+  },
+  "runs_per_cell": 60,
+  "status_counts": {
+    "complete": 180
+  },
+  "transport": "mock",
+  "validity": {
+    "completion": {
+      "control|primed|cleared": 1.0,
+      "control|primed|none": 1.0,
+      "control|primed|not_cleared": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 0.0,
+    "manipulation_min": 0.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": null
+  },
+  "verdict": {
+    "reasons": [
+      "tool use on request 1 0.0 below 0.9 in some cell: agents did not engage",
+      "unclassifiable responses None above 0.1",
+      "manipulation check 0.0 below 0.8 in some condition: the prime did not give the intended experience",
+      "the primary contrast could not be estimated"
+    ],
+    "verdict": "INVALID"
+  }
+}

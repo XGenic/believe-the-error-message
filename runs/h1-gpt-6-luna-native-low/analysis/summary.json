@@ -1,0 +1,182 @@
+{
+  "ci": {
+    "temporary_minus_uncontrollable|test_no_call": [
+      0.0,
+      0.0
+    ],
+    "temporary_minus_uncontrollable|test_success": [
+      0.0,
+      0.0
+    ],
+    "temporary_minus_uncontrollable|train_late_no_call": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_controllable|test_no_call": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_controllable|test_success": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_controllable|train_late_no_call": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_no_failure|test_no_call": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_no_failure|test_success": [
+      0.0,
+      0.0
+    ],
+    "uncontrollable_minus_no_failure|train_late_no_call": [
+      0.0,
+      0.0
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "NO_CARRYOVER",
+    "secondary": "NOT_APPLICABLE"
+  },
+  "cost": {
+    "agent_calls": 5692,
+    "equiv_usd": 0.9678,
+    "from_cache": 0,
+    "runs_recorded": 120
+  },
+  "design": "H1",
+  "estimates": {
+    "temporary_minus_uncontrollable|test_no_call": 0.0,
+    "temporary_minus_uncontrollable|test_success": 0.0,
+    "temporary_minus_uncontrollable|train_late_no_call": 0.0,
+    "uncontrollable_minus_controllable|test_no_call": 0.0,
+    "uncontrollable_minus_controllable|test_success": 0.0,
+    "uncontrollable_minus_controllable|train_late_no_call": 0.0,
+    "uncontrollable_minus_no_failure|test_no_call": 0.0,
+    "uncontrollable_minus_no_failure|test_success": 0.0,
+    "uncontrollable_minus_no_failure|train_late_no_call": 0.0
+  },
+  "label": "LIVE MODEL RUN (study H1: GPT-6-luna, native calls, reasoning low)",
+  "model": "gpt-6-luna",
+  "n_tasks": 12,
+  "per_condition": {
+    "controllable": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "runs": 30,
+      "test_no_call": 0.0,
+      "test_success": 1.0,
+      "train_failed_calls": 19.466666666666665,
+      "train_late_no_call": 0.0,
+      "train_no_call": 0.0,
+      "train_success": 0.9375
+    },
+    "no_failure": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "runs": 30,
+      "test_no_call": 0.0,
+      "test_success": 1.0,
+      "train_failed_calls": 0.03333333333333333,
+      "train_late_no_call": 0.0,
+      "train_no_call": 0.0,
+      "train_success": 1.0
+    },
+    "uncontrollable": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "runs": 30,
+      "test_no_call": 0.0,
+      "test_success": 1.0,
+      "train_failed_calls": 46.266666666666666,
+      "train_late_no_call": 0.0,
+      "train_no_call": 0.0,
+      "train_success": 0.0
+    },
+    "uncontrollable_temporary": {
+      "no_call_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "runs": 30,
+      "test_no_call": 0.0,
+      "test_success": 1.0,
+      "train_failed_calls": 44.43333333333333,
+      "train_late_no_call": 0.0,
+      "train_no_call": 0.0,
+      "train_success": 0.0
+    }
+  },
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 120
+  },
+  "transport": "openai_responses_native",
+  "validity": {
+    "completion": {
+      "control|helpless|controllable": 1.0,
+      "control|helpless|no_failure": 1.0,
+      "control|helpless|uncontrollable": 1.0,
+      "control|helpless|uncontrollable_temporary": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 1.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "secondary: NOT_APPLICABLE"
+    ],
+    "verdict": "NO_CARRYOVER"
+  }
+}

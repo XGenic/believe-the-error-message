@@ -1,0 +1,581 @@
+{
+  "mock-credulous@10": {
+    "replications": 20,
+    "run_name": "mock-credulous",
+    "runs_per_cell": 10,
+    "verdicts": {
+      "CONTINUE_CREDULOUS": 20
+    }
+  },
+  "mock-credulous@20": {
+    "replications": 20,
+    "run_name": "mock-credulous",
+    "runs_per_cell": 20,
+    "verdicts": {
+      "CONTINUE_CREDULOUS": 20
+    }
+  },
+  "mock-e1-credulous@12": {
+    "replications": 20,
+    "run_name": "mock-e1-credulous",
+    "runs_per_cell": 12,
+    "verdicts": {
+      "INCONCLUSIVE": 6,
+      "NO_LEARNING": 14
+    }
+  },
+  "mock-e1-credulous@8": {
+    "replications": 20,
+    "run_name": "mock-e1-credulous",
+    "runs_per_cell": 8,
+    "verdicts": {
+      "INCONCLUSIVE": 7,
+      "NO_LEARNING": 13
+    }
+  },
+  "mock-e1-entrencher@12": {
+    "replications": 20,
+    "run_name": "mock-e1-entrencher",
+    "runs_per_cell": 12,
+    "verdicts": {
+      "ENTRENCHMENT": 14,
+      "INCONCLUSIVE": 6
+    }
+  },
+  "mock-e1-entrencher@8": {
+    "replications": 20,
+    "run_name": "mock-e1-entrencher",
+    "runs_per_cell": 8,
+    "verdicts": {
+      "ENTRENCHMENT": 11,
+      "INCONCLUSIVE": 9
+    }
+  },
+  "mock-e1-slow-learner@12": {
+    "replications": 20,
+    "run_name": "mock-e1-slow-learner",
+    "runs_per_cell": 12,
+    "verdicts": {
+      "LEARNS": 20
+    }
+  },
+  "mock-e1-slow-learner@8": {
+    "replications": 20,
+    "run_name": "mock-e1-slow-learner",
+    "runs_per_cell": 8,
+    "verdicts": {
+      "LEARNS": 20
+    }
+  },
+  "mock-e2-deaf@30": {
+    "contrast_verdicts": {
+      "caution_strategy|give_up_trap": {
+        "NO_EFFECT": 20
+      },
+      "caution_strategy|retry_trap": {
+        "NO_EFFECT": 20
+      },
+      "caution|give_up_trap": {
+        "NO_EFFECT": 20
+      },
+      "caution|retry_trap": {
+        "NO_EFFECT": 20
+      },
+      "honest|give_up_trap": {
+        "RESCUES": 20
+      },
+      "honest|retry_trap": {
+        "RESCUES": 20
+      },
+      "mixed|give_up_trap": {
+        "NO_EFFECT": 20
+      },
+      "mixed|retry_trap": {
+        "NO_EFFECT": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-e2-deaf",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-e2-prompt-responsive@30": {
+    "contrast_verdicts": {
+      "caution_strategy|give_up_trap": {
+        "RESCUES": 20
+      },
+      "caution_strategy|retry_trap": {
+        "RESCUES": 20
+      },
+      "caution|give_up_trap": {
+        "HELPS": 20
+      },
+      "caution|retry_trap": {
+        "HELPS": 20
+      },
+      "honest|give_up_trap": {
+        "RESCUES": 20
+      },
+      "honest|retry_trap": {
+        "RESCUES": 20
+      },
+      "mixed|give_up_trap": {
+        "NO_EFFECT": 20
+      },
+      "mixed|retry_trap": {
+        "NO_EFFECT": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-e2-prompt-responsive",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-e3-bounded@30": {
+    "contrast_verdicts": {
+      "caution_bounded": {
+        "COST_AWARE": 20
+      },
+      "caution_three": {
+        "COST_AWARE": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-e3-bounded",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-e3-unbounded@30": {
+    "contrast_verdicts": {
+      "caution_bounded": {
+        "RESCUE_ONLY": 20
+      },
+      "caution_three": {
+        "RESCUE_ONLY": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-e3-unbounded",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-e4-bounded@40": {
+    "contrast_verdicts": {
+      "common": {
+        "HOLDS": 20
+      },
+      "rare": {
+        "HOLDS": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-e4-bounded",
+    "runs_per_cell": 40,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-e4-deaf@40": {
+    "contrast_verdicts": {
+      "common": {
+        "FADES": 20
+      },
+      "rare": {
+        "FADES": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-e4-deaf",
+    "runs_per_cell": 40,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-e5-clear-learner@60": {
+    "contrast_verdicts": {
+      "primary": {
+        "CONFIRMED": 20
+      },
+      "secondary": {
+        "CLEARING_SPECIFIC": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-e5-clear-learner",
+    "runs_per_cell": 60,
+    "verdicts": {
+      "CONFIRMED": 20
+    }
+  },
+  "mock-e5-credulous@60": {
+    "contrast_verdicts": {
+      "primary": {
+        "INCONCLUSIVE": 1,
+        "NOT_CONFIRMED": 19
+      },
+      "secondary": {
+        "NOT_APPLICABLE": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-e5-credulous",
+    "runs_per_cell": 60,
+    "verdicts": {
+      "INCONCLUSIVE": 1,
+      "NOT_CONFIRMED": 19
+    }
+  },
+  "mock-e5-exposure-learner@60": {
+    "contrast_verdicts": {
+      "primary": {
+        "CONFIRMED": 20
+      },
+      "secondary": {
+        "EXPOSURE_GENERAL": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-e5-exposure-learner",
+    "runs_per_cell": 60,
+    "verdicts": {
+      "CONFIRMED": 20
+    }
+  },
+  "mock-evidence-learner@10": {
+    "replications": 20,
+    "run_name": "mock-evidence-learner",
+    "runs_per_cell": 10,
+    "verdicts": {
+      "CONTINUE_SELF_CORRECTING": 20
+    }
+  },
+  "mock-evidence-learner@20": {
+    "replications": 20,
+    "run_name": "mock-evidence-learner",
+    "runs_per_cell": 20,
+    "verdicts": {
+      "CONTINUE_SELF_CORRECTING": 20
+    }
+  },
+  "mock-h1-fatigue@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "INCONCLUSIVE": 2,
+        "NO_CARRYOVER": 18
+      },
+      "secondary": {
+        "NOT_APPLICABLE": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-h1-fatigue",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "INCONCLUSIVE": 2,
+      "NO_CARRYOVER": 18
+    }
+  },
+  "mock-h1-helpless@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "CARRYOVER": 20
+      },
+      "secondary": {
+        "CONTROLLABILITY_MATTERS": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-h1-helpless",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "CARRYOVER": 20
+    }
+  },
+  "mock-h1-persistent@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "NO_CARRYOVER": 20
+      },
+      "secondary": {
+        "NOT_APPLICABLE": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-h1-persistent",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "NO_CARRYOVER": 20
+    }
+  },
+  "mock-message-blind@10": {
+    "replications": 20,
+    "run_name": "mock-message-blind",
+    "runs_per_cell": 10,
+    "verdicts": {
+      "KILL_WORDING_IRRELEVANT": 20
+    }
+  },
+  "mock-message-blind@20": {
+    "replications": 20,
+    "run_name": "mock-message-blind",
+    "runs_per_cell": 20,
+    "verdicts": {
+      "KILL_WORDING_IRRELEVANT": 20
+    }
+  },
+  "mock-message-blind@30": {
+    "replications": 20,
+    "run_name": "mock-message-blind",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "KILL_WORDING_IRRELEVANT": 20
+    }
+  },
+  "mock-w6-bounded@30": {
+    "contrast_verdicts": {
+      "caution_bounded": {
+        "RECOMMENDABLE": 20
+      },
+      "caution_few": {
+        "RECOMMENDABLE": 20
+      },
+      "caution_three": {
+        "RECOMMENDABLE": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-w6-bounded",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-w6-different_harms@30": {
+    "contrast_verdicts": {
+      "caution_bounded": {
+        "HARMS_TRUE_TEMPORARY": 20
+      },
+      "caution_few": {
+        "RECOMMENDABLE": 20
+      },
+      "caution_three": {
+        "RECOMMENDABLE": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-w6-different_harms",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-w6-unbounded@30": {
+    "contrast_verdicts": {
+      "caution_bounded": {
+        "RESCUE_COSTLY": 20
+      },
+      "caution_few": {
+        "RESCUE_COSTLY": 20
+      },
+      "caution_three": {
+        "RESCUE_COSTLY": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-w6-unbounded",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "power-e1-credulous-noise3@12": {
+    "replications": 20,
+    "run_name": "power-e1-credulous-noise3",
+    "runs_per_cell": 12,
+    "verdicts": {
+      "NO_LEARNING": 20
+    }
+  },
+  "power-e1-entrencher-noise3@12": {
+    "replications": 20,
+    "run_name": "power-e1-entrencher-noise3",
+    "runs_per_cell": 12,
+    "verdicts": {
+      "ENTRENCHMENT": 16,
+      "INCONCLUSIVE": 4
+    }
+  },
+  "power-e2-weak-cues@30": {
+    "contrast_verdicts": {
+      "caution_strategy|give_up_trap": {
+        "HELPS": 14,
+        "RESCUES": 6
+      },
+      "caution_strategy|retry_trap": {
+        "HELPS": 13,
+        "RESCUES": 7
+      },
+      "caution|give_up_trap": {
+        "HELPS": 17,
+        "INCONCLUSIVE": 3
+      },
+      "caution|retry_trap": {
+        "HELPS": 19,
+        "INCONCLUSIVE": 1
+      },
+      "honest|give_up_trap": {
+        "RESCUES": 20
+      },
+      "honest|retry_trap": {
+        "RESCUES": 20
+      },
+      "mixed|give_up_trap": {
+        "HELPS": 19,
+        "INCONCLUSIVE": 1
+      },
+      "mixed|retry_trap": {
+        "HELPS": 18,
+        "INCONCLUSIVE": 2
+      }
+    },
+    "replications": 20,
+    "run_name": "power-e2-weak-cues",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "power-e3-half-bounded@30": {
+    "contrast_verdicts": {
+      "caution_bounded": {
+        "COST_AWARE": 9,
+        "RESCUE_ONLY": 11
+      },
+      "caution_three": {
+        "COST_AWARE": 7,
+        "RESCUE_ONLY": 13
+      }
+    },
+    "replications": 20,
+    "run_name": "power-e3-half-bounded",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "power-e5-partial-learner@60": {
+    "contrast_verdicts": {
+      "primary": {
+        "CONFIRMED": 13,
+        "INCONCLUSIVE": 7
+      },
+      "secondary": {
+        "CLEARING_SPECIFIC": 12,
+        "INCONCLUSIVE": 1,
+        "NOT_APPLICABLE": 7
+      }
+    },
+    "replications": 20,
+    "run_name": "power-e5-partial-learner",
+    "runs_per_cell": 60,
+    "verdicts": {
+      "CONFIRMED": 13,
+      "INCONCLUSIVE": 7
+    }
+  },
+  "power-h1-weak-helpless@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "CARRYOVER": 20
+      },
+      "secondary": {
+        "CONTROLLABILITY_MATTERS": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "power-h1-weak-helpless",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "CARRYOVER": 20
+    }
+  },
+  "power-w6-weak@30": {
+    "contrast_verdicts": {
+      "caution_bounded": {
+        "RECOMMENDABLE": 20
+      },
+      "caution_few": {
+        "RECOMMENDABLE": 20
+      },
+      "caution_three": {
+        "RECOMMENDABLE": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "power-w6-weak",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "power-weak-credulous@10": {
+    "replications": 20,
+    "run_name": "power-weak-credulous",
+    "runs_per_cell": 10,
+    "verdicts": {
+      "CONTINUE_CREDULOUS": 9,
+      "INCONCLUSIVE": 11
+    }
+  },
+  "power-weak-credulous@20": {
+    "replications": 20,
+    "run_name": "power-weak-credulous",
+    "runs_per_cell": 20,
+    "verdicts": {
+      "CONTINUE_CREDULOUS": 14,
+      "INCONCLUSIVE": 6
+    }
+  },
+  "power-weak-credulous@30": {
+    "replications": 20,
+    "run_name": "power-weak-credulous",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "CONTINUE_CREDULOUS": 19,
+      "INCONCLUSIVE": 1
+    }
+  },
+  "power-weak-learner@10": {
+    "replications": 20,
+    "run_name": "power-weak-learner",
+    "runs_per_cell": 10,
+    "verdicts": {
+      "CONTINUE_SELF_CORRECTING": 19,
+      "INCONCLUSIVE": 1
+    }
+  },
+  "power-weak-learner@20": {
+    "replications": 20,
+    "run_name": "power-weak-learner",
+    "runs_per_cell": 20,
+    "verdicts": {
+      "CONTINUE_SELF_CORRECTING": 20
+    }
+  },
+  "power-weak-learner@30": {
+    "replications": 20,
+    "run_name": "power-weak-learner",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "CONTINUE_SELF_CORRECTING": 20
+    }
+  }
+}

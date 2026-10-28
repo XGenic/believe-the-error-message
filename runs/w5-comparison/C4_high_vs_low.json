@@ -1,0 +1,188 @@
+{
+  "a": "runs/w5-c4-high-gpt-6-luna",
+  "b": "runs/w5-c4-low-gpt-6-luna",
+  "bootstrap": {
+    "reps": 2000,
+    "seed": 20261801
+  },
+  "design": "C4",
+  "measures": {
+    "L_star": {
+      "a": 0.029999999999999992,
+      "b": 0.0077777777777777515,
+      "ci": [
+        -0.056666666666666685,
+        0.10222222222222217
+      ],
+      "diff": 0.02222222222222224,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "S": {
+      "a": 0.9388888888888889,
+      "b": 0.7944444444444445,
+      "ci": [
+        0.07777777777777783,
+        0.21111111111111103
+      ],
+      "diff": 0.14444444444444438,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "give_up_trap_success": {
+      "a": 0.10555555555555556,
+      "b": 0.02222222222222222,
+      "ci": [
+        0.0,
+        0.17777777777777778
+      ],
+      "diff": 0.08333333333333334,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "retry_trap_success": {
+      "a": 0.01111111111111111,
+      "b": 0.01111111111111111,
+      "ci": [
+        -0.03333333333333333,
+        0.03333333333333333
+      ],
+      "diff": 0.0,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "success|format|fixable": {
+      "a": 0.9111111111111111,
+      "b": 0.8944444444444445,
+      "ci": [
+        -0.061111111111111116,
+        0.10555555555555551
+      ],
+      "diff": 0.016666666666666607,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|format|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|format|transient": {
+      "a": 1.0,
+      "b": 0.9944444444444445,
+      "ci": [
+        0.0,
+        0.016666666666666607
+      ],
+      "diff": 0.005555555555555536,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|fixable": {
+      "a": 0.31666666666666665,
+      "b": 0.19444444444444445,
+      "ci": [
+        0.016666666666666663,
+        0.2222222222222222
+      ],
+      "diff": 0.1222222222222222,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|transient": {
+      "a": 0.8888888888888888,
+      "b": 0.46111111111111114,
+      "ci": [
+        0.22777777777777775,
+        0.6166666666666667
+      ],
+      "diff": 0.4277777777777777,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|permanent|fixable": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|transient": {
+      "a": 0.10555555555555556,
+      "b": 0.02222222222222222,
+      "ci": [
+        0.0,
+        0.17777777777777778
+      ],
+      "diff": 0.08333333333333334,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|fixable": {
+      "a": 0.01111111111111111,
+      "b": 0.01111111111111111,
+      "ci": [
+        -0.03333333333333333,
+        0.03333333333333333
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|transient": {
+      "a": 1.0,
+      "b": 1.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    }
+  },
+  "overall": "SAME"
+}

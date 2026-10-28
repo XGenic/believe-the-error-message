@@ -1,0 +1,598 @@
+{
+  "H3_stability": {
+    "fixable": {
+      "calls_late_stable_claim": 1.6166666666666667,
+      "calls_late_unstable_claim": 4.75,
+      "difference": -3.1333333333333333
+    },
+    "permanent": {
+      "calls_late_stable_claim": 1.8166666666666667,
+      "calls_late_unstable_claim": 5.083333333333333,
+      "difference": -3.2666666666666666
+    },
+    "transient": {
+      "calls_late_stable_claim": 1.55,
+      "calls_late_unstable_claim": 2.966666666666667,
+      "difference": -1.4166666666666667
+    }
+  },
+  "H4_talked_out_of_fixable": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "L_accurate": {
+    "format|fixable": -0.07982120051085573,
+    "permanent|permanent": -0.1166666666666667,
+    "transient|transient": -0.01666666666666672
+  },
+  "L_misleading": {
+    "format|permanent": -0.06666666666666665,
+    "format|transient": -0.08333333333333326,
+    "permanent|fixable": -0.15000000000000002,
+    "permanent|transient": -0.033333333333333326,
+    "transient|fixable": 0.1333333333333333,
+    "transient|permanent": 0.15000000000000002
+  },
+  "L_star": 0.07771817794806304,
+  "L_star_ci": [
+    -0.0047474747474747555,
+    0.1519502719502719
+  ],
+  "S": 0.5,
+  "S_ci": [
+    0.42777777777777776,
+    0.5722222222222222
+  ],
+  "cells": {
+    "format|fixable": {
+      "calls_by_request": [
+        3.8666666666666667,
+        3.3333333333333335,
+        3.566666666666667,
+        3.033333333333333,
+        3.4,
+        3.1
+      ],
+      "calls_late": 3.25,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.34,
+      "first_response_all": {
+        "OTHER": 1,
+        "REFORMAT": 150,
+        "SITE_ONLY": 17
+      },
+      "first_response_late": {
+        "OTHER": 1,
+        "REFORMAT": 49,
+        "SITE_ONLY": 4
+      },
+      "first_response_request1": {
+        "REFORMAT": 22,
+        "SITE_ONLY": 8
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.7333333333333333,
+        0.7,
+        0.7,
+        0.8333333333333334,
+        0.6666666666666666,
+        0.8333333333333334
+      ],
+      "unknown_rate": 0.25555555555555554,
+      "unsupported_answers": 0
+    },
+    "format|permanent": {
+      "calls_by_request": [
+        5.5,
+        5.166666666666667,
+        5.066666666666666,
+        5.033333333333333,
+        5.033333333333333,
+        5.066666666666666
+      ],
+      "calls_late": 5.05,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "REFORMAT": 135,
+        "SITE_ONLY": 45
+      },
+      "first_response_late": {
+        "REFORMAT": 47,
+        "SITE_ONLY": 13
+      },
+      "first_response_request1": {
+        "REFORMAT": 22,
+        "SITE_ONLY": 8
+      },
+      "runs": 30,
+      "self_cause_language": 0.03333333333333333,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "format|transient": {
+      "calls_by_request": [
+        3.1,
+        3.1,
+        3,
+        3.066666666666667,
+        3.066666666666667,
+        3.066666666666667
+      ],
+      "calls_late": 3.066666666666667,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.13333333333333333,
+      "first_response_all": {
+        "REFORMAT": 154,
+        "SITE_ONLY": 23,
+        "STOP": 3
+      },
+      "first_response_late": {
+        "REFORMAT": 53,
+        "SITE_ONLY": 7
+      },
+      "first_response_request1": {
+        "REFORMAT": 23,
+        "SITE_ONLY": 6,
+        "STOP": 1
+      },
+      "runs": 30,
+      "self_cause_language": 0.05555555555555555,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.9333333333333333,
+        0.9666666666666667,
+        0.9666666666666667,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "unknown_rate": 0.05555555555555555,
+      "unsupported_answers": 0
+    },
+    "neutral|fixable": {
+      "calls_by_request": [
+        3.533333333333333,
+        3.433333333333333,
+        3.466666666666667,
+        3.3333333333333335,
+        3.3333333333333335,
+        3.566666666666667
+      ],
+      "calls_late": 3.45,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.06666666666666667,
+      "first_response_all": {
+        "REFORMAT": 21,
+        "RETRY": 17,
+        "SITE_ONLY": 135,
+        "STOP": 4
+      },
+      "first_response_late": {
+        "REFORMAT": 11,
+        "RETRY": 4,
+        "SITE_ONLY": 40,
+        "STOP": 2
+      },
+      "first_response_request1": {
+        "RETRY": 6,
+        "SITE_ONLY": 24
+      },
+      "runs": 30,
+      "self_cause_language": 0.005555555555555556,
+      "service_cause_language": 0.05,
+      "success_by_request": [
+        0.16666666666666666,
+        0.2,
+        0.1,
+        0.13333333333333333,
+        0.16666666666666666,
+        0.16666666666666666
+      ],
+      "unknown_rate": 0.85,
+      "unsupported_answers": 0
+    },
+    "neutral|permanent": {
+      "calls_by_request": [
+        3.3,
+        2.8666666666666667,
+        2.933333333333333,
+        2.966666666666667,
+        3.066666666666667,
+        2.966666666666667
+      ],
+      "calls_late": 3.0166666666666666,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "REFORMAT": 1,
+        "RETRY": 23,
+        "SITE_ONLY": 140,
+        "STOP": 16
+      },
+      "first_response_late": {
+        "RETRY": 6,
+        "SITE_ONLY": 48,
+        "STOP": 6
+      },
+      "first_response_request1": {
+        "RETRY": 6,
+        "SITE_ONLY": 23,
+        "STOP": 1
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "neutral|transient": {
+      "calls_by_request": [
+        2.466666666666667,
+        2.433333333333333,
+        2.433333333333333,
+        2.4,
+        2.4,
+        2.4
+      ],
+      "calls_late": 2.4,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.11333333333333333,
+      "first_response_all": {
+        "REFORMAT": 35,
+        "RETRY": 12,
+        "SITE_ONLY": 114,
+        "STOP": 19
+      },
+      "first_response_late": {
+        "REFORMAT": 15,
+        "RETRY": 2,
+        "SITE_ONLY": 35,
+        "STOP": 8
+      },
+      "first_response_request1": {
+        "RETRY": 3,
+        "SITE_ONLY": 26,
+        "STOP": 1
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.5,
+        0.5333333333333333,
+        0.5333333333333333,
+        0.5333333333333333,
+        0.5333333333333333,
+        0.5333333333333333
+      ],
+      "unknown_rate": 0.4722222222222222,
+      "unsupported_answers": 0
+    },
+    "permanent|fixable": {
+      "calls_by_request": [
+        1.8666666666666667,
+        1.6666666666666667,
+        1.7,
+        1.6666666666666667,
+        1.6,
+        1.6333333333333333
+      ],
+      "calls_late": 1.6166666666666667,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "SITE_ONLY": 124,
+        "STOP": 56
+      },
+      "first_response_late": {
+        "SITE_ONLY": 37,
+        "STOP": 23
+      },
+      "first_response_request1": {
+        "SITE_ONLY": 26,
+        "STOP": 4
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.25,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "permanent|permanent": {
+      "calls_by_request": [
+        2,
+        1.9333333333333333,
+        1.8666666666666667,
+        1.8333333333333333,
+        1.8,
+        1.8333333333333333
+      ],
+      "calls_late": 1.8166666666666667,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "OTHER": 1,
+        "SITE_ONLY": 93,
+        "STOP": 86
+      },
+      "first_response_late": {
+        "SITE_ONLY": 29,
+        "STOP": 31
+      },
+      "first_response_request1": {
+        "OTHER": 1,
+        "SITE_ONLY": 18,
+        "STOP": 11
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.3388888888888889,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "permanent|transient": {
+      "calls_by_request": [
+        1.6333333333333333,
+        1.5333333333333334,
+        1.6,
+        1.5333333333333334,
+        1.5,
+        1.6
+      ],
+      "calls_late": 1.55,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "SITE_ONLY": 96,
+        "STOP": 84
+      },
+      "first_response_late": {
+        "SITE_ONLY": 31,
+        "STOP": 29
+      },
+      "first_response_request1": {
+        "SITE_ONLY": 18,
+        "STOP": 12
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.5222222222222223,
+      "success_by_request": [
+        0.03333333333333333,
+        0.03333333333333333,
+        0.03333333333333333,
+        0.03333333333333333,
+        0.03333333333333333,
+        0.03333333333333333
+      ],
+      "unknown_rate": 0.9666666666666667,
+      "unsupported_answers": 0
+    },
+    "transient|fixable": {
+      "calls_by_request": [
+        5.033333333333333,
+        4.7,
+        4.7,
+        4.733333333333333,
+        4.733333333333333,
+        4.766666666666667
+      ],
+      "calls_late": 4.75,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "REFORMAT": 2,
+        "RETRY": 87,
+        "SITE_ONLY": 91
+      },
+      "first_response_late": {
+        "REFORMAT": 1,
+        "RETRY": 26,
+        "SITE_ONLY": 33
+      },
+      "first_response_request1": {
+        "RETRY": 20,
+        "SITE_ONLY": 10
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.2611111111111111,
+      "success_by_request": [
+        0.03333333333333333,
+        0.06666666666666667,
+        0.0,
+        0.03333333333333333,
+        0.0,
+        0.03333333333333333
+      ],
+      "unknown_rate": 0.9722222222222222,
+      "unsupported_answers": 0
+    },
+    "transient|permanent": {
+      "calls_by_request": [
+        5.233333333333333,
+        5.1,
+        5.1,
+        5.033333333333333,
+        5.1,
+        5.066666666666666
+      ],
+      "calls_late": 5.083333333333333,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "RETRY": 92,
+        "SITE_ONLY": 87,
+        "STOP": 1
+      },
+      "first_response_late": {
+        "RETRY": 28,
+        "SITE_ONLY": 32
+      },
+      "first_response_request1": {
+        "RETRY": 22,
+        "SITE_ONLY": 8
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.24444444444444444,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "transient|transient": {
+      "calls_by_request": [
+        3,
+        2.966666666666667,
+        2.966666666666667,
+        2.966666666666667,
+        2.966666666666667,
+        2.966666666666667
+      ],
+      "calls_late": 2.966666666666667,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "REFORMAT": 4,
+        "RETRY": 112,
+        "SITE_ONLY": 64
+      },
+      "first_response_late": {
+        "REFORMAT": 2,
+        "RETRY": 39,
+        "SITE_ONLY": 19
+      },
+      "first_response_request1": {
+        "RETRY": 20,
+        "SITE_ONLY": 10
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.005555555555555556,
+      "success_by_request": [
+        0.9666666666666667,
+        0.9666666666666667,
+        0.9666666666666667,
+        0.9666666666666667,
+        0.9666666666666667,
+        0.9666666666666667
+      ],
+      "unknown_rate": 0.03333333333333333,
+      "unsupported_answers": 0
+    }
+  },
+  "cost": {
+    "agent_calls": 9087,
+    "equiv_usd": 1.7789,
+    "from_cache": 0,
+    "runs_recorded": 360
+  },
+  "deltas": {
+    "format|permanent": 0.7333333333333333,
+    "format|transient": 0.7666666666666667,
+    "permanent|fixable": 0.13333333333333333,
+    "permanent|transient": 0.3666666666666667,
+    "transient|fixable": 0.4666666666666666,
+    "transient|permanent": 0.5333333333333332
+  },
+  "label": "LIVE MODEL RUN (study W2-A) (W2 open-weight panel: C4 through OpenRouter, Alibaba (Qwen), reasoning r0 = {\"effort\": \"none\"})",
+  "model": "qwen/qwen3.8-27b",
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 360
+  },
+  "superstition_probe": {
+    "format_claim": 0.13333333333333333,
+    "index": 0.020000000000000004,
+    "neutral_claim": 0.11333333333333333
+  },
+  "transport": "openrouter_chat_native",
+  "validity": {
+    "completion": {
+      "format|fixable": 1.0,
+      "format|permanent": 1.0,
+      "format|transient": 1.0,
+      "neutral|fixable": 1.0,
+      "neutral|permanent": 1.0,
+      "neutral|transient": 1.0,
+      "permanent|fixable": 1.0,
+      "permanent|permanent": 1.0,
+      "permanent|transient": 1.0,
+      "transient|fixable": 1.0,
+      "transient|permanent": 1.0,
+      "transient|transient": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement": {
+      "format|fixable": 1.0,
+      "format|permanent": 1.0,
+      "format|transient": 1.0,
+      "neutral|fixable": 1.0,
+      "neutral|permanent": 1.0,
+      "neutral|transient": 1.0,
+      "permanent|fixable": 1.0,
+      "permanent|permanent": 1.0,
+      "permanent|transient": 1.0,
+      "transient|fixable": 1.0,
+      "transient|permanent": 1.0,
+      "transient|transient": 1.0
+    },
+    "engagement_min": 1.0,
+    "protocol_failure_share": 0.0003301419610432486,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "S +0.500 (CI +0.428, +0.572); L* +0.078 (CI -0.005, +0.152)"
+    ],
+    "verdict": "CONTINUE_CREDULOUS"
+  }
+}

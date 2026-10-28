@@ -1,0 +1,690 @@
+{
+  "counts": {
+    "\"a few different attempts\" rescues the give-up trap (E3's bar)": [
+      6,
+      9
+    ],
+    "\"three attempts in a row\" rescues the give-up trap (E3's bar)": [
+      8,
+      8
+    ],
+    "credulous (C4 verdict CONTINUE_CREDULOUS)": [
+      9,
+      13
+    ],
+    "first-encounter effect (E5 CONFIRMED; INVALID runs left out)": [
+      9,
+      11
+    ],
+    "give-up trap holds (success at most 10%)": [
+      11,
+      13
+    ],
+    "retry trap holds (success at most 10%)": [
+      12,
+      13
+    ]
+  },
+  "rows": [
+    {
+      "bounded": null,
+      "c4": {
+        "S": 0.34444444444444444,
+        "S_ci": [
+          0.32222222222222224,
+          0.3666666666666667
+        ],
+        "give_up_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "retry_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "model": "Claude Haiku 5.5",
+      "setting": "text, no reasoning",
+      "sources": {
+        "c4": "live-claude-haiku-5-5"
+      },
+      "three": null
+    },
+    {
+      "bounded": {
+        "ci": [
+          0.26666666666666666,
+          0.6
+        ],
+        "est": 0.43333333333333335,
+        "verdict": "W6: WEAK_RESCUE"
+      },
+      "c4": {
+        "S": 0.6944444444444444,
+        "S_ci": [
+          0.6611111111111111,
+          0.7333333333333334
+        ],
+        "give_up_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "retry_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "INCONCLUSIVE"
+      },
+      "e5": {
+        "D1": 0.050000000000000044,
+        "D1_ci": [
+          0.0,
+          0.1166666666666667
+        ],
+        "verdict": "INVALID"
+      },
+      "model": "Claude Haiku 5.5",
+      "setting": "native, thinking off",
+      "sources": {
+        "bounded": "w2c-w6-claude-haiku-5-5-t0",
+        "c4": "w2c-c4-claude-haiku-5-5-t0",
+        "e5": "w2c-e5-claude-haiku-5-5-t0",
+        "three": "w2c-w6-claude-haiku-5-5-t0"
+      },
+      "three": {
+        "ci": [
+          0.9,
+          1.0
+        ],
+        "est": 0.9666666666666667,
+        "verdict": "W6: RECOMMENDABLE"
+      }
+    },
+    {
+      "bounded": {
+        "ci": [
+          1.0,
+          1.0
+        ],
+        "est": 1.0,
+        "verdict": "W6: RECOMMENDABLE"
+      },
+      "c4": {
+        "S": 0.6055555555555555,
+        "S_ci": [
+          0.5722222222222222,
+          0.6333333333333333
+        ],
+        "give_up_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "retry_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 0.03333333333333334,
+        "D1_ci": [
+          -0.08333333333333333,
+          0.13333333333333336
+        ],
+        "verdict": "NOT_CONFIRMED"
+      },
+      "model": "Claude Haiku 5.5",
+      "setting": "native, thinking on",
+      "sources": {
+        "bounded": "w2c-w6-claude-haiku-5-5-t1",
+        "c4": "w2c-c4-claude-haiku-5-5-t1",
+        "e5": "w2c-e5-claude-haiku-5-5-t1",
+        "three": "w2c-w6-claude-haiku-5-5-t1"
+      },
+      "three": {
+        "ci": [
+          1.0,
+          1.0
+        ],
+        "est": 1.0,
+        "verdict": "W6: RECOMMENDABLE"
+      }
+    },
+    {
+      "bounded": {
+        "ci": [
+          0.8333333333333334,
+          0.9722222222222222
+        ],
+        "est": 0.9166666666666666,
+        "verdict": "E3: COST_AWARE"
+      },
+      "c4": {
+        "S": 0.9555555555555556,
+        "S_ci": [
+          0.9222222222222223,
+          0.9833333333333334
+        ],
+        "give_up_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "retry_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 0.9666666666666667,
+        "D1_ci": [
+          0.9166666666666666,
+          1.0
+        ],
+        "verdict": "CONFIRMED"
+      },
+      "model": "GPT-6-luna",
+      "setting": "text, low",
+      "sources": {
+        "bounded": "e3-live-gpt-6-luna",
+        "c4": "live-gpt-6-luna",
+        "e5": "e5-live-gpt-6-luna",
+        "three": "e3-live-gpt-6-luna"
+      },
+      "three": {
+        "ci": [
+          0.9444444444444444,
+          0.9888888888888889
+        ],
+        "est": 0.9666666666666667,
+        "verdict": "E3: COST_AWARE"
+      }
+    },
+    {
+      "bounded": null,
+      "c4": {
+        "S": 0.5444444444444444,
+        "S_ci": [
+          0.4888888888888889,
+          0.6055555555555555
+        ],
+        "give_up_trap": {
+          "est": 0.049999999999999996,
+          "wilson": [
+            0.011631837393671865,
+            0.19053021789163493
+          ]
+        },
+        "retry_trap": {
+          "est": 0.011111111111111112,
+          "wilson": [
+            0.0008266920666251815,
+            0.13238640503346127
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "INCONCLUSIVE"
+      },
+      "e5": {
+        "D1": 0.8833333333333333,
+        "D1_ci": [
+          0.7833333333333333,
+          0.95
+        ],
+        "verdict": "CONFIRMED"
+      },
+      "model": "GPT-6-luna",
+      "setting": "native, none",
+      "sources": {
+        "c4": "n1-c4-native-none-gpt-6-luna",
+        "e5": "w5-e5-none-gpt-6-luna"
+      },
+      "three": null
+    },
+    {
+      "bounded": {
+        "ci": [
+          0.8722222222222222,
+          0.9833333333333334
+        ],
+        "est": 0.9333333333333333,
+        "verdict": "W6: RESCUE_COSTLY"
+      },
+      "c4": {
+        "S": 0.7888888888888889,
+        "S_ci": [
+          0.7333333333333334,
+          0.8444444444444444
+        ],
+        "give_up_trap": {
+          "est": 0.027777777777777776,
+          "wilson": [
+            0.0043170491059979915,
+            0.15844560150204007
+          ]
+        },
+        "retry_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 0.9333333333333333,
+        "D1_ci": [
+          0.8666666666666667,
+          0.9833333333333333
+        ],
+        "verdict": "CONFIRMED"
+      },
+      "model": "GPT-6-luna",
+      "setting": "native, low",
+      "sources": {
+        "bounded": "w6-gpt6luna-native-low",
+        "c4": "n1-c4-native-low-gpt-6-luna",
+        "e5": "n1-e5-native-low-gpt-6-luna",
+        "three": "w6-gpt6luna-native-low"
+      },
+      "three": {
+        "ci": [
+          1.0,
+          1.0
+        ],
+        "est": 1.0,
+        "verdict": "W6: RECOMMENDABLE"
+      }
+    },
+    {
+      "bounded": null,
+      "c4": {
+        "S": 0.9222222222222223,
+        "S_ci": [
+          0.8777777777777778,
+          0.9611111111111111
+        ],
+        "give_up_trap": {
+          "est": 0.14444444444444446,
+          "wilson": [
+            0.0596769533915201,
+            0.30993257177217914
+          ]
+        },
+        "retry_trap": {
+          "est": 0.011111111111111112,
+          "wilson": [
+            0.0008266920666251815,
+            0.13238640503346127
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 0.8833333333333333,
+        "D1_ci": [
+          0.7999999999999999,
+          0.95
+        ],
+        "verdict": "CONFIRMED"
+      },
+      "model": "GPT-6-luna",
+      "setting": "native, medium",
+      "sources": {
+        "c4": "w5-c4-medium-gpt-6-luna",
+        "e5": "w5-e5-medium-gpt-6-luna"
+      },
+      "three": null
+    },
+    {
+      "bounded": null,
+      "c4": {
+        "S": 0.9388888888888889,
+        "S_ci": [
+          0.9,
+          0.9722222222222222
+        ],
+        "give_up_trap": {
+          "est": 0.10555555555555556,
+          "wilson": [
+            0.03753851842216839,
+            0.26312204855631044
+          ]
+        },
+        "retry_trap": {
+          "est": 0.011111111111111112,
+          "wilson": [
+            0.0008266920666251815,
+            0.13238640503346127
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 0.7833333333333333,
+        "D1_ci": [
+          0.6833333333333333,
+          0.8833333333333333
+        ],
+        "verdict": "CONFIRMED"
+      },
+      "model": "GPT-6-luna",
+      "setting": "native, high",
+      "sources": {
+        "c4": "w5-c4-high-gpt-6-luna",
+        "e5": "w5-e5-high-gpt-6-luna"
+      },
+      "three": null
+    },
+    {
+      "bounded": {
+        "ci": [
+          0.3,
+          0.5888888888888889
+        ],
+        "est": 0.45,
+        "verdict": "E3: NO_GAIN"
+      },
+      "c4": {
+        "S": 0.7833333333333333,
+        "S_ci": [
+          0.7222222222222222,
+          0.8388888888888889
+        ],
+        "give_up_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "retry_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 0.5172413793103448,
+        "D1_ci": [
+          0.39655172413793105,
+          0.6379310344827587
+        ],
+        "verdict": "CONFIRMED"
+      },
+      "model": "DeepSeek V4.1 Flash",
+      "setting": "native, r0",
+      "sources": {
+        "bounded": "w2b-deepseek-v4-1-flash-r0",
+        "c4": "or-c4-deepseek-v4-1-flash-r0",
+        "e5": "or-e5-deepseek-v4-1-flash-r0",
+        "three": "w6-deepseek-v4-1-flash-r0"
+      },
+      "three": {
+        "ci": [
+          0.9611111111111111,
+          1.0
+        ],
+        "est": 0.9833333333333334,
+        "verdict": "W6: RECOMMENDABLE"
+      }
+    },
+    {
+      "bounded": {
+        "ci": [
+          0.41666666666666663,
+          0.7722222222222223
+        ],
+        "est": 0.5944444444444443,
+        "verdict": "E3: HARMS_TRUE_TEMPORARY"
+      },
+      "c4": {
+        "S": 0.6611111111111111,
+        "S_ci": [
+          0.638888888888889,
+          0.6777777777777778
+        ],
+        "give_up_trap": {
+          "est": 0.016666666666666666,
+          "wilson": [
+            0.0017424670300683204,
+            0.14132048123933533
+          ]
+        },
+        "retry_trap": {
+          "est": 0.16111111111111112,
+          "wilson": [
+            0.06988125190662453,
+            0.3292778267650263
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 0.4166666666666667,
+        "D1_ci": [
+          0.3,
+          0.5499999999999999
+        ],
+        "verdict": "CONFIRMED"
+      },
+      "model": "DeepSeek V4.1 Flash",
+      "setting": "native, r1",
+      "sources": {
+        "bounded": "w2b-deepseek-v4-1-flash-r1",
+        "c4": "or-c4-deepseek-v4-1-flash-r1",
+        "e5": "or-e5-deepseek-v4-1-flash-r1",
+        "three": "w6-deepseek-v4-1-flash-r1"
+      },
+      "three": {
+        "ci": [
+          0.8,
+          0.9777777777777777
+        ],
+        "est": 0.9,
+        "verdict": "W6: RECOMMENDABLE"
+      }
+    },
+    {
+      "bounded": {
+        "ci": [
+          0.5555555555555556,
+          0.8666666666666667
+        ],
+        "est": 0.7222222222222222,
+        "verdict": "E3: RESCUE_ONLY"
+      },
+      "c4": {
+        "S": 0.5,
+        "S_ci": [
+          0.42777777777777776,
+          0.5722222222222222
+        ],
+        "give_up_trap": {
+          "est": 0.03333333333333333,
+          "wilson": [
+            0.005908590316197976,
+            0.16670391146115726
+          ]
+        },
+        "retry_trap": {
+          "est": 0.027777777777777776,
+          "wilson": [
+            0.0043170491059979915,
+            0.15844560150204007
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 0.8666666666666667,
+        "D1_ci": [
+          0.7666666666666667,
+          0.95
+        ],
+        "verdict": "CONFIRMED"
+      },
+      "model": "Qwen3.8-27B",
+      "setting": "native, r0",
+      "sources": {
+        "bounded": "w2b-qwen3-8-27b-r0",
+        "c4": "or-c4-qwen3-8-27b-r0",
+        "e5": "or-e5-qwen3-8-27b-r0",
+        "three": "w6-qwen3-8-27b-r0"
+      },
+      "three": {
+        "ci": [
+          0.6,
+          0.9
+        ],
+        "est": 0.7611111111111111,
+        "verdict": "W6: RECOMMENDABLE"
+      }
+    },
+    {
+      "bounded": {
+        "ci": [
+          0.38333333333333336,
+          0.7388888888888888
+        ],
+        "est": 0.5611111111111111,
+        "verdict": "E3: RESCUE_ONLY"
+      },
+      "c4": {
+        "S": 0.7833333333333333,
+        "S_ci": [
+          0.7222222222222222,
+          0.8388888888888889
+        ],
+        "give_up_trap": {
+          "est": 0.06111111111111111,
+          "wilson": [
+            0.016088823513712602,
+            0.20577293411022865
+          ]
+        },
+        "retry_trap": {
+          "est": 0.011111111111111112,
+          "wilson": [
+            0.0008266920666251815,
+            0.13238640503346127
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "INCONCLUSIVE"
+      },
+      "e5": {
+        "D1": 0.7000000000000001,
+        "D1_ci": [
+          0.5666666666666667,
+          0.8166666666666667
+        ],
+        "verdict": "CONFIRMED"
+      },
+      "model": "Qwen3.8-27B",
+      "setting": "native, r1",
+      "sources": {
+        "bounded": "w2b-qwen3-8-27b-r1",
+        "c4": "or-c4-qwen3-8-27b-r1",
+        "e5": "or-e5-qwen3-8-27b-r1"
+      },
+      "three": null
+    },
+    {
+      "bounded": {
+        "ci": [
+          0.18333333333333335,
+          0.4944444444444444
+        ],
+        "est": 0.3388888888888889,
+        "verdict": "E3: NO_GAIN"
+      },
+      "c4": {
+        "S": 0.9222222222222223,
+        "S_ci": [
+          0.8833333333333333,
+          0.9611111111111111
+        ],
+        "give_up_trap": {
+          "est": 0.03333333333333333,
+          "wilson": [
+            0.005908590316197976,
+            0.16670391146115726
+          ]
+        },
+        "retry_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "INCONCLUSIVE"
+      },
+      "e5": {
+        "D1": 0.25,
+        "D1_ci": [
+          0.1166666666666667,
+          0.3999999999999999
+        ],
+        "verdict": "INCONCLUSIVE"
+      },
+      "model": "gpt-oss-120b",
+      "setting": "native, r1",
+      "sources": {
+        "bounded": "w2b-gpt-oss-120b-r1",
+        "c4": "or-c4-gpt-oss-120b-r1-crusoe",
+        "e5": "or-e5-gpt-oss-120b-r1",
+        "three": "w6-gpt-oss-120b-r1"
+      },
+      "three": {
+        "ci": [
+          0.5611111111111111,
+          0.8055555555555556
+        ],
+        "est": 0.6888888888888889,
+        "verdict": "W6: RECOMMENDABLE"
+      }
+    }
+  ]
+}

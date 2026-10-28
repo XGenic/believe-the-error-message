@@ -1,0 +1,56 @@
+{
+  "base_seed": 20261201,
+  "runs_per_cell": 30,
+  "dev_seed": 20269201,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261201,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1,
+    "kill_s_max": 0.1,
+    "kill_s_ci_hi": 0.2,
+    "cont_s_min": 0.25,
+    "cont_s_ci_lo": 0.1,
+    "cred_l_max": 0.1,
+    "cred_l_ci_hi": 0.2,
+    "self_l_min": 0.15,
+    "self_l_ci_lo": 0.0,
+    "kill_s_ci_lo": -0.2
+  },
+  "run_name": "or-c4-deepseek-v4-1-flash-r1",
+  "transport": "openrouter_chat_native",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "label": "LIVE MODEL RUN (study W2-A) (W2 open-weight panel: C4 through OpenRouter, DeepSeek, reasoning r1 = {\"effort\": \"low\"})",
+  "request_options": {
+    "max_tokens": 8000,
+    "temperature": 1.0,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "prices_usd_per_mtok": {
+    "input": 0.14,
+    "output": 0.42,
+    "source": "DeepInfra (fp8) on the OpenRouter endpoints listing, read 2026-10-22. Planning and fallback only; recorded cost is OpenRouter's billed usage.cost."
+  },
+  "worst_case_usd_per_call": 0.0038,
+  "max_equiv_usd": 11.0,
+  "max_calls": 12000,
+  "planning": {
+    "calls_per_run": 25,
+    "usd_per_call": 0.000395,
+    "proposed_cap_usd": 11
+  },
+  "cost_note": "Owner's choice 2026-10-22 (PROTOCOL_W2.md): cap $11, 3x the pre-pilot estimate. The binding limit is the account's $20 credit; see PROTOCOL_W2.md, Budget.",
+  "provider": {
+    "order": [
+      "deepinfra/fp8"
+    ]
+  },
+  "expected_host": "DeepInfra",
+  "timeout_seconds": 180,
+  "pass_reasoning_back": false
+}

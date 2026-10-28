@@ -1,0 +1,58 @@
+{
+  "design": "E3",
+  "cells": [
+    "control|transient|fixable",
+    "control|transient|transient",
+    "control|permanent|transient",
+    "control|permanent|permanent",
+    "caution|transient|fixable",
+    "caution|transient|transient",
+    "caution|permanent|transient",
+    "caution|permanent|permanent",
+    "caution_bounded|transient|fixable",
+    "caution_bounded|transient|transient",
+    "caution_bounded|permanent|transient",
+    "caution_bounded|permanent|permanent",
+    "caution_three|transient|fixable",
+    "caution_three|transient|transient",
+    "caution_three|permanent|transient",
+    "caution_three|permanent|permanent"
+  ],
+  "base_seed": 20261501,
+  "runs_per_cell": 30,
+  "dev_seed": 20269501,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261501,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1,
+    "e3_rescue_min": 0.5,
+    "e3_rescue_ci_lo": 0.3,
+    "e3_cut_calls": -1.0,
+    "e3_cut_ci_hi": 0.0,
+    "e3_harm_drop": -0.15,
+    "e3_harm_ci_hi": 0.0
+  },
+  "run_name": "mock-e3-non-engager",
+  "transport": "mock",
+  "model": "MOCK-e3-non-engager",
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "worst_case_usd_per_call": 0.0,
+  "max_equiv_usd": 0.0,
+  "max_calls": 1000000,
+  "planning": {
+    "calls_per_run": 26,
+    "usd_per_call": 0.0
+  },
+  "mock": {
+    "kind": "non_engager",
+    "params": {}
+  },
+  "expect": {
+    "verdict": "INVALID",
+    "invalid_reason_contains": "did not engage"
+  }
+}

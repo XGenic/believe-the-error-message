@@ -1,0 +1,188 @@
+{
+  "a": "runs/or-c4-qwen3-8-27b-r0",
+  "b": "runs/n1-c4-native-none-gpt-6-luna",
+  "bootstrap": {
+    "reps": 2000,
+    "seed": 20261801
+  },
+  "design": "C4",
+  "measures": {
+    "L_star": {
+      "a": 0.07771817794806304,
+      "b": 0.1244444444444444,
+      "ci": [
+        -0.14959595959595962,
+        0.05363605091159268
+      ],
+      "diff": -0.046726266496381355,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "S": {
+      "a": 0.5,
+      "b": 0.5444444444444444,
+      "ci": [
+        -0.13888888888888884,
+        0.05555555555555547
+      ],
+      "diff": -0.0444444444444444,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "give_up_trap_success": {
+      "a": 0.03333333333333333,
+      "b": 0.05,
+      "ci": [
+        -0.10555555555555556,
+        0.07777777777777778
+      ],
+      "diff": -0.01666666666666667,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "retry_trap_success": {
+      "a": 0.027777777777777776,
+      "b": 0.01111111111111111,
+      "ci": [
+        -0.02222222222222222,
+        0.05555555555555555
+      ],
+      "diff": 0.016666666666666666,
+      "primary": true,
+      "verdict": "SAME"
+    },
+    "success|format|fixable": {
+      "a": 0.7444444444444445,
+      "b": 0.8277777777777777,
+      "ci": [
+        -0.19999999999999996,
+        0.04444444444444451
+      ],
+      "diff": -0.08333333333333326,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|format|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|format|transient": {
+      "a": 0.9777777777777777,
+      "b": 0.9777777777777777,
+      "ci": [
+        -0.050000000000000044,
+        0.050000000000000044
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|fixable": {
+      "a": 0.15555555555555556,
+      "b": 0.044444444444444446,
+      "ci": [
+        0.033333333333333326,
+        0.19444444444444445
+      ],
+      "diff": 0.1111111111111111,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|neutral|transient": {
+      "a": 0.5277777777777778,
+      "b": 0.25,
+      "ci": [
+        0.04444444444444445,
+        0.5111111111111111
+      ],
+      "diff": 0.2777777777777778,
+      "primary": false,
+      "verdict": "DIFFERENT"
+    },
+    "success|permanent|fixable": {
+      "a": 0.0,
+      "b": 0.03888888888888889,
+      "ci": [
+        -0.1,
+        0.0
+      ],
+      "diff": -0.03888888888888889,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|permanent|transient": {
+      "a": 0.03333333333333333,
+      "b": 0.05,
+      "ci": [
+        -0.10555555555555556,
+        0.07777777777777778
+      ],
+      "diff": -0.01666666666666667,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|fixable": {
+      "a": 0.027777777777777776,
+      "b": 0.01111111111111111,
+      "ci": [
+        -0.02222222222222222,
+        0.05555555555555555
+      ],
+      "diff": 0.016666666666666666,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|permanent": {
+      "a": 0.0,
+      "b": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "diff": 0.0,
+      "primary": false,
+      "verdict": "SAME"
+    },
+    "success|transient|transient": {
+      "a": 0.9666666666666667,
+      "b": 0.9555555555555556,
+      "ci": [
+        -0.0888888888888889,
+        0.10555555555555551
+      ],
+      "diff": 0.011111111111111072,
+      "primary": false,
+      "verdict": "SAME"
+    }
+  },
+  "overall": "SAME"
+}

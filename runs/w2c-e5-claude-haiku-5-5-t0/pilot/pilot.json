@@ -1,0 +1,14 @@
+{
+  "runs": 3,
+  "complete": 3,
+  "agent_calls": 20,
+  "cost_equiv_usd": 0.0011,
+  "usd_per_call": 6e-05,
+  "calls_per_run": 6.67,
+  "protocol_failure_share": 0.0,
+  "engaged_request1": 1.0,
+  "model": "claude-haiku-5-5",
+  "label": "LIVE MODEL RUN (study W2-C: E5, the first-encounter test, claude-haiku-5-5, native tool use, thinking off)",
+  "dev_seed": 20269701,
+  "kill_test_estimate_equiv_usd": 0.07
+}

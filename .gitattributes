@@ -1,0 +1,2 @@
+# Frozen research artifacts and their SHA-256 hashes must survive checkout unchanged.
+* -text

@@ -1,0 +1,596 @@
+{
+  "H3_stability": {
+    "fixable": {
+      "calls_late_stable_claim": 1,
+      "calls_late_unstable_claim": 5.766666666666667,
+      "difference": -4.766666666666667
+    },
+    "permanent": {
+      "calls_late_stable_claim": 1.1166666666666667,
+      "calls_late_unstable_claim": 5.65,
+      "difference": -4.533333333333333
+    },
+    "transient": {
+      "calls_late_stable_claim": 1.0666666666666667,
+      "calls_late_unstable_claim": 3,
+      "difference": -1.9333333333333333
+    }
+  },
+  "H4_talked_out_of_fixable": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "L_accurate": {
+    "format|fixable": -0.16666666666666663,
+    "permanent|permanent": 0.033333333333333326,
+    "transient|transient": 0.04999999999999993
+  },
+  "L_misleading": {
+    "format|permanent": -0.050000000000000044,
+    "format|transient": -0.18333333333333335,
+    "permanent|fixable": -0.01666666666666672,
+    "permanent|transient": 0.033333333333333326,
+    "transient|fixable": -0.050000000000000044,
+    "transient|permanent": -0.01666666666666672
+  },
+  "L_star": 0.0077777777777777515,
+  "L_star_ci": [
+    -0.04333333333333333,
+    0.06444444444444444
+  ],
+  "S": 0.7944444444444445,
+  "S_ci": [
+    0.7388888888888889,
+    0.85
+  ],
+  "cells": {
+    "format|fixable": {
+      "calls_by_request": [
+        3.2333333333333334,
+        3.4,
+        3.6666666666666665,
+        3.3,
+        3.533333333333333,
+        3.5
+      ],
+      "calls_late": 3.5166666666666666,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.006666666666666667,
+      "first_response_all": {
+        "OTHER": 1,
+        "REFORMAT": 163,
+        "SITE_ONLY": 15,
+        "STOP": 1
+      },
+      "first_response_late": {
+        "REFORMAT": 58,
+        "SITE_ONLY": 2
+      },
+      "first_response_request1": {
+        "OTHER": 1,
+        "REFORMAT": 22,
+        "SITE_ONLY": 6,
+        "STOP": 1
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.8666666666666667,
+        0.8,
+        0.9333333333333333,
+        0.9333333333333333,
+        0.9333333333333333,
+        0.9
+      ],
+      "unknown_rate": 0.10555555555555556,
+      "unsupported_answers": 0
+    },
+    "format|permanent": {
+      "calls_by_request": [
+        5.733333333333333,
+        5.8,
+        5.933333333333334,
+        5.766666666666667,
+        5.933333333333334,
+        5.933333333333334
+      ],
+      "calls_late": 5.933333333333334,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "REFORMAT": 154,
+        "SITE_ONLY": 25,
+        "STOP": 1
+      },
+      "first_response_late": {
+        "REFORMAT": 54,
+        "SITE_ONLY": 6
+      },
+      "first_response_request1": {
+        "REFORMAT": 26,
+        "SITE_ONLY": 4
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "format|transient": {
+      "calls_by_request": [
+        2.933333333333333,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "calls_late": 3,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.04666666666666667,
+      "first_response_all": {
+        "REFORMAT": 160,
+        "SITE_ONLY": 19,
+        "STOP": 1
+      },
+      "first_response_late": {
+        "REFORMAT": 58,
+        "SITE_ONLY": 2
+      },
+      "first_response_request1": {
+        "REFORMAT": 20,
+        "SITE_ONLY": 9,
+        "STOP": 1
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.9666666666666667,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "unknown_rate": 0.005555555555555556,
+      "unsupported_answers": 0
+    },
+    "neutral|fixable": {
+      "calls_by_request": [
+        3.566666666666667,
+        2.8333333333333335,
+        3.1666666666666665,
+        3.2,
+        2.933333333333333,
+        3.3666666666666667
+      ],
+      "calls_late": 3.15,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.16666666666666666,
+      "first_response_all": {
+        "REFORMAT": 23,
+        "RETRY": 1,
+        "SITE_ONLY": 102,
+        "STOP": 48
+      },
+      "first_response_late": {
+        "REFORMAT": 12,
+        "SITE_ONLY": 27,
+        "STOP": 16
+      },
+      "first_response_request1": {
+        "SITE_ONLY": 25,
+        "STOP": 5
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.3,
+        0.1,
+        0.16666666666666666,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "unknown_rate": 0.8055555555555556,
+      "unsupported_answers": 0
+    },
+    "neutral|permanent": {
+      "calls_by_request": [
+        3.4,
+        2.1666666666666665,
+        2.3666666666666667,
+        2.4,
+        2.1,
+        2.533333333333333
+      ],
+      "calls_late": 2.316666666666667,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "REFORMAT": 2,
+        "SITE_ONLY": 91,
+        "STOP": 87
+      },
+      "first_response_late": {
+        "REFORMAT": 2,
+        "SITE_ONLY": 25,
+        "STOP": 33
+      },
+      "first_response_request1": {
+        "SITE_ONLY": 22,
+        "STOP": 8
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "neutral|transient": {
+      "calls_by_request": [
+        2.1333333333333333,
+        2.066666666666667,
+        2.033333333333333,
+        2.066666666666667,
+        2.2,
+        2.1666666666666665
+      ],
+      "calls_late": 2.183333333333333,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.16666666666666666,
+      "first_response_all": {
+        "REFORMAT": 49,
+        "SITE_ONLY": 58,
+        "STOP": 73
+      },
+      "first_response_late": {
+        "REFORMAT": 22,
+        "SITE_ONLY": 18,
+        "STOP": 20
+      },
+      "first_response_request1": {
+        "SITE_ONLY": 17,
+        "STOP": 13
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.4,
+        0.43333333333333335,
+        0.4666666666666667,
+        0.4666666666666667,
+        0.5,
+        0.5
+      ],
+      "unknown_rate": 0.5388888888888889,
+      "unsupported_answers": 0
+    },
+    "permanent|fixable": {
+      "calls_by_request": [
+        1,
+        1.1333333333333333,
+        1.0666666666666667,
+        1.1666666666666667,
+        1,
+        1
+      ],
+      "calls_late": 1,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "OTHER": 1,
+        "SITE_ONLY": 3,
+        "STOP": 176
+      },
+      "first_response_late": {
+        "STOP": 60
+      },
+      "first_response_request1": {
+        "STOP": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "permanent|permanent": {
+      "calls_by_request": [
+        1,
+        1.0333333333333334,
+        1.2,
+        1,
+        1.0666666666666667,
+        1.1666666666666667
+      ],
+      "calls_late": 1.1166666666666667,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "OTHER": 1,
+        "RETRY": 2,
+        "SITE_ONLY": 3,
+        "STOP": 174
+      },
+      "first_response_late": {
+        "RETRY": 1,
+        "SITE_ONLY": 2,
+        "STOP": 57
+      },
+      "first_response_request1": {
+        "STOP": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "permanent|transient": {
+      "calls_by_request": [
+        1,
+        1,
+        1.1,
+        1.1,
+        1.0666666666666667,
+        1.0666666666666667
+      ],
+      "calls_late": 1.0666666666666667,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "RETRY": 4,
+        "SITE_ONLY": 2,
+        "STOP": 174
+      },
+      "first_response_late": {
+        "RETRY": 2,
+        "STOP": 58
+      },
+      "first_response_request1": {
+        "STOP": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.03333333333333333,
+        0.03333333333333333,
+        0.03333333333333333,
+        0.03333333333333333
+      ],
+      "unknown_rate": 0.9777777777777777,
+      "unsupported_answers": 0
+    },
+    "transient|fixable": {
+      "calls_by_request": [
+        5.366666666666666,
+        4.933333333333334,
+        5.633333333333334,
+        5.533333333333333,
+        5.733333333333333,
+        5.8
+      ],
+      "calls_late": 5.766666666666667,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "OTHER": 6,
+        "RETRY": 153,
+        "SITE_ONLY": 18,
+        "STOP": 3
+      },
+      "first_response_late": {
+        "OTHER": 2,
+        "RETRY": 52,
+        "SITE_ONLY": 6
+      },
+      "first_response_request1": {
+        "OTHER": 1,
+        "RETRY": 26,
+        "SITE_ONLY": 3
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.03333333333333333,
+        0.0,
+        0.0,
+        0.0,
+        0.03333333333333333,
+        0.0
+      ],
+      "unknown_rate": 0.9888888888888889,
+      "unsupported_answers": 0
+    },
+    "transient|permanent": {
+      "calls_by_request": [
+        5.1,
+        4.8,
+        5.666666666666667,
+        5.633333333333334,
+        5.633333333333334,
+        5.666666666666667
+      ],
+      "calls_late": 5.65,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "RETRY": 161,
+        "SITE_ONLY": 15,
+        "STOP": 4
+      },
+      "first_response_late": {
+        "RETRY": 54,
+        "SITE_ONLY": 6
+      },
+      "first_response_request1": {
+        "RETRY": 29,
+        "STOP": 1
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "transient|transient": {
+      "calls_by_request": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "calls_late": 3,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.013333333333333334,
+      "first_response_all": {
+        "REFORMAT": 9,
+        "RETRY": 159,
+        "SITE_ONLY": 12
+      },
+      "first_response_late": {
+        "REFORMAT": 3,
+        "RETRY": 52,
+        "SITE_ONLY": 5
+      },
+      "first_response_request1": {
+        "RETRY": 29,
+        "SITE_ONLY": 1
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "unknown_rate": 0.0,
+      "unsupported_answers": 0
+    }
+  },
+  "cost": {
+    "agent_calls": 8851,
+    "equiv_usd": 0.9994,
+    "from_cache": 0,
+    "runs_recorded": 360
+  },
+  "deltas": {
+    "format|permanent": 0.8666666666666667,
+    "format|transient": 0.6666666666666666,
+    "permanent|fixable": 0.8333333333333334,
+    "permanent|transient": 0.5666666666666667,
+    "transient|fixable": 0.8666666666666667,
+    "transient|permanent": 0.9666666666666667
+  },
+  "label": "LIVE MODEL RUN (study W5: the C4 grid through native tool calls, reasoning low)",
+  "model": "gpt-6-luna",
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 360
+  },
+  "superstition_probe": {
+    "format_claim": 0.04666666666666667,
+    "index": -0.12,
+    "neutral_claim": 0.16666666666666666
+  },
+  "transport": "openai_responses_native",
+  "validity": {
+    "completion": {
+      "format|fixable": 1.0,
+      "format|permanent": 1.0,
+      "format|transient": 1.0,
+      "neutral|fixable": 1.0,
+      "neutral|permanent": 1.0,
+      "neutral|transient": 1.0,
+      "permanent|fixable": 1.0,
+      "permanent|permanent": 1.0,
+      "permanent|transient": 1.0,
+      "transient|fixable": 1.0,
+      "transient|permanent": 1.0,
+      "transient|transient": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement": {
+      "format|fixable": 1.0,
+      "format|permanent": 1.0,
+      "format|transient": 1.0,
+      "neutral|fixable": 1.0,
+      "neutral|permanent": 1.0,
+      "neutral|transient": 1.0,
+      "permanent|fixable": 1.0,
+      "permanent|permanent": 1.0,
+      "permanent|transient": 1.0,
+      "transient|fixable": 1.0,
+      "transient|permanent": 1.0,
+      "transient|transient": 1.0
+    },
+    "engagement_min": 1.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "S +0.794 (CI +0.739, +0.850); L* +0.008 (CI -0.043, +0.064)"
+    ],
+    "verdict": "CONTINUE_CREDULOUS"
+  }
+}

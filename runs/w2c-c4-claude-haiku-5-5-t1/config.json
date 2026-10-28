@@ -1,0 +1,54 @@
+{
+  "base_seed": 20261201,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261201,
+  "cost_note": "Study W2-C (PROTOCOL_W2C.md). Design, cells, seeds and thresholds as live_n1_c4_native_low.json; only the model, transport and request options differ. Estimate: Luna's measured cost per run (same list prices) x 1.2 for tokenizer differences, x 1.4 more for thinking, before any caching saving; the pilot measures it.",
+  "dev_seed": 20269201,
+  "label": "LIVE MODEL RUN (study W2-C: the C4 grid, claude-haiku-5-5, native tool use, thinking on)",
+  "max_calls": 13000,
+  "max_equiv_usd": 1.85,
+  "model": "claude-haiku-5-5",
+  "planning": {
+    "calls_per_run": 25,
+    "estimate_usd": 1.65,
+    "proposed_cap_usd": 1.85,
+    "usd_per_call": 0.0001833
+  },
+  "prices_usd_per_mtok": {
+    "cache_read": 0.01,
+    "cache_write": 0.125,
+    "input": 0.1,
+    "output": 0.5,
+    "source": "Anthropic pricing page (platform.claude.com/docs/en/about-claude/pricing), read 2026-10-27: Claude Haiku 5.5, prompts up to 100,000 tokens; 5-minute cache writes."
+  },
+  "request_options": {
+    "cache_control": {
+      "type": "ephemeral"
+    },
+    "max_tokens": 8000,
+    "thinking": {
+      "type": "adaptive"
+    }
+  },
+  "run_name": "w2c-c4-claude-haiku-5-5-t1",
+  "runs_per_cell": 30,
+  "thresholds": {
+    "cont_s_ci_lo": 0.1,
+    "cont_s_min": 0.25,
+    "cred_l_ci_hi": 0.2,
+    "cred_l_max": 0.1,
+    "kill_s_ci_hi": 0.2,
+    "kill_s_ci_lo": -0.2,
+    "kill_s_max": 0.1,
+    "max_protocol_failure": 0.1,
+    "max_unclassifiable": 0.1,
+    "min_completion": 0.95,
+    "min_engagement": 0.9,
+    "self_l_ci_lo": 0.0,
+    "self_l_min": 0.15
+  },
+  "timeout_seconds": 120,
+  "transport": "anthropic_messages_native",
+  "workers": 10,
+  "worst_case_usd_per_call": 0.005
+}

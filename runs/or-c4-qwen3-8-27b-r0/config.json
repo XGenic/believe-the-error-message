@@ -1,0 +1,56 @@
+{
+  "base_seed": 20261201,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20261201,
+  "cost_note": "Owner's choice 2026-10-22 (PROTOCOL_W2.md): cap $10, 3x the pre-pilot estimate. The binding limit is the account's $20 credit; see PROTOCOL_W2.md, Budget.",
+  "dev_seed": 20269201,
+  "expected_host": "DeepInfra",
+  "label": "LIVE MODEL RUN (study W2-A) (W2 open-weight panel: C4 through OpenRouter, Alibaba (Qwen), reasoning r0 = {\"effort\": \"none\"})",
+  "max_calls": 12000,
+  "max_equiv_usd": 10.0,
+  "model": "qwen/qwen3.8-27b",
+  "pass_reasoning_back": false,
+  "planning": {
+    "calls_per_run": 25,
+    "proposed_cap_usd": 10,
+    "usd_per_call": 0.000341
+  },
+  "prices_usd_per_mtok": {
+    "input": 0.15,
+    "output": 1.88,
+    "source": "DeepInfra (bf16) on the OpenRouter endpoints listing, read 2026-10-22. Planning and fallback only; recorded cost is OpenRouter's billed usage.cost."
+  },
+  "provider": {
+    "order": [
+      "deepinfra/bf16"
+    ]
+  },
+  "request_options": {
+    "max_tokens": 2000,
+    "reasoning": {
+      "effort": "none"
+    },
+    "temperature": 1.0
+  },
+  "run_name": "or-c4-qwen3-8-27b-r0",
+  "runs_per_cell": 30,
+  "thresholds": {
+    "cont_s_ci_lo": 0.1,
+    "cont_s_min": 0.25,
+    "cred_l_ci_hi": 0.2,
+    "cred_l_max": 0.1,
+    "kill_s_ci_hi": 0.2,
+    "kill_s_ci_lo": -0.2,
+    "kill_s_max": 0.1,
+    "max_protocol_failure": 0.1,
+    "max_unclassifiable": 0.1,
+    "min_completion": 0.95,
+    "min_engagement": 0.9,
+    "self_l_ci_lo": 0.0,
+    "self_l_min": 0.15
+  },
+  "timeout_seconds": 180,
+  "transport": "openrouter_chat_native",
+  "workers": 10,
+  "worst_case_usd_per_call": 0.0042
+}
