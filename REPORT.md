@@ -42,7 +42,7 @@ When a tool call fails, the error message usually states a cause. We varied the 
    - No arm was COST_AWARE. On most of them the plain caution was not costly to begin with.
    - On DeepSeek with reasoning, "a few *different* attempts" made the agent malform its calls, and it lost 17% of requests whose "temporary" was true (HARMS_TRUE_TEMPORARY).
 
-12. **Naming the count makes the stopping rule work across models** (W6, pre-registered, five subjects, three wordings).
+12. **Naming the count makes the stopping rule work across models** (W6, pre-registered, five subjects, three wordings; every rule follows the caution sentence, and the count matches this environment, where faults clear on the third call).
    - "If the same error comes back on three attempts in a row, accept it" rescued the give-up trap on every subject (81–100% success) at 1.7–3.1 calls on a true outage: RECOMMENDABLE on 5 of 5, so ROBUST.
    - "A few different attempts" was RECOMMENDABLE on 2 of 5, and "a few attempts" on 3 of 5.
    - The price of "three in a row": it does nothing for the retry trap (0–2% solved), where "different" helps a little (up to 26%).
@@ -509,6 +509,7 @@ For an agent like GPT-6-luna, in a setting like this one:
   - In mixed conversations its average gain is small, about 4 points of overall success, and it costs a few true-"format" successes.
   - Treat it as cheap insurance, not a large average win.
   - **Name the count.** "A few different attempts" raised give-up-trap success by only 20–76 points on the open-weight models (W2-B, W6), and on DeepSeek with reasoning it made the agent malform its calls. "Three attempts in a row" raised it by 69–100 points on every subject.
+  - **Set the count from your own tools.** Here the transient fault always clears on the third call, so three is the right number by construction. The rule was always tested together with the caution sentence, never alone, and it has not been compared with a retry policy written in code.
   - **It does not fix the retry trap.** No wording does; "different" helps a little (up to 26%) at the risk of malformed calls.
 
 ## 9. Reproducing

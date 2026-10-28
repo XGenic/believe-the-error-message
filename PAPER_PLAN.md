@@ -1,5 +1,7 @@
 # Plan: from C4 to a submittable paper
 
+> **Historical snapshot.** This plan was written on 2026-10-20 and is kept as it was then, with its spending figures of that date. It has not been updated since. Since then: W2 (the open-weight panel, and Claude Haiku 5.5 through the Anthropic API), W5 (reasoning effort) and W6 (wordings of the stopping rule) are done; W3 (benchmark injection) and the frontier models are not. For the current state see [`README.md`](README.md), [`REPORT.md`](REPORT.md) and [`NOTEBOOK.md`](NOTEBOOK.md).
+
 **Status, 2026-10-20.** This is a plan, not a commitment. **Phase 1 (W0, W1, W4) is done; see §9.** Later phases have no budget yet. Each workstream that spends money needs its own approval, frozen protocol and pilot, as C4 and E1–E5 had. The current results are in [`REPORT.md`](REPORT.md).
 
 ## 1. The claim the paper would make

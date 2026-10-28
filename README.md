@@ -1,8 +1,8 @@
 # Do LLM agents believe the error message?
 
-When a tool call fails, the error message usually states a cause: "invalid format", "temporarily unavailable", "not found". This project tests whether LLM agents choose how to recover from the cause the message **states**, or from the cause that is **true**. It varies the two independently in a small simulated stock-lookup tool.
+When a tool call fails, the error message usually states a cause: "invalid format", "temporarily unavailable", "not found". An agent cannot see the true fault, so treating that cause as evidence is reasonable. This project tests whether LLM agents keep testing it: whether they revise a **stated** cause when their own calls contradict it, or recover by it regardless of the **true** one. It varies the two independently in a small simulated stock-lookup tool.
 
-**Short answer: they follow the stated cause, and two traps follow from it.** One sentence in the agent's instructions fixes the worse of the two on every model tested.
+**Short answer: they act on the stated cause and rarely revise it, and two traps follow.** A brief caution paired with a counted stopping rule fixes the worse of the two on every model tested, in this environment.
 
 Results to 2026-10-28: 13 pre-registered studies on 5 models from 4 developers (13 model-and-setting arms), about $65 of API spend. **Paper draft:** [`paper/PAPER.md`](paper/PAPER.md) (preprint draft, not peer reviewed). The consolidated write-up is [`REPORT.md`](REPORT.md).
 
@@ -25,7 +25,7 @@ Both patterns occur in production systems: [`ERROR_AUDIT.md`](ERROR_AUDIT.md) do
 | The retry trap holds | At most 10% solved on 12 of 13 arms (highest 16%) |
 | The give-up trap holds | At most 10% solved on 11 of 13 arms (highest 14%) |
 | Repeated identical errors teach nothing | 0 of 216 trap requests solved in 18-request conversations (Haiku, Luna) |
-| One sentence fixes the give-up trap | "If the same error comes back on three attempts in a row, accept it" passed the pre-set bar on 7 of 7 model arms: 81–100% success, at no more than 3.1 calls on a real outage |
+| A caution plus a counted stopping rule fixes the give-up trap | "Error messages … do not always state the true cause of a failure. If the same error comes back on three attempts in a row, accept it." passed the pre-set bar on 7 of 7 model arms: 81–100% success, at no more than 3.1 calls on a real outage. The rule was always tested after the caution, and its count matches this environment, where faults clear on the third call |
 | The wording matters | "After a few different attempts" passed on 3 of 7, and made one model send malformed calls |
 | The first failure is the worst case, on some models | GPT-6-luna stopped at once on 60 of 60 first "unavailable" messages, and on 2 of 60 after one earlier error had cleared; Claude Haiku 5.5 shows no such effect |
 | Light reasoning does not help | Luna at high reasoning effort, and Haiku with thinking on: the same traps |
