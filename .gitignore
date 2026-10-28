@@ -14,3 +14,4 @@ runs/*/subject_cwd/
 __pycache__/
 *.py[cod]
 runs/*/cache/
+PAPER_PLAN.md
