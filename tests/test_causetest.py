@@ -1401,6 +1401,82 @@ class TestStudyW5(unittest.TestCase):
                     make_transport(dict(cfg, max_equiv_usd=0.0), Path(tmp), live=True)
 
 
+class TestStudyW2D(unittest.TestCase):
+    """Study W2-D: GPT-6.1 Sol through native tool calls (PROTOCOL_W2D.md)."""
+    SOURCES = TestStudyW2C.SOURCES
+    PRICES = {"input": 2.0, "cached_input": 0.10, "cache_write": 2.50, "output": 10.0}
+
+    def test_configs(self):
+        paths = sorted((DIR / "configs").glob("live_w2d_*.json"))
+        self.assertEqual([p.stem for p in paths], ["live_w2d_c4_sol_high", "live_w2d_c4_sol_low", "live_w2d_e5_sol_high",
+                                                   "live_w2d_e5_sol_low", "live_w2d_w6_sol_low"])
+        caps = 0.0
+        for path in paths:
+            cfg = load_config(path)
+            design, arm = path.stem.split("_")[2], path.stem.split("_")[-1]
+            src = load_config(DIR / "configs" / self.SOURCES[design])
+            for k in ("design", "cells", "n_tasks", "base_seed", "dev_seed", "runs_per_cell", "thresholds",
+                      "bootstrap_seed", "bootstrap_reps", "transport"):
+                self.assertEqual(cfg.get(k), src.get(k), f"{path.name}: {k} differs from {self.SOURCES[design]}")
+            self.assertEqual(cfg["model"], "gpt-6.1-sol")
+            self.assertEqual({k: v for k, v in cfg["prices_usd_per_mtok"].items() if k != "source"}, self.PRICES)
+            opts = cfg["request_options"]
+            self.assertEqual(opts, {"max_output_tokens": 2000 if arm == "low" else 8000, "reasoning": {"effort": arm}})
+            if arm == "low":  # the same request as Luna's, apart from the model
+                self.assertEqual(opts, src["request_options"])
+            self.assertGreaterEqual(cfg["max_calls"], len(cells_for(cfg)) * cfg["runs_per_cell"] * cfg.get("n_tasks", 6) * 6)
+            self.assertLessEqual(cfg["max_equiv_usd"], cfg["planning"]["proposed_cap_usd"])
+            caps += cfg["planning"]["proposed_cap_usd"]
+            with tempfile.TemporaryDirectory() as tmp:
+                with self.assertRaises(RuntimeError):
+                    make_transport(cfg, Path(tmp), live=False)
+                with self.assertRaises(RuntimeError):
+                    make_transport(dict(cfg, max_equiv_usd=0.0), Path(tmp), live=True)
+        self.assertLessEqual(round(caps, 2), 80.0)  # the owner's approval: $80 in all, pilots included
+
+    def test_cache_pricing(self):
+        from causetest.transports import OpenAINativeTransport
+        usage = {"input_tokens": 10_000, "output_tokens": 100,
+                 "input_tokens_details": {"cached_tokens": 6_000, "cache_write_tokens": 1_000}}
+        sol = OpenAINativeTransport("m", {}, self.PRICES)
+        self.assertAlmostEqual(sol.cost(usage), (3_000 * 2.0 + 6_000 * 0.10 + 1_000 * 2.50 + 100 * 10.0) / 1e6)
+        luna = OpenAINativeTransport("m", {}, {"input": 0.1, "cached_input": 0.01, "output": 0.5})
+        self.assertAlmostEqual(luna.cost(usage), (10_000 * 0.1 + 100 * 0.5) / 1e6)  # earlier runs: unchanged
+
+    def test_retries(self):
+        import io
+        import urllib.error
+        from unittest import mock
+        from causetest.transports import OpenAINativeTransport
+        answer = {"id": "resp_1", "model": "gpt-6.1-sol", "status": "completed",
+                  "output": [{"type": "message", "content": [{"type": "output_text", "text": "ANSWER UNKNOWN"}]}],
+                  "usage": {"input_tokens": 10, "output_tokens": 2}}
+
+        def error(code, body=b'{"error": "test-key slow down"}'):
+            return urllib.error.HTTPError("u", code, "x", {}, io.BytesIO(body))
+        calls = [0]
+
+        def flaky(req, timeout=None, context=None):
+            calls[0] += 1
+            if calls[0] <= 2:
+                raise error(429 if calls[0] == 1 else 503)
+            return io.BytesIO(json.dumps(answer).encode())
+        conv = OpenAINativeTransport("m", {}, self.PRICES).open("k", "sys")
+        with mock.patch.dict(os.environ, {"OPENAI_API_KEY": "test-key"}), mock.patch("time.sleep"), \
+                mock.patch("urllib.request.urlopen", flaky):
+            reply, meta = conv.say("New request: one")
+        self.assertEqual(reply, "ANSWER UNKNOWN")
+        self.assertEqual((meta["rate_limit_retries"], meta["server_retries"]), (1, 1))
+        self.assertEqual((meta["response_id"], meta["served_model"]), ("resp_1", "gpt-6.1-sol"))
+        for exc in (error(429, b'{"error": {"code": "insufficient_quota", "key": "test-key"}}'), error(400)):
+            conv = OpenAINativeTransport("m", {}, self.PRICES).open("k", "sys")
+            with mock.patch.dict(os.environ, {"OPENAI_API_KEY": "test-key"}), mock.patch("time.sleep") as slept, \
+                    mock.patch("urllib.request.urlopen", side_effect=exc), self.assertRaises(RuntimeError) as ctx:
+                conv.say("New request: one")
+            slept.assert_not_called()  # exhausted quota and client errors are not retried
+            self.assertNotIn("test-key", str(ctx.exception))  # the key is redacted from error text
+
+
 class TestPanel(unittest.TestCase):
     """The panel table (causetest/panel.py): descriptive, read from committed summaries."""
 

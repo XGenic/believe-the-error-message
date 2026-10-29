@@ -28,6 +28,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 - **Preprint draft:** [`paper/PAPER.md`](paper/PAPER.md).
 - **Anthropic External Researcher Access:** a proposal for $1,000 to run Claude Sonnet 5.5, Opus 5.5 and Fable 5.1; the owner submits it before the November 2 review.
 - **Keeping the two in step:** this folder is the source. Changes are made here, then copied to the public repository.
+- **Study W2-D (GPT-6.1 Sol) is frozen and approved at $80** (see its section below). It waits for its public registration.
 
 ## Earlier note: study W2-C done (2026-10-28)
 
@@ -116,7 +117,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 
 ## Status
 
-- **Instrument:** built and tested. All 79 unit tests pass (C4, extensions E1–E5, studies H1, W2-B, W2-C, W5 and W6, the panel table, the Anthropic transport, the Luna settings, reproducibility, native tool calling, and the OpenRouter transport).
+- **Instrument:** built and tested. All 82 unit tests pass (C4, extensions E1–E5, studies H1, W2-B, W2-C, W2-D, W5 and W6, the panel table, the Anthropic transport, the Luna settings, reproducibility, native tool calling, and the OpenRouter transport).
   - Forty scripted agents give the expected verdicts at the planned sizes. See [`runs/validation/VALIDATION.md`](runs/validation/VALIDATION.md).
     - C4's six are credulous, credulous-superstitious, evidence learner, message-blind, non-engager and format violator.
     - E1's four are credulous, slow learner, entrencher and non-engager.
@@ -1383,6 +1384,30 @@ All six runs completed (600 of 600 in W6 with thinking on, after the runner's si
 | Format: S DIFFERENT from the text-format run, traps SAME | **held** (+0.35) |
 
 **Spend:** $2.65 on the Anthropic key (pilots $0.08, main runs $2.57), against the $10 approved. Prompt caching supplied 87–95% of input tokens.
+
+## Study W2-D: GPT-6.1 Sol through native tool calls (frozen; [`PROTOCOL_W2D.md`](PROTOCOL_W2D.md))
+
+**Owner's request, 2026-10-28:** "draft the Sol protocol". It is paid for by OpenAI API credit that comes with the owner's Pro subscription ($77 this month, shown as API credit on the owner's platform account).
+
+- **Designs:** the C4 grid, E5 and W6, each exactly as already run on Luna through native calls (same cells, seeds and decision rules).
+- **Arms:** reasoning effort `low` (the panel's Luna setting; C4, E5 and W6) and `high` (C4 and E5). Sol has no `none` effort.
+- **Transport:** `openai_responses_native`, unchanged in what the model sees. New: cached input and cache writes are priced at their own rates, so recorded cost tracks the bill, and unbilled failures (429, 5xx, timeouts) are retried and counted.
+- **Primary:** the C4 verdict at `low`. Secondary: E5, W6's wordings, `high` against `low`, Sol against Luna, and reasoning tokens per call.
+- **First public registration:** the protocol, configs and code go to the public repository as a GitHub release (`w2d-protocol`) and to OSF before any call, the pilots included.
+
+**Status: frozen; caps set (below). Waiting for the public registration; no call yet.**
+
+- **Owner's approval, 2026-10-28, before any W2-D call:** "You can actually cap it $80 since I have abour $82 in credit right now. We have until November 9th before the new credit lapses". The frozen draft proposed $75; the caps below raise it to $80, each covering that config's pilot and main run.
+- **Next:** the public registration (a GitHub release and OSF), then the pilots. Main runs go in the protocol's order of priority (C4 `low`, E5 `low`, W6 `low`, C4 `high`, E5 `high`).
+
+| Config | Estimate | Cap |
+|---|---|---|
+| C4, `low` | $13.40 | $15 |
+| E5, `low` | $4.19 | $6 |
+| W6, `low` | $24.54 | $28 |
+| C4, `high` | $24.47 | $23 |
+| E5, `high` | $7.55 | $8 |
+| **Total** | **$74.15** | **$80** |
 
 ## Decisions for the owner
 

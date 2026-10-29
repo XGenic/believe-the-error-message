@@ -165,21 +165,72 @@ def _openai_post(url: str, body: Dict[str, Any]) -> Tuple[Dict[str, Any], float]
             payload = json.loads(resp.read().decode())
     except urllib.error.HTTPError as exc:
         detail = exc.read().decode(errors="replace")[:400].replace(key, "[REDACTED]")
-        raise RuntimeError(f"HTTP {exc.code} from provider: {detail}") from None
+        raise _OpenAIHTTPError(exc.code, f"HTTP {exc.code} from provider: {detail}") from None
     return payload, time.monotonic() - started
 
 
+class _OpenAIHTTPError(RuntimeError):
+    """An HTTP error from the OpenAI API, its key already redacted. A RuntimeError, as before, for callers that
+    do not retry."""
+
+    def __init__(self, code: int, message: str):
+        super().__init__(message)
+        self.code = code
+
+
 class OpenAINativeTransport:
-    """The OpenAI Responses API with native function calling (paper plan W1)."""
+    """The OpenAI Responses API with native function calling (paper plan W1).
+
+    Cost: when the config's prices include `cache_write` (study W2-D on), each response's cached and cache-write
+    input tokens are priced at their own rates. Without it, all input is priced at the uncached rate, as in every
+    earlier OpenAI run, and the recorded cost is an upper bound."""
     label = "openai_responses_native"
     is_mock = False
     URL = "https://api.openai.com/v1/responses"
+    RETRY_WAITS = (2, 4, 8, 16, 30, 30)  # seconds before each retry of an unbilled failure
+    RETRY_CODES = {429: "rate_limit", 500: "server", 502: "server", 503: "server", 504: "server"}
 
     def __init__(self, model: str, options: Dict[str, Any], prices: Dict[str, float]):
         self.model, self.options, self.prices = model, options, prices
 
     def open(self, conv_key: str, system: str, crn_seed: Optional[int] = None) -> "OpenAINativeConversation":
         return OpenAINativeConversation(self, system)
+
+    def cost(self, usage: Dict[str, Any]) -> float:
+        p = self.prices
+        inp, out = usage.get("input_tokens", 0), usage.get("output_tokens", 0)
+        if "cache_write" not in p:
+            return (inp * p["input"] + out * p["output"]) / 1e6
+        d = usage.get("input_tokens_details") or {}
+        cached, written = d.get("cached_tokens") or 0, d.get("cache_write_tokens") or 0
+        return (max(inp - cached - written, 0) * p["input"] + cached * p["cached_input"]
+                + written * p["cache_write"] + out * p["output"]) / 1e6
+
+    def post(self, body: Dict[str, Any]) -> Tuple[Dict[str, Any], float, Dict[str, int]]:
+        """The response, its latency and the retries by kind. Rate limits (429), server errors (5xx) and socket
+        timeouts come back before any output and are retried with backoff and counted; a 429 for exhausted quota
+        is not retried. Any other error fails the call."""
+        retries = {kind: 0 for kind in ("rate_limit", "server", "timeout")}
+        for wait in self.RETRY_WAITS + (None,):
+            try:
+                payload, latency = _openai_post(self.URL, body)
+                return payload, latency, retries
+            except _OpenAIHTTPError as exc:
+                detail = str(exc)
+                if exc.code not in self.RETRY_CODES or "insufficient_quota" in detail:
+                    raise RuntimeError(f"{detail} (retries so far: {retries})") from None
+                kind = self.RETRY_CODES[exc.code]
+            except urllib.error.URLError as exc:  # a socket timeout while connecting arrives wrapped
+                if not isinstance(exc.reason, TimeoutError):
+                    raise
+                kind, detail = "timeout", f"client timeout: {exc.reason}"
+            except TimeoutError as exc:
+                kind, detail = "timeout", f"client timeout: {exc}"
+            if wait is None:
+                raise RuntimeError(f"{detail} (retries so far: {retries})")
+            retries[kind] += 1
+            time.sleep(wait)
+        raise AssertionError("unreachable")
 
 
 class OpenAINativeConversation:
@@ -209,14 +260,18 @@ class OpenAINativeConversation:
         body = {"model": self.t.model, "input": self.items, "store": False, "parallel_tool_calls": False,
                 "tools": [dict(TOOL_SPEC, type="function", strict=True)]}
         body.update({k: v for k, v in self.t.options.items() if v is not None})
-        payload, latency = _openai_post(self.t.URL, body)
+        payload, latency, retries = self.t.post(body)
         output = payload.get("output", [])
         calls = [i for i in output if i.get("type") == "function_call"]
         said = "".join(c.get("text", "") for i in output if i.get("type") == "message"
                        for c in i.get("content", []) if c.get("type") == "output_text")
         u = payload.get("usage") or {}
-        cost = (u.get("input_tokens", 0) * self.t.prices["input"] + u.get("output_tokens", 0) * self.t.prices["output"]) / 1e6
-        meta: Dict[str, Any] = {"cost_usd": cost, "usage": u, "latency_seconds": latency, "native_calls": len(calls)}
+        meta: Dict[str, Any] = {"cost_usd": self.t.cost(u), "usage": u, "latency_seconds": latency,
+                                "native_calls": len(calls)}
+        if "cache_write" in self.t.prices:  # W2-D on: the fields W2-C records for the Anthropic runs
+            meta.update({"response_id": payload.get("id"), "served_model": payload.get("model"),
+                         "status": payload.get("status")})
+            meta.update({f"{kind}_retries": n for kind, n in retries.items()})
         if not calls:
             self.items.append({"role": "assistant", "content": said})
             return said, meta
