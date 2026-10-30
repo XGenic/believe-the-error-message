@@ -184,6 +184,26 @@
 - verdict: got INVALID -> ok
 - invalid_reason: got did not engage -> ok
 
+## mock-p1-blind: PASS
+- verdict: got VALID -> ok
+- verdict primary: got NOT_TESTABLE -> ok
+
+## mock-p1-generalizes: PASS
+- verdict: got VALID -> ok
+- verdict primary: got GENERALIZES -> ok
+
+## mock-p1-keyword: PASS
+- verdict: got VALID -> ok
+- verdict primary: got SPECIFIC -> ok
+
+## mock-p1-non_engager: PASS
+- verdict: got INVALID -> ok
+- invalid_reason: got did not engage -> ok
+
+## mock-p1-partial: PASS
+- verdict: got VALID -> ok
+- verdict primary: got PARTIAL -> ok
+
 ## mock-r1-counts: PASS
 - verdict: got VALID -> ok
 - verdict primary: got WORSE_THAN_CODE -> ok

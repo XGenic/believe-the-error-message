@@ -672,6 +672,76 @@
     "passed": true
   },
   {
+    "run_name": "mock-p1-blind",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict primary": [
+        "NOT_TESTABLE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-p1-generalizes",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict primary": [
+        "GENERALIZES",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-p1-keyword",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict primary": [
+        "SPECIFIC",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-p1-non_engager",
+    "checks": {
+      "verdict": [
+        "INVALID",
+        true
+      ],
+      "invalid_reason": [
+        "did not engage",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-p1-partial",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict primary": [
+        "PARTIAL",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
     "run_name": "mock-r1-counts",
     "checks": {
       "verdict": [

@@ -1,0 +1,50 @@
+{
+  "design": "P1",
+  "cells": [
+    "original|permanent|transient",
+    "on_record|permanent|transient",
+    "not_available|permanent|transient",
+    "code_404|permanent|transient",
+    "original|neutral|transient",
+    "not_completed|neutral|transient"
+  ],
+  "base_seed": 20262201,
+  "runs_per_cell": 30,
+  "dev_seed": 20262921,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20262201,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1
+  },
+  "run_name": "p1-gpt-6-1-sol-low",
+  "label": "LIVE MODEL RUN (study P1: rewordings of the error message, gpt-6.1-sol, native tool calls, reasoning low)",
+  "transport": "openai_responses_native",
+  "model": "gpt-6.1-sol",
+  "request_options": {
+    "max_output_tokens": 2000,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "prices_usd_per_mtok": {
+    "input": 2.0,
+    "cached_input": 0.1,
+    "cache_write": 2.5,
+    "output": 10.0,
+    "source": "OpenAI model page (developers.openai.com/api/docs/models/gpt-6.1-sol), read 2026-10-28."
+  },
+  "worst_case_usd_per_call": 0.03,
+  "max_calls": 6480,
+  "max_equiv_usd": 5.5,
+  "planning": {
+    "calls_per_run": 20,
+    "usd_per_run": 0.021056,
+    "estimate_usd": 3.79,
+    "proposed_cap_usd": 5.5
+  },
+  "cost_note": "Study P1 (PROTOCOL_P1.md). Settings as live_w2d_c4_sol_low.json. Estimate: the subject's measured cost per run in that run's give-up trap (for the four 'unavailable' wordings) and neutral transient cell (for the two neutral ones); the pilot measures it. The cap covers the pilot and the main run."
+}

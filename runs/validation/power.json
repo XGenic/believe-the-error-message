@@ -339,6 +339,45 @@
       "KILL_WORDING_IRRELEVANT": 20
     }
   },
+  "mock-p1-generalizes@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "GENERALIZES": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-p1-generalizes",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-p1-keyword@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "SPECIFIC": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-p1-keyword",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-p1-partial@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "PARTIAL": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-p1-partial",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
   "mock-r1-counts@30": {
     "contrast_verdicts": {
       "primary": {
@@ -545,6 +584,19 @@
     "runs_per_cell": 30,
     "verdicts": {
       "CARRYOVER": 20
+    }
+  },
+  "power-p1-weak@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "GENERALIZES": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "power-p1-weak",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
     }
   },
   "power-r1-weak@30": {

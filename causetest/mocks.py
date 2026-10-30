@@ -35,6 +35,9 @@ request after `bound_calls` calls (default 3) with that chance per request. Stud
 sets that number per wording (keyed by the arm whose stopping rule is in the prompt). Study R1: with `bound_claims`,
 the rule applies only after those error texts (for instance "permanent", so a true "temporary" is retried on).
 
+Study P1 wording: `claim_texts` maps an exact error text to the claim the agent reads in it, before the keyword
+rule. Without it, a reworded "unavailable" with none of the keywords reads as neutral.
+
 Extension E5 experience: with `persist_after_clear`, once the agent has seen an error clear (a success after
 a failure, in an earlier request), it drops STOP for the blind script under "unavailable" with that chance.
 With `persist_after_failures`, the same happens once it has seen any request with two or more failures.
@@ -174,6 +177,10 @@ class ScriptedAgent:
             p = max(p, self.p.get("instruction_effect", 0.0))
         return p
 
+    def _claim(self, body: str) -> str:
+        """The claim the agent reads in an error text: study P1's `claim_texts` first, then the keywords."""
+        return self.p.get("claim_texts", {}).get(body, claim_of(body))
+
     def _withdraws(self) -> bool:
         """H1: answer without calling, from experience in earlier requests only. No draw unless a trigger holds."""
         p = self.p
@@ -214,12 +221,12 @@ class ScriptedAgent:
         self.total_failed_calls += 1
         if t["plan"] is None:  # first failure in this request: choose the strategy
             experienced = 0.0  # E5: chance of persisting under "unavailable", from earlier requests only
-            if claim_of(body) == "permanent":
+            if self._claim(body) == "permanent":
                 if self.saw_clear:
                     experienced = max(experienced, self.p.get("persist_after_clear", 0.0))
                 if self.saw_persist:
                     experienced = max(experienced, self.p.get("persist_after_failures", 0.0))
-            t["claim"] = claim_of(body)
+            t["claim"] = self._claim(body)
             t["plan"] = list(self._plan_for(t["claim"]))
             p_claim = self.p.get("p_claim", 1.0)
             if "entrench" in self.p:  # follows the claim more after every request that ended without the figure

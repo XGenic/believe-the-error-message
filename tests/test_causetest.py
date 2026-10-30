@@ -1592,6 +1592,88 @@ class TestStudyR1(unittest.TestCase):
         self.assertEqual(calls_label(None, (None, None), th), "NOT_ESTIMABLE")
 
 
+class TestStudyP1(unittest.TestCase):
+    """Study P1: rewordings of the "unavailable" and neutral error texts (PROTOCOL_P1.md)."""
+
+    def test_wordings(self):
+        from causetest.p1 import NEUTRAL, UNAVAILABLE, message_for
+        self.assertEqual((UNAVAILABLE["original"], NEUTRAL["original"]), (CLAIM_TEXT["permanent"], CLAIM_TEXT["neutral"]))
+        texts = list(UNAVAILABLE.values()) + list(NEUTRAL.values())
+        self.assertEqual(len(set(texts)), len(texts))
+        words = set(re.findall(r"[a-z]+", " ".join(texts).lower()))
+        for leaked in ("claim", "fault", "cell", "misleading", "accurate", "neutral", "experiment", "test", "trap",
+                       "transient", "permanent", "convention", "spelling", "temporary", "try", "again", "check",
+                       "retry", "wait", "later", "format", "written"):
+            self.assertNotIn(leaked, words, leaked)  # causal statements only: no instruction, no other cause
+        for t in texts:
+            self.assertTrue(t.startswith("ERROR"))
+        self.assertEqual(message_for("code_404", "permanent"), UNAVAILABLE["code_404"])
+        env = ToolEnv(W, "permanent", "transient", UNAVAILABLE["on_record"])
+        self.assertEqual(env.call(0, _args())[1], UNAVAILABLE["on_record"])  # shown in place of the C4 text
+        self.assertTrue(env.call(2, _args())[0])  # the fault is still the C4 transient fault
+
+    def test_cells_and_configs(self):
+        from causetest.p1 import valid_cell
+        self.assertTrue(valid_cell("code_404", "permanent", "transient"))
+        self.assertFalse(valid_cell("code_404", "neutral", "transient"))
+        self.assertFalse(valid_cell("original", "permanent", "fixable"))
+        paths = sorted((DIR / "configs").glob("live_p1_*.json"))
+        self.assertEqual([p.stem for p in paths], ["live_p1_deepseek_r1", "live_p1_haiku_t1", "live_p1_luna_low",
+                                                   "live_p1_sol_low"])
+        others = [load_config(p) for p in (DIR / "configs").glob("*.json") if "_p1_" not in p.name]
+        caps = {p.stem: load_config(p)["max_equiv_usd"] for p in paths}
+        self.assertLessEqual(round(sum(caps.values()), 2), 7.30)  # the owner's approval of 2026-10-30
+        self.assertLessEqual(caps["live_p1_sol_low"] + caps["live_p1_luna_low"], 20.84)  # OpenAI credit left
+        for path in paths:
+            cfg = load_config(path)
+            src_name = cfg["cost_note"].split("Settings as ")[1].split(".json")[0] + ".json"
+            src = load_config(DIR / "configs" / src_name)
+            self.assertNotIn("design", src)  # a C4 grid run
+            for k in ("transport", "model", "request_options", "prices_usd_per_mtok", "provider", "expected_host",
+                      "timeout_seconds", "pass_reasoning_back", "worst_case_usd_per_call"):
+                self.assertEqual(cfg.get(k), src.get(k), f"{path.name}: {k} differs from {src_name}")
+            self.assertEqual({k: v for k, v in src["thresholds"].items() if k in cfg["thresholds"]}, cfg["thresholds"])
+            self.assertEqual((cfg["design"], len(cells_for(cfg))), ("P1", 6))
+            self.assertEqual((cfg["base_seed"], cfg["dev_seed"]), (20262201, 20262921))
+            for o in others:  # new seeds: no earlier study's worlds
+                self.assertFalse(o["base_seed"] <= cfg["base_seed"] < o["base_seed"] + 60, o["run_name"])
+                self.assertNotEqual(o.get("dev_seed"), cfg["dev_seed"], o["run_name"])
+            self.assertGreaterEqual(cfg["max_calls"], len(cells_for(cfg)) * cfg["runs_per_cell"] * 36)
+            self.assertLessEqual(cfg["max_equiv_usd"], cfg["planning"]["proposed_cap_usd"])
+            with tempfile.TemporaryDirectory() as tmp:
+                with self.assertRaises(RuntimeError):
+                    make_transport(cfg, Path(tmp), live=False)
+                with self.assertRaises(RuntimeError):
+                    make_transport(dict(cfg, max_equiv_usd=0.0), Path(tmp), live=True)
+
+    def test_run_shows_each_wording(self):
+        from causetest.p1 import message_for
+        cfg = dict(load_config(DIR / "configs" / "mock_p1_generalizes.json"), runs_per_cell=2)
+        with tempfile.TemporaryDirectory() as tmp:
+            s = run(cfg, Path(tmp) / "p1", live=False)
+            rows = [json.loads(x) for x in (Path(tmp) / "p1" / "results.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertEqual((s["design"], len(rows)), ("P1", 12))
+        for r in rows:
+            shown = {u["tool"]["result"] for t in r["tasks"] for u in t["turns"] if "tool" in u and not u["tool"]["ok"]}
+            self.assertEqual(shown, {message_for(r["arm"], r["claim"])})
+
+    def test_decision_rule(self):
+        from causetest.p1 import subject_verdict
+
+        def v(effects, labels):
+            names = ("original", "on_record", "not_available", "code_404")
+            return subject_verdict({f"effect|{n}": e for n, e in zip(names, effects)},
+                                   {f"effect|{n}": lab for n, lab in zip(names, labels)})
+
+        D, S, U = "DIFFERENT", "SAME", "UNCLEAR"
+        self.assertEqual(v((-0.9, -0.9, -0.8, -0.7), (D, D, D, D)), "GENERALIZES")
+        self.assertEqual(v((-0.9, -0.9, -0.1, -0.7), (D, D, S, D)), "PARTIAL")
+        self.assertEqual(v((-0.9, -0.1, 0.0, -0.1), (D, U, S, U)), "SPECIFIC")
+        self.assertEqual(v((-0.9, 0.3, 0.2, 0.2), (D, D, D, D)), "SPECIFIC")  # a rise is not the effect
+        self.assertEqual(v((-0.1, -0.9, -0.9, -0.9), (U, D, D, D)), "NOT_TESTABLE")
+        self.assertEqual(v((-0.9, -0.9, -0.9, None), (D, D, D, "NOT_ESTIMABLE")), "NOT_ESTIMABLE")
+
+
 class TestPanel(unittest.TestCase):
     """The panel table (causetest/panel.py): descriptive, read from committed summaries."""
 

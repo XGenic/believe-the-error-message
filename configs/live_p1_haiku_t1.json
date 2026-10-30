@@ -1,0 +1,54 @@
+{
+  "design": "P1",
+  "cells": [
+    "original|permanent|transient",
+    "on_record|permanent|transient",
+    "not_available|permanent|transient",
+    "code_404|permanent|transient",
+    "original|neutral|transient",
+    "not_completed|neutral|transient"
+  ],
+  "base_seed": 20262201,
+  "runs_per_cell": 30,
+  "dev_seed": 20262921,
+  "workers": 10,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20262201,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1
+  },
+  "run_name": "p1-claude-haiku-5-5-t1",
+  "label": "LIVE MODEL RUN (study P1: rewordings of the error message, claude-haiku-5-5, native tool use, thinking on)",
+  "transport": "anthropic_messages_native",
+  "model": "claude-haiku-5-5",
+  "request_options": {
+    "max_tokens": 8000,
+    "thinking": {
+      "type": "adaptive"
+    },
+    "cache_control": {
+      "type": "ephemeral"
+    }
+  },
+  "prices_usd_per_mtok": {
+    "input": 0.1,
+    "output": 0.5,
+    "cache_write": 0.125,
+    "cache_read": 0.01,
+    "source": "Anthropic pricing page (platform.claude.com/docs/en/about-claude/pricing), read 2026-10-27: Claude Haiku 5.5, prompts up to 100,000 tokens; 5-minute cache writes."
+  },
+  "timeout_seconds": 120,
+  "worst_case_usd_per_call": 0.005,
+  "max_calls": 6480,
+  "max_equiv_usd": 0.6,
+  "planning": {
+    "calls_per_run": 20,
+    "usd_per_run": 0.001222,
+    "estimate_usd": 0.22,
+    "proposed_cap_usd": 0.6
+  },
+  "cost_note": "Study P1 (PROTOCOL_P1.md). Settings as live_w2c_c4_haiku_t1.json. Estimate: the subject's measured cost per run in that run's give-up trap (for the four 'unavailable' wordings) and neutral transient cell (for the two neutral ones); the pilot measures it. The cap covers the pilot and the main run."
+}

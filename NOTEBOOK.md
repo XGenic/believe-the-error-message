@@ -28,6 +28,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 - **Preprint draft:** [`paper/PAPER.md`](paper/PAPER.md).
 - **Anthropic External Researcher Access:** a proposal for $1,000 to run Claude Sonnet 5.5, Opus 5.5 and Fable 5.1; the owner submits it before the November 2 review.
 - **Keeping the two in step:** this folder is the source. Changes are made here, then copied to the public repository.
+- **Study P1 (rewordings of the error message) is frozen and approved at $7.30.** It waits for its public registration; see its section below.
 - **Study R1 (recovery times and a retry in code) is done,** registered publicly before any call ([OSF](https://osf.io/d64ju), and the GitHub release `r1-protocol`). On all four subjects the counted instruction was WORSE_THAN_CODE: a retry of the same count in the tool's client rescued the give-up trap as well, without giving up on accurate "temporary" faults that took longer. The caution sentence added nothing to the rule. Spend $14.11 of the $22.50 approved. See "R1 results" and `REPORT.md` §4.15. Branch `c4-r1-results`.
 - **Study W2-D (GPT-6.1 Sol) is done,** registered publicly before any call ([OSF](https://osf.io/z2pwa), and the GitHub release `w2d-protocol`). Sol is credulous at reasoning `low` and `high`, solves neither trap (0%), shows the first-encounter effect at full size, and every stopping-rule wording is RECOMMENDABLE on it. Spend $44.19 of the $80 approved. See "W2-D results" and `REPORT.md` §4.14. Branch `c4-w2d-results`.
 
@@ -118,8 +119,8 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 
 ## Status
 
-- **Instrument:** built and tested. All 88 unit tests pass (C4, extensions E1–E5, studies H1, R1, W2-B, W2-C, W2-D, W5 and W6, the panel table, the Anthropic transport, the Luna settings, reproducibility, native tool calling, and the OpenRouter transport).
-  - Forty-five scripted agents give the expected verdicts at the planned sizes. See [`runs/validation/VALIDATION.md`](runs/validation/VALIDATION.md).
+- **Instrument:** built and tested. All 92 unit tests pass (C4, extensions E1–E5, studies H1, P1, R1, W2-B, W2-C, W2-D, W5 and W6, the panel table, the Anthropic transport, the Luna settings, reproducibility, native tool calling, and the OpenRouter transport).
+  - Fifty scripted agents give the expected verdicts at the planned sizes. See [`runs/validation/VALIDATION.md`](runs/validation/VALIDATION.md).
     - C4's six are credulous, credulous-superstitious, evidence learner, message-blind, non-engager and format violator.
     - E1's four are credulous, slow learner, entrencher and non-engager.
     - E2's four are deaf, prompt-responsive, instruction-follower and non-engager.
@@ -130,6 +131,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
     - W2-B's three are bounded, unbounded and deaf.
     - W6's five are bounded, different-harms, unbounded, deaf and non-engager.
     - R1's five are counts, matches, unbounded, deaf and non-engager.
+    - P1's five are generalizes, keyword, partial, message-blind and non-engager.
   - This line said "eleven" and "C4's seven" before E2. The configs only ever held six C4 agents.
   - Power is in [`runs/validation/power.json`](runs/validation/power.json).
   - These runs are MOCK and are not evidence about any model.
@@ -1551,6 +1553,30 @@ The owner shared a review of the paper by GPT. Its checkable claims were checked
   - **paper:** a new abstract that leads with the give-up effect; Table 1 gains neutral baselines; §4.1 explains the asymmetry and cites a competing account of the repetition; "learning" language narrowed; §4.5 adds the budget caveat; the advice now covers safe calls only; added limits (one error text per cause, the 8 of 25 audit cases, arms not independent, scripted agents); an AI-assistance disclosure; two references.
   - **REPORT and README:** brought into line.
 - **Not done:** the review's suggested paraphrase study of the error texts. That needs a new protocol and the owner's decision.
+
+## Study P1: does the give-up effect depend on the exact wording of the error? (frozen; [`PROTOCOL_P1.md`](PROTOCOL_P1.md))
+
+**Owner's request, 2026-10-30:** "push it and sync, then draft the rewording study", after the outside review named a rewording study as the most useful single experiment for the paper's main inference.
+
+- **Why:** every study used one sentence per stated cause. The give-up effect, now the paper's lead result, is shown for "ERROR: stock data for this depot is unavailable." against "ERROR: request rejected.", not for other wordings of the same cause.
+- **Design:** C4's transient fault and system prompt, unchanged. Four "unavailable" wordings (the original, `on_record`, `not_available`, `code_404`) and two neutral ones (the original, `not_completed`). 6 cells × 30 runs = 180 runs per subject.
+- **Primary, per subject:** GENERALIZES if every rewording lowers success against the neutral message (DIFFERENT and negative by N1's rule); SPECIFIC if none does; PARTIAL otherwise; NOT_TESTABLE if the original does not.
+- **Subjects:** GPT-6.1 Sol and GPT-6-luna (reasoning `low`), Claude Haiku 5.5 (thinking on) and DeepSeek V4.1 Flash (reasoning on), each with its C4-grid settings. All four showed the effect with the original sentence.
+- **Scope, kept narrow:** one cause reworded, one neutral alternative, four subjects, no new transport. The "temporary" message is not reworded.
+- **Code:** `causetest/p1.py` (the wordings, measures and decision rule), the P1 branch in `causetest/runner.py`, and `claim_texts` in the scripted agents. Five new scripted agents, all with the expected verdicts; power 20/20 for each kind. 92 tests pass; `reproduce` still passes.
+
+**Status: frozen; caps set (below).** Estimates and caps, each covering that subject's pilot and main run:
+
+| Subject | Paid from | Estimate | Proposed cap |
+|---|---|---|---|
+| GPT-6.1 Sol | OpenAI API credit (about $20.84 left; lapses 2026-11-09) | $3.79 | $5.50 |
+| GPT-6-luna | the same credit | $0.22 | $0.60 |
+| Claude Haiku 5.5, thinking on | the Anthropic API key | $0.22 | $0.60 |
+| DeepSeek V4.1 Flash, reasoning on | OpenRouter credit | $0.17 | $0.60 |
+| **Total** | | **$4.40** | **$7.30** |
+
+- **Owner's approval, 2026-10-30, before any P1 call:** "Caps approved, go ahead and publish it". The caps are as proposed ($7.30 in all).
+- **Next:** the public registration (GitHub release `p1-protocol` and OSF) before any call, then the pilots.
 
 ## Decisions for the owner
 

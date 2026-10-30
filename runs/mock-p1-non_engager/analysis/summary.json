@@ -1,0 +1,343 @@
+{
+  "cells": {
+    "code_404|permanent|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "not_available|permanent|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "not_completed|neutral|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "on_record|permanent|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "original|neutral|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "original|permanent|transient": {
+      "calls_per_request": 0,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls_late": 0,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {},
+        "first_response_late": {},
+        "first_response_request1": {},
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    }
+  },
+  "ci": {
+    "effect_vs_second_neutral|code_404": [
+      0.0,
+      0.0
+    ],
+    "effect_vs_second_neutral|not_available": [
+      0.0,
+      0.0
+    ],
+    "effect_vs_second_neutral|on_record": [
+      0.0,
+      0.0
+    ],
+    "effect_vs_second_neutral|original": [
+      0.0,
+      0.0
+    ],
+    "effect|code_404": [
+      0.0,
+      0.0
+    ],
+    "effect|not_available": [
+      0.0,
+      0.0
+    ],
+    "effect|on_record": [
+      0.0,
+      0.0
+    ],
+    "effect|original": [
+      0.0,
+      0.0
+    ],
+    "second_neutral_vs_first": [
+      0.0,
+      0.0
+    ],
+    "vs_original|code_404": [
+      0.0,
+      0.0
+    ],
+    "vs_original|not_available": [
+      0.0,
+      0.0
+    ],
+    "vs_original|on_record": [
+      0.0,
+      0.0
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "NOT_TESTABLE"
+  },
+  "cost": {
+    "agent_calls": 1080,
+    "equiv_usd": 0.0,
+    "from_cache": 0,
+    "runs_recorded": 180
+  },
+  "design": "P1",
+  "estimates": {
+    "effect_vs_second_neutral|code_404": 0.0,
+    "effect_vs_second_neutral|not_available": 0.0,
+    "effect_vs_second_neutral|on_record": 0.0,
+    "effect_vs_second_neutral|original": 0.0,
+    "effect|code_404": 0.0,
+    "effect|not_available": 0.0,
+    "effect|on_record": 0.0,
+    "effect|original": 0.0,
+    "second_neutral_vs_first": 0.0,
+    "vs_original|code_404": 0.0,
+    "vs_original|not_available": 0.0,
+    "vs_original|on_record": 0.0
+  },
+  "label": "MOCK INSTRUMENT VALIDATION, NOT EVIDENCE",
+  "labels": {
+    "effect_vs_second_neutral|code_404": "SAME",
+    "effect_vs_second_neutral|not_available": "SAME",
+    "effect_vs_second_neutral|on_record": "SAME",
+    "effect_vs_second_neutral|original": "SAME",
+    "effect|code_404": "SAME",
+    "effect|not_available": "SAME",
+    "effect|on_record": "SAME",
+    "effect|original": "SAME",
+    "second_neutral_vs_first": "SAME",
+    "vs_original|code_404": "SAME",
+    "vs_original|not_available": "SAME",
+    "vs_original|on_record": "SAME"
+  },
+  "model": "MOCK-p1-non_engager",
+  "n_tasks": 6,
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 180
+  },
+  "transport": "mock",
+  "validity": {
+    "completion": {
+      "code_404|permanent|transient": 1.0,
+      "not_available|permanent|transient": 1.0,
+      "not_completed|neutral|transient": 1.0,
+      "on_record|permanent|transient": 1.0,
+      "original|neutral|transient": 1.0,
+      "original|permanent|transient": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 0.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": null
+  },
+  "verdict": {
+    "reasons": [
+      "tool use on request 1 0.0 below 0.9 in some cell: agents did not engage",
+      "unclassifiable responses None above 0.1"
+    ],
+    "verdict": "INVALID"
+  }
+}
