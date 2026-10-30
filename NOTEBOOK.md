@@ -28,7 +28,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 - **Preprint draft:** [`paper/PAPER.md`](paper/PAPER.md).
 - **Anthropic External Researcher Access:** a proposal for $1,000 to run Claude Sonnet 5.5, Opus 5.5 and Fable 5.1; the owner submits it before the November 2 review.
 - **Keeping the two in step:** this folder is the source. Changes are made here, then copied to the public repository.
-- **Study R1 (recovery times and a retry in code) is frozen and approved at $22.50.** It waits for its public registration; see its section below.
+- **Study R1 (recovery times and a retry in code) is done,** registered publicly before any call ([OSF](https://osf.io/d64ju), and the GitHub release `r1-protocol`). On all four subjects the counted instruction was WORSE_THAN_CODE: a retry of the same count in the tool's client rescued the give-up trap as well, without giving up on accurate "temporary" faults that took longer. The caution sentence added nothing to the rule. Spend $14.11 of the $22.50 approved. See "R1 results" and `REPORT.md` §4.15. Branch `c4-r1-results`.
 - **Study W2-D (GPT-6.1 Sol) is done,** registered publicly before any call ([OSF](https://osf.io/z2pwa), and the GitHub release `w2d-protocol`). Sol is credulous at reasoning `low` and `high`, solves neither trap (0%), shows the first-encounter effect at full size, and every stopping-rule wording is RECOMMENDABLE on it. Spend $44.19 of the $80 approved. See "W2-D results" and `REPORT.md` §4.14. Branch `c4-w2d-results`.
 
 ## Earlier note: study W2-C done (2026-10-28)
@@ -1462,7 +1462,7 @@ All five runs are VALID: complete in every cell, no protocol failures, the tool 
 
 **Spend:** $44.19 of OpenAI API credit, against the $80 approved: pilots $1.35, main runs $42.84 (C4 `low` $10.32, of which $0.49 before the pause; E5 `low` $2.12; W6 `low` $17.73; C4 `high` $10.50; E5 `high` $2.17). Each config stayed within its cap. These are Sol's list prices applied to each response's usage, cache included. The 10 requests in flight at the pause (W2D-1) have no recorded cost, about a cent at most.
 
-## Study R1: does the stopping rule depend on how long faults take to clear? (frozen; [`PROTOCOL_R1.md`](PROTOCOL_R1.md))
+## Study R1: does the stopping rule depend on how long faults take to clear? (done; [`PROTOCOL_R1.md`](PROTOCOL_R1.md))
 
 **Owner's request, 2026-10-29:** after W2-D, the owner asked whether a study of randomized recovery times would have to be run on every model. The answer was no: whether a fixed count is a good policy depends mostly on the environment, and only a few contrasting models are needed for the parts that depend on the model. The owner then said: "If you believe that this is a pragmatic and useful exploration that doesn't result in us aimlessly expanding the scope, then yes, please draft and freeze".
 
@@ -1473,7 +1473,7 @@ All five runs are VALID: complete in every cell, no protocol failures, the tool 
 - **Scope, kept narrow on purpose:** one design, one count, one spread of recovery times, four subjects, no new transport, and no spend beyond money already available.
 - **Code:** `causetest/r1.py` (the recovery-time environment, the client retry, the measures and the decision rule), two arms' text in `causetest/e2.py`, the R1 branch in `causetest/runner.py`, and `bound_claims` in the scripted agents. Five new scripted agents, all with the expected verdicts; power in the protocol. 88 tests pass; `reproduce` still passes for every earlier live run.
 
-**Status: frozen; caps set (below).** Estimates and caps, each covering that subject's pilot and main run:
+**Status: done** (results below). Frozen, caps set and registered publicly before any call. Estimates and caps, each covering that subject's pilot and main run:
 
 | Subject | Paid from | Estimate | Proposed cap |
 |---|---|---|---|
@@ -1484,7 +1484,58 @@ All five runs are VALID: complete in every cell, no protocol failures, the tool 
 | **Total** | | **$15.99** | **$22.50** |
 
 - **Owner's approval, 2026-10-29, before any R1 call:** "OpenAI showing $34.17 left, so all good on the caps. Go ahead and publish and then tell me what to put on OSF". The caps are as proposed ($22.50 in all); the two OpenAI caps ($20.50) fit within the $34.17 of credit left that day.
-- **Next:** the public registration (GitHub release `r1-protocol` and OSF) before any call, then the pilots.
+- **Public registration, before any R1 call:**
+  - **GitHub release** [`r1-protocol`](https://github.com/XGenic/believe-the-error-message/releases/tag/r1-protocol): public commit 5fadbb5, published 2026-10-30 00:32 UTC. The owner merged the private PR #37 (freeze and approval).
+  - **OSF registration** [osf.io/d64ju](https://osf.io/d64ju) (Open-Ended Registration, public, no embargo), registered 2026-10-30 00:36 UTC. It showed as pending for a while before OSF completed it; no call was made meanwhile. Its six archived files are `PROTOCOL_R1.md`, the four live configs and `causetest/r1.py`. OSF's own SHA-256 for each matches the files at commit 5fadbb5 (checked through the OSF API).
+  - `PROTOCOL_R1.md` stays byte-identical to the registered file. Anything learned afterwards is recorded here, and deviations under "Deviations".
+- **R1 pilots (2026-10-30; not evidence): all four pass the health gate.** Every run complete, no protocol failures, and the tool called on request 1 in every run. Transcripts read cleanly. The recovery times and the client retry behave as designed: behind `code_retry` the agent sees one result per call, while the stock system counts every attempt.
+
+  | Pilot | Runs | Cost | Main-run estimate | Cap |
+  |---|---|---|---|---|
+  | GPT-6.1 Sol | 15/15 | $0.40 | $12.13 | $18.00 |
+  | GPT-6-luna | 15/15 | $0.04 | $1.11 | $2.50 |
+  | Claude Haiku 5.5, thinking off | 15/15 | $0.02 | $0.46 | $1.00 |
+  | DeepSeek V4.1 Flash, reasoning off | 15/15 | $0.01 | $0.33 | $1.00 |
+
+  Pilots cost $0.47 in all; the main runs are estimated at $14.03.
+- **Main runs** ran on 2026-10-30, the four subjects in parallel, each within its cap, in 20–32 minutes, with no interruptions and no transport errors.
+
+### R1 results: a retry in code beats the counted instruction on every subject, and the caution adds nothing to the rule
+
+All four runs are VALID: complete in every cell, no protocol failures, no transport errors, and the tool called on request 1 in every run. Reports: `runs/r1-<subject>/analysis/VERDICT.md`. A strict count of three recovers 0.48 of the transient-fault requests (those that clear within three calls).
+
+| Subject | True "temporary": no instruction / instruction / code retry | Give-up trap: instruction / code retry | True outage, calls: instruction / code retry | Primary |
+|---|---|---|---|---|
+| GPT-6.1 Sol | 1.00 / 0.48 / 1.00 | 0.48 / 0.48 | 3.00 / 3.00 | WORSE_THAN_CODE |
+| GPT-6-luna | 0.96 / 0.64 / 1.00 | 0.57 / 0.57 | 3.04 / 3.02 | WORSE_THAN_CODE |
+| Claude Haiku 5.5, thinking off | 0.24 / 0.42 / 1.00 | 0.39 / 0.48 | 2.26 / 3.00 | WORSE_THAN_CODE |
+| DeepSeek V4.1 Flash, reasoning off | 0.91 / 0.49 / 1.00 | 0.49 / 0.56 | 3.01 / 3.10 | WORSE_THAN_CODE |
+
+- **Primary: WORSE_THAN_CODE on all four, so by the frozen study-level rule, code is preferable.** The loss is in the accurate "temporary", instruction minus code: −0.52 [−0.56, −0.48] (Sol), −0.36 [−0.43, −0.30] (Luna), −0.58 [−0.66, −0.51] (Haiku), −0.51 [−0.54, −0.47] (DeepSeek).
+  - Told to accept an error that comes back three times, every subject also gave up on accurate "temporary" faults that needed a fourth or fifth call.
+  - Behind the code retry, the agent saw one "temporary" after three failed attempts, called again, and solved every such request on every subject (1.00). That includes Haiku, which solved only 24% with no help.
+- **The give-up trap is SAME for the instruction and the code retry on all four** (Δ from 0.00 to −0.08). Both recover about the requests that clear within three calls.
+  - On a true outage both cost about three calls: SAME on Sol, Luna and DeepSeek.
+  - Haiku under the instruction stopped earlier (2.26 calls against 3.00; DIFFERENT, lower). The verdict puts losses first, so this does not change it.
+- **Q2: the rule without the caution is SAME as the instruction on all three measures, on all four subjects.** That includes Haiku and DeepSeek, where the caution alone did little (give-up-trap success 0.14 and 0.40 in R1). The count does the work.
+- **Q3: agents keep to the count when it is wrong.** Under the instruction, give-up-trap requests whose fault needed four or five calls went past three calls in 0 of 94 (Sol and Haiku), 7 of 94 (DeepSeek) and 21 of 94 (Luna).
+- **The plain caution,** with no count, rescued more of the give-up trap than the instruction on Sol (0.94) and Luna (0.99), at more calls on a true outage (4.28 and 5.67, against about 3). On Haiku and DeepSeek it rescued little.
+- **W6's verdict, for reference only:**
+  - the instruction is HARMS_TRUE_TEMPORARY on Sol, Luna and DeepSeek, and WEAK_RESCUE on Haiku;
+  - the code retry is RECOMMENDABLE on Luna and DeepSeek, and WEAK_RESCUE on Sol and Haiku. Its rescue, 0.48, sits just below the 0.50 bar by construction.
+- **What changes in the advice:** a counted rule in the prompt is applied to every error, accurate ones included, so its count also decides how long the agent waits for a real transient fault. Where the tool's client can be changed, a retry there gives the same rescue without that loss. The instruction is for agents whose tools cannot be changed.
+
+**Predictions (`PROTOCOL_R1.md`): 4 of 5 held.**
+
+| Prediction | Outcome |
+|---|---|
+| Q1: WORSE_THAN_CODE on at least three of four, through the true "temporary" | **held** (4 of 4) |
+| The give-up trap SAME for the instruction and the code retry on at least three of four | **held** (4 of 4) |
+| Q2: the rule alone SAME as the instruction on the give-up trap on at least three of four | **held** (4 of 4, and SAME on all three measures) |
+| Q3: at most 20% of long-recovery give-up-trap requests go past three calls, on every subject | **missed, narrowly:** Luna 22% (21 of 94); Sol and Haiku 0%, DeepSeek 7% |
+| The plain caution rescues more than the instruction on Sol and Luna, at more outage calls | **held** |
+
+**Spend:** $14.11 against the $22.50 approved: pilots $0.47, main runs $13.64 (Sol $11.86, Luna $1.03, Haiku $0.43, DeepSeek $0.32). By account: OpenAI credit $13.33 (of $34.17), Anthropic $0.45, OpenRouter $0.33.
 
 ## Decisions for the owner
 

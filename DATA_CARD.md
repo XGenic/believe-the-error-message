@@ -1,6 +1,6 @@
 # C4 data card
 
-This card describes the raw records of every C4 live run, as of 2026-10-29: the kill test, extensions E1–E5, and studies N1, H1, W2-A, W2-B, W2-C, W2-D, W5 and W6. That is 50 run folders and about 16,600 runs. The results are in [`REPORT.md`](REPORT.md).
+This card describes the raw records of every C4 live run, as of 2026-10-30: the kill test, extensions E1–E5, and studies N1, H1, R1, W2-A, W2-B, W2-C, W2-D, W5 and W6. That is 54 run folders and about 18,400 runs. The results are in [`REPORT.md`](REPORT.md).
 
 ## What the data are
 
@@ -36,6 +36,10 @@ The data are complete conversations between a language-model agent and a simulat
 | `runs/or-e5-gpt-oss-120b-r1/` | W2-A, E5 | openai/gpt-oss-120b | openrouter_chat_native | 180 | 3 MB |
 | `runs/or-e5-qwen3-8-27b-r0/` | W2-A, E5 | qwen/qwen3.8-27b | openrouter_chat_native | 180 | 4 MB |
 | `runs/or-e5-qwen3-8-27b-r1/` | W2-A, E5 | qwen/qwen3.8-27b | openrouter_chat_native | 180 | 4 MB |
+| `runs/r1-claude-haiku-5-5-t0/` | R1 | claude-haiku-5-5 | anthropic_messages_native | 450 | 13 MB |
+| `runs/r1-deepseek-v4-1-flash-r0/` | R1 | deepseek/deepseek-v4.1-flash | openrouter_chat_native | 450 | 16 MB |
+| `runs/r1-gpt-6-1-sol-low/` | R1 | gpt-6.1-sol | openai_responses_native | 450 | 13 MB |
+| `runs/r1-gpt-6-luna-native-low/` | R1 | gpt-6-luna | openai_responses_native | 450 | 12 MB |
 | `runs/w2b-deepseek-v4-1-flash-r0/` | W2-B | deepseek/deepseek-v4.1-flash | openrouter_chat_native | 360 | 14 MB |
 | `runs/w2b-deepseek-v4-1-flash-r1/` | W2-B | deepseek/deepseek-v4.1-flash | openrouter_chat_native | 360 | 16 MB |
 | `runs/w2b-gpt-oss-120b-r1/` | W2-B | openai/gpt-oss-120b | openrouter_chat_native | 372 | 12 MB |
@@ -89,7 +93,7 @@ Development pilots are kept in each run's `pilot*/` folders. They never enter an
 | Field | Meaning |
 |---|---|
 | `run_id` | `claim\|fault\|seed`, or `arm\|claim\|fault\|seed` in E2–E5 |
-| `arm` | E2–E5 only |
+| `arm` | E2–E5, W6 and R1 |
 | `claim`, `fault` | the cell. In E4 they are `mixed` and the mix; in E5, `primed` and the prime. |
 | `seed`, `model`, `transport` | the world seed, the model and the transport |
 | `status` | `complete`, `failed` or `stopped` |
@@ -102,6 +106,7 @@ Development pilots are kept in each run's `pilot*/` folders. They never enter an
 |---|---|
 | `index`, `text`, `truth`, `depot` | the request and its true answer |
 | `claim`, `fault`, `kind` | E4 and E5 only: the per-request cell |
+| `recovery_failures` | R1 only: failed calls before this request's transient fault clears (1–4) |
 | `turns` | the conversation for this request (below) |
 | `summary` | the coded outcome (below) |
 
@@ -112,7 +117,7 @@ Development pilots are kept in each run's `pilot*/` folders. They never enter an
 | `user` | what the harness sent |
 | `reply` | the agent's full raw reply |
 | `action` | the parsed CALL or ANSWER, or the reason it was invalid |
-| `tool` | the arguments, success, the result text shown, and hidden bookkeeping such as whether the spelling convention was met |
+| `tool` | the arguments, success, the result text shown, and hidden bookkeeping such as whether the spelling convention was met. In R1 the bookkeeping also counts the calls that reached the stock system (`service_calls`, with the code retry's own attempts) and those before it in the request (`service_calls_before`) |
 | `meta` | cost, token usage, latency; for text-format Luna, whether the history cut L1 applied; for native runs, the number of native calls in the reply (`native_calls`) and any text sent with a call (`text_with_call`); for OpenRouter runs, also the host that served the call (`host`), whether the cost is OpenRouter's billed figure or a price estimate (`cost_source`), the generation id (`generation_id`), the finish reasons, and the length of any reasoning text (`reasoning_chars`) |
 
 **`summary`:**
@@ -128,8 +133,8 @@ Development pilots are kept in each run's `pilot*/` folders. They never enter an
 
 ## Integrity and reproduction
 
-- **`runs/MANIFEST.json`** pins the SHA-256 of every raw file of every live run: 420 files across 50 run folders. That is everything except `analysis/` and `cache/`.
-- **`python -m causetest reproduce`** checks those hashes. It then re-scores every live run from its raw records into a scratch folder and compares the result with the committed `analysis/` byte for byte. As of 2026-10-29 it passes for every run, in the working repository and in the public release.
+- **`runs/MANIFEST.json`** pins the SHA-256 of every raw file of every live run: 452 files across 54 run folders. That is everything except `analysis/` and `cache/`.
+- **`python -m causetest reproduce`** checks those hashes. It then re-scores every live run from its raw records into a scratch folder and compares the result with the committed `analysis/` byte for byte. As of 2026-10-30 it passes for every run, in the working repository and in the public release.
 - **Raw files are kept exactly as written,** because `.gitattributes` sets `* -text`. Runs made on Windows (everything after the two Haiku CLI runs) have CRLF line endings; the Haiku CLI runs, made on Linux, have LF. JSON parsing ignores the difference, and the manifest pins the bytes as they are.
 - **Analysis output is written with LF on every platform,** and runs are sorted before the bootstrap. Both since paper plan W0.
 
@@ -140,7 +145,8 @@ Development pilots are kept in each run's `pilot*/` folders. They never enter an
   - Luna's are computed from third-party price listings that have not been checked against an invoice. All input is billed at the uncached rate, so they are an upper bound.
   - OpenRouter's (DeepSeek, Qwen, gpt-oss) are OpenRouter's billed figures, read from each response.
   - The Anthropic API runs (W2-C) are priced from each response's usage at Anthropic's list prices, with cache writes and reads at their own rates.
-  - The GPT-6.1 Sol runs (W2-D) are priced the same way, at OpenAI's list prices for Sol, with cached input and cache writes at their own rates.
+  - The GPT-6.1 Sol runs (W2-D, R1) are priced the same way, at OpenAI's list prices for Sol, with cached input and cache writes at their own rates.
+  - R1's other subjects are priced as in their earlier runs: Luna at the uncached rate, Haiku at Anthropic's list prices, DeepSeek by OpenRouter's billed figures.
 - **Settings differ between the models.** The text-format Luna runs use deviations L1 (history cut) and L2 (reasoning effort `low`); see `NOTEBOOK.md`. Each model's settings are in its runs' `config.json`.
 - **`from_cache` in a summary** records how rows were produced (fresh or read back from the resume cache). It is bookkeeping, not an outcome.
 

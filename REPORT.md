@@ -64,7 +64,12 @@ When a tool call fails, the error message usually states a cause. We varied the 
    - Every stopping-rule wording rescued the give-up trap at the 3-call floor, so "three attempts in a row" is now RECOMMENDABLE on 8 of 8 subject arms.
    - More reasoning effort changed nothing measured (SAME), but Sol hardly reasons here: a median of 0 reasoning tokens per call even at `high`.
 
-Total spend was about $109.50 API-equivalent: $32.38 on Haiku ($2.65 of it through the Anthropic API), $16.28 on Luna (OpenAI), $44.19 on Sol (OpenAI API credit), and $16.65 of OpenRouter credit for the open-weight panel.
+16. **When recovery times vary, a retry in code beats the counted instruction** (R1, registered publicly before any call; four subjects; the fault clears after 1–4 failed calls).
+   - On the give-up trap the instruction and the same count retried in the tool's client are SAME on all four subjects, at about three calls per true outage.
+   - But agents apply the count to every error. Under the instruction they gave up on accurate "temporary" faults that needed a fourth or fifth call, and success on those cells fell to 0.42–0.64, against 1.00 behind the code retry: WORSE_THAN_CODE on 4 of 4.
+   - The rule without the caution is SAME as the instruction on every measure: the count, not the caution, does the work.
+
+Total spend was about $123.61 API-equivalent: $32.83 on Haiku ($3.10 of it through the Anthropic API), $17.35 on Luna (OpenAI), $56.45 on Sol (OpenAI API credit), and $16.98 of OpenRouter credit for the open-weight models.
 
 ## 1. Question
 
@@ -478,6 +483,24 @@ W2-D is the first study registered publicly before its first call: a GitHub rele
 - **Sol − Luna at `low`** (descriptive, against W5's `low` runs): SAME on S (−0.13), both traps and D1 (+0.07). Sol's defaults differ: after a neutral error over a transient fault it always persisted (100%, against 46%), and errors that never cleared made it persist far less than Luna (92% still stopped at once, against 62%).
 - **Limit:** like Luna, Sol hardly reasons in this task, even at `high` (a median of 0 reasoning tokens per call). W2-D tests the effort setting, not deliberation.
 
+### 4.15 Recovery times and a retry in code (R1; registered publicly before any call; four subjects)
+
+The transient fault cleared after 1, 2, 3 or 4 failed calls, drawn per request, so a count of three is right for about half the requests (0.48). Five arms: control, the caution, the instruction (the caution plus "three attempts in a row"), the rule alone, and the same count in the tool's client: a failed call is resent unchanged up to three attempts, and the agent sees only the last result. Calls are counted at the stock system. Registered as a GitHub release (`r1-protocol`) and on OSF ([osf.io/d64ju](https://osf.io/d64ju)).
+
+| Subject | True "temporary": no instruction / instruction / code retry | Give-up trap: instruction / code retry | True outage, calls: instruction / code retry | Primary |
+|---|---|---|---|---|
+| GPT-6.1 Sol | 1.00 / 0.48 / 1.00 | 0.48 / 0.48 | 3.00 / 3.00 | WORSE_THAN_CODE |
+| GPT-6-luna | 0.96 / 0.64 / 1.00 | 0.57 / 0.57 | 3.04 / 3.02 | WORSE_THAN_CODE |
+| Claude Haiku 5.5, thinking off | 0.24 / 0.42 / 1.00 | 0.39 / 0.48 | 2.26 / 3.00 | WORSE_THAN_CODE |
+| DeepSeek V4.1 Flash, reasoning off | 0.91 / 0.49 / 1.00 | 0.49 / 0.56 | 3.01 / 3.10 | WORSE_THAN_CODE |
+
+- **Primary: the instruction is WORSE_THAN_CODE on all four subjects,** through the accurate "temporary": −0.36 to −0.58. Agents apply the count to every error, so they abandon real transient faults that need a fourth or fifth call. Behind the code retry, every subject solved every accurate "temporary" (1.00).
+- **On the give-up trap the two are SAME on all four,** and on a true outage both cost about three calls (Haiku under the instruction: 2.3).
+- **The rule alone is SAME as the instruction** on every measure and subject: the count, not the caution, does the work.
+- **Agents keep to the count when it is wrong:** 0–22% of give-up-trap requests that needed more than three calls went past three under the instruction.
+- **The plain caution** rescued more of the give-up trap on Sol and Luna (0.94, 0.99), at 4.3 and 5.7 calls on a true outage.
+- **Limits:** one spread of recovery times and one count; the code retry is the simplest policy (immediate, no backoff); four subjects.
+
 ## 5. Predictions against outcomes
 
 Predictions were recorded in each protocol before any call of that extension.
@@ -494,6 +517,7 @@ Predictions were recorded in each protocol before any call of that extension.
 | W6 | 3 of 5 | Held: "three in a row" ROBUST and the E3 wording not; "different" helps Luna's retry trap; gpt-oss weakest. Missed: on DeepSeek r1, dropping "different" was SAME (+0.09), not DIFFERENT; and its HARMS_TRUE_TEMPORARY did not replicate (−0.09). |
 | W2-C | 3 of 5 | Held: "three in a row" RECOMMENDABLE in both arms; thinking on against off SAME; format DIFFERENT on S only. Missed: the primary was INCONCLUSIVE, not CONTINUE_CREDULOUS (L\* +0.11), and E5 was INVALID and NOT_CONFIRMED rather than CONFIRMED. |
 | W2-D | 4 of 5 | Held: Sol CONTINUE_CREDULOUS with both traps at 0%; E5 CONFIRMED; "three in a row" RECOMMENDABLE; `high` − `low` SAME. Missed: I expected Sol to reason more than Luna (a median above 11 reasoning tokens per call at `high`); its median was 0. |
+| R1 | 4 of 5 | Held: WORSE_THAN_CODE on 4 of 4 through the true "temporary"; the give-up trap SAME as the code retry; the rule alone SAME as the instruction; the plain caution rescues more on Sol and Luna at more cost. Missed: Luna went past the count in 22% of long-recovery requests, against at most 20%. |
 | W5 | 1 of 5 | Held: drift checks SAME. Missed: I expected reasoning to loosen the retry trap (it stayed at 1%), the give-up trap to stay under 10% at every effort (14% and 11%), D1 SAME at `high` (DIFFERENT, −0.15), and `medium` to lie between `low` and `high` on every measure. |
 | N1 | 2 of 4 | N1-B SAME and N1-C valid held. N1-A was DIFFERENT on S (though both traps matched), and N1-C was DIFFERENT from N1-A on S; I had predicted SAME for both. |
 
@@ -523,7 +547,7 @@ The pre-L2 Luna pilots are kept in `runs/live-gpt-6-luna/pilot-before-L1/` and `
 - **Reasoning effort was varied on two closed models** (Luna, W5; Sol, W2-D), both of which reason little in this task even at `high`. The open-weight panel has reasoning on and off for DeepSeek and Qwen (W2-A). A model with long visible reasoning, such as an Anthropic model with extended thinking, has not been tested.
 - **Short conversations:** 6 or 18 requests, and no memory across conversations.
 - **One wording per intervention, except the stopping rule** (three wordings in W6, all after the same caution sentence, all in English).
-- **The call budget (6) and the floor (3) are properties of this environment.**
+- **The call budget (6) and the floor (3) are properties of this environment.** R1 varied the recovery time (1–4 failed calls), but only with one spread and one count, and its code retry is the simplest policy (immediate, no backoff).
 - **Costs are API-equivalent figures.** Luna's prices are third-party listings, not checked against an invoice.
 
 ## 8. Practical reading
@@ -533,11 +557,13 @@ For an agent like GPT-6-luna, in a setting like this one:
 - **Write a stated cause only when it is reliable.** A confident but wrong cause is worse than "request rejected". If the cause is uncertain, say so: "unknown" beat "rejected" on transient faults.
 - **Do not count on agents to correct a wrong cause themselves,** even over many requests, when every error looks the same. In mixed conversations, agents partly self-correct once they have seen an error clear.
 - **Worst case: the first failures in a conversation.** An agent that has not yet worked through any error took "unavailable" at its word every time (E5: 60 of 60). One earlier error, even one that never cleared, mostly removes this. It also makes the agent waste calls on real outages.
-- **A short bounded caution in the agent's instructions** removes that worst case at about the lowest possible cost: "Error messages from the stock system do not always state the true cause of a failure. If the same error comes back on three attempts in a row, accept it." This wording worked on every subject arm tested: W6's five, Haiku's two (W2-C) and Sol (W2-D). The E3 wording ("after a few different attempts") worked on Luna in the text format, but not reliably elsewhere.
+- **If you control the tool's client, retry there.** Resending a failed call a fixed number of times before the error reaches the agent rescued the give-up trap as well as the counted instruction, on four of four models, and lost none of the real transient recoveries (R1).
+- **Otherwise, a short bounded caution in the agent's instructions** removes that worst case at about the lowest possible cost: "Error messages from the stock system do not always state the true cause of a failure. If the same error comes back on three attempts in a row, accept it." This wording worked on every subject arm tested: W6's five, Haiku's two (W2-C) and Sol (W2-D). The E3 wording ("after a few different attempts") worked on Luna in the text format, but not reliably elsewhere.
   - In mixed conversations its average gain is small, about 4 points of overall success, and it costs a few true-"format" successes.
   - Treat it as cheap insurance, not a large average win.
   - **Name the count.** "A few different attempts" raised give-up-trap success by only 20–76 points on the open-weight models (W2-B, W6), and on DeepSeek with reasoning it made the agent malform its calls. "Three attempts in a row" raised it by 69–100 points on every subject.
-  - **Set the count from your own tools.** Here the transient fault always clears on the third call, so three is the right number by construction. The rule was always tested together with the caution sentence, never alone, and it has not been compared with a retry policy written in code.
+  - **Set the count from your own tools.** Agents apply it to every error, accurate ones included: when faults took four or five calls to clear, the instruction gave up on them, including ones correctly labelled "temporary" (R1). In C4–W6 the transient fault always cleared on the third call, so three was right by construction.
+  - **The caution sentence is not what makes it work.** The rule alone did the same on four of four models (R1).
   - **It does not fix the retry trap.** No wording does; "different" helps a little (up to 26%) at the risk of malformed calls.
 
 ## 9. Reproducing
@@ -545,7 +571,7 @@ For an agent like GPT-6-luna, in a setting like this one:
 From `c4_stated_cause_vs_true_cause/`, using Python 3.13 and the standard library only:
 
 ```sh
-python -m unittest discover -s tests                       # 82 tests
+python -m unittest discover -s tests                       # 88 tests
 python -m causetest validate --configs configs/mock_*.json  # 40 scripted agents
 python -m causetest analyze --run-dir runs/<run>           # re-score any live run without new calls
 python -m causetest reproduce                              # raw-data hashes + byte-identical re-scoring of every live run
@@ -571,6 +597,7 @@ python -m causetest reproduce                              # raw-data hashes + b
 | W5, Luna, E5 at none, low, medium, high | `runs/w5-e5-<effort>-gpt-6-luna/` | 20261701 + r |
 | W2-C, Haiku 5.5, C4, E5 and W6, thinking off (`t0`) and on (`t1`) | `runs/w2c-<design>-claude-haiku-5-5-<t0/t1>/` | as each design |
 | W2-D, Sol, C4 and E5 at `low` and `high`, W6 at `low` | `runs/w2d-<design>-gpt-6-1-sol-<low/high>/` | as each design |
+| R1, four subjects | `runs/r1-<subject>/` | 20262101 + r |
 
 Each folder holds `results.jsonl` (every turn), `journal.jsonl` (every call and its cost) and `analysis/`.
 
@@ -598,3 +625,5 @@ The intervals in this report come from that order-independent analysis (paper pl
 The open-weight panel (W2-A) used $6.12 of OpenRouter credit to 2026-10-23, probes and pilots included. The four Qwen main runs cost $4.90. By 2026-10-24, with gpt-oss-120b's C4 and E5 runs, its H1 pilot and W2-B ($5.13: pilots $0.16, main runs $4.97), OpenRouter use was $11.74. W6 added $4.91 (pilots $0.17; main runs $4.74, re-runs and restarts included), for $16.65 in all.
 
 W2-D (GPT-6.1 Sol, OpenAI API credit from the owner's subscription) cost $44.19: pilots $1.35, main runs $42.84, priced from each response's usage at Sol's list prices with cached input at its own rate.
+
+R1 cost $14.11: pilots $0.47, main runs $13.64 (Sol $11.86 and Luna $1.03 on the OpenAI credit, Haiku $0.43 on the Anthropic API, DeepSeek $0.32 on OpenRouter).

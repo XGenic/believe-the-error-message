@@ -1,0 +1,13 @@
+# C4 development pilot: gpt-6-luna
+
+**LIVE MODEL RUN (study R1: recovery times and a retry in code, gpt-6-luna, native tool calls, reasoning low)**. One run per cell on development seed 20262911; not evidence.
+
+- runs: 15
+- complete: 15
+- agent_calls: 347
+- cost_equiv_usd: 0.037
+- usd_per_call: 0.00011
+- calls_per_run: 23.13
+- protocol_failure_share: 0.0
+- engaged_request1: 1.0
+- kill_test_estimate_equiv_usd: 1.11

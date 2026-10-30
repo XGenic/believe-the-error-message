@@ -1,0 +1,14 @@
+{
+  "runs": 15,
+  "complete": 15,
+  "agent_calls": 301,
+  "cost_equiv_usd": 0.0111,
+  "usd_per_call": 4e-05,
+  "calls_per_run": 20.07,
+  "protocol_failure_share": 0.0,
+  "engaged_request1": 1.0,
+  "model": "deepseek/deepseek-v4.1-flash",
+  "label": "LIVE MODEL RUN (study R1: recovery times and a retry in code, deepseek/deepseek-v4.1-flash, DeepInfra, reasoning off)",
+  "dev_seed": 20262911,
+  "kill_test_estimate_equiv_usd": 0.33
+}
