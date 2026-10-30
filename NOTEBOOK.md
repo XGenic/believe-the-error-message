@@ -28,6 +28,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 - **Preprint draft:** [`paper/PAPER.md`](paper/PAPER.md).
 - **Anthropic External Researcher Access:** a proposal for $1,000 to run Claude Sonnet 5.5, Opus 5.5 and Fable 5.1; the owner submits it before the November 2 review.
 - **Keeping the two in step:** this folder is the source. Changes are made here, then copied to the public repository.
+- **Study R1 (recovery times and a retry in code) is frozen and approved at $22.50.** It waits for its public registration; see its section below.
 - **Study W2-D (GPT-6.1 Sol) is done,** registered publicly before any call ([OSF](https://osf.io/z2pwa), and the GitHub release `w2d-protocol`). Sol is credulous at reasoning `low` and `high`, solves neither trap (0%), shows the first-encounter effect at full size, and every stopping-rule wording is RECOMMENDABLE on it. Spend $44.19 of the $80 approved. See "W2-D results" and `REPORT.md` §4.14. Branch `c4-w2d-results`.
 
 ## Earlier note: study W2-C done (2026-10-28)
@@ -117,8 +118,8 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 
 ## Status
 
-- **Instrument:** built and tested. All 82 unit tests pass (C4, extensions E1–E5, studies H1, W2-B, W2-C, W2-D, W5 and W6, the panel table, the Anthropic transport, the Luna settings, reproducibility, native tool calling, and the OpenRouter transport).
-  - Forty scripted agents give the expected verdicts at the planned sizes. See [`runs/validation/VALIDATION.md`](runs/validation/VALIDATION.md).
+- **Instrument:** built and tested. All 88 unit tests pass (C4, extensions E1–E5, studies H1, R1, W2-B, W2-C, W2-D, W5 and W6, the panel table, the Anthropic transport, the Luna settings, reproducibility, native tool calling, and the OpenRouter transport).
+  - Forty-five scripted agents give the expected verdicts at the planned sizes. See [`runs/validation/VALIDATION.md`](runs/validation/VALIDATION.md).
     - C4's six are credulous, credulous-superstitious, evidence learner, message-blind, non-engager and format violator.
     - E1's four are credulous, slow learner, entrencher and non-engager.
     - E2's four are deaf, prompt-responsive, instruction-follower and non-engager.
@@ -128,6 +129,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
     - H1's five are persistent, helpless, failure-counter, fatigue and non-engager.
     - W2-B's three are bounded, unbounded and deaf.
     - W6's five are bounded, different-harms, unbounded, deaf and non-engager.
+    - R1's five are counts, matches, unbounded, deaf and non-engager.
   - This line said "eleven" and "C4's seven" before E2. The configs only ever held six C4 agents.
   - Power is in [`runs/validation/power.json`](runs/validation/power.json).
   - These runs are MOCK and are not evidence about any model.
@@ -1459,6 +1461,30 @@ All five runs are VALID: complete in every cell, no protocol failures, the tool 
 | Sol reasons more than Luna: a median above 11 reasoning tokens per call at `high` | **missed:** a median of 0 (mean 5.2 on C4, 4.4 on E5) |
 
 **Spend:** $44.19 of OpenAI API credit, against the $80 approved: pilots $1.35, main runs $42.84 (C4 `low` $10.32, of which $0.49 before the pause; E5 `low` $2.12; W6 `low` $17.73; C4 `high` $10.50; E5 `high` $2.17). Each config stayed within its cap. These are Sol's list prices applied to each response's usage, cache included. The 10 requests in flight at the pause (W2D-1) have no recorded cost, about a cent at most.
+
+## Study R1: does the stopping rule depend on how long faults take to clear? (frozen; [`PROTOCOL_R1.md`](PROTOCOL_R1.md))
+
+**Owner's request, 2026-10-29:** after W2-D, the owner asked whether a study of randomized recovery times would have to be run on every model. The answer was no: whether a fixed count is a good policy depends mostly on the environment, and only a few contrasting models are needed for the parts that depend on the model. The owner then said: "If you believe that this is a pragmatic and useful exploration that doesn't result in us aimlessly expanding the scope, then yes, please draft and freeze".
+
+- **Why:** the paper's practical recommendation ("three attempts in a row") was only tested where the transient fault always cleared on the third call. It was never compared with a retry written in code, or tested without the caution sentence. Those are the paper's main open limits.
+- **Design:** the transient fault clears after 1–4 failed calls, drawn per request (every run meets each value). Five arms: control, the caution, the recommended instruction (`caution_three`), the rule alone (`three_only`), and a retry in the tool's client of the same count (`code_retry`). Three cells: the accurate "temporary", the give-up trap, the accurate "unavailable". 450 runs per subject.
+- **Primary:** the instruction minus the code retry, per subject (WORSE_THAN_CODE, COSTLIER_THAN_CODE, MATCHES_CODE, BETTER_THAN_CODE or UNCLEAR).
+- **Subjects:** GPT-6.1 Sol and GPT-6-luna (reasoning `low`), Claude Haiku 5.5 (thinking off) and DeepSeek V4.1 Flash (reasoning off), each with its W6 settings. In W6 the caution alone rescued the give-up trap on the first two, and hardly at all on the other two.
+- **Scope, kept narrow on purpose:** one design, one count, one spread of recovery times, four subjects, no new transport, and no spend beyond money already available.
+- **Code:** `causetest/r1.py` (the recovery-time environment, the client retry, the measures and the decision rule), two arms' text in `causetest/e2.py`, the R1 branch in `causetest/runner.py`, and `bound_claims` in the scripted agents. Five new scripted agents, all with the expected verdicts; power in the protocol. 88 tests pass; `reproduce` still passes for every earlier live run.
+
+**Status: frozen; caps set (below).** Estimates and caps, each covering that subject's pilot and main run:
+
+| Subject | Paid from | Estimate | Proposed cap |
+|---|---|---|---|
+| GPT-6.1 Sol | OpenAI API credit (lapses 2026-11-09) | $13.90 | $18.00 |
+| GPT-6-luna | the same credit | $1.19 | $2.50 |
+| Claude Haiku 5.5 | the Anthropic API key | $0.53 | $1.00 |
+| DeepSeek V4.1 Flash | OpenRouter credit | $0.37 | $1.00 |
+| **Total** | | **$15.99** | **$22.50** |
+
+- **Owner's approval, 2026-10-29, before any R1 call:** "OpenAI showing $34.17 left, so all good on the caps. Go ahead and publish and then tell me what to put on OSF". The caps are as proposed ($22.50 in all); the two OpenAI caps ($20.50) fit within the $34.17 of credit left that day.
+- **Next:** the public registration (GitHub release `r1-protocol` and OSF) before any call, then the pilots.
 
 ## Decisions for the owner
 

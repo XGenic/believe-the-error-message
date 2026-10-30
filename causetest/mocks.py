@@ -32,7 +32,8 @@ caution or strategy sentence in its system prompt, or the generic instruction in
 
 Extension E3 cue: with `bound_effect`, when a stopping rule is in the system prompt, the agent stops a
 request after `bound_calls` calls (default 3) with that chance per request. Study W6: `bound_calls_by_arm`
-sets that number per wording (keyed by the arm whose stopping rule is in the prompt).
+sets that number per wording (keyed by the arm whose stopping rule is in the prompt). Study R1: with `bound_claims`,
+the rule applies only after those error texts (for instance "permanent", so a true "temporary" is retried on).
 
 Extension E5 experience: with `persist_after_clear`, once the agent has seen an error clear (a success after
 a failure, in an earlier request), it drops STOP for the blind script under "unavailable" with that chance.
@@ -229,6 +230,8 @@ class ScriptedAgent:
             if cue and self.rng.random() < cue:  # no draw without a cue, so earlier scripts' streams are unchanged
                 t["plan"] = self._blind_plan()
             bound = next((arm for arm, text in BOUNDS.items() if text in self.system), None)
+            if "bound_claims" in self.p and t["claim"] not in self.p["bound_claims"]:
+                bound = None  # R1: the stopping rule is applied only after these error texts
             if bound and self.p.get("bound_effect") and self.rng.random() < self.p["bound_effect"]:
                 # E3: accept the error after this many calls; W6: per wording, from `bound_calls_by_arm`
                 t["max_calls"] = self.p.get("bound_calls_by_arm", {}).get(bound, self.p.get("bound_calls", 3))

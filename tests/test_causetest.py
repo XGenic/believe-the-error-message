@@ -1477,6 +1477,121 @@ class TestStudyW2D(unittest.TestCase):
             self.assertNotIn("test-key", str(ctx.exception))  # the key is redacted from error text
 
 
+class TestStudyR1(unittest.TestCase):
+    """Study R1: recovery times drawn per request, and the stopping rule against a retry in code (PROTOCOL_R1.md)."""
+
+    def test_schedule(self):
+        from causetest.r1 import RECOVERY_FAILURES, schedule_for
+        for seed in range(20262101, 20262131):
+            s = schedule_for(seed, 6)
+            self.assertEqual(s, schedule_for(seed, 6))  # the seed alone decides it, so every arm and cell shares it
+            self.assertEqual(len(s), 6)
+            self.assertEqual(set(s), set(RECOVERY_FAILURES))  # every run meets every recovery time
+        with self.assertRaises(ValueError):
+            schedule_for(20262101, 3)
+
+    def test_recovery_and_code_retry(self):
+        from causetest.r1 import RecoveryToolEnv
+        env = RecoveryToolEnv(W, "permanent", "transient", [3, 1, 2, 4, 1, 2])
+        self.assertEqual(env.start_task(0), {"recovery_failures": 3})
+        self.assertEqual([env.call(i, _args())[0] for i in range(4)], [False, False, False, True])  # clears on call 4
+        env.start_task(1)  # the count starts again with each request
+        self.assertEqual([env.call(i, _args())[0] for i in range(2)], [False, True])
+        env.start_task(2)
+        self.assertFalse(env.call(0, _args(site="Nowhere"))[0])  # an unresolvable call counts, and never works
+        self.assertFalse(env.call(1, _args())[0])
+        self.assertTrue(env.call(2, _args())[0])
+        outage = RecoveryToolEnv(W, "permanent", "permanent", [1] * 6)
+        outage.start_task(0)
+        self.assertEqual(outage.call(5, _args())[:2], (False, CLAIM_TEXT["permanent"]))
+        code = RecoveryToolEnv(W, "transient", "transient", [4, 1, 2, 3, 1, 2], attempts=3)
+        code.start_task(0)
+        ok, text, info = code.call(0, _args())
+        self.assertEqual((ok, text, info["service_calls"]), (False, CLAIM_TEXT["transient"], 3))  # one result shown
+        ok, _, info = code.call(1, _args())
+        self.assertEqual((ok, info["service_calls_before"], info["service_calls"]), (True, 3, 2))  # works on call 5
+        code.start_task(1)
+        self.assertEqual(code.call(0, _args())[2]["service_calls"], 2)  # stops retrying once a call works
+        with self.assertRaises(ValueError):
+            RecoveryToolEnv(W, "unknown", "transient", [1] * 6)
+
+    def test_wording(self):
+        from causetest.e2 import BOUND_THREE, CAUTION, system_for
+        self.assertIn(f"\n\nErrors\n- {BOUND_THREE}\n\nDepot directory:", system_for(W, "three_only"))
+        self.assertNotIn(CAUTION, system_for(W, "three_only"))
+        self.assertEqual(system_for(W, "code_retry", native=True), system_for(W, "control", native=True))  # unseen
+
+    def test_configs(self):
+        paths = sorted((DIR / "configs").glob("live_r1_*.json"))
+        self.assertEqual([p.stem for p in paths], ["live_r1_deepseek_r0", "live_r1_haiku_t0", "live_r1_luna_low",
+                                                   "live_r1_sol_low"])
+        others = [load_config(p) for p in (DIR / "configs").glob("*.json") if "_r1_" not in p.name]
+        caps = {p.stem: load_config(p)["max_equiv_usd"] for p in paths}
+        self.assertLessEqual(round(sum(caps.values()), 2), 22.50)  # the owner's approval of 2026-10-29
+        self.assertLessEqual(caps["live_r1_sol_low"] + caps["live_r1_luna_low"], 34.17)  # OpenAI credit left that day
+        for path in paths:
+            cfg = load_config(path)
+            src_name = cfg["cost_note"].split("Settings as ")[1].split(".json")[0] + ".json"
+            src = load_config(DIR / "configs" / src_name)
+            self.assertEqual(src["design"], "W6")
+            for k in ("transport", "model", "request_options", "prices_usd_per_mtok", "provider", "expected_host",
+                      "timeout_seconds", "pass_reasoning_back", "worst_case_usd_per_call"):
+                self.assertEqual(cfg.get(k), src.get(k), f"{path.name}: {k} differs from {src_name}")
+            self.assertEqual({k: v for k, v in cfg["thresholds"].items() if not k.startswith("r1_")}, src["thresholds"])
+            self.assertEqual((cfg["design"], len(cells_for(cfg))), ("R1", 15))
+            self.assertEqual({c[0] for c in cells_for(cfg)},
+                             {"control", "caution", "caution_three", "three_only", "code_retry"})
+            self.assertEqual((cfg["base_seed"], cfg["dev_seed"]), (20262101, 20262911))
+            for o in others:  # new seeds: no earlier study's worlds
+                self.assertFalse(o["base_seed"] <= cfg["base_seed"] < o["base_seed"] + 60, o["run_name"])
+                self.assertNotEqual(o.get("dev_seed"), cfg["dev_seed"], o["run_name"])
+            self.assertGreaterEqual(cfg["max_calls"], len(cells_for(cfg)) * cfg["runs_per_cell"] * 36)
+            self.assertLessEqual(cfg["max_equiv_usd"], cfg["planning"]["proposed_cap_usd"])
+            with tempfile.TemporaryDirectory() as tmp:
+                with self.assertRaises(RuntimeError):
+                    make_transport(cfg, Path(tmp), live=False)
+                with self.assertRaises(RuntimeError):
+                    make_transport(dict(cfg, max_equiv_usd=0.0), Path(tmp), live=True)
+
+    def test_run_records_recovery_and_service_calls(self):
+        from causetest.r1 import schedule_for, service_calls
+        cfg = dict(load_config(DIR / "configs" / "mock_r1_counts.json"), runs_per_cell=2)
+        with tempfile.TemporaryDirectory() as tmp:
+            s = run(cfg, Path(tmp) / "r1", live=False)
+            rows = [json.loads(x) for x in (Path(tmp) / "r1" / "results.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertEqual((s["design"], len(rows)), ("R1", 30))
+        for r in rows:
+            self.assertEqual([t["recovery_failures"] for t in r["tasks"]], schedule_for(r["seed"], 6))
+            agent_calls = sum(t["summary"]["calls"] for t in r["tasks"])
+            served = sum(service_calls(t) for t in r["tasks"])
+            if r["arm"] == "code_retry":
+                self.assertGreater(served, agent_calls)
+            else:
+                self.assertEqual(served, agent_calls)
+
+    def test_decision_rule(self):
+        from causetest.r1 import calls_label, primary_verdict
+        th = load_config(DIR / "configs" / "live_r1_luna_low.json")["thresholds"]
+
+        def v(g, t, c, lg="SAME", lt="SAME", lc="SAME"):
+            est = {"instruction_vs_code|give_up_trap": g, "instruction_vs_code|true_temporary": t,
+                   "instruction_vs_code|outage_calls": c}
+            return primary_verdict(est, {"give_up_trap": lg, "true_temporary": lt, "outage_calls": lc})
+
+        self.assertEqual(v(0.0, 0.0, 0.0), "MATCHES_CODE")
+        self.assertEqual(v(0.3, -0.4, 0.0, "DIFFERENT", "DIFFERENT"), "WORSE_THAN_CODE")  # a loss comes first
+        self.assertEqual(v(-0.4, 0.0, -1.0, "DIFFERENT", lc="DIFFERENT"), "WORSE_THAN_CODE")
+        self.assertEqual(v(0.4, 0.0, 1.5, "DIFFERENT", lc="DIFFERENT"), "COSTLIER_THAN_CODE")
+        self.assertEqual(v(0.4, 0.0, 0.1, "DIFFERENT"), "BETTER_THAN_CODE")
+        self.assertEqual(v(0.0, 0.0, -0.8, lc="DIFFERENT"), "BETTER_THAN_CODE")
+        self.assertEqual(v(0.1, 0.0, 0.0, "UNCLEAR"), "UNCLEAR")
+        self.assertEqual(v(0.1, 0.0, 0.0, "NOT_ESTIMABLE"), "NOT_ESTIMABLE")
+        self.assertEqual(calls_label(0.3, (-0.5, 0.9), th), "SAME")
+        self.assertEqual(calls_label(0.6, (0.1, 1.1), th), "DIFFERENT")
+        self.assertEqual(calls_label(0.3, (-0.5, 1.2), th), "UNCLEAR")
+        self.assertEqual(calls_label(None, (None, None), th), "NOT_ESTIMABLE")
+
+
 class TestPanel(unittest.TestCase):
     """The panel table (causetest/panel.py): descriptive, read from committed summaries."""
 

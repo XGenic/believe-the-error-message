@@ -41,10 +41,13 @@ BOUND_THREE = "If the same error comes back on three attempts in a row, accept i
 BOUND_FEW_PLAIN = "If the same error keeps coming back after a few attempts, accept it."
 BOUNDS = {"caution_bounded": BOUND_FEW, "caution_three": BOUND_THREE, "caution_few": BOUND_FEW_PLAIN}
 
-ARMS = ("control", "caution", "caution_strategy", "mixed", "honest", "caution_bounded", "caution_three", "caution_few")
+# Study R1 (PROTOCOL_R1.md): "three_only" is BOUND_THREE without the caution; "code_retry" shows the agent the
+# control text, and its retries happen in the tool's client (causetest/r1.py). Fixed here, before any R1 call.
+ARMS = ("control", "caution", "caution_strategy", "mixed", "honest", "caution_bounded", "caution_three", "caution_few",
+        "three_only", "code_retry")
 INTERVENTIONS = ARMS[1:]
 ARM_NOTES = {"caution": (CAUTION,), "caution_strategy": (CAUTION, STRATEGY),
-             **{arm: (CAUTION, bound) for arm, bound in BOUNDS.items()}}
+             **{arm: (CAUTION, bound) for arm, bound in BOUNDS.items()}, "three_only": (BOUND_THREE,)}
 NO_CLAIM = "unknown"  # the honest arm's claim
 
 # Each trap's misleading cell and the accurate cell with the same claim, as (claim, fault).

@@ -184,6 +184,26 @@
 - verdict: got INVALID -> ok
 - invalid_reason: got did not engage -> ok
 
+## mock-r1-counts: PASS
+- verdict: got VALID -> ok
+- verdict primary: got WORSE_THAN_CODE -> ok
+
+## mock-r1-deaf: PASS
+- verdict: got VALID -> ok
+- verdict primary: got WORSE_THAN_CODE -> ok
+
+## mock-r1-matches: PASS
+- verdict: got VALID -> ok
+- verdict primary: got MATCHES_CODE -> ok
+
+## mock-r1-non_engager: PASS
+- verdict: got INVALID -> ok
+- invalid_reason: got did not engage -> ok
+
+## mock-r1-unbounded: PASS
+- verdict: got VALID -> ok
+- verdict primary: got COSTLIER_THAN_CODE -> ok
+
 ## mock-w2b-bounded: PASS
 - verdict: got VALID -> ok
 - verdict caution_bounded: got COST_AWARE -> ok

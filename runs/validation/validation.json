@@ -672,6 +672,76 @@
     "passed": true
   },
   {
+    "run_name": "mock-r1-counts",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict primary": [
+        "WORSE_THAN_CODE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-r1-deaf",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict primary": [
+        "WORSE_THAN_CODE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-r1-matches",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict primary": [
+        "MATCHES_CODE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-r1-non_engager",
+    "checks": {
+      "verdict": [
+        "INVALID",
+        true
+      ],
+      "invalid_reason": [
+        "did not engage",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
+    "run_name": "mock-r1-unbounded",
+    "checks": {
+      "verdict": [
+        "VALID",
+        true
+      ],
+      "verdict primary": [
+        "COSTLIER_THAN_CODE",
+        true
+      ]
+    },
+    "passed": true
+  },
+  {
     "run_name": "mock-w2b-bounded",
     "checks": {
       "verdict": [

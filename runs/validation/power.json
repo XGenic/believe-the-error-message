@@ -339,6 +339,46 @@
       "KILL_WORDING_IRRELEVANT": 20
     }
   },
+  "mock-r1-counts@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "WORSE_THAN_CODE": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-r1-counts",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-r1-matches@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "BETTER_THAN_CODE": 5,
+        "MATCHES_CODE": 15
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-r1-matches",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
+  "mock-r1-unbounded@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "COSTLIER_THAN_CODE": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "mock-r1-unbounded",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
+    }
+  },
   "mock-w6-bounded@30": {
     "contrast_verdicts": {
       "caution_bounded": {
@@ -505,6 +545,19 @@
     "runs_per_cell": 30,
     "verdicts": {
       "CARRYOVER": 20
+    }
+  },
+  "power-r1-weak@30": {
+    "contrast_verdicts": {
+      "primary": {
+        "WORSE_THAN_CODE": 20
+      }
+    },
+    "replications": 20,
+    "run_name": "power-r1-weak",
+    "runs_per_cell": 30,
+    "verdicts": {
+      "VALID": 20
     }
   },
   "power-w6-weak@30": {

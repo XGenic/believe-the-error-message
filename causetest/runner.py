@@ -31,8 +31,10 @@ def load_config(path: Path) -> Dict[str, Any]:
 def cells_for(cfg: Dict[str, Any]) -> List[Tuple[str, ...]]:
     """The cells a config runs: all twelve by default, or the subset named in cfg["cells"] ("claim|fault").
     Extensions E2 and E3 and study W6 name (arm, claim, fault) cells as "arm|claim|fault"."""
-    if cfg.get("design") in ("E2", "E3", "W6"):
+    if cfg.get("design") in ("E2", "E3", "W6", "R1"):
         from causetest.e2 import valid_cell
+        if cfg["design"] == "R1":
+            from causetest.r1 import valid_cell
         chosen3 = [tuple(c.split("|")) for c in cfg["cells"]]
         bad = [c for c in chosen3 if len(c) != 3 or not valid_cell(*c)]
         if bad:
@@ -173,6 +175,10 @@ class _Session:
         else:
             from causetest.e2 import error_text, system_for
             system, error = system_for(world, arm, native), error_text(arm, claim)
+            if self.cfg.get("design") == "R1":  # recovery times and the client's retries are part of the run
+                from causetest.r1 import attempts_per_call, schedule_for as recovery_schedule
+                schedule = recovery_schedule(seed, len(world.tasks))
+                error = json.dumps({"error": error, "recovery_failures": schedule, "attempts": attempts_per_call(arm)})
         key_fields = {"run": run_id, "model": self.cfg["model"], "system": system,
                       "tasks": [t.text for t in world.tasks], "error": error}
         if self.cfg.get("history_cut_after_first_protocol_line"):
@@ -209,7 +215,10 @@ class _Session:
                 self.journal.write(dict(ev, run=run_id))
 
         try:
-            if schedule is not None and claim == "primed":
+            if self.cfg.get("design") == "R1":
+                from causetest.r1 import RecoveryToolEnv, attempts_per_call
+                env = RecoveryToolEnv(world, claim, fault, schedule, attempts_per_call(arm))
+            elif schedule is not None and claim == "primed":
                 from causetest.e5 import PrimedToolEnv
                 env = PrimedToolEnv(world, schedule)
             elif schedule is not None and claim == "helpless":
@@ -320,6 +329,10 @@ def analyze(run_dir: Path, out_dir: Optional[Path] = None) -> Dict[str, Any]:
         from causetest.w6 import summarize_w6, verdict_markdown_w6
         s = summarize_w6(rows, cfg)
         md = verdict_markdown_w6
+    elif cfg.get("design") == "R1":
+        from causetest.r1 import summarize_r1, verdict_markdown_r1
+        s = summarize_r1(rows, cfg)
+        md = verdict_markdown_r1
     elif cfg.get("design") == "E4":
         from causetest.e4 import summarize_e4, verdict_markdown_e4
         s = summarize_e4(rows, cfg)
