@@ -1500,7 +1500,9 @@ All five runs are VALID: complete in every cell, no protocol failures, the tool 
   Pilots cost $0.47 in all; the main runs are estimated at $14.03.
 - **Main runs** ran on 2026-10-30, the four subjects in parallel, each within its cap, in 20–32 minutes, with no interruptions and no transport errors.
 
-### R1 results: a retry in code beats the counted instruction on every subject, and the caution adds nothing to the rule
+### R1 results: a retry in code beats the counted instruction on every subject, and the caution adds no substantial benefit to the rule
+
+(Wording corrected 2026-10-30 after an outside review: this heading and the Q2 bullet said the caution "adds nothing"; SAME is an equivalence band, not a zero. See "Paper revision after an outside review".)
 
 All four runs are VALID: complete in every cell, no protocol failures, no transport errors, and the tool called on request 1 in every run. Reports: `runs/r1-<subject>/analysis/VERDICT.md`. A strict count of three recovers 0.48 of the transient-fault requests (those that clear within three calls).
 
@@ -1517,7 +1519,7 @@ All four runs are VALID: complete in every cell, no protocol failures, no transp
 - **The give-up trap is SAME for the instruction and the code retry on all four** (Δ from 0.00 to −0.08). Both recover about the requests that clear within three calls.
   - On a true outage both cost about three calls: SAME on Sol, Luna and DeepSeek.
   - Haiku under the instruction stopped earlier (2.26 calls against 3.00; DIFFERENT, lower). The verdict puts losses first, so this does not change it.
-- **Q2: the rule without the caution is SAME as the instruction on all three measures, on all four subjects.** That includes Haiku and DeepSeek, where the caution alone did little (give-up-trap success 0.14 and 0.40 in R1). The count does the work.
+- **Q2: the rule without the caution is SAME as the instruction on all three measures, on all four subjects.** That includes Haiku and DeepSeek, where the caution alone did little (give-up-trap success 0.14 and 0.40 in R1). The caution added no substantial benefit once the count was there.
 - **Q3: agents keep to the count when it is wrong.** Under the instruction, give-up-trap requests whose fault needed four or five calls went past three calls in 0 of 94 (Sol and Haiku), 7 of 94 (DeepSeek) and 21 of 94 (Luna).
 - **The plain caution,** with no count, rescued more of the give-up trap than the instruction on Sol (0.94) and Luna (0.99), at more calls on a true outage (4.28 and 5.67, against about 3). On Haiku and DeepSeek it rescued little.
 - **W6's verdict, for reference only:**
@@ -1536,6 +1538,19 @@ All four runs are VALID: complete in every cell, no protocol failures, no transp
 | The plain caution rescues more than the instruction on Sol and Luna, at more outage calls | **held** |
 
 **Spend:** $14.11 against the $22.50 approved: pilots $0.47, main runs $13.64 (Sol $11.86, Luna $1.03, Haiku $0.43, DeepSeek $0.32). By account: OpenAI credit $13.33 (of $34.17), Anthropic $0.45, OpenRouter $0.33.
+
+## Paper revision after an outside review (2026-10-30)
+
+The owner shared a review of the paper by GPT. Its checkable claims were checked against the data before any change, at no cost:
+
+- **The traps are asymmetric (confirmed).** Against the neutral message over the same fault, the mean change in success across the 15 panel arms is −12.1 points for the retry trap and −64.2 for the give-up trap, exactly as the review computed. On Sol, gpt-oss and DeepSeek without reasoning, the fixable fault is almost never solved under the neutral message either.
+- **Lookup success against a correct answer (checked).** `success` counts a request as solved when a lookup returned the figure. Over all 54 live runs, it disagrees with a correct final answer on 390 of 104,790 requests (0.4%). 363 are lookups of the requested item followed by a wrong answer or UNKNOWN, and 27 lookups of another item or depot. By model: gpt-oss-120b 355 (its replies were often garbled, e.g. zero-width spaces and stray characters), DeepSeek 18, Qwen 14, Luna 2, Haiku 1. There are no correct answers without a lookup. Re-scoring every live run with the correct answer as the outcome changes no verdict. The largest move in any estimate is 0.106 (gpt-oss, W6, `caution_three` on the true "temporary"), and no panel trap rate moves by more than 0.011. gpt-oss's neutral baseline over a transient fault falls from 1.00 to 0.83.
+- **Two citations (verified on arXiv):** Gumaan, arXiv:2608.23651 (24 August 2026), and Kraishan, arXiv:2610.10062 (7 October 2026).
+- **R1 wording (corrected).** "The caution adds nothing" overstated a SAME label, which is an equivalence band (|Δ| < 0.15, interval within ±0.25), not a zero. It now reads "no substantial benefit". The R1 comparison is also now described as not budget-matched on recoverable faults, and its advice is limited to read-only, idempotent calls.
+- **Changes:**
+  - **paper:** a new abstract that leads with the give-up effect; Table 1 gains neutral baselines; §4.1 explains the asymmetry and cites a competing account of the repetition; "learning" language narrowed; §4.5 adds the budget caveat; the advice now covers safe calls only; added limits (one error text per cause, the 8 of 25 audit cases, arms not independent, scripted agents); an AI-assistance disclosure; two references.
+  - **REPORT and README:** brought into line.
+- **Not done:** the review's suggested paraphrase study of the error texts. That needs a new protocol and the owner's decision.
 
 ## Decisions for the owner
 

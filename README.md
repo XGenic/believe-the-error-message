@@ -2,7 +2,7 @@
 
 When a tool call fails, the error message usually states a cause: "invalid format", "temporarily unavailable", "not found". An agent cannot see the true fault, so treating that cause as evidence is reasonable. This project tests whether LLM agents keep testing it: whether they revise a **stated** cause when their own calls contradict it, or recover by it regardless of the **true** one. It varies the two independently in a small simulated stock-lookup tool.
 
-**Short answer: they act on the stated cause and rarely revise it, and two traps follow.** A brief caution paired with a counted stopping rule fixes the worse of the two on every model tested, in this environment; retrying in the tool's client does the same without giving up on real transient faults.
+**Short answer: they act on the stated cause and rarely revise it, and two traps follow.** A brief caution paired with a counted stopping rule fixes the worse of the two on every model tested, in this environment; for read-only calls, retrying in the tool's client does the same without giving up on real transient faults.
 
 Results to 2026-10-30: 15 pre-specified studies on 6 models from 4 developers (15 model-and-setting arms), about $124 of API spend. The two latest, W2-D and R1, were registered publicly before their first call. **Paper draft:** [`paper/PAPER.md`](paper/PAPER.md) (preprint draft, not peer reviewed). The consolidated write-up is [`REPORT.md`](REPORT.md).
 
@@ -22,12 +22,12 @@ Both patterns occur in production systems: [`ERROR_AUDIT.md`](ERROR_AUDIT.md) do
 | Finding | Evidence |
 |---|---|
 | Agents act on the stated cause | Credulous verdict on 11 of 15 arms; steering S from +0.34 to +0.96 |
-| The retry trap holds | At most 10% solved on 14 of 15 arms (highest 16%) |
-| The give-up trap holds | At most 10% solved on 13 of 15 arms (highest 14%) |
-| Repeated identical errors teach nothing | 0 of 216 trap requests solved in 18-request conversations (Haiku, Luna) |
+| The retry trap holds, but is only partly the message's doing | At most 10% solved on 14 of 15 arms (highest 16%); most models seldom fix that fault under a neutral message either (12 points higher on average) |
+| The give-up trap holds, and is the message's doing | At most 10% solved on 13 of 15 arms (highest 14%): 64 points below a neutral message over the same fault, on average |
+| Repeated identical errors do not change behavior | 0 of 216 trap requests solved in 18-request conversations (Haiku, Luna) |
 | A caution plus a counted stopping rule fixes the give-up trap | "Error messages … do not always state the true cause of a failure. If the same error comes back on three attempts in a row, accept it." passed the pre-set bar on 8 of 8 model arms: 81–100% success, at no more than 3.1 calls on a real outage. The rule was always tested after the caution, and its count matches this environment, where faults clear on the third call |
 | The wording matters | "After a few different attempts" passed on 4 of 8, and made one model send malformed calls |
-| A retry in code does it better | When faults took 2–5 calls to clear (R1, four models), retrying three times in the tool's client rescued the give-up trap as well as the instruction, and kept the accurate "temporary" recoveries the instruction gave up on (1.00 against 0.42–0.64). The caution sentence added nothing to the count |
+| A retry in code does it better | When faults took 2–5 calls to clear (R1, four models), retrying three times in the tool's client rescued the give-up trap as well as the instruction, and kept the accurate "temporary" recoveries the instruction gave up on (1.00 against 0.42–0.64). This holds for read-only calls; retries can be unsafe where calls have side effects. The caution sentence added no substantial benefit to the count |
 | The first failure is the worst case, on some models | GPT-6-luna stopped at once on 60 of 60 first "unavailable" messages, and on 2 of 60 after one earlier error had cleared (GPT-6.1 Sol: 60 of 60 and 0 of 60); Claude Haiku 5.5 shows no such effect |
 | Light reasoning does not help | Luna and Sol at high reasoning effort, and Haiku with thinking on: the same traps |
 
@@ -68,7 +68,7 @@ Each study's protocol, decision rule and predictions were committed before its f
 | W5 | Does more reasoning help? | Luna | [`PROTOCOL_W5.md`](PROTOCOL_W5.md) | No |
 | W2-C | Claude Haiku 5.5 through native tool use | Haiku | [`PROTOCOL_W2C.md`](PROTOCOL_W2C.md) | Traps hold; "three in a row" works; no first-encounter effect |
 | W2-D | A larger OpenAI model, at two reasoning efforts | Sol | [`PROTOCOL_W2D.md`](PROTOCOL_W2D.md) ([OSF](https://osf.io/z2pwa)) | Credulous; traps hold (0%); every stopping-rule wording works |
-| R1 | Does the stopping rule hold when recovery times vary, and how does it compare with a retry in code? | Sol, Luna, Haiku, DeepSeek | [`PROTOCOL_R1.md`](PROTOCOL_R1.md) ([OSF](https://osf.io/d64ju)) | Code is better on 4 of 4; the caution adds nothing to the count |
+| R1 | Does the stopping rule hold when recovery times vary, and how does it compare with a retry in code? | Sol, Luna, Haiku, DeepSeek | [`PROTOCOL_R1.md`](PROTOCOL_R1.md) ([OSF](https://osf.io/d64ju)) | Code is better on 4 of 4; the caution adds no substantial benefit to the count |
 
 ## Reproduce
 

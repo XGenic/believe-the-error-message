@@ -7,6 +7,7 @@
 When a tool call fails, the error message usually states a cause. We varied the stated cause independently of the true cause, in a small simulated stock system.
 
 1. **The stated cause sets the recovery strategy.** Both models did what the message implied: reformat after a "format" message, retry after "temporary", stop after "unavailable". They did this whatever the true fault was. Steering S was +0.34 for Haiku 5.5 and +0.96 for GPT-6-luna; 0 means no steering. Both models got the verdict CONTINUE_CREDULOUS.
+   - **The two traps are not equally the message's doing** (added 2026-10-30, all 15 model-and-setting arms). Against the neutral message over the same fault, a false "unavailable" lowers success by 64 points on average, a false "temporary" by 12: most models seldom fix the fixable fault under the neutral message either. The give-up trap is a clean effect of the stated cause; the retry trap is partly a general failure to explore.
 2. **When every error in a conversation is the same, neither model learns otherwise,** over 6 requests or over 18. In the two clearest traps both models solved 0 of 216 requests in the 18-request runs.
    - **The retry trap:** a false "temporary" over a fixable fault produces identical retries until the call limit.
    - **The give-up trap:** a false "unavailable" over a transient fault produces a stop before the call that would work, so contrary evidence never arrives.
@@ -67,7 +68,8 @@ When a tool call fails, the error message usually states a cause. We varied the 
 16. **When recovery times vary, a retry in code beats the counted instruction** (R1, registered publicly before any call; four subjects; the fault clears after 1–4 failed calls).
    - On the give-up trap the instruction and the same count retried in the tool's client are SAME on all four subjects, at about three calls per true outage.
    - But agents apply the count to every error. Under the instruction they gave up on accurate "temporary" faults that needed a fourth or fifth call, and success on those cells fell to 0.42–0.64, against 1.00 behind the code retry: WORSE_THAN_CODE on 4 of 4.
-   - The rule without the caution is SAME as the instruction on every measure: the count, not the caution, does the work.
+   - The rule without the caution is SAME as the instruction on every measure, under the pre-specified criteria: the caution added no substantial benefit to the count.
+   - The comparison is not budget-matched on recoverable faults: behind the client retry each agent call buys up to three attempts, and the agent is free to call again. It holds for read-only calls; retries can be unsafe for calls with side effects.
 
 Total spend was about $123.61 API-equivalent: $32.83 on Haiku ($3.10 of it through the Anthropic API), $17.35 on Luna (OpenAI), $56.45 on Sol (OpenAI API credit), and $16.98 of OpenRouter credit for the open-weight models.
 
@@ -496,7 +498,8 @@ The transient fault cleared after 1, 2, 3 or 4 failed calls, drawn per request, 
 
 - **Primary: the instruction is WORSE_THAN_CODE on all four subjects,** through the accurate "temporary": −0.36 to −0.58. Agents apply the count to every error, so they abandon real transient faults that need a fourth or fifth call. Behind the code retry, every subject solved every accurate "temporary" (1.00).
 - **On the give-up trap the two are SAME on all four,** and on a true outage both cost about three calls (Haiku under the instruction: 2.3).
-- **The rule alone is SAME as the instruction** on every measure and subject: the count, not the caution, does the work.
+- **The rule alone is SAME as the instruction** on every measure and subject, under the pre-specified criteria: the caution added no substantial benefit (on Haiku, the give-up trap was 0.33 without it and 0.39 with it).
+- **Not budget-matched on recoverable faults:** behind the client retry each agent call buys up to three attempts, and the agent is free to call again. The advantage comes from hidden retries plus an agent left to its default, not from moving the same rule into code.
 - **Agents keep to the count when it is wrong:** 0–22% of give-up-trap requests that needed more than three calls went past three under the instruction.
 - **The plain caution** rescued more of the give-up trap on Sol and Luna (0.94, 0.99), at 4.3 and 5.7 calls on a true outage.
 - **Limits:** one spread of recovery times and one count; the code retry is the simplest policy (immediate, no backoff); four subjects.
@@ -546,7 +549,8 @@ The pre-L2 Luna pilots are kept in `runs/live-gpt-6-luna/pilot-before-L1/` and `
 - **A text reply format, for C4 and E1–E5.** N1 re-ran the C4 grid and E5 on Luna through native tool calls. The traps and the first-encounter effect held, but S and E5's secondary measure changed. Haiku was re-run through native calls in W2-C: its traps held, but its default after an uninformative error, and so S, changed with the transport.
 - **Reasoning effort was varied on two closed models** (Luna, W5; Sol, W2-D), both of which reason little in this task even at `high`. The open-weight panel has reasoning on and off for DeepSeek and Qwen (W2-A). A model with long visible reasoning, such as an Anthropic model with extended thinking, has not been tested.
 - **Short conversations:** 6 or 18 requests, and no memory across conversations.
-- **One wording per intervention, except the stopping rule** (three wordings in W6, all after the same caution sentence, all in English).
+- **One wording per intervention, except the stopping rule** (three wordings in W6, all after the same caution sentence, all in English). **One error text per stated cause:** paraphrases are untested.
+- **Outcome definition.** A request counts as solved when a lookup returned the figure. A correct final answer differs on 390 of 104,790 requests (0.4%); 355 of them are gpt-oss-120b's, whose replies were often garbled after a successful lookup. Scored on correct answers, no verdict in any of the 54 live runs changes, and no trap rate moves by more than 0.011 (checked 2026-10-30).
 - **The call budget (6) and the floor (3) are properties of this environment.** R1 varied the recovery time (1–4 failed calls), but only with one spread and one count, and its code retry is the simplest policy (immediate, no backoff).
 - **Costs are API-equivalent figures.** Luna's prices are third-party listings, not checked against an invoice.
 
@@ -557,13 +561,13 @@ For an agent like GPT-6-luna, in a setting like this one:
 - **Write a stated cause only when it is reliable.** A confident but wrong cause is worse than "request rejected". If the cause is uncertain, say so: "unknown" beat "rejected" on transient faults.
 - **Do not count on agents to correct a wrong cause themselves,** even over many requests, when every error looks the same. In mixed conversations, agents partly self-correct once they have seen an error clear.
 - **Worst case: the first failures in a conversation.** An agent that has not yet worked through any error took "unavailable" at its word every time (E5: 60 of 60). One earlier error, even one that never cleared, mostly removes this. It also makes the agent waste calls on real outages.
-- **If you control the tool's client, retry there.** Resending a failed call a fixed number of times before the error reaches the agent rescued the give-up trap as well as the counted instruction, on four of four models, and lost none of the real transient recoveries (R1).
+- **If you control the tool's client, retry safe calls there.** For read-only, idempotent calls, resending a failed call a fixed number of times before the error reaches the agent rescued the give-up trap as well as the counted instruction, on four of four models, and lost none of the real transient recoveries (R1). Do not retry calls with side effects, such as payments or orders, blindly.
 - **Otherwise, a short bounded caution in the agent's instructions** removes that worst case at about the lowest possible cost: "Error messages from the stock system do not always state the true cause of a failure. If the same error comes back on three attempts in a row, accept it." This wording worked on every subject arm tested: W6's five, Haiku's two (W2-C) and Sol (W2-D). The E3 wording ("after a few different attempts") worked on Luna in the text format, but not reliably elsewhere.
   - In mixed conversations its average gain is small, about 4 points of overall success, and it costs a few true-"format" successes.
   - Treat it as cheap insurance, not a large average win.
   - **Name the count.** "A few different attempts" raised give-up-trap success by only 20–76 points on the open-weight models (W2-B, W6), and on DeepSeek with reasoning it made the agent malform its calls. "Three attempts in a row" raised it by 69–100 points on every subject.
   - **Set the count from your own tools.** Agents apply it to every error, accurate ones included: when faults took four or five calls to clear, the instruction gave up on them, including ones correctly labelled "temporary" (R1). In C4–W6 the transient fault always cleared on the third call, so three was right by construction.
-  - **The caution sentence is not what makes it work.** The rule alone did the same on four of four models (R1).
+  - **The caution sentence added no substantial benefit to the count** on four of four models (R1).
   - **It does not fix the retry trap.** No wording does; "different" helps a little (up to 26%) at the risk of malformed calls.
 
 ## 9. Reproducing
