@@ -4,7 +4,7 @@ When a tool call fails, the error message usually states a cause: "invalid forma
 
 **Short answer: they act on the stated cause and rarely revise it, and two traps follow.** A brief caution paired with a counted stopping rule fixes the worse of the two on every model tested, in this environment.
 
-Results to 2026-10-28: 13 pre-specified studies on 5 models from 4 developers (13 model-and-setting arms), about $65 of API spend. **Paper draft:** [`paper/PAPER.md`](paper/PAPER.md) (preprint draft, not peer reviewed). The consolidated write-up is [`REPORT.md`](REPORT.md).
+Results to 2026-10-29: 14 pre-specified studies on 6 models from 4 developers (15 model-and-setting arms), about $110 of API spend. The latest, W2-D, was registered publicly before its first call. **Paper draft:** [`paper/PAPER.md`](paper/PAPER.md) (preprint draft, not peer reviewed). The consolidated write-up is [`REPORT.md`](REPORT.md).
 
 ## The two traps
 
@@ -21,14 +21,14 @@ Both patterns occur in production systems: [`ERROR_AUDIT.md`](ERROR_AUDIT.md) do
 
 | Finding | Evidence |
 |---|---|
-| Agents act on the stated cause | Credulous verdict on 9 of 13 arms; steering S from +0.34 to +0.96 |
-| The retry trap holds | At most 10% solved on 12 of 13 arms (highest 16%) |
-| The give-up trap holds | At most 10% solved on 11 of 13 arms (highest 14%) |
+| Agents act on the stated cause | Credulous verdict on 11 of 15 arms; steering S from +0.34 to +0.96 |
+| The retry trap holds | At most 10% solved on 14 of 15 arms (highest 16%) |
+| The give-up trap holds | At most 10% solved on 13 of 15 arms (highest 14%) |
 | Repeated identical errors teach nothing | 0 of 216 trap requests solved in 18-request conversations (Haiku, Luna) |
-| A caution plus a counted stopping rule fixes the give-up trap | "Error messages … do not always state the true cause of a failure. If the same error comes back on three attempts in a row, accept it." passed the pre-set bar on 7 of 7 model arms: 81–100% success, at no more than 3.1 calls on a real outage. The rule was always tested after the caution, and its count matches this environment, where faults clear on the third call |
-| The wording matters | "After a few different attempts" passed on 3 of 7, and made one model send malformed calls |
-| The first failure is the worst case, on some models | GPT-6-luna stopped at once on 60 of 60 first "unavailable" messages, and on 2 of 60 after one earlier error had cleared; Claude Haiku 5.5 shows no such effect |
-| Light reasoning does not help | Luna at high reasoning effort, and Haiku with thinking on: the same traps |
+| A caution plus a counted stopping rule fixes the give-up trap | "Error messages … do not always state the true cause of a failure. If the same error comes back on three attempts in a row, accept it." passed the pre-set bar on 8 of 8 model arms: 81–100% success, at no more than 3.1 calls on a real outage. The rule was always tested after the caution, and its count matches this environment, where faults clear on the third call |
+| The wording matters | "After a few different attempts" passed on 4 of 8, and made one model send malformed calls |
+| The first failure is the worst case, on some models | GPT-6-luna stopped at once on 60 of 60 first "unavailable" messages, and on 2 of 60 after one earlier error had cleared (GPT-6.1 Sol: 60 of 60 and 0 of 60); Claude Haiku 5.5 shows no such effect |
+| Light reasoning does not help | Luna and Sol at high reasoning effort, and Haiku with thinking on: the same traps |
 
 The retry trap is not solved by any instruction tested; the best sentence solved 42% of it on Luna, at 4.7 calls per request.
 
@@ -42,13 +42,14 @@ The numbers come from [`runs/panel/PANEL.md`](runs/panel/PANEL.md), which puts e
 |---|---|---|
 | Claude Haiku 5.5 | Claude Code CLI (text format); Anthropic Messages API (native tool use) | no reasoning; thinking off and on |
 | GPT-6-luna | OpenAI Responses API (text format and native tool use) | reasoning none, low, medium, high |
+| GPT-6.1 Sol | OpenAI Responses API (native tool use) | reasoning low, high |
 | DeepSeek V4.1 Flash | OpenRouter, one pinned host (native tool use) | reasoning off and on |
 | Qwen3.8-27B | OpenRouter, one pinned host (native tool use) | reasoning off and on |
 | gpt-oss-120b | OpenRouter, one pinned host (native tool use) | reasoning on |
 
 ## Studies
 
-Each study's protocol, decision rule and predictions were committed before its first model call, in the author's private working repository. This repository is an export of that work made on 2026-10-28, so its history cannot independently confirm that timing: the studies are pre-specified, not independently timestamped pre-registrations, and that is what "pre-registered" means in the older documents here. Future studies will be registered publicly, as a tagged release and on OSF, before any call. Deviations are logged in [`NOTEBOOK.md`](NOTEBOOK.md), and every prediction is scored in `REPORT.md` §5, misses included.
+Each study's protocol, decision rule and predictions were committed before its first model call, in the author's private working repository. This repository is an export of that work made on 2026-10-28, so its history cannot independently confirm that timing: the studies are pre-specified, not independently timestamped pre-registrations, and that is what "pre-registered" means in the older documents here. From W2-D on, studies are registered publicly, as a tagged release and on OSF, before any call. Deviations are logged in [`NOTEBOOK.md`](NOTEBOOK.md), and every prediction is scored in `REPORT.md` §5, misses included.
 
 | Study | Question | Models | Protocol | Result |
 |---|---|---|---|---|
@@ -65,13 +66,14 @@ Each study's protocol, decision rule and predictions were committed before its f
 | W6 | Does the stopping rule depend on its wording? | Luna, DeepSeek, Qwen, gpt-oss | [`PROTOCOL_W6.md`](PROTOCOL_W6.md) | "Three attempts in a row" works on 5 of 5 |
 | W5 | Does more reasoning help? | Luna | [`PROTOCOL_W5.md`](PROTOCOL_W5.md) | No |
 | W2-C | Claude Haiku 5.5 through native tool use | Haiku | [`PROTOCOL_W2C.md`](PROTOCOL_W2C.md) | Traps hold; "three in a row" works; no first-encounter effect |
+| W2-D | A larger OpenAI model, at two reasoning efforts | Sol | [`PROTOCOL_W2D.md`](PROTOCOL_W2D.md) ([OSF](https://osf.io/z2pwa)) | Credulous; traps hold (0%); every stopping-rule wording works |
 
 ## Reproduce
 
 Python 3.13, standard library only. From this folder:
 
 ```sh
-python -m unittest discover -s tests                          # 79 tests
+python -m unittest discover -s tests                          # 82 tests
 python -m causetest validate --configs configs/mock_*.json   # 40 scripted agents with known behaviour
 python -m causetest reproduce                                 # raw-data hashes + byte-identical re-scoring of every live run
 python -m causetest panel                                     # the cross-model table in runs/panel/

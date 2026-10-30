@@ -1,6 +1,6 @@
 # C4 data card
 
-This card describes the raw records of every C4 live run, as of 2026-10-28: the kill test, extensions E1–E5, and studies N1, H1, W2-A, W2-B, W2-C, W5 and W6. That is 45 run folders and about 14,900 runs. The results are in [`REPORT.md`](REPORT.md).
+This card describes the raw records of every C4 live run, as of 2026-10-29: the kill test, extensions E1–E5, and studies N1, H1, W2-A, W2-B, W2-C, W2-D, W5 and W6. That is 50 run folders and about 16,600 runs. The results are in [`REPORT.md`](REPORT.md).
 
 ## What the data are
 
@@ -47,6 +47,11 @@ The data are complete conversations between a language-model agent and a simulat
 | `runs/w2c-e5-claude-haiku-5-5-t1/` | W2-C, E5 | claude-haiku-5-5 | anthropic_messages_native | 180 | 3 MB |
 | `runs/w2c-w6-claude-haiku-5-5-t0/` | W2-C, W6 design | claude-haiku-5-5 | anthropic_messages_native | 600 | 19 MB |
 | `runs/w2c-w6-claude-haiku-5-5-t1/` | W2-C, W6 design | claude-haiku-5-5 | anthropic_messages_native | 605 | 23 MB |
+| `runs/w2d-c4-gpt-6-1-sol-high/` | W2-D, C4 grid | gpt-6.1-sol | openai_responses_native | 360 | 12 MB |
+| `runs/w2d-c4-gpt-6-1-sol-low/` | W2-D, C4 grid | gpt-6.1-sol | openai_responses_native | 360 | 12 MB |
+| `runs/w2d-e5-gpt-6-1-sol-high/` | W2-D, E5 | gpt-6.1-sol | openai_responses_native | 180 | 2 MB |
+| `runs/w2d-e5-gpt-6-1-sol-low/` | W2-D, E5 | gpt-6.1-sol | openai_responses_native | 180 | 2 MB |
+| `runs/w2d-w6-gpt-6-1-sol-low/` | W2-D, W6 design | gpt-6.1-sol | openai_responses_native | 600 | 20 MB |
 | `runs/w5-c4-high-gpt-6-luna/` | W5, C4 grid | gpt-6-luna | openai_responses_native | 360 | 12 MB |
 | `runs/w5-c4-low-gpt-6-luna/` | W5, C4 grid | gpt-6-luna | openai_responses_native | 360 | 10 MB |
 | `runs/w5-c4-medium-gpt-6-luna/` | W5, C4 grid | gpt-6-luna | openai_responses_native | 360 | 11 MB |
@@ -123,8 +128,8 @@ Development pilots are kept in each run's `pilot*/` folders. They never enter an
 
 ## Integrity and reproduction
 
-- **`runs/MANIFEST.json`** pins the SHA-256 of every raw file of every live run: 380 files across 45 run folders. That is everything except `analysis/` and `cache/`.
-- **`python -m causetest reproduce`** checks those hashes. It then re-scores every live run from its raw records into a scratch folder and compares the result with the committed `analysis/` byte for byte. As of 2026-10-28 it passes for every run, in the working repository and in the public release.
+- **`runs/MANIFEST.json`** pins the SHA-256 of every raw file of every live run: 420 files across 50 run folders. That is everything except `analysis/` and `cache/`.
+- **`python -m causetest reproduce`** checks those hashes. It then re-scores every live run from its raw records into a scratch folder and compares the result with the committed `analysis/` byte for byte. As of 2026-10-29 it passes for every run, in the working repository and in the public release.
 - **Raw files are kept exactly as written,** because `.gitattributes` sets `* -text`. Runs made on Windows (everything after the two Haiku CLI runs) have CRLF line endings; the Haiku CLI runs, made on Linux, have LF. JSON parsing ignores the difference, and the manifest pins the bytes as they are.
 - **Analysis output is written with LF on every platform,** and runs are sorted before the bootstrap. Both since paper plan W0.
 
@@ -135,6 +140,7 @@ Development pilots are kept in each run's `pilot*/` folders. They never enter an
   - Luna's are computed from third-party price listings that have not been checked against an invoice. All input is billed at the uncached rate, so they are an upper bound.
   - OpenRouter's (DeepSeek, Qwen, gpt-oss) are OpenRouter's billed figures, read from each response.
   - The Anthropic API runs (W2-C) are priced from each response's usage at Anthropic's list prices, with cache writes and reads at their own rates.
+  - The GPT-6.1 Sol runs (W2-D) are priced the same way, at OpenAI's list prices for Sol, with cached input and cache writes at their own rates.
 - **Settings differ between the models.** The text-format Luna runs use deviations L1 (history cut) and L2 (reasoning effort `low`); see `NOTEBOOK.md`. Each model's settings are in its runs' `config.json`.
 - **`from_cache` in a summary** records how rows were produced (fresh or read back from the resume cache). It is bookkeeping, not an outcome.
 

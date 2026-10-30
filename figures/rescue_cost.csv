@@ -30,3 +30,7 @@ gpt-oss-120b r1,w6-gpt-oss-120b-r1,caution_three,0.6888888888888889,0.5611111111
 "Claude Haiku 5.5, thinking on",w2c-w6-claude-haiku-5-5-t1,caution_bounded,1.0,1.0,1.0,1.9277777777777778,1.788888888888889,2.0833333333333335
 "Claude Haiku 5.5, thinking on",w2c-w6-claude-haiku-5-5-t1,caution_few,1.0,1.0,1.0,2.3777777777777778,2.216666666666667,2.5388888888888888
 "Claude Haiku 5.5, thinking on",w2c-w6-claude-haiku-5-5-t1,caution_three,1.0,1.0,1.0,2.8166666666666664,2.6666666666666665,2.9444444444444446
+"GPT-6.1 Sol, native, low",w2d-w6-gpt-6-1-sol-low,caution,1.0,1.0,1.0,3.7444444444444445,3.4555555555555557,4.094444444444444
+"GPT-6.1 Sol, native, low",w2d-w6-gpt-6-1-sol-low,caution_bounded,1.0,1.0,1.0,3,3,3
+"GPT-6.1 Sol, native, low",w2d-w6-gpt-6-1-sol-low,caution_few,1.0,1.0,1.0,3,3,3
+"GPT-6.1 Sol, native, low",w2d-w6-gpt-6-1-sol-low,caution_three,1.0,1.0,1.0,3,3,3

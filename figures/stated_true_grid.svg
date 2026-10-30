@@ -298,16 +298,16 @@
 <text x="1049.0" y="459.0" font-size="11" fill="#fcfcfb" text-anchor="middle">89</text>
 <rect x="1077" y="441" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="1103.0" y="459.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
-<text x="24" y="560" font-size="12" font-weight="600" fill="#0b0b0b">DeepSeek V4.1 Flash</text>
-<text x="24" y="574" font-size="11" fill="#52514e">native, r0 · S +0.78</text>
+<text x="24" y="560" font-size="12" font-weight="600" fill="#0b0b0b">GPT-6.1 Sol</text>
+<text x="24" y="574" font-size="11" fill="#52514e">native, low · S +0.67</text>
 <text x="143.0" y="718" font-size="10" fill="#898781" text-anchor="middle">fixable</text>
 <text x="197.0" y="718" font-size="10" fill="#898781" text-anchor="middle">transient</text>
 <text x="251.0" y="718" font-size="10" fill="#898781" text-anchor="middle">permanent</text>
 <text x="110" y="601.0" font-size="11" fill="#52514e" text-anchor="end">“format”</text>
-<rect x="117" y="583" width="52" height="28" rx="3" fill="#2a78d6"/>
-<text x="143.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">78</text>
-<rect x="171" y="583" width="52" height="28" rx="3" fill="#5598e7"/>
-<text x="197.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">63</text>
+<rect x="117" y="583" width="52" height="28" rx="3" fill="#184f95"/>
+<text x="143.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
+<rect x="171" y="583" width="52" height="28" rx="3" fill="#184f95"/>
+<text x="197.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
 <rect x="225" y="583" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="251.0" y="601.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="110" y="631.0" font-size="11" fill="#52514e" text-anchor="end">“temporary”</text>
@@ -315,7 +315,7 @@
 <text x="143.0" y="631.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <rect x="117" y="613" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
 <rect x="171" y="613" width="52" height="28" rx="3" fill="#184f95"/>
-<text x="197.0" y="631.0" font-size="11" fill="#fcfcfb" text-anchor="middle">99</text>
+<text x="197.0" y="631.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
 <rect x="225" y="613" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="251.0" y="631.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="110" y="661.0" font-size="11" fill="#52514e" text-anchor="end">“unavailable”</text>
@@ -328,26 +328,26 @@
 <text x="251.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="110" y="691.0" font-size="11" fill="#52514e" text-anchor="end">neutral</text>
 <rect x="117" y="673" width="52" height="28" rx="3" fill="#f0efec"/>
-<text x="143.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">3</text>
-<rect x="171" y="673" width="52" height="28" rx="3" fill="#b7d3f6"/>
-<text x="197.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">28</text>
+<text x="143.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="171" y="673" width="52" height="28" rx="3" fill="#184f95"/>
+<text x="197.0" y="691.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
 <rect x="225" y="673" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="251.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
-<text x="308" y="560" font-size="12" font-weight="600" fill="#0b0b0b">DeepSeek V4.1 Flash</text>
-<text x="308" y="574" font-size="11" fill="#52514e">native, r1 · S +0.66</text>
+<text x="308" y="560" font-size="12" font-weight="600" fill="#0b0b0b">GPT-6.1 Sol</text>
+<text x="308" y="574" font-size="11" fill="#52514e">native, high · S +0.67</text>
 <text x="427.0" y="718" font-size="10" fill="#898781" text-anchor="middle">fixable</text>
 <text x="481.0" y="718" font-size="10" fill="#898781" text-anchor="middle">transient</text>
 <text x="535.0" y="718" font-size="10" fill="#898781" text-anchor="middle">permanent</text>
 <text x="394" y="601.0" font-size="11" fill="#52514e" text-anchor="end">“format”</text>
 <rect x="401" y="583" width="52" height="28" rx="3" fill="#184f95"/>
-<text x="427.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">94</text>
+<text x="427.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
 <rect x="455" y="583" width="52" height="28" rx="3" fill="#184f95"/>
 <text x="481.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
 <rect x="509" y="583" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="535.0" y="601.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="394" y="631.0" font-size="11" fill="#52514e" text-anchor="end">“temporary”</text>
-<rect x="401" y="613" width="52" height="28" rx="3" fill="#b7d3f6"/>
-<text x="427.0" y="631.0" font-size="11" fill="#0b0b0b" text-anchor="middle">16</text>
+<rect x="401" y="613" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="427.0" y="631.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <rect x="401" y="613" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
 <rect x="455" y="613" width="52" height="28" rx="3" fill="#184f95"/>
 <text x="481.0" y="631.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
@@ -355,107 +355,107 @@
 <text x="535.0" y="631.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="394" y="661.0" font-size="11" fill="#52514e" text-anchor="end">“unavailable”</text>
 <rect x="401" y="643" width="52" height="28" rx="3" fill="#f0efec"/>
-<text x="427.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<text x="427.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <rect x="455" y="643" width="52" height="28" rx="3" fill="#f0efec"/>
-<text x="481.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">2</text>
+<text x="481.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <rect x="455" y="643" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
 <rect x="509" y="643" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="535.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="394" y="691.0" font-size="11" fill="#52514e" text-anchor="end">neutral</text>
-<rect x="401" y="673" width="52" height="28" rx="3" fill="#86b6ef"/>
-<text x="427.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">46</text>
+<rect x="401" y="673" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="427.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">6</text>
 <rect x="455" y="673" width="52" height="28" rx="3" fill="#184f95"/>
 <text x="481.0" y="691.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
 <rect x="509" y="673" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="535.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
-<text x="592" y="560" font-size="12" font-weight="600" fill="#0b0b0b">Qwen3.8-27B</text>
-<text x="592" y="574" font-size="11" fill="#52514e">native, r0 · S +0.50</text>
+<text x="592" y="560" font-size="12" font-weight="600" fill="#0b0b0b">DeepSeek V4.1 Flash</text>
+<text x="592" y="574" font-size="11" fill="#52514e">native, r0 · S +0.78</text>
 <text x="711.0" y="718" font-size="10" fill="#898781" text-anchor="middle">fixable</text>
 <text x="765.0" y="718" font-size="10" fill="#898781" text-anchor="middle">transient</text>
 <text x="819.0" y="718" font-size="10" fill="#898781" text-anchor="middle">permanent</text>
 <text x="678" y="601.0" font-size="11" fill="#52514e" text-anchor="end">“format”</text>
 <rect x="685" y="583" width="52" height="28" rx="3" fill="#2a78d6"/>
-<text x="711.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">74</text>
-<rect x="739" y="583" width="52" height="28" rx="3" fill="#184f95"/>
-<text x="765.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">98</text>
+<text x="711.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">78</text>
+<rect x="739" y="583" width="52" height="28" rx="3" fill="#5598e7"/>
+<text x="765.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">63</text>
 <rect x="793" y="583" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="819.0" y="601.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="678" y="631.0" font-size="11" fill="#52514e" text-anchor="end">“temporary”</text>
 <rect x="685" y="613" width="52" height="28" rx="3" fill="#f0efec"/>
-<text x="711.0" y="631.0" font-size="11" fill="#0b0b0b" text-anchor="middle">3</text>
+<text x="711.0" y="631.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <rect x="685" y="613" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
 <rect x="739" y="613" width="52" height="28" rx="3" fill="#184f95"/>
-<text x="765.0" y="631.0" font-size="11" fill="#fcfcfb" text-anchor="middle">97</text>
+<text x="765.0" y="631.0" font-size="11" fill="#fcfcfb" text-anchor="middle">99</text>
 <rect x="793" y="613" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="819.0" y="631.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="678" y="661.0" font-size="11" fill="#52514e" text-anchor="end">“unavailable”</text>
 <rect x="685" y="643" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="711.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <rect x="739" y="643" width="52" height="28" rx="3" fill="#f0efec"/>
-<text x="765.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">3</text>
+<text x="765.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <rect x="739" y="643" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
 <rect x="793" y="643" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="819.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="678" y="691.0" font-size="11" fill="#52514e" text-anchor="end">neutral</text>
-<rect x="685" y="673" width="52" height="28" rx="3" fill="#b7d3f6"/>
-<text x="711.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">16</text>
-<rect x="739" y="673" width="52" height="28" rx="3" fill="#5598e7"/>
-<text x="765.0" y="691.0" font-size="11" fill="#fcfcfb" text-anchor="middle">53</text>
+<rect x="685" y="673" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="711.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">3</text>
+<rect x="739" y="673" width="52" height="28" rx="3" fill="#b7d3f6"/>
+<text x="765.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">28</text>
 <rect x="793" y="673" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="819.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
-<text x="876" y="560" font-size="12" font-weight="600" fill="#0b0b0b">Qwen3.8-27B</text>
-<text x="876" y="574" font-size="11" fill="#52514e">native, r1 · S +0.78</text>
+<text x="876" y="560" font-size="12" font-weight="600" fill="#0b0b0b">DeepSeek V4.1 Flash</text>
+<text x="876" y="574" font-size="11" fill="#52514e">native, r1 · S +0.66</text>
 <text x="995.0" y="718" font-size="10" fill="#898781" text-anchor="middle">fixable</text>
 <text x="1049.0" y="718" font-size="10" fill="#898781" text-anchor="middle">transient</text>
 <text x="1103.0" y="718" font-size="10" fill="#898781" text-anchor="middle">permanent</text>
 <text x="962" y="601.0" font-size="11" fill="#52514e" text-anchor="end">“format”</text>
 <rect x="969" y="583" width="52" height="28" rx="3" fill="#184f95"/>
-<text x="995.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">92</text>
+<text x="995.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">94</text>
 <rect x="1023" y="583" width="52" height="28" rx="3" fill="#184f95"/>
-<text x="1049.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">97</text>
+<text x="1049.0" y="601.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
 <rect x="1077" y="583" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="1103.0" y="601.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="962" y="631.0" font-size="11" fill="#52514e" text-anchor="end">“temporary”</text>
-<rect x="969" y="613" width="52" height="28" rx="3" fill="#f0efec"/>
-<text x="995.0" y="631.0" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="969" y="613" width="52" height="28" rx="3" fill="#b7d3f6"/>
+<text x="995.0" y="631.0" font-size="11" fill="#0b0b0b" text-anchor="middle">16</text>
 <rect x="969" y="613" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
 <rect x="1023" y="613" width="52" height="28" rx="3" fill="#184f95"/>
-<text x="1049.0" y="631.0" font-size="11" fill="#fcfcfb" text-anchor="middle">99</text>
+<text x="1049.0" y="631.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
 <rect x="1077" y="613" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="1103.0" y="631.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="962" y="661.0" font-size="11" fill="#52514e" text-anchor="end">“unavailable”</text>
 <rect x="969" y="643" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="995.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
 <rect x="1023" y="643" width="52" height="28" rx="3" fill="#f0efec"/>
-<text x="1049.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">6</text>
+<text x="1049.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">2</text>
 <rect x="1023" y="643" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
 <rect x="1077" y="643" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="1103.0" y="661.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="962" y="691.0" font-size="11" fill="#52514e" text-anchor="end">neutral</text>
-<rect x="969" y="673" width="52" height="28" rx="3" fill="#b7d3f6"/>
-<text x="995.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">19</text>
-<rect x="1023" y="673" width="52" height="28" rx="3" fill="#2a78d6"/>
-<text x="1049.0" y="691.0" font-size="11" fill="#fcfcfb" text-anchor="middle">74</text>
+<rect x="969" y="673" width="52" height="28" rx="3" fill="#86b6ef"/>
+<text x="995.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">46</text>
+<rect x="1023" y="673" width="52" height="28" rx="3" fill="#184f95"/>
+<text x="1049.0" y="691.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
 <rect x="1077" y="673" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="1103.0" y="691.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
-<text x="24" y="792" font-size="12" font-weight="600" fill="#0b0b0b">gpt-oss-120b</text>
-<text x="24" y="806" font-size="11" fill="#52514e">native, r1 · S +0.92</text>
+<text x="24" y="792" font-size="12" font-weight="600" fill="#0b0b0b">Qwen3.8-27B</text>
+<text x="24" y="806" font-size="11" fill="#52514e">native, r0 · S +0.50</text>
 <text x="143.0" y="950" font-size="10" fill="#898781" text-anchor="middle">fixable</text>
 <text x="197.0" y="950" font-size="10" fill="#898781" text-anchor="middle">transient</text>
 <text x="251.0" y="950" font-size="10" fill="#898781" text-anchor="middle">permanent</text>
 <text x="110" y="833.0" font-size="11" fill="#52514e" text-anchor="end">“format”</text>
 <rect x="117" y="815" width="52" height="28" rx="3" fill="#2a78d6"/>
-<text x="143.0" y="833.0" font-size="11" fill="#fcfcfb" text-anchor="middle">83</text>
+<text x="143.0" y="833.0" font-size="11" fill="#fcfcfb" text-anchor="middle">74</text>
 <rect x="171" y="815" width="52" height="28" rx="3" fill="#184f95"/>
-<text x="197.0" y="833.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
+<text x="197.0" y="833.0" font-size="11" fill="#fcfcfb" text-anchor="middle">98</text>
 <rect x="225" y="815" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="251.0" y="833.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="110" y="863.0" font-size="11" fill="#52514e" text-anchor="end">“temporary”</text>
 <rect x="117" y="845" width="52" height="28" rx="3" fill="#f0efec"/>
-<text x="143.0" y="863.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<text x="143.0" y="863.0" font-size="11" fill="#0b0b0b" text-anchor="middle">3</text>
 <rect x="117" y="845" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
-<rect x="171" y="845" width="52" height="28" rx="3" fill="#86b6ef"/>
-<text x="197.0" y="863.0" font-size="11" fill="#0b0b0b" text-anchor="middle">46</text>
+<rect x="171" y="845" width="52" height="28" rx="3" fill="#184f95"/>
+<text x="197.0" y="863.0" font-size="11" fill="#fcfcfb" text-anchor="middle">97</text>
 <rect x="225" y="845" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="251.0" y="863.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="110" y="893.0" font-size="11" fill="#52514e" text-anchor="end">“unavailable”</text>
@@ -467,11 +467,81 @@
 <rect x="225" y="875" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="251.0" y="893.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="110" y="923.0" font-size="11" fill="#52514e" text-anchor="end">neutral</text>
-<rect x="117" y="905" width="52" height="28" rx="3" fill="#f0efec"/>
-<text x="143.0" y="923.0" font-size="11" fill="#0b0b0b" text-anchor="middle">3</text>
-<rect x="171" y="905" width="52" height="28" rx="3" fill="#184f95"/>
-<text x="197.0" y="923.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
+<rect x="117" y="905" width="52" height="28" rx="3" fill="#b7d3f6"/>
+<text x="143.0" y="923.0" font-size="11" fill="#0b0b0b" text-anchor="middle">16</text>
+<rect x="171" y="905" width="52" height="28" rx="3" fill="#5598e7"/>
+<text x="197.0" y="923.0" font-size="11" fill="#fcfcfb" text-anchor="middle">53</text>
 <rect x="225" y="905" width="52" height="28" rx="3" fill="#f0efec"/>
 <text x="251.0" y="923.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<text x="308" y="792" font-size="12" font-weight="600" fill="#0b0b0b">Qwen3.8-27B</text>
+<text x="308" y="806" font-size="11" fill="#52514e">native, r1 · S +0.78</text>
+<text x="427.0" y="950" font-size="10" fill="#898781" text-anchor="middle">fixable</text>
+<text x="481.0" y="950" font-size="10" fill="#898781" text-anchor="middle">transient</text>
+<text x="535.0" y="950" font-size="10" fill="#898781" text-anchor="middle">permanent</text>
+<text x="394" y="833.0" font-size="11" fill="#52514e" text-anchor="end">“format”</text>
+<rect x="401" y="815" width="52" height="28" rx="3" fill="#184f95"/>
+<text x="427.0" y="833.0" font-size="11" fill="#fcfcfb" text-anchor="middle">92</text>
+<rect x="455" y="815" width="52" height="28" rx="3" fill="#184f95"/>
+<text x="481.0" y="833.0" font-size="11" fill="#fcfcfb" text-anchor="middle">97</text>
+<rect x="509" y="815" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="535.0" y="833.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<text x="394" y="863.0" font-size="11" fill="#52514e" text-anchor="end">“temporary”</text>
+<rect x="401" y="845" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="427.0" y="863.0" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="401" y="845" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
+<rect x="455" y="845" width="52" height="28" rx="3" fill="#184f95"/>
+<text x="481.0" y="863.0" font-size="11" fill="#fcfcfb" text-anchor="middle">99</text>
+<rect x="509" y="845" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="535.0" y="863.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<text x="394" y="893.0" font-size="11" fill="#52514e" text-anchor="end">“unavailable”</text>
+<rect x="401" y="875" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="427.0" y="893.0" font-size="11" fill="#0b0b0b" text-anchor="middle">1</text>
+<rect x="455" y="875" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="481.0" y="893.0" font-size="11" fill="#0b0b0b" text-anchor="middle">6</text>
+<rect x="455" y="875" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
+<rect x="509" y="875" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="535.0" y="893.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<text x="394" y="923.0" font-size="11" fill="#52514e" text-anchor="end">neutral</text>
+<rect x="401" y="905" width="52" height="28" rx="3" fill="#b7d3f6"/>
+<text x="427.0" y="923.0" font-size="11" fill="#0b0b0b" text-anchor="middle">19</text>
+<rect x="455" y="905" width="52" height="28" rx="3" fill="#2a78d6"/>
+<text x="481.0" y="923.0" font-size="11" fill="#fcfcfb" text-anchor="middle">74</text>
+<rect x="509" y="905" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="535.0" y="923.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<text x="592" y="792" font-size="12" font-weight="600" fill="#0b0b0b">gpt-oss-120b</text>
+<text x="592" y="806" font-size="11" fill="#52514e">native, r1 · S +0.92</text>
+<text x="711.0" y="950" font-size="10" fill="#898781" text-anchor="middle">fixable</text>
+<text x="765.0" y="950" font-size="10" fill="#898781" text-anchor="middle">transient</text>
+<text x="819.0" y="950" font-size="10" fill="#898781" text-anchor="middle">permanent</text>
+<text x="678" y="833.0" font-size="11" fill="#52514e" text-anchor="end">“format”</text>
+<rect x="685" y="815" width="52" height="28" rx="3" fill="#2a78d6"/>
+<text x="711.0" y="833.0" font-size="11" fill="#fcfcfb" text-anchor="middle">83</text>
+<rect x="739" y="815" width="52" height="28" rx="3" fill="#184f95"/>
+<text x="765.0" y="833.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
+<rect x="793" y="815" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="819.0" y="833.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<text x="678" y="863.0" font-size="11" fill="#52514e" text-anchor="end">“temporary”</text>
+<rect x="685" y="845" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="711.0" y="863.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="685" y="845" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
+<rect x="739" y="845" width="52" height="28" rx="3" fill="#86b6ef"/>
+<text x="765.0" y="863.0" font-size="11" fill="#0b0b0b" text-anchor="middle">46</text>
+<rect x="793" y="845" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="819.0" y="863.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<text x="678" y="893.0" font-size="11" fill="#52514e" text-anchor="end">“unavailable”</text>
+<rect x="685" y="875" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="711.0" y="893.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<rect x="739" y="875" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="765.0" y="893.0" font-size="11" fill="#0b0b0b" text-anchor="middle">3</text>
+<rect x="739" y="875" width="52" height="28" rx="3" fill="none" stroke="#e34948" stroke-width="2"/>
+<rect x="793" y="875" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="819.0" y="893.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
+<text x="678" y="923.0" font-size="11" fill="#52514e" text-anchor="end">neutral</text>
+<rect x="685" y="905" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="711.0" y="923.0" font-size="11" fill="#0b0b0b" text-anchor="middle">3</text>
+<rect x="739" y="905" width="52" height="28" rx="3" fill="#184f95"/>
+<text x="765.0" y="923.0" font-size="11" fill="#fcfcfb" text-anchor="middle">100</text>
+<rect x="793" y="905" width="52" height="28" rx="3" fill="#f0efec"/>
+<text x="819.0" y="923.0" font-size="11" fill="#0b0b0b" text-anchor="middle">0</text>
 <text x="1130" y="1002" font-size="10" fill="#898781" text-anchor="end">Columns: the true fault. Cell values: % of requests solved.</text>
 </svg>

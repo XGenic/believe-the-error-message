@@ -1,0 +1,551 @@
+{
+  "H3_stability": {
+    "fixable": {
+      "calls_late_stable_claim": 1,
+      "calls_late_unstable_claim": 6,
+      "difference": -5
+    },
+    "permanent": {
+      "calls_late_stable_claim": 1,
+      "calls_late_unstable_claim": 6,
+      "difference": -5
+    },
+    "transient": {
+      "calls_late_stable_claim": 1,
+      "calls_late_unstable_claim": 3,
+      "difference": -2
+    }
+  },
+  "H4_talked_out_of_fixable": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "L_accurate": {
+    "format|fixable": 0.0,
+    "permanent|permanent": 0.0,
+    "transient|transient": 0.0
+  },
+  "L_misleading": {
+    "format|permanent": 0.06666666666666665,
+    "format|transient": 0.0,
+    "permanent|fixable": 0.0,
+    "permanent|transient": 0.0,
+    "transient|fixable": 0.0,
+    "transient|permanent": 0.0
+  },
+  "L_star": 0.01333333333333333,
+  "L_star_ci": [
+    0.0,
+    0.030000000000000006
+  ],
+  "S": 0.6666666666666666,
+  "S_ci": [
+    0.6666666666666666,
+    0.6666666666666666
+  ],
+  "cells": {
+    "format|fixable": {
+      "calls_by_request": [
+        2.933333333333333,
+        2.7666666666666666,
+        2.466666666666667,
+        1.7333333333333334,
+        1.3333333333333333,
+        1
+      ],
+      "calls_late": 1.1666666666666667,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.74,
+      "first_response_all": {
+        "REFORMAT": 90
+      },
+      "first_response_late": {
+        "REFORMAT": 5
+      },
+      "first_response_request1": {
+        "REFORMAT": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "unknown_rate": 0.0,
+      "unsupported_answers": 0
+    },
+    "format|permanent": {
+      "calls_by_request": [
+        6,
+        6,
+        6,
+        5.9,
+        5.433333333333334,
+        5.3
+      ],
+      "calls_late": 5.366666666666666,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "REFORMAT": 176,
+        "STOP": 4
+      },
+      "first_response_late": {
+        "REFORMAT": 56,
+        "STOP": 4
+      },
+      "first_response_request1": {
+        "REFORMAT": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "format|transient": {
+      "calls_by_request": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "calls_late": 3,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.6266666666666667,
+      "first_response_all": {
+        "REFORMAT": 180
+      },
+      "first_response_late": {
+        "REFORMAT": 60
+      },
+      "first_response_request1": {
+        "REFORMAT": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "unknown_rate": 0.0,
+      "unsupported_answers": 0
+    },
+    "neutral|fixable": {
+      "calls_by_request": [
+        3.966666666666667,
+        2.933333333333333,
+        1.7666666666666666,
+        1.9666666666666666,
+        1.7666666666666666,
+        1.6666666666666667
+      ],
+      "calls_late": 1.7166666666666666,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.1,
+      "first_response_all": {
+        "REFORMAT": 22,
+        "RETRY": 46,
+        "SITE_ONLY": 26,
+        "STOP": 83
+      },
+      "first_response_late": {
+        "REFORMAT": 9,
+        "SITE_ONLY": 6,
+        "STOP": 44
+      },
+      "first_response_request1": {
+        "RETRY": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.16666666666666666,
+        0.0,
+        0.06666666666666667,
+        0.0,
+        0.03333333333333333,
+        0.06666666666666667
+      ],
+      "unknown_rate": 0.9444444444444444,
+      "unsupported_answers": 0
+    },
+    "neutral|permanent": {
+      "calls_by_request": [
+        3.8666666666666667,
+        2.3333333333333335,
+        1.4,
+        1.2,
+        1.1666666666666667,
+        1.1
+      ],
+      "calls_late": 1.1333333333333333,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "RETRY": 46,
+        "SITE_ONLY": 37,
+        "STOP": 97
+      },
+      "first_response_late": {
+        "SITE_ONLY": 8,
+        "STOP": 52
+      },
+      "first_response_request1": {
+        "RETRY": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "neutral|transient": {
+      "calls_by_request": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "calls_late": 3,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.36666666666666664,
+      "first_response_all": {
+        "REFORMAT": 64,
+        "RETRY": 30,
+        "SITE_ONLY": 86
+      },
+      "first_response_late": {
+        "REFORMAT": 35,
+        "SITE_ONLY": 25
+      },
+      "first_response_request1": {
+        "RETRY": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "unknown_rate": 0.0,
+      "unsupported_answers": 0
+    },
+    "permanent|fixable": {
+      "calls_by_request": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "calls_late": 1,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "STOP": 180
+      },
+      "first_response_late": {
+        "STOP": 60
+      },
+      "first_response_request1": {
+        "STOP": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "permanent|permanent": {
+      "calls_by_request": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "calls_late": 1,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "STOP": 180
+      },
+      "first_response_late": {
+        "STOP": 60
+      },
+      "first_response_request1": {
+        "STOP": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "permanent|transient": {
+      "calls_by_request": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "calls_late": 1,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "STOP": 180
+      },
+      "first_response_late": {
+        "STOP": 60
+      },
+      "first_response_request1": {
+        "STOP": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "transient|fixable": {
+      "calls_by_request": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "calls_late": 6,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "RETRY": 180
+      },
+      "first_response_late": {
+        "RETRY": 60
+      },
+      "first_response_request1": {
+        "RETRY": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "transient|permanent": {
+      "calls_by_request": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "calls_late": 6,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "RETRY": 180
+      },
+      "first_response_late": {
+        "RETRY": 60
+      },
+      "first_response_request1": {
+        "RETRY": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unknown_rate": 1.0,
+      "unsupported_answers": 0
+    },
+    "transient|transient": {
+      "calls_by_request": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "calls_late": 3,
+      "fabricated_result_lines": 0,
+      "first_call_not_as_written_later": 0.0,
+      "first_response_all": {
+        "RETRY": 180
+      },
+      "first_response_late": {
+        "RETRY": 60
+      },
+      "first_response_request1": {
+        "RETRY": 30
+      },
+      "runs": 30,
+      "self_cause_language": 0.0,
+      "service_cause_language": 0.0,
+      "success_by_request": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "unknown_rate": 0.0,
+      "unsupported_answers": 0
+    }
+  },
+  "cost": {
+    "agent_calls": 8640,
+    "equiv_usd": 10.4995,
+    "from_cache": 0,
+    "runs_recorded": 360
+  },
+  "deltas": {
+    "format|permanent": 1.0,
+    "format|transient": 1.0,
+    "permanent|fixable": 1.0,
+    "permanent|transient": 1.0,
+    "transient|fixable": 0.0,
+    "transient|permanent": 0.0
+  },
+  "label": "LIVE MODEL RUN (study W2-D: the C4 grid, gpt-6.1-sol, native tool calls, reasoning high)",
+  "model": "gpt-6.1-sol",
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 360
+  },
+  "superstition_probe": {
+    "format_claim": 0.6266666666666667,
+    "index": 0.26000000000000006,
+    "neutral_claim": 0.36666666666666664
+  },
+  "transport": "openai_responses_native",
+  "validity": {
+    "completion": {
+      "format|fixable": 1.0,
+      "format|permanent": 1.0,
+      "format|transient": 1.0,
+      "neutral|fixable": 1.0,
+      "neutral|permanent": 1.0,
+      "neutral|transient": 1.0,
+      "permanent|fixable": 1.0,
+      "permanent|permanent": 1.0,
+      "permanent|transient": 1.0,
+      "transient|fixable": 1.0,
+      "transient|permanent": 1.0,
+      "transient|transient": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement": {
+      "format|fixable": 1.0,
+      "format|permanent": 1.0,
+      "format|transient": 1.0,
+      "neutral|fixable": 1.0,
+      "neutral|permanent": 1.0,
+      "neutral|transient": 1.0,
+      "permanent|fixable": 1.0,
+      "permanent|permanent": 1.0,
+      "permanent|transient": 1.0,
+      "transient|fixable": 1.0,
+      "transient|permanent": 1.0,
+      "transient|transient": 1.0
+    },
+    "engagement_min": 1.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "S +0.667 (CI +0.667, +0.667); L* +0.013 (CI +0.000, +0.030)"
+    ],
+    "verdict": "CONTINUE_CREDULOUS"
+  }
+}

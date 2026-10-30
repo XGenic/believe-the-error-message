@@ -219,6 +219,31 @@
 <line x1="457.4" x2="457.4" y1="631.6" y2="631.6" stroke="#1baf7a" stroke-width="1.5"/>
 <line x1="451.1" x2="462.7" y1="631.6" y2="631.6" stroke="#1baf7a" stroke-width="1.5"/>
 <path d="M457.4,625.6 L463.4,636.4 L451.4,636.4 Z" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<text x="624" y="614" font-size="12" font-weight="600" fill="#0b0b0b">GPT-6.1 Sol, native, low</text>
+<rect x="624.0" y="624.0" width="145.8" height="83.6" fill="#eef5ec"/>
+<line x1="624.0" x2="874.0" y1="783.6" y2="783.6" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="624.0" x2="874.0" y1="707.6" y2="707.6" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="624.0" x2="874.0" y1="631.6" y2="631.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="624.0" y="830.0" font-size="11" fill="#898781" text-anchor="middle">0</text>
+<text x="665.7" y="830.0" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<text x="707.3" y="830.0" font-size="11" fill="#898781" text-anchor="middle">2</text>
+<text x="749.0" y="830.0" font-size="11" fill="#898781" text-anchor="middle">3</text>
+<text x="790.7" y="830.0" font-size="11" fill="#898781" text-anchor="middle">4</text>
+<text x="832.3" y="830.0" font-size="11" fill="#898781" text-anchor="middle">5</text>
+<text x="874.0" y="830.0" font-size="11" fill="#898781" text-anchor="middle">6</text>
+<line x1="749.0" x2="749.0" y1="624.0" y2="814.0" stroke="#52514e" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="780.0" x2="780.0" y1="631.6" y2="631.6" stroke="#898781" stroke-width="1.5"/>
+<line x1="768.0" x2="794.6" y1="631.6" y2="631.6" stroke="#898781" stroke-width="1.5"/>
+<path d="M780.0,625.6 L786.0,631.6 L780.0,637.6 L774.0,631.6 Z" fill="#fcfcfb" stroke="#898781" stroke-width="2"/>
+<line x1="749.0" x2="749.0" y1="631.6" y2="631.6" stroke="#2a78d6" stroke-width="1.5"/>
+<line x1="749.0" x2="749.0" y1="631.6" y2="631.6" stroke="#2a78d6" stroke-width="1.5"/>
+<circle cx="749.0" cy="631.6" r="5.0" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="749.0" x2="749.0" y1="631.6" y2="631.6" stroke="#eb6834" stroke-width="1.5"/>
+<line x1="749.0" x2="749.0" y1="631.6" y2="631.6" stroke="#eb6834" stroke-width="1.5"/>
+<rect x="744.0" y="626.6" width="10.0" height="10.0" rx="1.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="749.0" x2="749.0" y1="631.6" y2="631.6" stroke="#1baf7a" stroke-width="1.5"/>
+<line x1="749.0" x2="749.0" y1="631.6" y2="631.6" stroke="#1baf7a" stroke-width="1.5"/>
+<path d="M749.0,625.6 L755.0,636.4 L743.0,636.4 Z" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
 <text x="465.0" y="850" font-size="12" fill="#52514e" text-anchor="middle">calls per request on a true outage (lower is cheaper; the rescue needs 3)</text>
 <text transform="translate(16,401.0) rotate(-90)" font-size="12" fill="#52514e" text-anchor="middle">give-up rescue vs control</text>
 <text x="874" y="880" font-size="10" fill="#898781" text-anchor="end">Shaded: RECOMMENDABLE region (rescue ≥ 0.5, at most 3.5 calls)</text>

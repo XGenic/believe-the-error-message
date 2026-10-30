@@ -1,28 +1,28 @@
 {
   "counts": {
     "\"a few different attempts\" rescues the give-up trap (E3's bar)": [
-      6,
-      9
+      7,
+      10
     ],
     "\"three attempts in a row\" rescues the give-up trap (E3's bar)": [
-      8,
-      8
+      9,
+      9
     ],
     "credulous (C4 verdict CONTINUE_CREDULOUS)": [
-      9,
-      13
+      11,
+      15
     ],
     "first-encounter effect (E5 CONFIRMED; INVALID runs left out)": [
-      9,
-      11
-    ],
-    "give-up trap holds (success at most 10%)": [
       11,
       13
     ],
+    "give-up trap holds (success at most 10%)": [
+      13,
+      15
+    ],
     "retry trap holds (success at most 10%)": [
-      12,
-      13
+      14,
+      15
     ]
   },
   "rows": [
@@ -406,6 +406,104 @@
       "sources": {
         "c4": "w5-c4-high-gpt-6-luna",
         "e5": "w5-e5-high-gpt-6-luna"
+      },
+      "three": null
+    },
+    {
+      "bounded": {
+        "ci": [
+          1.0,
+          1.0
+        ],
+        "est": 1.0,
+        "verdict": "W6: RECOMMENDABLE"
+      },
+      "c4": {
+        "S": 0.6666666666666666,
+        "S_ci": [
+          0.6666666666666666,
+          0.6666666666666666
+        ],
+        "give_up_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "retry_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 1.0,
+        "D1_ci": [
+          1.0,
+          1.0
+        ],
+        "verdict": "CONFIRMED"
+      },
+      "model": "GPT-6.1 Sol",
+      "setting": "native, low",
+      "sources": {
+        "bounded": "w2d-w6-gpt-6-1-sol-low",
+        "c4": "w2d-c4-gpt-6-1-sol-low",
+        "e5": "w2d-e5-gpt-6-1-sol-low",
+        "three": "w2d-w6-gpt-6-1-sol-low"
+      },
+      "three": {
+        "ci": [
+          1.0,
+          1.0
+        ],
+        "est": 1.0,
+        "verdict": "W6: RECOMMENDABLE"
+      }
+    },
+    {
+      "bounded": null,
+      "c4": {
+        "S": 0.6666666666666666,
+        "S_ci": [
+          0.6666666666666666,
+          0.6666666666666666
+        ],
+        "give_up_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "retry_trap": {
+          "est": 0.0,
+          "wilson": [
+            0.0,
+            0.11351339476145204
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 0.8666666666666667,
+        "D1_ci": [
+          0.7666666666666666,
+          0.95
+        ],
+        "verdict": "CONFIRMED"
+      },
+      "model": "GPT-6.1 Sol",
+      "setting": "native, high",
+      "sources": {
+        "c4": "w2d-c4-gpt-6-1-sol-high",
+        "e5": "w2d-e5-gpt-6-1-sol-high"
       },
       "three": null
     },

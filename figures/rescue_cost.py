@@ -1,6 +1,6 @@
 """Figure: the give-up rescue against its cost, per model and wording (paper plan W7, figure 3).
 
-Reads the committed summaries of E3 (Luna, text) and W6 (five subjects, native calls) and writes
+Reads the committed summaries of E3 (Luna, text) and of W6, W2-C and W2-D (native calls) and writes
 `rescue_cost.svg` and `rescue_cost.csv` beside this file. Standard library only. Run from the experiment folder:
 
     python figures/rescue_cost.py
@@ -21,7 +21,8 @@ PANELS = [("GPT-6-luna, text, low (E3)", "e3-live-gpt-6-luna"),
           ("Qwen3.8-27B r0", "w6-qwen3-8-27b-r0"),
           ("gpt-oss-120b r1", "w6-gpt-oss-120b-r1"),
           ("Claude Haiku 5.5, thinking off", "w2c-w6-claude-haiku-5-5-t0"),
-          ("Claude Haiku 5.5, thinking on", "w2c-w6-claude-haiku-5-5-t1")]
+          ("Claude Haiku 5.5, thinking on", "w2c-w6-claude-haiku-5-5-t1"),
+          ("GPT-6.1 Sol, native, low", "w2d-w6-gpt-6-1-sol-low")]
 # (arm, legend label, color, marker). Three categorical slots (validated all-pairs, light surface) and a gray
 # reference; each wording also has its own marker shape, so identity is never color alone.
 SERIES = [("caution", "plain caution (no stopping rule)", "#898781", "diamond"),

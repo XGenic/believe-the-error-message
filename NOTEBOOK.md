@@ -28,7 +28,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 - **Preprint draft:** [`paper/PAPER.md`](paper/PAPER.md).
 - **Anthropic External Researcher Access:** a proposal for $1,000 to run Claude Sonnet 5.5, Opus 5.5 and Fable 5.1; the owner submits it before the November 2 review.
 - **Keeping the two in step:** this folder is the source. Changes are made here, then copied to the public repository.
-- **Study W2-D (GPT-6.1 Sol) is frozen and approved at $80** (see its section below). It waits for its public registration.
+- **Study W2-D (GPT-6.1 Sol) is done,** registered publicly before any call ([OSF](https://osf.io/z2pwa), and the GitHub release `w2d-protocol`). Sol is credulous at reasoning `low` and `high`, solves neither trap (0%), shows the first-encounter effect at full size, and every stopping-rule wording is RECOMMENDABLE on it. Spend $44.19 of the $80 approved. See "W2-D results" and `REPORT.md` §4.14. Branch `c4-w2d-results`.
 
 ## Earlier note: study W2-C done (2026-10-28)
 
@@ -1385,7 +1385,7 @@ All six runs completed (600 of 600 in W6 with thinking on, after the runner's si
 
 **Spend:** $2.65 on the Anthropic key (pilots $0.08, main runs $2.57), against the $10 approved. Prompt caching supplied 87–95% of input tokens.
 
-## Study W2-D: GPT-6.1 Sol through native tool calls (frozen; [`PROTOCOL_W2D.md`](PROTOCOL_W2D.md))
+## Study W2-D: GPT-6.1 Sol through native tool calls (done; [`PROTOCOL_W2D.md`](PROTOCOL_W2D.md))
 
 **Owner's request, 2026-10-28:** "draft the Sol protocol". It is paid for by OpenAI API credit that comes with the owner's Pro subscription ($77 this month, shown as API credit on the owner's platform account).
 
@@ -1395,10 +1395,25 @@ All six runs completed (600 of 600 in W6 with thinking on, after the runner's si
 - **Primary:** the C4 verdict at `low`. Secondary: E5, W6's wordings, `high` against `low`, Sol against Luna, and reasoning tokens per call.
 - **First public registration:** the protocol, configs and code go to the public repository as a GitHub release (`w2d-protocol`) and to OSF before any call, the pilots included.
 
-**Status: frozen; caps set (below). Waiting for the public registration; no call yet.**
+**Status: done** (results below). Frozen, caps set and registered publicly before any call.
 
 - **Owner's approval, 2026-10-28, before any W2-D call:** "You can actually cap it $80 since I have abour $82 in credit right now. We have until November 9th before the new credit lapses". The frozen draft proposed $75; the caps below raise it to $80, each covering that config's pilot and main run.
-- **Next:** the public registration (a GitHub release and OSF), then the pilots. Main runs go in the protocol's order of priority (C4 `low`, E5 `low`, W6 `low`, C4 `high`, E5 `high`).
+- **Public registration, before any W2-D call:**
+  - **GitHub release** [`w2d-protocol`](https://github.com/XGenic/believe-the-error-message/releases/tag/w2d-protocol): public commit 3eb26f0, published 2026-10-29 01:46 UTC.
+  - **OSF registration** [osf.io/z2pwa](https://osf.io/z2pwa) (Open-Ended Registration, public, no embargo), registered 2026-10-29 01:53 UTC. Its six archived files are `PROTOCOL_W2D.md` and the five configs; OSF's own SHA-256 for each matches the hashes in the registration's description and the files at commit 3eb26f0 (checked through the OSF API).
+  - `PROTOCOL_W2D.md` stays byte-identical to the registered file. Anything learned afterwards is recorded here, and deviations under "Deviations".
+- **W2-D pilots (2026-10-29; not evidence): all five pass the health gate.** Every run complete, no protocol failures, the tool called on request 1 in every run, no reply at its output limit, no retries, and every response served by `gpt-6.1-sol`. Transcripts read cleanly; both traps appear.
+
+| Pilot | Runs | Cost | Main-run estimate | Cap | Cached input | Reasoning tokens per call (median, mean) |
+|---|---|---|---|---|---|---|
+| C4, `low` | 12/12 | $0.34 | $10.10 | $15 | 56% | 0, 0.1 |
+| E5, `low` | 3/3 | $0.03 | $2.02 | $6 | 0% | 0, 0.3 |
+| W6, `low` | 20/20 | $0.59 | $17.55 | $28 | 53% | 0, 0.1 |
+| C4, `high` | 12/12 | $0.36 | $10.65 | $23 | 59% | 0, 4.9 |
+| E5, `high` | 3/3 | $0.03 | $2.06 | $8 | 0% | 0, 2.8 |
+
+  Pilots cost $1.35 in all; the main runs are estimated at $42.38. Sol reasons very little in this task even at `high` (a median of 0 reasoning tokens per call in the pilot), less than Luna (W5: 11 at `high`).
+- **Main runs** in the protocol's order of priority (C4 `low`, E5 `low`, W6 `low`, C4 `high`, E5 `high`), each after its passed pilot, within the approved caps. They started at 02:04 UTC on 2026-10-29. The owner asked for a pause a minute later, and they resumed at 22:08 UTC on the owner's word (deviation W2D-1). All five finished at 23:40 UTC.
 
 | Config | Estimate | Cap |
 |---|---|---|
@@ -1408,6 +1423,42 @@ All six runs completed (600 of 600 in W6 with thinking on, after the runner's si
 | C4, `high` | $24.47 | $23 |
 | E5, `high` | $7.55 | $8 |
 | **Total** | **$74.15** | **$80** |
+
+### W2-D results: Sol follows the stated cause in every run, and every stopping-rule wording works on it
+
+All five runs are VALID: complete in every cell, no protocol failures, the tool called on request 1 in every run, no reply at its output limit, no retries, and every response served by `gpt-6.1-sol`. Reports: `runs/w2d-<design>-gpt-6-1-sol-<low|high>/analysis/VERDICT.md`; comparisons in [`runs/w2d-comparison/`](runs/w2d-comparison/).
+
+| | `low` | `high` |
+|---|---|---|
+| Reasoning tokens per call (median, mean): C4 / E5 | 0, 0.1 / 0, 0.1 | 0, 5.2 / 0, 4.4 |
+| C4 verdict | CONTINUE_CREDULOUS (S +0.67 [+0.67, +0.67]; L\* +0.02 [+0.00, +0.04]) | CONTINUE_CREDULOUS (S +0.67 [+0.67, +0.67]; L\* +0.01 [+0.00, +0.03]) |
+| Retry trap / give-up trap solved | 0% / 0% | 0% / 0% |
+| Neutral error over a transient fault, solved | 100% | 100% |
+| E5: stop at once with no earlier error / after a cleared one / after uncleared ones | 100% / 0% / 92% | 100% / 13% / 95% |
+| E5 verdict (D1) | CONFIRMED (+1.00 [+1.00, +1.00]) | CONFIRMED (+0.87 [+0.77, +0.95]) |
+| W6: "a few different" / "a few" / "three in a row" | RECOMMENDABLE / RECOMMENDABLE / **RECOMMENDABLE** | not run |
+
+- **Primary (C4 at `low`): CONTINUE_CREDULOUS.** Sol did what the message said in every run. After "format" it respelled the SKU (100% solved over a fixable fault). After "temporary" it repeated the call to the limit (6 calls per request; 0% over a fixable fault). After "unavailable" it stopped on its first call (0% over a transient fault). After a neutral error it retried, which solved the transient fault every time and the fixable one almost never (1%).
+- **Sol is close to deterministic in this task.** In every cell with a "temporary" or "unavailable" message, all 30 runs gave the same first response and made the same number of calls in every request, and S's bootstrap interval has zero width. The panel's Wilson intervals, which count each run once, are the safer summary: 0% [0%, 11%] for each trap.
+- **E5: the first-encounter effect is as large as it can be at `low`.** With no earlier error, Sol stopped at once on 60 of 60 first "unavailable" messages; after one error that cleared, on 0 of 60. Errors that never cleared hardly helped (92% still stopped at once), so the secondary is CLEARING_SPECIFIC in both arms.
+- **W6: every wording is RECOMMENDABLE.** Each rescued the give-up trap in every request (+1.00) at exactly 3.00 calls on a true outage, the floor. The plain caution rescued it too, at 3.74 calls. Sol reads "a few" as three. Under the plain caution and "a few different attempts", Sol varied its calls and solved a third of the retry traps (33%); under the two count-only wordings it repeated the identical call three times and solved none.
+  - "Three attempts in a row" is now RECOMMENDABLE on 8 of 8 subject arms tested (W6's five, W2-C's two, Sol). W6's own ROBUST count stays at its frozen five subjects.
+- **`high` − `low`: SAME** on S, both traps (each +0.00) and D1 (−0.13 [−0.22, −0.05]). At `high`, 8 of 60 runs did not stop at once after a cleared error, against none at `low`.
+- **Sol − Luna at `low`** (descriptive; against W5's `low` runs on the same seeds, two days earlier): **SAME** on S (−0.13 [−0.18, −0.07]), both traps, and D1 (+0.07). The differences are in the defaults. After a neutral error over a transient fault, Sol always persisted (100%, against Luna's 46%; DIFFERENT). After errors that never cleared, Sol still stopped at once far more often (92% against 62%; DIFFERENT). In W6, Luna's two "a few" wordings were RESCUE_COSTLY (about 5 calls on a true outage); on Sol they cost the floor.
+- **Sol reasons even less than Luna in this task:** a median of 0 reasoning tokens per call at both efforts, and a mean of about 5 at `high` (Luna in W5: 11). As in W5, the `high` arm tests the effort setting, not deliberation.
+- **Cache:** 52–56% of C4 and W6 input came from OpenAI's prompt cache. E5's prompts (about 560 tokens per call) were never cached.
+
+**Predictions (`PROTOCOL_W2D.md`): 4 of 5 held.**
+
+| Prediction | Outcome |
+|---|---|
+| Primary: `low` CONTINUE_CREDULOUS, both traps at most 10% | **held** (0% and 0%) |
+| E5 CONFIRMED at `low` | **held** (D1 +1.00) |
+| "Three in a row" RECOMMENDABLE at `low` | **held** (and so were both other wordings) |
+| `high` − `low`: SAME on both traps | **held** (SAME on S and both traps, and on D1) |
+| Sol reasons more than Luna: a median above 11 reasoning tokens per call at `high` | **missed:** a median of 0 (mean 5.2 on C4, 4.4 on E5) |
+
+**Spend:** $44.19 of OpenAI API credit, against the $80 approved: pilots $1.35, main runs $42.84 (C4 `low` $10.32, of which $0.49 before the pause; E5 `low` $2.12; W6 `low` $17.73; C4 `high` $10.50; E5 `high` $2.17). Each config stayed within its cap. These are Sol's list prices applied to each response's usage, cache included. The 10 requests in flight at the pause (W2D-1) have no recorded cost, about a cent at most.
 
 ## Decisions for the owner
 
@@ -1606,4 +1657,11 @@ Pre-freeze differences from the handoff are listed at the end of `PROTOCOL.md`.
   - **The restart (18:09), stopped again by the stop rule.** OpenRouter showed DeepInfra's endpoint as degraded (status −2) at the stop and normal (0) at 18:09. The restarted run served 41 requests a minute over its first 10 minutes (413 requests, no failures), below 100, so it was stopped at 18:19 and reported to the owner. By then 30 of 600 runs were complete, the 9 that had failed included. Its rows are kept as `results.pass2.jsonl`. Spend on Qwen so far: about $0.23.
   - **Second restart (owner's approval 2026-10-27, before the restart): the speed rule is dropped.** The owner accepts a slow run of 6 hours or more. DeepInfra bf16 showed status 0 and 100% uptime over the last day at 11:33. The same config runs again, and the 30 completed runs come from the cache. **The only stop rule left is for failures:** if more than 5% of the new runs fail (once at least 40 new runs have finished), the run is stopped and reported to the owner. Speed alone no longer stops it.
   - **Outcome:** the run finished at 12:37 on 2026-10-27, VALID, 600 of 600 complete, with no failures in this pass (DeepInfra served 120–220 requests a minute). Its rows: `results.pass1.jsonl` (stopped 2026-10-24), `results.pass2.jsonl` (stopped by the speed rule), `results.jsonl` (final). Qwen's W6 spend was $2.98 (pilot $0.11, all main passes $2.87).
+  - No design element, threshold or agent-facing text changed.
+- **W2D-1 (pause and resume, on the owner's word, during the C4 `low` main run).** The main runs started at 02:04 UTC on 2026-10-29. At the owner's request ("pause the main runs please") the runner was stopped at 02:05 UTC. By then C4 `low` had 10 of 360 runs complete and 10 mid-conversation (397 requests sent, 387 answered, $0.49 recorded). On the owner's word ("You can now proceed with the runs") the same command and configs ran again from 22:08 UTC the same day:
+  - the 10 completed runs were reused from the cache (marked `cached` in `results.jsonl`); they were completed earlier in this same main run, so they are not new samples;
+  - the 10 interrupted runs started again from the beginning, on the same seeds; their partial calls stay in `journal.jsonl` and count against the cap ($0.25);
+  - the 10 requests in flight at the stop got no response, so their cost (about a cent at most) is not recorded;
+  - the other four configs had not started; they ran after C4 `low`, in the protocol's order, and all five finished at 23:40 UTC.
+  - **Bias risk: none expected.** The owner chose when to stop, a minute in, and each of the 360 runs is counted once.
   - No design element, threshold or agent-facing text changed.

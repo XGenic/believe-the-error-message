@@ -95,6 +95,30 @@ GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,permanent,permanent,0.0
 GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,neutral,fixable,0.31666666666666665
 GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,neutral,transient,0.888888888888889
 GPT-6-luna,"native, high",w5-c4-high-gpt-6-luna,neutral,permanent,0.0
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,format,fixable,1.0
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,format,transient,1.0
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,format,permanent,0.0
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,transient,fixable,0.0
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,transient,transient,1.0
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,transient,permanent,0.0
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,permanent,fixable,0.0
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,permanent,transient,0.0
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,permanent,permanent,0.0
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,neutral,fixable,0.011111111111111112
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,neutral,transient,1.0
+GPT-6.1 Sol,"native, low",w2d-c4-gpt-6-1-sol-low,neutral,permanent,0.0
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,format,fixable,1.0
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,format,transient,1.0
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,format,permanent,0.0
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,transient,fixable,0.0
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,transient,transient,1.0
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,transient,permanent,0.0
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,permanent,fixable,0.0
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,permanent,transient,0.0
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,permanent,permanent,0.0
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,neutral,fixable,0.05555555555555555
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,neutral,transient,1.0
+GPT-6.1 Sol,"native, high",w2d-c4-gpt-6-1-sol-high,neutral,permanent,0.0
 DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,format,fixable,0.7777777777777778
 DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,format,transient,0.6333333333333333
 DeepSeek V4.1 Flash,"native, r0",or-c4-deepseek-v4-1-flash-r0,format,permanent,0.0
