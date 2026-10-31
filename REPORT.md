@@ -73,7 +73,7 @@ When a tool call fails, the error message usually states a cause. We varied the 
 
 17. **The give-up effect mostly survives rewording the message** (P1, registered publicly before any call; four subjects).
    - Three rewordings of "unavailable" had the same effect as the original on Sol, Luna and Haiku: success 0.00–0.06, against 0.39–1.00 under "request rejected".
-   - On DeepSeek with reasoning the effect weakened, and a status-code wording ("ERROR 404: no stock data found") lost it: DeepSeek read it as a bad request and kept trying (0.99 solved).
+   - On DeepSeek with reasoning the effect weakened, and a status-code wording ("ERROR 404: no stock data found") lost it: DeepSeek kept trying as though the request were at fault (0.99 solved).
    - "Request rejected" itself discourages persistence on some models, so the effects measured against it are conservative.
 
 Total spend was about $128.43 API-equivalent: $33.07 on Haiku ($3.34 of it through the Anthropic API), $17.60 on Luna (OpenAI), $60.57 on Sol (OpenAI API credit), and $17.19 of OpenRouter credit for the open-weight models.
@@ -518,7 +518,7 @@ The give-up trap was re-run with three rewordings of "unavailable" and a second 
 | DeepSeek V4.1 Flash, reasoning on | 0.05 / 0.21 / 0.51 / 0.99 | 1.00 / 1.00 | PARTIAL |
 
 - **The give-up effect survived every rewording on Sol, Luna and Haiku** (GENERALIZES; each rewording SAME as the original).
-- **On DeepSeek with reasoning it weakened, and vanished for the status-code form** (PARTIAL). Told "ERROR 404: no stock data found for this depot", it rewrote the depot or SKU and kept going: the usual reading of a 404 as a fault in the request.
+- **On DeepSeek with reasoning it weakened, and vanished for the status-code form** (PARTIAL). Told "ERROR 404: no stock data found for this depot", it rewrote the depot or SKU and kept going, behaving as though the error indicated a correctable request problem (the usual meaning of a 404).
 - **"Request rejected" is not neutral in its effect.** Under "the request could not be completed", Luna and Haiku persisted far more, so effects measured against "request rejected" are conservative for them.
 - **Limits:** three rewordings of one cause, one second neutral sentence, four subjects; "temporary" was not reworded.
 - **Agents keep to the count when it is wrong:** 0–22% of give-up-trap requests that needed more than three calls went past three under the instruction.
@@ -542,7 +542,7 @@ Predictions were recorded in each protocol before any call of that extension.
 | W2-C | 3 of 5 | Held: "three in a row" RECOMMENDABLE in both arms; thinking on against off SAME; format DIFFERENT on S only. Missed: the primary was INCONCLUSIVE, not CONTINUE_CREDULOUS (L\* +0.11), and E5 was INVALID and NOT_CONFIRMED rather than CONFIRMED. |
 | W2-D | 4 of 5 | Held: Sol CONTINUE_CREDULOUS with both traps at 0%; E5 CONFIRMED; "three in a row" RECOMMENDABLE; `high` − `low` SAME. Missed: I expected Sol to reason more than Luna (a median above 11 reasoning tokens per call at `high`); its median was 0. |
 | R1 | 4 of 5 | Held: WORSE_THAN_CODE on 4 of 4 through the true "temporary"; the give-up trap SAME as the code retry; the rule alone SAME as the instruction; the plain caution rescues more on Sol and Luna at more cost. Missed: Luna went past the count in 22% of long-recovery requests, against at most 20%. |
-| P1 | 0 of 4 | Missed: GENERALIZES on all four (DeepSeek with reasoning was PARTIAL; it read the 404 wording as a bad request); at least 10 of 12 rewordings SAME as the original (9); the second neutral sentence SAME on at least three (two); `not_available` as the weakest rewording (it was `code_404`). |
+| P1 | 0 of 4 | Missed: GENERALIZES on all four (DeepSeek with reasoning was PARTIAL; under the 404 wording it kept trying as if the request were at fault); at least 10 of 12 rewordings SAME as the original (9); the second neutral sentence SAME on at least three (two); `not_available` as the weakest rewording (it was `code_404`). |
 | W5 | 1 of 5 | Held: drift checks SAME. Missed: I expected reasoning to loosen the retry trap (it stayed at 1%), the give-up trap to stay under 10% at every effort (14% and 11%), D1 SAME at `high` (DIFFERENT, −0.15), and `medium` to lie between `low` and `high` on every measure. |
 | N1 | 2 of 4 | N1-B SAME and N1-C valid held. N1-A was DIFFERENT on S (though both traps matched), and N1-C was DIFFERENT from N1-A on S; I had predicted SAME for both. |
 
@@ -572,7 +572,7 @@ The pre-L2 Luna pilots are kept in `runs/live-gpt-6-luna/pilot-before-L1/` and `
 - **Reasoning effort was varied on two closed models** (Luna, W5; Sol, W2-D), both of which reason little in this task even at `high`. The open-weight panel has reasoning on and off for DeepSeek and Qwen (W2-A). A model with long visible reasoning, such as an Anthropic model with extended thinking, has not been tested.
 - **Short conversations:** 6 or 18 requests, and no memory across conversations.
 - **One wording per intervention, except the stopping rule** (three wordings in W6, all after the same caution sentence, all in English). **Error wording was varied once** (P1): three rewordings of "unavailable" on four subjects. The effect held on three; on DeepSeek with reasoning a status-code wording lost it. "Temporary" was not reworded, and "request rejected" proved not to be neutral in its effect.
-- **Outcome definition.** A request counts as solved when a lookup returned the figure. A correct final answer differs on 390 of 104,790 requests (0.4%); 355 of them are gpt-oss-120b's, whose replies were often garbled after a successful lookup. Scored on correct answers, no verdict in any of the 54 live runs changes, and no trap rate moves by more than 0.011 (checked 2026-10-30).
+- **Outcome definition.** A request counts as solved when a lookup returned the figure. A correct final answer differs on 391 of 109,110 requests (0.4%); 355 of them are gpt-oss-120b's, whose replies were often garbled after a successful lookup. Scored on correct answers, no verdict in any of the 58 live runs changes, and no panel trap rate moves by more than 0.011 (checked 2026-10-31). "Request rejected" is better called non-diagnostic than neutral: it states no cause, but P1 shows it is not neutral in its effect.
 - **The call budget (6) and the floor (3) are properties of this environment.** R1 varied the recovery time (1–4 failed calls), but only with one spread and one count, and its code retry is the simplest policy (immediate, no backoff).
 - **Costs are API-equivalent figures.** Luna's prices are third-party listings, not checked against an invoice.
 

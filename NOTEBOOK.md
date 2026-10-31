@@ -28,7 +28,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 - **Preprint draft:** [`paper/PAPER.md`](paper/PAPER.md).
 - **Anthropic External Researcher Access:** a proposal for $1,000 to run Claude Sonnet 5.5, Opus 5.5 and Fable 5.1; the owner submits it before the November 2 review.
 - **Keeping the two in step:** this folder is the source. Changes are made here, then copied to the public repository.
-- **Study P1 (rewordings of the error message) is done,** registered publicly before any call ([OSF](https://osf.io/fmxaz), and the GitHub release `p1-protocol`). The give-up effect survived three rewordings on Sol, Luna and Haiku (GENERALIZES). On DeepSeek with reasoning it weakened, and vanished for a status-code wording ("ERROR 404"), which it read as a bad request (PARTIAL). Spend $4.82. See "P1 results" and `REPORT.md` §4.16. Branch `c4-p1-results`.
+- **Study P1 (rewordings of the error message) is done,** registered publicly before any call ([OSF](https://osf.io/fmxaz), and the GitHub release `p1-protocol`). The give-up effect survived three rewordings on Sol, Luna and Haiku (GENERALIZES). On DeepSeek with reasoning it weakened, and vanished for a status-code wording ("ERROR 404"), under which it kept trying as if the request were at fault (PARTIAL). Spend $4.82. See "P1 results" and `REPORT.md` §4.16. Branch `c4-p1-results`.
 - **Study R1 (recovery times and a retry in code) is done,** registered publicly before any call ([OSF](https://osf.io/d64ju), and the GitHub release `r1-protocol`). On all four subjects the counted instruction was WORSE_THAN_CODE: a retry of the same count in the tool's client rescued the give-up trap as well, without giving up on accurate "temporary" faults that took longer. The caution sentence added nothing to the rule. Spend $14.11 of the $22.50 approved. See "R1 results" and `REPORT.md` §4.15. Branch `c4-r1-results`.
 - **Study W2-D (GPT-6.1 Sol) is done,** registered publicly before any call ([OSF](https://osf.io/z2pwa), and the GitHub release `w2d-protocol`). Sol is credulous at reasoning `low` and `high`, solves neither trap (0%), shows the first-encounter effect at full size, and every stopping-rule wording is RECOMMENDABLE on it. Spend $44.19 of the $80 approved. See "W2-D results" and `REPORT.md` §4.14. Branch `c4-w2d-results`.
 
@@ -1592,7 +1592,7 @@ The owner shared a review of the paper by GPT. Its checkable claims were checked
   Pilots cost $0.16 in all; the main runs are estimated at $4.77.
 - **Main runs** ran on 2026-10-31, the four subjects in parallel, each within its cap, in 8–10 minutes, with no interruptions and no transport errors.
 
-### P1 results: the give-up effect survives rewording on three of four subjects; DeepSeek reads a 404 as a bad request
+### P1 results: the give-up effect survives rewording on three of four subjects; under a 404, DeepSeek keeps trying
 
 All four runs are VALID: complete in every cell, the tool called on request 1 in every run, no transport errors, and protocol failures of 0.03% at most (DeepSeek). Reports: `runs/p1-<subject>/analysis/VERDICT.md`.
 
@@ -1607,7 +1607,7 @@ All four runs are VALID: complete in every cell, the tool called on request 1 in
 - **On Sol, Luna and Haiku every rewording was SAME as the original sentence.** Their effects against "request rejected" were −0.97 (Sol), −0.56 to −0.61 (Luna) and −0.39 (Haiku).
 - **On DeepSeek with reasoning the effect weakened with rewording and vanished for the status code:**
   - `on_record` −0.79 and `not_available` −0.49 still lowered success, but less than the original (−0.95; both DIFFERENT from it);
-  - `code_404` −0.01 (SAME). Told "ERROR 404: no stock data found for this depot", DeepSeek rewrote the depot (109 of 180 first responses) or the SKU (69) and kept calling, so the third call worked (0.99). It read the status code as a fault in the request, the usual meaning of a 404, not as data that is unavailable.
+  - `code_404` −0.01 (SAME). Told "ERROR 404: no stock data found for this depot", DeepSeek rewrote the depot (109 of 180 first responses) or the SKU (69) and kept calling, so the third call worked (0.99). It behaved as though the error indicated a correctable request problem, the usual meaning of a 404, not data that is unavailable; that is an inference from its actions, not an observed reason.
 - **"Request rejected" is not neutral in its effect.** Under "the request could not be completed", Luna (0.86 against 0.61) and Haiku (0.90 against 0.39) persisted far more (DIFFERENT); Sol and DeepSeek persisted either way. Against the second sentence every give-up effect on Sol, Luna and Haiku is larger (−0.81 to −1.00), so the effects measured against "request rejected" in C4 and the panel are, for these models, conservative.
 
 **Predictions (`PROTOCOL_P1.md`): 0 of 4 held.**
@@ -1620,6 +1620,15 @@ All four runs are VALID: complete in every cell, the tool called on request 1 in
 | If a rewording falls short, it is `not_available` | **missed:** `code_404` lost the effect entirely on DeepSeek; `not_available` kept half of it |
 
 **Spend:** $4.82 against the $7.30 approved: pilots $0.16, main runs $4.66 (Sol $3.99, Luna $0.24, Haiku $0.23, DeepSeek $0.20). About $16.5 of the OpenAI credit is left.
+
+## Second outside review (2026-10-31)
+
+The owner shared a second reading of the paper by GPT (after P1). Its checkable points were checked first:
+
+- **The correctness audit was from the 54-run snapshot (confirmed).** Over all 58 live runs, lookup success and a correct final answer differ on 391 of 109,110 requests (P1 adds one, from DeepSeek); re-scoring all 58 runs on correct answers changes no verdict. Paper and REPORT updated.
+- **Sol's calls under the 404 wording (confirmed):** 1.66 per request against 1.00 under the original, with no request solved under either. The paper now says SAME refers to success, not behaviour.
+- **Changes:** "request rejected" is called *non-diagnostic* in the paper (still `neutral` in the code); DeepSeek's 404 result is described as behaviour ("as though the request were at fault"), not as a reading; the bootstrap's conservativeness is stated with its condition (positive correlation between matched outcomes); the abstract is shorter.
+- **Not done:** a paired-bootstrap sensitivity check (the review does not require it before the preprint) and further experiments. The review recommends freezing the manuscript and posting it.
 
 ## Decisions for the owner
 

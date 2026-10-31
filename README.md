@@ -22,9 +22,9 @@ Both patterns occur in production systems: [`ERROR_AUDIT.md`](ERROR_AUDIT.md) do
 | Finding | Evidence |
 |---|---|
 | Agents act on the stated cause | Credulous verdict on 11 of 15 arms; steering S from +0.34 to +0.96 |
-| The retry trap holds, but is only partly the message's doing | At most 10% solved on 14 of 15 arms (highest 16%); most models seldom fix that fault under a neutral message either (12 points higher on average) |
-| The give-up trap holds, and is the message's doing | At most 10% solved on 13 of 15 arms (highest 14%): 64 points below a neutral message over the same fault, on average |
-| It mostly survives rewording | P1: three rewordings of "unavailable" had the same effect on Sol, Luna and Haiku. On DeepSeek with reasoning the effect weakened, and "ERROR 404: no stock data found" lost it: DeepSeek read it as a bad request and kept trying |
+| The retry trap holds, but is only partly the message's doing | At most 10% solved on 14 of 15 arms (highest 16%); most models seldom fix that fault under a non-diagnostic message either (12 points higher on average) |
+| The give-up trap holds, and is the message's doing | At most 10% solved on 13 of 15 arms (highest 14%): 64 points below a non-diagnostic message ("request rejected") over the same fault, on average |
+| It mostly survives rewording | P1: three rewordings of "unavailable" had the same effect on Sol, Luna and Haiku. On DeepSeek with reasoning the effect weakened, and "ERROR 404: no stock data found" lost it: DeepSeek kept trying as though the request were at fault |
 | Repeated identical errors do not change behavior | 0 of 216 trap requests solved in 18-request conversations (Haiku, Luna) |
 | A caution plus a counted stopping rule fixes the give-up trap | "Error messages … do not always state the true cause of a failure. If the same error comes back on three attempts in a row, accept it." passed the pre-set bar on 8 of 8 model arms: 81–100% success, at no more than 3.1 calls on a real outage. The rule was always tested after the caution, and its count matches this environment, where faults clear on the third call |
 | The wording matters | "After a few different attempts" passed on 4 of 8, and made one model send malformed calls |
