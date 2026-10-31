@@ -1,0 +1,409 @@
+{
+  "cells": {
+    "code_404|permanent|transient": {
+      "calls_per_request": 1.6277777777777778,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          1.8666666666666667,
+          1.6333333333333333,
+          1.7,
+          1.6333333333333333,
+          1.4666666666666666,
+          1.4666666666666666
+        ],
+        "calls_late": 1.4666666666666666,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {
+          "OTHER": 1,
+          "SITE_ONLY": 112,
+          "STOP": 67
+        },
+        "first_response_late": {
+          "OTHER": 1,
+          "SITE_ONLY": 27,
+          "STOP": 32
+        },
+        "first_response_request1": {
+          "SITE_ONLY": 26,
+          "STOP": 4
+        },
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.17222222222222222,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "not_available|permanent|transient": {
+      "calls_per_request": 1.5444444444444445,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          1.8333333333333333,
+          1.6333333333333333,
+          1.6,
+          1.4666666666666666,
+          1.3666666666666667,
+          1.3666666666666667
+        ],
+        "calls_late": 1.3666666666666667,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {
+          "RETRY": 1,
+          "SITE_ONLY": 97,
+          "STOP": 82
+        },
+        "first_response_late": {
+          "SITE_ONLY": 22,
+          "STOP": 38
+        },
+        "first_response_request1": {
+          "RETRY": 1,
+          "SITE_ONLY": 24,
+          "STOP": 5
+        },
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.7277777777777777,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "not_completed|neutral|transient": {
+      "calls_per_request": 2.9055555555555554,
+      "requests": 180,
+      "requests_reaching_third_call": 162,
+      "runs": 30,
+      "runs_ever_reformatting": 4,
+      "secondary": {
+        "calls_by_request": [
+          2.9,
+          2.9,
+          2.933333333333333,
+          2.9,
+          2.9,
+          2.9
+        ],
+        "calls_late": 2.9,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.06666666666666667,
+        "first_response_all": {
+          "RETRY": 78,
+          "SITE_ONLY": 102
+        },
+        "first_response_late": {
+          "RETRY": 20,
+          "SITE_ONLY": 40
+        },
+        "first_response_request1": {
+          "RETRY": 25,
+          "SITE_ONLY": 5
+        },
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.011111111111111112,
+        "success_by_request": [
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.9
+        ],
+        "unknown_rate": 0.1,
+        "unsupported_answers": 0
+      },
+      "success": 0.9
+    },
+    "on_record|permanent|transient": {
+      "calls_per_request": 1.3222222222222222,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          1.4666666666666666,
+          1.4,
+          1.3333333333333333,
+          1.3333333333333333,
+          1.2,
+          1.2
+        ],
+        "calls_late": 1.2,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {
+          "SITE_ONLY": 58,
+          "STOP": 122
+        },
+        "first_response_late": {
+          "SITE_ONLY": 12,
+          "STOP": 48
+        },
+        "first_response_request1": {
+          "SITE_ONLY": 14,
+          "STOP": 16
+        },
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.022222222222222223,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "original|neutral|transient": {
+      "calls_per_request": 2.35,
+      "requests": 180,
+      "requests_reaching_third_call": 71,
+      "runs": 30,
+      "runs_ever_reformatting": 10,
+      "secondary": {
+        "calls_by_request": [
+          2.4,
+          2.3333333333333335,
+          2.3,
+          2.4,
+          2.3333333333333335,
+          2.3333333333333335
+        ],
+        "calls_late": 2.3333333333333335,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.23333333333333334,
+        "first_response_all": {
+          "OTHER": 1,
+          "REFORMAT": 24,
+          "RETRY": 10,
+          "SITE_ONLY": 137,
+          "STOP": 8
+        },
+        "first_response_late": {
+          "REFORMAT": 10,
+          "RETRY": 2,
+          "SITE_ONLY": 44,
+          "STOP": 4
+        },
+        "first_response_request1": {
+          "RETRY": 3,
+          "SITE_ONLY": 27
+        },
+        "runs": 30,
+        "self_cause_language": 0.005555555555555556,
+        "service_cause_language": 0.06111111111111111,
+        "success_by_request": [
+          0.4,
+          0.4,
+          0.36666666666666664,
+          0.4,
+          0.4,
+          0.4
+        ],
+        "unknown_rate": 0.6055555555555555,
+        "unsupported_answers": 0
+      },
+      "success": 0.39444444444444443
+    },
+    "original|permanent|transient": {
+      "calls_per_request": 1.538888888888889,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          1.9666666666666666,
+          1.5666666666666667,
+          1.5,
+          1.4666666666666666,
+          1.4,
+          1.3333333333333333
+        ],
+        "calls_late": 1.3666666666666667,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {
+          "OTHER": 1,
+          "RETRY": 36,
+          "SITE_ONLY": 60,
+          "STOP": 83
+        },
+        "first_response_late": {
+          "RETRY": 6,
+          "SITE_ONLY": 16,
+          "STOP": 38
+        },
+        "first_response_request1": {
+          "RETRY": 16,
+          "SITE_ONLY": 13,
+          "STOP": 1
+        },
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.8611111111111112,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    }
+  },
+  "ci": {
+    "effect_vs_second_neutral|code_404": [
+      -1.0,
+      -0.7666666666666667
+    ],
+    "effect_vs_second_neutral|not_available": [
+      -1.0,
+      -0.7666666666666667
+    ],
+    "effect_vs_second_neutral|on_record": [
+      -1.0,
+      -0.7666666666666667
+    ],
+    "effect_vs_second_neutral|original": [
+      -1.0,
+      -0.7666666666666667
+    ],
+    "effect|code_404": [
+      -0.5666666666666667,
+      -0.22777777777777777
+    ],
+    "effect|not_available": [
+      -0.5666666666666667,
+      -0.22777777777777777
+    ],
+    "effect|on_record": [
+      -0.5666666666666667,
+      -0.22777777777777777
+    ],
+    "effect|original": [
+      -0.5666666666666667,
+      -0.22777777777777777
+    ],
+    "second_neutral_vs_first": [
+      0.2777777777777778,
+      0.7055555555555556
+    ],
+    "vs_original|code_404": [
+      0.0,
+      0.0
+    ],
+    "vs_original|not_available": [
+      0.0,
+      0.0
+    ],
+    "vs_original|on_record": [
+      0.0,
+      0.0
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "GENERALIZES"
+  },
+  "cost": {
+    "agent_calls": 3112,
+    "equiv_usd": 0.2337,
+    "from_cache": 0,
+    "runs_recorded": 180
+  },
+  "design": "P1",
+  "estimates": {
+    "effect_vs_second_neutral|code_404": -0.9,
+    "effect_vs_second_neutral|not_available": -0.9,
+    "effect_vs_second_neutral|on_record": -0.9,
+    "effect_vs_second_neutral|original": -0.9,
+    "effect|code_404": -0.39444444444444443,
+    "effect|not_available": -0.39444444444444443,
+    "effect|on_record": -0.39444444444444443,
+    "effect|original": -0.39444444444444443,
+    "second_neutral_vs_first": 0.5055555555555555,
+    "vs_original|code_404": 0.0,
+    "vs_original|not_available": 0.0,
+    "vs_original|on_record": 0.0
+  },
+  "label": "LIVE MODEL RUN (study P1: rewordings of the error message, claude-haiku-5-5, native tool use, thinking on)",
+  "labels": {
+    "effect_vs_second_neutral|code_404": "DIFFERENT",
+    "effect_vs_second_neutral|not_available": "DIFFERENT",
+    "effect_vs_second_neutral|on_record": "DIFFERENT",
+    "effect_vs_second_neutral|original": "DIFFERENT",
+    "effect|code_404": "DIFFERENT",
+    "effect|not_available": "DIFFERENT",
+    "effect|on_record": "DIFFERENT",
+    "effect|original": "DIFFERENT",
+    "second_neutral_vs_first": "DIFFERENT",
+    "vs_original|code_404": "SAME",
+    "vs_original|not_available": "SAME",
+    "vs_original|on_record": "SAME"
+  },
+  "model": "claude-haiku-5-5",
+  "n_tasks": 6,
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 180
+  },
+  "transport": "anthropic_messages_native",
+  "validity": {
+    "completion": {
+      "code_404|permanent|transient": 1.0,
+      "not_available|permanent|transient": 1.0,
+      "not_completed|neutral|transient": 1.0,
+      "on_record|permanent|transient": 1.0,
+      "original|neutral|transient": 1.0,
+      "original|permanent|transient": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 1.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "primary: GENERALIZES"
+    ],
+    "verdict": "VALID"
+  }
+}

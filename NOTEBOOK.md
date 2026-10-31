@@ -28,7 +28,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 - **Preprint draft:** [`paper/PAPER.md`](paper/PAPER.md).
 - **Anthropic External Researcher Access:** a proposal for $1,000 to run Claude Sonnet 5.5, Opus 5.5 and Fable 5.1; the owner submits it before the November 2 review.
 - **Keeping the two in step:** this folder is the source. Changes are made here, then copied to the public repository.
-- **Study P1 (rewordings of the error message) is frozen and approved at $7.30.** It waits for its public registration; see its section below.
+- **Study P1 (rewordings of the error message) is done,** registered publicly before any call ([OSF](https://osf.io/fmxaz), and the GitHub release `p1-protocol`). The give-up effect survived three rewordings on Sol, Luna and Haiku (GENERALIZES). On DeepSeek with reasoning it weakened, and vanished for a status-code wording ("ERROR 404"), which it read as a bad request (PARTIAL). Spend $4.82. See "P1 results" and `REPORT.md` §4.16. Branch `c4-p1-results`.
 - **Study R1 (recovery times and a retry in code) is done,** registered publicly before any call ([OSF](https://osf.io/d64ju), and the GitHub release `r1-protocol`). On all four subjects the counted instruction was WORSE_THAN_CODE: a retry of the same count in the tool's client rescued the give-up trap as well, without giving up on accurate "temporary" faults that took longer. The caution sentence added nothing to the rule. Spend $14.11 of the $22.50 approved. See "R1 results" and `REPORT.md` §4.15. Branch `c4-r1-results`.
 - **Study W2-D (GPT-6.1 Sol) is done,** registered publicly before any call ([OSF](https://osf.io/z2pwa), and the GitHub release `w2d-protocol`). Sol is credulous at reasoning `low` and `high`, solves neither trap (0%), shows the first-encounter effect at full size, and every stopping-rule wording is RECOMMENDABLE on it. Spend $44.19 of the $80 approved. See "W2-D results" and `REPORT.md` §4.14. Branch `c4-w2d-results`.
 
@@ -1554,7 +1554,7 @@ The owner shared a review of the paper by GPT. Its checkable claims were checked
   - **REPORT and README:** brought into line.
 - **Not done:** the review's suggested paraphrase study of the error texts. That needs a new protocol and the owner's decision.
 
-## Study P1: does the give-up effect depend on the exact wording of the error? (frozen; [`PROTOCOL_P1.md`](PROTOCOL_P1.md))
+## Study P1: does the give-up effect depend on the exact wording of the error? (done; [`PROTOCOL_P1.md`](PROTOCOL_P1.md))
 
 **Owner's request, 2026-10-30:** "push it and sync, then draft the rewording study", after the outside review named a rewording study as the most useful single experiment for the paper's main inference.
 
@@ -1565,7 +1565,7 @@ The owner shared a review of the paper by GPT. Its checkable claims were checked
 - **Scope, kept narrow:** one cause reworded, one neutral alternative, four subjects, no new transport. The "temporary" message is not reworded.
 - **Code:** `causetest/p1.py` (the wordings, measures and decision rule), the P1 branch in `causetest/runner.py`, and `claim_texts` in the scripted agents. Five new scripted agents, all with the expected verdicts; power 20/20 for each kind. 92 tests pass; `reproduce` still passes.
 
-**Status: frozen; caps set (below).** Estimates and caps, each covering that subject's pilot and main run:
+**Status: done** (results below). Frozen, caps set and registered publicly before any call. Estimates and caps, each covering that subject's pilot and main run:
 
 | Subject | Paid from | Estimate | Proposed cap |
 |---|---|---|---|
@@ -1576,7 +1576,50 @@ The owner shared a review of the paper by GPT. Its checkable claims were checked
 | **Total** | | **$4.40** | **$7.30** |
 
 - **Owner's approval, 2026-10-30, before any P1 call:** "Caps approved, go ahead and publish it". The caps are as proposed ($7.30 in all).
-- **Next:** the public registration (GitHub release `p1-protocol` and OSF) before any call, then the pilots.
+- **Public registration, before any P1 call:**
+  - **GitHub release** [`p1-protocol`](https://github.com/XGenic/believe-the-error-message/releases/tag/p1-protocol): public commit 5edca29, published 2026-10-30 16:55 UTC.
+  - **OSF registration** [osf.io/fmxaz](https://osf.io/fmxaz) (Open-Ended Registration, public, no embargo), registered 2026-10-31 02:46 UTC. Its six archived files are `PROTOCOL_P1.md`, the four live configs and `causetest/p1.py`. OSF's own SHA-256 for each matches the files at commit 5edca29 (checked through the OSF API).
+  - `PROTOCOL_P1.md` stays byte-identical to the registered file.
+- **P1 pilots (2026-10-31; not evidence): all four pass the health gate.** Every run complete, no protocol failures, and the tool called on request 1 in every run.
+
+  | Pilot | Runs | Cost | Main-run estimate | Cap |
+  |---|---|---|---|---|
+  | GPT-6.1 Sol | 6/6 | $0.14 | $4.11 | $5.50 |
+  | GPT-6-luna | 6/6 | $0.01 | $0.19 | $0.60 |
+  | Claude Haiku 5.5, thinking on | 6/6 | $0.01 | $0.25 | $0.60 |
+  | DeepSeek V4.1 Flash, reasoning on | 6/6 | $0.01 | $0.22 | $0.60 |
+
+  Pilots cost $0.16 in all; the main runs are estimated at $4.77.
+- **Main runs** ran on 2026-10-31, the four subjects in parallel, each within its cap, in 8–10 minutes, with no interruptions and no transport errors.
+
+### P1 results: the give-up effect survives rewording on three of four subjects; DeepSeek reads a 404 as a bad request
+
+All four runs are VALID: complete in every cell, the tool called on request 1 in every run, no transport errors, and protocol failures of 0.03% at most (DeepSeek). Reports: `runs/p1-<subject>/analysis/VERDICT.md`.
+
+| Subject | Success under "unavailable": original / on_record / not_available / code_404 | Neutral: "request rejected" / "could not be completed" | Primary |
+|---|---|---|---|
+| GPT-6.1 Sol | 0.00 / 0.00 / 0.00 / 0.00 | 0.97 / 1.00 | GENERALIZES |
+| GPT-6-luna | 0.02 / 0.00 / 0.06 / 0.03 | 0.61 / 0.86 | GENERALIZES |
+| Claude Haiku 5.5, thinking on | 0.00 / 0.00 / 0.00 / 0.00 | 0.39 / 0.90 | GENERALIZES |
+| DeepSeek V4.1 Flash, reasoning on | 0.05 / 0.21 / 0.51 / 0.99 | 1.00 / 1.00 | PARTIAL |
+
+- **Primary: GENERALIZES on Sol, Luna and Haiku; PARTIAL on DeepSeek. By the frozen study-level rule the answer is mixed.**
+- **On Sol, Luna and Haiku every rewording was SAME as the original sentence.** Their effects against "request rejected" were −0.97 (Sol), −0.56 to −0.61 (Luna) and −0.39 (Haiku).
+- **On DeepSeek with reasoning the effect weakened with rewording and vanished for the status code:**
+  - `on_record` −0.79 and `not_available` −0.49 still lowered success, but less than the original (−0.95; both DIFFERENT from it);
+  - `code_404` −0.01 (SAME). Told "ERROR 404: no stock data found for this depot", DeepSeek rewrote the depot (109 of 180 first responses) or the SKU (69) and kept calling, so the third call worked (0.99). It read the status code as a fault in the request, the usual meaning of a 404, not as data that is unavailable.
+- **"Request rejected" is not neutral in its effect.** Under "the request could not be completed", Luna (0.86 against 0.61) and Haiku (0.90 against 0.39) persisted far more (DIFFERENT); Sol and DeepSeek persisted either way. Against the second sentence every give-up effect on Sol, Luna and Haiku is larger (−0.81 to −1.00), so the effects measured against "request rejected" in C4 and the panel are, for these models, conservative.
+
+**Predictions (`PROTOCOL_P1.md`): 0 of 4 held.**
+
+| Prediction | Outcome |
+|---|---|
+| Primary: GENERALIZES on all four subjects | **missed:** DeepSeek is PARTIAL |
+| Each rewording SAME as the original in at least 10 of 12 pairs | **missed:** 9 of 12 (all three of DeepSeek's pairs are DIFFERENT) |
+| The second neutral sentence SAME as the first on at least three of four | **missed:** 2 of 4 (Luna and Haiku DIFFERENT) |
+| If a rewording falls short, it is `not_available` | **missed:** `code_404` lost the effect entirely on DeepSeek; `not_available` kept half of it |
+
+**Spend:** $4.82 against the $7.30 approved: pilots $0.16, main runs $4.66 (Sol $3.99, Luna $0.24, Haiku $0.23, DeepSeek $0.20). About $16.5 of the OpenAI credit is left.
 
 ## Decisions for the owner
 

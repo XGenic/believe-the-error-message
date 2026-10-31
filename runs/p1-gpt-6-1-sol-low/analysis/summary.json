@@ -1,0 +1,388 @@
+{
+  "cells": {
+    "code_404|permanent|transient": {
+      "calls_per_request": 1.6555555555555557,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          1.5666666666666667,
+          1.6333333333333333,
+          1.6666666666666667,
+          1.7666666666666666,
+          1.6666666666666667,
+          1.6333333333333333
+        ],
+        "calls_late": 1.65,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {
+          "SITE_ONLY": 118,
+          "STOP": 62
+        },
+        "first_response_late": {
+          "SITE_ONLY": 39,
+          "STOP": 21
+        },
+        "first_response_request1": {
+          "SITE_ONLY": 17,
+          "STOP": 13
+        },
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "not_available|permanent|transient": {
+      "calls_per_request": 1,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls_late": 1,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {
+          "STOP": 180
+        },
+        "first_response_late": {
+          "STOP": 60
+        },
+        "first_response_request1": {
+          "STOP": 30
+        },
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "not_completed|neutral|transient": {
+      "calls_per_request": 3,
+      "requests": 180,
+      "requests_reaching_third_call": 180,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "calls_late": 3,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {
+          "RETRY": 180
+        },
+        "first_response_late": {
+          "RETRY": 60
+        },
+        "first_response_request1": {
+          "RETRY": 30
+        },
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "unknown_rate": 0.0,
+        "unsupported_answers": 0
+      },
+      "success": 1.0
+    },
+    "on_record|permanent|transient": {
+      "calls_per_request": 1,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls_late": 1,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {
+          "STOP": 180
+        },
+        "first_response_late": {
+          "STOP": 60
+        },
+        "first_response_request1": {
+          "STOP": 30
+        },
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    },
+    "original|neutral|transient": {
+      "calls_per_request": 2.9555555555555557,
+      "requests": 180,
+      "requests_reaching_third_call": 174,
+      "runs": 30,
+      "runs_ever_reformatting": 23,
+      "secondary": {
+        "calls_by_request": [
+          2.966666666666667,
+          2.966666666666667,
+          2.966666666666667,
+          2.966666666666667,
+          2.933333333333333,
+          2.933333333333333
+        ],
+        "calls_late": 2.933333333333333,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.3333333333333333,
+        "first_response_all": {
+          "REFORMAT": 47,
+          "RETRY": 59,
+          "SITE_ONLY": 72,
+          "STOP": 2
+        },
+        "first_response_late": {
+          "REFORMAT": 26,
+          "RETRY": 12,
+          "SITE_ONLY": 20,
+          "STOP": 2
+        },
+        "first_response_request1": {
+          "RETRY": 29,
+          "SITE_ONLY": 1
+        },
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.9666666666666667,
+          0.9666666666666667,
+          0.9666666666666667,
+          0.9666666666666667,
+          0.9666666666666667,
+          0.9666666666666667
+        ],
+        "unknown_rate": 0.03333333333333333,
+        "unsupported_answers": 0
+      },
+      "success": 0.9666666666666667
+    },
+    "original|permanent|transient": {
+      "calls_per_request": 1,
+      "requests": 180,
+      "requests_reaching_third_call": 0,
+      "runs": 30,
+      "runs_ever_reformatting": 0,
+      "secondary": {
+        "calls_by_request": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls_late": 1,
+        "fabricated_result_lines": 0,
+        "first_call_not_as_written_later": 0.0,
+        "first_response_all": {
+          "STOP": 180
+        },
+        "first_response_late": {
+          "STOP": 60
+        },
+        "first_response_request1": {
+          "STOP": 30
+        },
+        "runs": 30,
+        "self_cause_language": 0.0,
+        "service_cause_language": 0.0,
+        "success_by_request": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "unknown_rate": 1.0,
+        "unsupported_answers": 0
+      },
+      "success": 0.0
+    }
+  },
+  "ci": {
+    "effect_vs_second_neutral|code_404": [
+      -1.0,
+      -1.0
+    ],
+    "effect_vs_second_neutral|not_available": [
+      -1.0,
+      -1.0
+    ],
+    "effect_vs_second_neutral|on_record": [
+      -1.0,
+      -1.0
+    ],
+    "effect_vs_second_neutral|original": [
+      -1.0,
+      -1.0
+    ],
+    "effect|code_404": [
+      -1.0,
+      -0.9
+    ],
+    "effect|not_available": [
+      -1.0,
+      -0.9
+    ],
+    "effect|on_record": [
+      -1.0,
+      -0.9
+    ],
+    "effect|original": [
+      -1.0,
+      -0.9
+    ],
+    "second_neutral_vs_first": [
+      0.0,
+      0.09999999999999998
+    ],
+    "vs_original|code_404": [
+      0.0,
+      0.0
+    ],
+    "vs_original|not_available": [
+      0.0,
+      0.0
+    ],
+    "vs_original|on_record": [
+      0.0,
+      0.0
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "GENERALIZES"
+  },
+  "cost": {
+    "agent_calls": 2990,
+    "equiv_usd": 3.9861,
+    "from_cache": 0,
+    "runs_recorded": 180
+  },
+  "design": "P1",
+  "estimates": {
+    "effect_vs_second_neutral|code_404": -1.0,
+    "effect_vs_second_neutral|not_available": -1.0,
+    "effect_vs_second_neutral|on_record": -1.0,
+    "effect_vs_second_neutral|original": -1.0,
+    "effect|code_404": -0.9666666666666667,
+    "effect|not_available": -0.9666666666666667,
+    "effect|on_record": -0.9666666666666667,
+    "effect|original": -0.9666666666666667,
+    "second_neutral_vs_first": 0.033333333333333326,
+    "vs_original|code_404": 0.0,
+    "vs_original|not_available": 0.0,
+    "vs_original|on_record": 0.0
+  },
+  "label": "LIVE MODEL RUN (study P1: rewordings of the error message, gpt-6.1-sol, native tool calls, reasoning low)",
+  "labels": {
+    "effect_vs_second_neutral|code_404": "DIFFERENT",
+    "effect_vs_second_neutral|not_available": "DIFFERENT",
+    "effect_vs_second_neutral|on_record": "DIFFERENT",
+    "effect_vs_second_neutral|original": "DIFFERENT",
+    "effect|code_404": "DIFFERENT",
+    "effect|not_available": "DIFFERENT",
+    "effect|on_record": "DIFFERENT",
+    "effect|original": "DIFFERENT",
+    "second_neutral_vs_first": "SAME",
+    "vs_original|code_404": "SAME",
+    "vs_original|not_available": "SAME",
+    "vs_original|on_record": "SAME"
+  },
+  "model": "gpt-6.1-sol",
+  "n_tasks": 6,
+  "runs_per_cell": 30,
+  "status_counts": {
+    "complete": 180
+  },
+  "transport": "openai_responses_native",
+  "validity": {
+    "completion": {
+      "code_404|permanent|transient": 1.0,
+      "not_available|permanent|transient": 1.0,
+      "not_completed|neutral|transient": 1.0,
+      "on_record|permanent|transient": 1.0,
+      "original|neutral|transient": 1.0,
+      "original|permanent|transient": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 1.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "primary: GENERALIZES"
+    ],
+    "verdict": "VALID"
+  }
+}
