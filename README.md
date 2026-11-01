@@ -96,6 +96,7 @@ python -m causetest panel                                     # the cross-model 
 | `figures/` | the two figures above, with their data as CSV and the scripts that draw them |
 | `PROTOCOL*.md` | the frozen protocols |
 | `paper/PAPER.md` | the preprint draft |
+| `paper/PAPER.pdf` | the same draft as a PDF, built by `python paper/build_pdf.py` (needs Edge or Chrome) |
 | `REPORT.md`, `NOTEBOOK.md`, `DATA_CARD.md`, `ERROR_AUDIT.md` | the write-up, the lab notebook, the data card, the audit of real errors |
 
 The per-run response caches used while the runs were in progress are left out of this release: `results.jsonl` holds the same rows. So is `PAPER_PLAN.md`, the author's private planning document. Older files link to it and name workstreams (W1–W6) after it; those links do not resolve here, and each workstream's protocol states its full design.

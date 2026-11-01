@@ -1630,6 +1630,16 @@ The owner shared a second reading of the paper by GPT (after P1). Its checkable 
 - **Changes:** "request rejected" is called *non-diagnostic* in the paper (still `neutral` in the code); DeepSeek's 404 result is described as behaviour ("as though the request were at fault"), not as a reading; the bootstrap's conservativeness is stated with its condition (positive correlation between matched outcomes); the abstract is shorter.
 - **Not done:** a paired-bootstrap sensitivity check (the review does not require it before the preprint) and further experiments. The review recommends freezing the manuscript and posting it.
 
+## Third outside review (2026-11-01)
+
+The owner shared a reading of the paper by Gemini. No new experiments; its checkable points were checked first:
+
+- **Reasoning length (confirmed, and wider than the paper said).** The caveat covered only Luna and Sol. From the cached responses, no arm averaged more than 35 reasoning tokens per C4 call (Qwen r1 34.9, gpt-oss r1 34.5, DeepSeek r1 33.4, Luna text `low` 28.1, Haiku t1 14.0, Luna `high` 11.0, Sol `high` 5.2); on the give-up trap, the call after an error averaged 0–29. The paper now says so in §3.3 and §4.6, and in its limitations.
+- **Retry-trap framing:** already in place (abstract and §4.1: the give-up trap is the clean effect; the retry trap combines a smaller message effect with weak exploration). No change.
+- **Changes:** §3.1 says why the environment is minimal and names multi-tool tasks and semantic fixes as the open question; §3.5 links the audit's 11 status-code cases to P1's 404 result, hedged (one wording, one model); limitations add the spelling-only fixable fault. Figure 1 is re-laid out for print (3 columns, larger text) and white text is kept to cells of 70% and above, where it has enough contrast.
+- **Not adopted:** the suggested abstract sentence ("whether it ever learns to doubt it") brings back learning language the first review removed. "Proves that reasoning deepens the trap" from thought traces would overclaim: traces are summaries, and the causal test is reasoning on against off, which the design already has.
+- **For the Claude panel, if it runs:** report reasoning tokens per arm in the protocol; include an arm meant to reason at length (a large thinking budget or high effort); any reading of thinking summaries is exploratory. A fixable fault that needs a semantic choice is a candidate study, not for this paper.
+
 ## Decisions for the owner
 
 0. **Next steps toward a paper are in [`PAPER_PLAN.md`](PAPER_PLAN.md).** Phase 1 (reproducibility fixes, native tool calling and an audit of real misleading errors) costs under $5 and is ready for approval. E5 (above) has confirmed the E4 mechanism. The items below are kept for reference.
@@ -1707,6 +1717,7 @@ A run writes the following to `runs/<run_name>/`:
 | `causetest/compare.py` | study N1: one run minus another for the same design, with bootstrap intervals and fixed verdicts |
 | `figures/stated_true_grid.py` | paper figure: share of requests solved by stated cause × true fault, one grid per model and setting; writes `stated_true_grid.svg` and `.csv` |
 | `figures/rescue_cost.py` | paper figure: give-up rescue against outage-call cost per model and wording (E3, W6); writes `rescue_cost.svg` and its data `rescue_cost.csv` |
+| `paper/build_pdf.py` | builds `paper/PAPER.pdf` from `PAPER.md`: a small Markdown-to-HTML converter printed to PDF by headless Edge or Chrome; standard library only |
 
 ## Deviations
 
