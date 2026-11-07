@@ -345,6 +345,10 @@ def analyze(run_dir: Path, out_dir: Optional[Path] = None) -> Dict[str, Any]:
         from causetest.p1 import summarize_p1, verdict_markdown_p1
         s = summarize_p1(rows, cfg)
         md = verdict_markdown_p1
+    elif cfg.get("design") == "G1":
+        from causetest.g1 import summarize_g1, verdict_markdown_g1
+        s = summarize_g1(rows, cfg)
+        md = verdict_markdown_g1
     elif cfg.get("design") == "E4":
         from causetest.e4 import summarize_e4, verdict_markdown_e4
         s = summarize_e4(rows, cfg)

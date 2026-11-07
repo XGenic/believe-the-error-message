@@ -1,4 +1,4 @@
-"""CLI: python3 -m causetest {plan,pilot,run,analyze,combine,validate,power,reproduce,compare,panel,probe} ... (run from this experiment's folder)."""
+"""CLI: python3 -m causetest {plan,pilot,run,analyze,combine,validate,power,reproduce,compare,panel,probe,g1} ... (run from this experiment's folder)."""
 
 from __future__ import annotations
 
@@ -35,6 +35,8 @@ def main() -> None:
     sk.add_argument("--title", default="Comparison")
     sq = sub.add_parser("panel", help="every model and setting side by side (descriptive)")
     sq.add_argument("--out", default=str(EXPERIMENT_DIR / "runs" / "panel"))
+    sg = sub.add_parser("g1", help="study G1: is Gemini's give-up result about reasoning or the model?")
+    sg.add_argument("--out", default=str(EXPERIMENT_DIR / "runs" / "g1"))
     so = sub.add_parser("probe", help="what the cost probes' token use implies for the full design (not evidence)")
     so.add_argument("--configs", nargs="+", required=True)
     so.add_argument("--out", default=str(EXPERIMENT_DIR / "runs" / "probe"))
@@ -68,6 +70,10 @@ def main() -> None:
         from causetest.panel import write_panel
         r = write_panel(EXPERIMENT_DIR / "runs", Path(a.out))
         print(json.dumps(r["counts"], indent=2))
+    elif a.cmd == "g1":
+        from causetest.g1 import write_g1
+        r = write_g1(EXPERIMENT_DIR / "runs", Path(a.out))
+        print(json.dumps({"verdict": r["verdict"], "arms": r["arms"]}, indent=2))
     elif a.cmd == "probe":
         from causetest.probe import write_probe
         print(write_probe([load_config(Path(c)) for c in a.configs], EXPERIMENT_DIR / "runs", Path(a.out)))

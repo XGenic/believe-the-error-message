@@ -111,8 +111,14 @@ class ScriptedAgent:
     def _emit(self, reply: str, first: bool = True) -> Tuple[str, Dict[str, Any]]:
         self.pending = reply
         if self.kind == "format_violator" and first and self.rng.random() < self.p.get("p_invalid", 0.3):
-            return "Let me look into that for you.", {"cost_usd": 0.0, "scripted": self.kind}
-        return reply, {"cost_usd": 0.0, "scripted": self.kind}
+            return "Let me look into that for you.", self._meta()
+        return reply, self._meta()
+
+    def _meta(self) -> Dict[str, Any]:
+        meta = {"cost_usd": 0.0, "scripted": self.kind}
+        if "reasoning_tokens" in self.p:  # study G1: a scripted agent can report reasoning
+            meta["usage"] = {"output_tokens_details": {"thinking_tokens": self.p["reasoning_tokens"]}}
+        return meta
 
     def _call(self, form: str) -> Tuple[str, Dict[str, Any]]:
         t = self.task

@@ -1724,6 +1724,16 @@ All four runs are VALID: complete in every cell, one protocol failure in 9,421 G
 
 **Spend:** $25.18 of the approved $32.50: Sonnet $12.37 of $16.50 (pilots $0.39, C4 $9.94, E5 $2.04), Gemini $12.81 of $16.00 (pilots $0.42, C4 $11.03, E5 $1.36). OpenRouter credit left: $1.67.
 
+## Study G1: approved (2026-11-07)
+
+The owner asked for a small follow-up: is Gemini's 61% on the give-up trap about reasoning, or is Gemini itself an outlier? The plan was Gemini at reasoning `low` alone, for about $1. Reading the finished runs first changed that:
+
+- **Reasoning and the model are confounded.** On the trap's request 1, Gemini reasons a mean of 686 tokens and every other arm at most 88. It is also the only arm that often makes the third call (18 of 30 runs, against at most 2). Within Gemini, runs that solved the trap had not reasoned more, but that is one setting.
+- **Gemini at `low` cannot settle it alone.** Reasoning cannot be turned off, and in the cost probe `low` still reasons a median of 341 tokens on request 1. If it still solves the trap, that would not clear reasoning.
+- **Sonnet at effort `max` can.** In the cost probe it reasons a mean of 734 tokens on request 1, about Gemini's, on a model that solved 7%.
+
+`PROTOCOL_G1.md` therefore runs both, on C4's seeds, each against the W2-E run of the same model: Sonnet at `max` on the trap, and Gemini at `low` on the trap and "request rejected". The verdict is REASONING_MATTERS, GEMINI_ITSELF, GEMINI_SPECIFIC or UNCLEAR. **Approved by the owner on 2026-11-07, before any G1 call ("Caps approved, go ahead and publish it"): $3.00 for Sonnet, on the owner's Anthropic account, and $1.25 for Gemini, from OpenRouter credit ($1.66 that day).** Estimate $1.74–2.50. No G1 call has been made.
+
 ## Decisions for the owner
 
 0. **Next steps toward a paper are in [`PAPER_PLAN.md`](PAPER_PLAN.md).** Phase 1 (reproducibility fixes, native tool calling and an audit of real misleading errors) costs under $5 and is ready for approval. E5 (above) has confirmed the E4 mechanism. The items below are kept for reference.
@@ -1799,6 +1809,7 @@ A run writes the following to `runs/<run_name>/`:
 | `causetest/w6.py` | study W6: wording contrasts, the per-wording decision rule, the varied-call count and report |
 | `causetest/panel.py` | the panel table: every model and setting side by side, from committed summaries (descriptive; `python -m causetest panel`) |
 | `causetest/probe.py` | cost probes: token use, cost and transport health of a small pilot, and what they imply for the full design (`python -m causetest probe`); not evidence |
+| `causetest/g1.py` | study G1: per-run measures for its two-cell runs, the arm rules and the study's verdict (`python -m causetest g1`) |
 | `causetest/compare.py` | study N1: one run minus another for the same design, with bootstrap intervals and fixed verdicts |
 | `figures/stated_true_grid.py` | paper figure: share of requests solved by stated cause × true fault, one grid per model and setting; writes `stated_true_grid.svg` and `.csv` |
 | `figures/rescue_cost.py` | paper figure: give-up rescue against outage-call cost per model and wording (E3, W6); writes `rescue_cost.svg` and its data `rescue_cost.csv` |

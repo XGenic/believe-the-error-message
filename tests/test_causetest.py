@@ -1734,6 +1734,93 @@ class TestStudyW2E(unittest.TestCase):
             self.assertEqual(check["runs"], len(cells_for(cfg)))
 
 
+class TestStudyG1(unittest.TestCase):
+    """Study G1: is Gemini's give-up result about reasoning or the model? (PROTOCOL_G1.md)"""
+
+    def test_configs(self):
+        paths = sorted((DIR / "configs").glob("live_g1_*.json"))
+        self.assertEqual([p.stem for p in paths], ["live_g1_gemini_low", "live_g1_sonnet_max"])
+        c4 = load_config(DIR / "configs" / "live_w2e_c4_sonnet.json")
+        for path in paths:
+            cfg = load_config(path)
+            for k in ("base_seed", "dev_seed", "runs_per_cell", "thresholds", "bootstrap_seed", "bootstrap_reps"):
+                self.assertEqual(cfg[k], c4[k], f"{path.name}: {k} differs from the C4 grid")  # the same worlds as W2-E
+            self.assertEqual(cfg["design"], "G1")
+            self.assertGreaterEqual(cfg["max_calls"], len(cells_for(cfg)) * cfg["runs_per_cell"] * 6 * 6)
+            self.assertGreater(cfg["planning"]["proposed_cap_usd"], cfg["planning"]["estimate_usd"]
+                               + (cfg["workers"] + 1) * cfg["worst_case_usd_per_call"])  # the guard's reserve fits
+            self.assertEqual(cfg["max_equiv_usd"], cfg["planning"]["proposed_cap_usd"])
+            with tempfile.TemporaryDirectory() as tmp, self.assertRaises(RuntimeError):
+                make_transport(dict(cfg, max_equiv_usd=0.0), Path(tmp), live=True)
+        sonnet, gemini = (load_config(DIR / "configs" / f"live_g1_{n}.json") for n in ("sonnet_max", "gemini_low"))
+        self.assertLessEqual(sonnet["max_equiv_usd"], 3.00)  # owner's approval of 2026-11-07
+        self.assertLessEqual(gemini["max_equiv_usd"], 1.25)  # the same approval
+        self.assertEqual(cells_for(sonnet), [("permanent", "transient")])
+        self.assertEqual(cells_for(gemini), [("permanent", "transient"), ("neutral", "transient")])
+        self.assertEqual(sonnet["request_options"], {"max_tokens": 16000, "thinking": {"type": "adaptive"},
+                                                     "output_config": {"effort": "max"},
+                                                     "cache_control": {"type": "ephemeral"}})
+        self.assertEqual(gemini["request_options"], {"max_tokens": 16000, "reasoning": {"effort": "low"}})
+        w2e = load_config(DIR / "configs" / "live_w2e_c4_gemini.json")
+        for k in ("model", "transport", "provider", "expected_host", "pass_reasoning_back", "deadline_seconds"):
+            self.assertEqual(gemini[k], w2e[k])  # only the reasoning effort differs from W2-E's Gemini run
+
+    def test_arm_rules(self):
+        from causetest.g1 import PANEL_MAX, contrast, gemini_arm, overall, sonnet_arm
+        def runs(k, n=30):
+            return [1.0] * k + [0.0] * (n - k)
+        low = contrast(runs(2), runs(2), 500, 1)
+        self.assertEqual(sonnet_arm(low, True), "STAYS")
+        self.assertEqual(sonnet_arm(low, False), "NOT_TESTABLE")
+        self.assertEqual(sonnet_arm(contrast(runs(18), runs(2), 500, 1), True), "RISES")
+        self.assertEqual(sonnet_arm(contrast(runs(6), runs(2), 500, 1), True), "UNCLEAR")  # 0.20: above the panel, not DIFFERENT
+        self.assertEqual(gemini_arm(contrast(runs(18), runs(18), 500, 1), True), "HOLDS")
+        self.assertEqual(gemini_arm(contrast(runs(18), runs(18), 500, 1), False), "NOT_TESTABLE")
+        self.assertEqual(gemini_arm(contrast(runs(2), runs(18), 500, 1), True), "FALLS")
+        self.assertEqual(gemini_arm(contrast(runs(6), runs(10), 500, 1), True), "UNCLEAR")
+        self.assertEqual(PANEL_MAX, 0.15)
+        self.assertEqual(overall("RISES", "HOLDS"), "REASONING_MATTERS")
+        self.assertEqual(overall("RISES", "FALLS"), "REASONING_MATTERS")
+        self.assertEqual(overall("RISES", "NOT_TESTABLE"), "REASONING_MATTERS")
+        self.assertEqual(overall("STAYS", "HOLDS"), "GEMINI_ITSELF")
+        self.assertEqual(overall("STAYS", "FALLS"), "GEMINI_SPECIFIC")
+        for arms in (("UNCLEAR", "HOLDS"), ("NOT_TESTABLE", "HOLDS"), ("STAYS", "UNCLEAR"), ("STAYS", "NOT_TESTABLE")):
+            self.assertEqual(overall(*arms), "UNCLEAR")
+
+    def test_scripted_agents_reach_each_verdict(self):
+        """Four runs through the harness, nothing sent: scripted agents that obey "unavailable" or ignore it, with set reasoning."""
+        from causetest.g1 import RUNS, write_g1
+        def agents(kind, reasoning):
+            return {"kind": kind, "params": {"noise": 0.0, "reasoning_tokens": reasoning}}
+        cases = {"REASONING_MATTERS": ("message_blind", "message_blind"), "GEMINI_ITSELF": ("credulous", "message_blind"),
+                 "GEMINI_SPECIFIC": ("credulous", "credulous")}
+        base = load_config(DIR / "configs" / "live_g1_gemini_low.json")
+        for want, (sonnet_max, gemini_low) in cases.items():
+            setup = {"sonnet_default": agents("credulous", 60), "sonnet_max": agents(sonnet_max, 700),
+                     "gemini_medium": agents("message_blind", 700), "gemini_low": agents(gemini_low, 350)}
+            with tempfile.TemporaryDirectory() as tmp:
+                for key, mock_agent in setup.items():
+                    cfg = dict(base, transport="mock", mock=mock_agent, max_equiv_usd=1.0, runs_per_cell=30, run_name=RUNS[key],
+                               planning={"calls_per_run": 20, "usd_per_call": 0.0})
+                    run(cfg, Path(tmp) / RUNS[key], live=False)
+                r = write_g1(Path(tmp), Path(tmp) / "g1", reps=300)
+                self.assertEqual(r["verdict"], want, r["arms"])
+                self.assertTrue((Path(tmp) / "g1" / "G1.md").read_text(encoding="utf-8").startswith(f"# C4 study G1: {want}"))
+
+    def test_reasoning_must_move(self):
+        from causetest.g1 import RUNS, write_g1
+        base = load_config(DIR / "configs" / "live_g1_gemini_low.json")
+        setup = {"sonnet_default": ("credulous", 60), "sonnet_max": ("credulous", 100), "gemini_medium": ("message_blind", 700),
+                 "gemini_low": ("message_blind", 700)}
+        with tempfile.TemporaryDirectory() as tmp:
+            for key, (kind, reasoning) in setup.items():
+                cfg = dict(base, transport="mock", mock={"kind": kind, "params": {"noise": 0.0, "reasoning_tokens": reasoning}},
+                           max_equiv_usd=1.0, run_name=RUNS[key], planning={"calls_per_run": 20, "usd_per_call": 0.0})
+                run(cfg, Path(tmp) / RUNS[key], live=False)
+            r = write_g1(Path(tmp), Path(tmp) / "g1", reps=300)
+        self.assertEqual((r["arms"]["sonnet"], r["arms"]["gemini"], r["verdict"]), ("NOT_TESTABLE", "NOT_TESTABLE", "UNCLEAR"))
+
+
 class TestStudyP1(unittest.TestCase):
     """Study P1: rewordings of the "unavailable" and neutral error texts (PROTOCOL_P1.md)."""
 
