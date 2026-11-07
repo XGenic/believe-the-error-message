@@ -82,7 +82,12 @@ When a tool call fails, the error message usually states a cause. We varied the 
    - E5 is NOT_CONFIRMED on both, because neither model stops at once. One cleared error still raises success on the next request (0.12 to 0.43 on Sonnet; 0.08 to 0.43 on Gemini).
    - Across all 17 arms, a false "unavailable" lowers success by 64 points on average and a false "temporary" by 14.
 
-Total spend was about $155.61 API-equivalent: $33.07 on Haiku ($3.34 of it through the Anthropic API), $17.60 on Luna (OpenAI), $60.57 on Sol (OpenAI API credit), $17.19 of OpenRouter credit for the open-weight models, $13.16 on Sonnet (the owner's Anthropic account) and $14.02 on Gemini (OpenRouter credit). The last two include the cost probes.
+19. **Reasoning alone does not explain Gemini's result** (G1, registered publicly before any call; the give-up trap).
+   - At reasoning `low`, Gemini solves 17% of the trap, against 61% at its default, while still solving 100% under "request rejected".
+   - Sonnet at effort `max` reasons nearly twice as much as Gemini and solves 13%, against 7% at its default (SAME).
+   - The verdict is GEMINI_SPECIFIC: the setting matters on Gemini, and the same reasoning is not enough on Sonnet.
+
+Total spend was about $158.16 API-equivalent: $33.07 on Haiku ($3.34 of it through the Anthropic API), $17.60 on Luna (OpenAI), $60.57 on Sol (OpenAI API credit), $17.19 of OpenRouter credit for the open-weight models, $14.89 on Sonnet (the owner's Anthropic account) and $14.84 on Gemini (OpenRouter credit). The last two include the cost probes.
 
 ## 1. Question
 
@@ -549,6 +554,22 @@ One setting per model, each model's own default. Registered as a GitHub release 
 - **Reasoning tokens per call on C4:** Sonnet mean 5, median 0, on 12% of calls. Gemini mean 158, median 27, 90th percentile 395, maximum 12,877, on 90% of calls: most after "format" (199–449 by cell), least after "temporary" (29–41) and "unavailable" (59–74). Seven Gemini calls reasoned for more than 8,000 tokens, so raising its output limit to 16,000 mattered.
 - **Limits:** one setting per model; one host and the flex tier for Gemini; no stopping-rule results for these models.
 
+### 4.18 Reasoning or the model? (G1; registered publicly before any call; the give-up trap)
+
+W2-E could not separate reasoning from the model: on the trap's first request Gemini reasoned a mean of 686 tokens, against at most 88 on every other arm. G1 changed reasoning in both directions, on C4's seeds, each new run against the W2-E run of the same model. Registered as a GitHub release (`g1-protocol`) and on OSF ([osf.io/5qjzc](https://osf.io/5qjzc)) before any G1 call. Both runs are VALID, and reasoning moved as intended on both.
+
+| Arm | Reasoning on the trap's request 1, mean: default → new | Third call on request 1: default → new | Give-up trap solved: default → new | New − default [95% interval] | N1 label | Result |
+|---|---|---|---|---|---|---|
+| Claude Sonnet 5.5, effort `max` | 61 → 1,218 | 2 → 4 of 30 | 0.07 → 0.13 | +0.07 [−0.07, +0.23] | SAME | STAYS |
+| Gemini 3.8 Flash, reasoning `low` | 686 → 290 | 18 → 6 of 30 | 0.61 → 0.17 | −0.43 [−0.63, −0.21] | DIFFERENT | FALLS |
+
+- **Primary: GEMINI_SPECIFIC.** On Gemini the reasoning setting matters, but the same amount of reasoning is not enough on Sonnet. I predicted GEMINI_ITSELF.
+- **The lower setting makes Gemini more obedient, not less persistent.** Under "request rejected" it solved 100% at `low` (0.99 at its default; SAME), so the message's effect grew from −0.38 to −0.83.
+- **Sonnet at `max` reasons twenty times as much as at its default and nearly twice as much as Gemini,** and still gives up on the second call in 26 of 30 runs. Of its 4 third calls, 3 repeat an earlier call.
+- **Within any one setting, reasoning length does not separate the runs that solved the trap** (Gemini 306 and 286 tokens at `low`, 664 and 725 at its default; Sonnet 1,342 and 1,199 at `max`). A setting may change more than its token count.
+- **On correct answers the verdict is the same** (Gemini −0.42 [−0.62, −0.20]).
+- **Limits:** G1 follows up a result already seen and did not repeat Gemini at its default, so if 61% was high partly by chance, some of the fall is that. One other model, and the give-up trap only.
+
 ## 5. Predictions against outcomes
 
 Predictions were recorded in each protocol before any call of that extension.
@@ -567,6 +588,8 @@ Predictions were recorded in each protocol before any call of that extension.
 | W2-D | 4 of 5 | Held: Sol CONTINUE_CREDULOUS with both traps at 0%; E5 CONFIRMED; "three in a row" RECOMMENDABLE; `high` − `low` SAME. Missed: I expected Sol to reason more than Luna (a median above 11 reasoning tokens per call at `high`); its median was 0. |
 | R1 | 4 of 5 | Held: WORSE_THAN_CODE on 4 of 4 through the true "temporary"; the give-up trap SAME as the code retry; the rule alone SAME as the instruction; the plain caution rescues more on Sol and Luna at more cost. Missed: Luna went past the count in 22% of long-recovery requests, against at most 20%. |
 | P1 | 0 of 4 | Missed: GENERALIZES on all four (DeepSeek with reasoning was PARTIAL; under the 404 wording it kept trying as if the request were at fault); at least 10 of 12 rewordings SAME as the original (9); the second neutral sentence SAME on at least three (two); `not_available` as the weakest rewording (it was `code_404`). |
+| W2-E | 1 of 6 | Held: Sonnet credulous with both traps at most 10%. Missed: Gemini solved 61% of the give-up trap (predicted at most 15%); E5 NOT_CONFIRMED on both; D1 SAME against Haiku; Gemini reasoned 158 tokens per call (predicted at least 171); three of four runs over their estimates. |
+| G1 | 3 of 6 | Held: Sonnet at `max` STAYS (13%); reasoning moved on both arms; Gemini at 100% under "request rejected". Missed: GEMINI_SPECIFIC, not GEMINI_ITSELF; Gemini at `low` FALLS (17%, predicted at least 35%); Sonnet's cost. |
 | W5 | 1 of 5 | Held: drift checks SAME. Missed: I expected reasoning to loosen the retry trap (it stayed at 1%), the give-up trap to stay under 10% at every effort (14% and 11%), D1 SAME at `high` (DIFFERENT, −0.15), and `medium` to lie between `low` and `high` on every measure. |
 | N1 | 2 of 4 | N1-B SAME and N1-C valid held. N1-A was DIFFERENT on S (though both traps matched), and N1-C was DIFFERENT from N1-A on S; I had predicted SAME for both. |
 
@@ -594,10 +617,10 @@ The pre-L2 Luna pilots are kept in `runs/live-gpt-6-luna/pilot-before-L1/` and `
 - **Five closed models (Haiku 5.5, Sonnet 5.5, GPT-6-luna, GPT-6.1 Sol, Gemini 3.8 Flash) and three open-weight families,** and their settings are not matched (see §3 and §4.8). Claude Opus and Fable have not been tested.
 - **Interventions E2 and E4 were tested on GPT-6-luna only.** The bounded caution (E3) was repeated on five open-weight arms (W2-B), and three of its wordings on five subjects (W6), each subject on one host.
 - **A text reply format, for C4 and E1–E5.** N1 re-ran the C4 grid and E5 on Luna through native tool calls. The traps and the first-encounter effect held, but S and E5's secondary measure changed. Haiku was re-run through native calls in W2-C: its traps held, but its default after an uninformative error, and so S, changed with the transport.
-- **Only one arm reasoned at some length.** Reasoning settings were varied on Luna (W5), Sol (W2-D), Haiku (W2-C, thinking) and the open-weight panel (W2-A), but averaged over every C4 call none of those arms used more than 35 reasoning tokens per call: Qwen r1 34.9, gpt-oss r1 34.5, DeepSeek r1 33.4, Luna (text, `low`) 28.1, Haiku thinking on 14.0, Luna `high` 11.0, Sol `high` 5.2 (from the cached responses, checked 2026-11-01). These studies vary the setting, not long deliberation. In W2-E, Sonnet at its default averaged 5.0 and Gemini at its default 158, at one setting each, so reasoning length has not been varied within a model that reasons at length.
+- **Only one arm reasoned at some length.** Reasoning settings were varied on Luna (W5), Sol (W2-D), Haiku (W2-C, thinking) and the open-weight panel (W2-A), but averaged over every C4 call none of those arms used more than 35 reasoning tokens per call: Qwen r1 34.9, gpt-oss r1 34.5, DeepSeek r1 33.4, Luna (text, `low`) 28.1, Haiku thinking on 14.0, Luna `high` 11.0, Sol `high` 5.2 (from the cached responses, checked 2026-11-01). These studies vary the setting, not long deliberation. In W2-E, Sonnet at its default averaged 5.0 and Gemini at its default 158. G1 varied reasoning within those two models, on the give-up trap only.
 - **Short conversations:** 6 or 18 requests, and no memory across conversations.
 - **One wording per intervention, except the stopping rule** (three wordings in W6, all after the same caution sentence, all in English). **Error wording was varied once** (P1): three rewordings of "unavailable" on four subjects. The effect held on three; on DeepSeek with reasoning a status-code wording lost it. "Temporary" was not reworded, and "request rejected" proved not to be neutral in its effect.
-- **Outcome definition.** A request counts as solved when a lookup returned the figure. A correct final answer differs on 417 of 114,510 requests (0.4%). Of these, 355 are gpt-oss-120b's, whose replies were often garbled after a successful lookup, and 26 are Gemini 3.8 Flash's, 20 of them under the neutral message over a fixable fault, where it could fetch another depot's figure and then answer UNKNOWN. Scored on correct answers, no verdict in any of the 62 live runs changes, and no panel trap rate moves by more than 0.011 (checked 2026-11-07). Gemini's neutral rate over the fixable fault falls from 0.36 to 0.25. "Request rejected" is better called non-diagnostic than neutral: it states no cause, but P1 shows it is not neutral in its effect.
+- **Outcome definition.** A request counts as solved when a lookup returned the figure. A correct final answer differs on 420 of 115,050 requests (0.4%). Of these, 355 are gpt-oss-120b's, whose replies were often garbled after a successful lookup, and 29 are Gemini 3.8 Flash's, 20 of them under the neutral message over a fixable fault, where it could fetch another depot's figure and then answer UNKNOWN. Scored on correct answers, no verdict in any of the 64 live runs changes, and no panel trap rate moves by more than 0.011 (checked 2026-11-07). Gemini's neutral rate over the fixable fault falls from 0.36 to 0.25. "Request rejected" is better called non-diagnostic than neutral: it states no cause, but P1 shows it is not neutral in its effect.
 - **The call budget (6) and the floor (3) are properties of this environment.** R1 varied the recovery time (1–4 failed calls), but only with one spread and one count, and its code retry is the simplest policy (immediate, no backoff).
 - **Costs are API-equivalent figures.** Luna's prices are third-party listings, not checked against an invoice.
 
@@ -683,3 +706,5 @@ R1 cost $14.11: pilots $0.47, main runs $13.64 (Sol $11.86 and Luna $1.03 on the
 P1 cost $4.82: pilots $0.16, main runs $4.66 (Sol $3.99 and Luna $0.24 on the OpenAI credit, Haiku $0.23 on the Anthropic API, DeepSeek $0.20 on OpenRouter).
 
 W2-E cost $25.18: pilots $0.81, main runs $24.37 (Sonnet $11.98 on the owner's Anthropic account, Gemini $12.39 on OpenRouter). The seven cost probes before it cost $2.00 (Sonnet $0.79, Gemini $1.21).
+
+G1 cost $2.55: pilots $0.07, main runs $2.48 (Sonnet $1.69 on the owner's Anthropic account, Gemini $0.79 on OpenRouter).

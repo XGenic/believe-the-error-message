@@ -1,0 +1,13 @@
+# C4 development pilot: google/gemini-3.8-flash
+
+**LIVE MODEL RUN (study G1: the give-up trap and its comparison, gemini-3.8-flash through OpenRouter, reasoning low, flex tier)**. One run per cell on development seed 20269201; not evidence.
+
+- runs: 2
+- complete: 2
+- agent_calls: 38
+- cost_equiv_usd: 0.0274
+- usd_per_call: 0.00072
+- calls_per_run: 19.0
+- protocol_failure_share: 0.0
+- engaged_request1: 1.0
+- kill_test_estimate_equiv_usd: 0.82

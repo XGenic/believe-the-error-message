@@ -4,7 +4,7 @@ When a tool call fails, the error message usually states a cause: "invalid forma
 
 **Short answer: they act on the stated cause and rarely revise it, and two traps follow.** A brief caution paired with a counted stopping rule fixes the worse of the two on every model tested, in this environment; for read-only calls, retrying in the tool's client does the same without giving up on real transient faults.
 
-Results to 2026-11-07: 17 pre-specified studies on 8 models from 5 developers (17 model-and-setting arms), about $156 of API spend. The four latest, W2-D, R1, P1 and W2-E, were registered publicly before their first call. **Paper draft:** [`paper/PAPER.md`](paper/PAPER.md) (preprint draft, not peer reviewed). The consolidated write-up is [`REPORT.md`](REPORT.md).
+Results to 2026-11-07: 18 pre-specified studies on 8 models from 5 developers (17 model-and-setting arms), about $158 of API spend. The five latest, W2-D, R1, P1, W2-E and G1, were registered publicly before their first call. **Paper draft:** [`paper/PAPER.md`](paper/PAPER.md) (preprint draft, not peer reviewed). The consolidated write-up is [`REPORT.md`](REPORT.md).
 
 ## The two traps
 
@@ -25,13 +25,14 @@ Both patterns occur in production systems: [`ERROR_AUDIT.md`](ERROR_AUDIT.md) do
 | The retry trap holds, but is only partly the message's doing | At most 10% solved on 16 of 17 arms (highest 16%); most models seldom fix that fault under a non-diagnostic message either (14 points higher on average) |
 | The give-up trap mostly holds, and is the message's doing | At most 10% solved on 14 of 17 arms: 64 points below a non-diagnostic message ("request rejected") over the same fault, on average |
 | One model largely escapes it | Gemini 3.8 Flash solved 61% of the give-up trap (W2-E), against at most 14% on every other arm: most of its runs tried a third form of the call on the first request, then kept succeeding. The message still cost it 38 points |
+| Reasoning alone does not explain that | G1: at low reasoning Gemini solved 17% of the trap, but Claude Sonnet 5.5 at maximum effort, reasoning nearly twice as much as Gemini, solved 13% (7% at its default). Verdict: GEMINI_SPECIFIC |
 | It mostly survives rewording | P1: three rewordings of "unavailable" had the same effect on Sol, Luna and Haiku. On DeepSeek with reasoning the effect weakened, and "ERROR 404: no stock data found" lost it: DeepSeek kept trying as though the request were at fault |
 | Repeated identical errors do not change behavior | 0 of 216 trap requests solved in 18-request conversations (Haiku, Luna) |
 | A caution plus a counted stopping rule fixes the give-up trap | "Error messages … do not always state the true cause of a failure. If the same error comes back on three attempts in a row, accept it." passed the pre-set bar on 8 of 8 model arms: 81–100% success, at no more than 3.1 calls on a real outage. The rule was always tested after the caution, and its count matches this environment, where faults clear on the third call |
 | The wording matters | "After a few different attempts" passed on 4 of 8, and made one model send malformed calls |
 | A retry in code does it better | When faults took 2–5 calls to clear (R1, four models), retrying three times in the tool's client rescued the give-up trap as well as the instruction, and kept the accurate "temporary" recoveries the instruction gave up on (1.00 against 0.42–0.64). This holds for read-only calls; retries can be unsafe where calls have side effects. The caution sentence added no substantial benefit to the count |
 | The first failure is the worst case, on some models | GPT-6-luna stopped at once on 60 of 60 first "unavailable" messages, and on 2 of 60 after one earlier error had cleared (GPT-6.1 Sol: 60 of 60 and 0 of 60); Claude Haiku 5.5 shows no such effect; Sonnet 5.5 and Gemini 3.8 Flash don't stop at once at all, but one cleared error still raises their success on the next request (0.12 to 0.43, 0.08 to 0.43) |
-| Light reasoning does not help | Luna and Sol at high reasoning effort, and Haiku with thinking on: the same traps. Only Gemini reasons at some length (158 tokens per call), at one setting, so this says nothing about long reasoning within a model |
+| Light reasoning does not help | Luna and Sol at high reasoning effort, and Haiku with thinking on: the same traps. Gemini's default reasons at some length (158 tokens per call). G1 tests more reasoning on Sonnet and less on Gemini, on the give-up trap only |
 
 The retry trap is not solved by any instruction tested; the best sentence solved 42% of it on Luna, at 4.7 calls per request.
 
@@ -44,13 +45,13 @@ The numbers come from [`runs/panel/PANEL.md`](runs/panel/PANEL.md), which puts e
 | Model | Access | Settings |
 |---|---|---|
 | Claude Haiku 5.5 | Claude Code CLI (text format); Anthropic Messages API (native tool use) | no reasoning; thinking off and on |
-| Claude Sonnet 5.5 | Anthropic Messages API (native tool use) | adaptive thinking, effort high (its default) |
+| Claude Sonnet 5.5 | Anthropic Messages API (native tool use) | adaptive thinking, effort high (its default); effort max (G1) |
 | GPT-6-luna | OpenAI Responses API (text format and native tool use) | reasoning none, low, medium, high |
 | GPT-6.1 Sol | OpenAI Responses API (native tool use) | reasoning low, high |
 | DeepSeek V4.1 Flash | OpenRouter, one pinned host (native tool use) | reasoning off and on |
 | Qwen3.8-27B | OpenRouter, one pinned host (native tool use) | reasoning off and on |
 | gpt-oss-120b | OpenRouter, one pinned host (native tool use) | reasoning on |
-| Gemini 3.8 Flash | OpenRouter, Google AI Studio's flex tier (native tool use) | reasoning medium (its default) |
+| Gemini 3.8 Flash | OpenRouter, Google AI Studio's flex tier (native tool use) | reasoning medium (its default); low (G1) |
 
 ## Studies
 
@@ -74,6 +75,7 @@ Each study's protocol, decision rule and predictions were committed before its f
 | W2-D | A larger OpenAI model, at two reasoning efforts | Sol | [`PROTOCOL_W2D.md`](PROTOCOL_W2D.md) ([OSF](https://osf.io/z2pwa)) | Credulous; traps hold (0%); every stopping-rule wording works |
 | P1 | Does the give-up effect survive rewording the message? | Sol, Luna, Haiku, DeepSeek | [`PROTOCOL_P1.md`](PROTOCOL_P1.md) ([OSF](https://osf.io/fmxaz)) | Yes on 3 of 4; a 404 wording broke it on DeepSeek |
 | W2-E | A larger Anthropic model and a Google model, on C4 and E5 | Sonnet, Gemini | [`PROTOCOL_W2E.md`](PROTOCOL_W2E.md) ([OSF](https://osf.io/2kf35)) | Credulous on both; Sonnet solves 7% of the give-up trap, Gemini 61%; E5 NOT_CONFIRMED on both, because neither stops at once |
+| G1 | Is Gemini's give-up result about reasoning or the model? | Sonnet, Gemini | [`PROTOCOL_G1.md`](PROTOCOL_G1.md) ([OSF](https://osf.io/5qjzc)) | GEMINI_SPECIFIC: Gemini falls to 17% at low reasoning; Sonnet at maximum effort stays at 13% |
 | R1 | Does the stopping rule hold when recovery times vary, and how does it compare with a retry in code? | Sol, Luna, Haiku, DeepSeek | [`PROTOCOL_R1.md`](PROTOCOL_R1.md) ([OSF](https://osf.io/d64ju)) | Code is better on 4 of 4; the caution adds no substantial benefit to the count |
 
 ## Reproduce

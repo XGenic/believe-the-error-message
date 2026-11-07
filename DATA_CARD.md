@@ -1,6 +1,6 @@
 # C4 data card
 
-This card describes the raw records of every C4 live run, as of 2026-11-07: the kill test, extensions E1–E5, and studies N1, H1, P1, R1, W2-A, W2-B, W2-C, W2-D, W2-E, W5 and W6. That is 62 run folders and about 20,200 runs, plus the seven cost probes W2-E discloses (`runs/probe-*/`, pilot data only, on accurate cells; they enter no verdict). The results are in [`REPORT.md`](REPORT.md).
+This card describes the raw records of every C4 live run, as of 2026-11-07: the kill test, extensions E1–E5, and studies G1, N1, H1, P1, R1, W2-A, W2-B, W2-C, W2-D, W2-E, W5 and W6. That is 64 run folders and about 20,300 runs, plus the seven cost probes W2-E discloses (`runs/probe-*/`, pilot data only, on accurate cells; they enter no verdict). The results are in [`REPORT.md`](REPORT.md).
 
 ## What the data are
 
@@ -20,6 +20,8 @@ The data are complete conversations between a language-model agent and a simulat
 | `runs/e3-live-gpt-6-luna/` | E3 | gpt-6-luna | openai_responses | 480 | 15 MB |
 | `runs/e4-live-gpt-6-luna/` | E4 | gpt-6-luna | openai_responses | 160 | 10 MB |
 | `runs/e5-live-gpt-6-luna/` | E5 | gpt-6-luna | openai_responses | 180 | 3 MB |
+| `runs/g1-claude-sonnet-5-5-max/` | G1, give-up trap | claude-sonnet-5-5 | anthropic_messages_native | 30 | 1 MB |
+| `runs/g1-gemini-3-8-flash-low/` | G1, give-up trap and its comparison | google/gemini-3.8-flash | openrouter_chat_native | 60 | 2 MB |
 | `runs/h1-gpt-6-luna-native-low/` | H1 | gpt-6-luna | openai_responses_native | 120 | 7 MB |
 | `runs/live-claude-haiku-5-5/` | C4 kill test | claude-haiku-5-5 | claude_cli | 360 | 28 MB |
 | `runs/live-gpt-6-luna/` | C4 kill test | gpt-6-luna | openai_responses | 360 | 11 MB |

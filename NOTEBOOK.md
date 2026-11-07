@@ -28,6 +28,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 - **Preprint draft:** [`paper/PAPER.md`](paper/PAPER.md).
 - **Anthropic External Researcher Access:** a proposal for $1,000 to run Claude Sonnet 5.5, Opus 5.5 and Fable 5.1; the owner submits it before the November 2 review.
 - **Keeping the two in step:** this folder is the source. Changes are made here, then copied to the public repository.
+- **Study G1 (reasoning or the model?) is done,** registered publicly before any call ([OSF](https://osf.io/5qjzc), and the GitHub release `g1-protocol`). GEMINI_SPECIFIC: Gemini at low reasoning falls from 61% to 17% of the give-up trap, and Sonnet at maximum effort, reasoning nearly twice as much as Gemini, stays at 13%. Predictions held 3 of 6. Spend $2.55.
 - **Study W2-E (Claude Sonnet 5.5 and Gemini 3.8 Flash) is done,** registered publicly before any W2-E call ([OSF](https://osf.io/2kf35), and the GitHub release `w2e-protocol`). Both are credulous. Sonnet solves 7% of the give-up trap and Gemini 61%, decided mostly on request 1. E5 is NOT_CONFIRMED on both, because neither stops at once. Predictions held 1 of 6. Spend $25.18, plus $2.00 for the cost probes.
 - **Study P1 (rewordings of the error message) is done,** registered publicly before any call ([OSF](https://osf.io/fmxaz), and the GitHub release `p1-protocol`). The give-up effect survived three rewordings on Sol, Luna and Haiku (GENERALIZES). On DeepSeek with reasoning it weakened, and vanished for a status-code wording ("ERROR 404"), under which it kept trying as if the request were at fault (PARTIAL). Spend $4.82. See "P1 results" and `REPORT.md` §4.16. Branch `c4-p1-results`.
 - **Study R1 (recovery times and a retry in code) is done,** registered publicly before any call ([OSF](https://osf.io/d64ju), and the GitHub release `r1-protocol`). On all four subjects the counted instruction was WORSE_THAN_CODE: a retry of the same count in the tool's client rescued the give-up trap as well, without giving up on accurate "temporary" faults that took longer. The caution sentence added nothing to the rule. Spend $14.11 of the $22.50 approved. See "R1 results" and `REPORT.md` §4.15. Branch `c4-r1-results`.
@@ -1733,6 +1734,38 @@ The owner asked for a small follow-up: is Gemini's 61% on the give-up trap about
 - **Sonnet at effort `max` can.** In the cost probe it reasons a mean of 734 tokens on request 1, about Gemini's, on a model that solved 7%.
 
 `PROTOCOL_G1.md` therefore runs both, on C4's seeds, each against the W2-E run of the same model: Sonnet at `max` on the trap, and Gemini at `low` on the trap and "request rejected". The verdict is REASONING_MATTERS, GEMINI_ITSELF, GEMINI_SPECIFIC or UNCLEAR. **Approved by the owner on 2026-11-07, before any G1 call ("Caps approved, go ahead and publish it"): $3.00 for Sonnet, on the owner's Anthropic account, and $1.25 for Gemini, from OpenRouter credit ($1.66 that day).** Estimate $1.74–2.50. No G1 call has been made.
+
+**Registered before any G1 call.** Public release `g1-protocol` at public commit 3d2cfee, published 2026-11-07 16:38 UTC. **OSF registration https://osf.io/5qjzc**, registered 2026-11-07 16:42 UTC, public, no embargo; the API shows that all four archived files' SHA-256 match the release. `PROTOCOL_G1.md` stays byte-identical to the registered copy, so this note is the record of it.
+
+### G1 results: GEMINI_SPECIFIC. The reasoning setting matters on Gemini, and the same reasoning is not enough on Sonnet
+
+Both runs are VALID: complete in every cell, no protocol failures, the tool called on request 1 in every run, no refusals, no reply at its output limit, no retries, and every response from the pinned model and host. Reasoning moved as intended on both. Reports: `runs/g1/G1.md`, and `runs/g1-*/analysis/VERDICT.md`.
+
+| Arm | Reasoning on the trap's request 1, mean: default → new | Third call on request 1: default → new | Give-up trap solved: default → new | New − default [95% interval] | N1 label | Result |
+|---|---|---|---|---|---|---|
+| Claude Sonnet 5.5, effort `max` | 61 → 1,218 | 2 → 4 of 30 | 0.07 → 0.13 | +0.07 [−0.07, +0.23] | SAME | STAYS |
+| Gemini 3.8 Flash, reasoning `low` | 686 → 290 | 18 → 6 of 30 | 0.61 → 0.17 | −0.43 [−0.63, −0.21] | DIFFERENT | FALLS |
+
+- **Primary: GEMINI_SPECIFIC** (Sonnet STAYS, Gemini FALLS). On correct answers the verdict is the same (Gemini −0.422 [−0.622, −0.200]).
+- **The lower setting makes Gemini more obedient, not less persistent.** Under "request rejected" it solved 1.00 at `low` and 0.99 at its default (SAME), so the message's effect grew from −0.38 to −0.83. At `low`, Gemini looks like the rest of the panel: it rewrites the depot on its second call in all 30 runs, and gives up there in 24.
+- **Sonnet at `max` reasons a mean of 1,218 tokens on request 1,** twenty times its default and nearly twice Gemini's, and gives up on the second call in 26 of 30 runs. Of its 4 third calls, 3 repeat an earlier call, where all of Gemini's are a new form.
+- **Reasoning length does not separate the runs that solved the trap, within any setting:** Gemini 306 and 286 tokens at `low` (6 and 24 runs), 664 and 725 at its default (19 and 11); Sonnet 1,342 and 1,199 at `max` (4 and 26). So a setting may change more than its token count. This is exploratory.
+- **Runs stay close to all-or-nothing:** 29 of 30 at Gemini `low`, 30 of 30 at Sonnet `max`. After a first solved request, later ones are solved 25 of 30 times at Gemini `low` and 20 of 20 at Sonnet `max`.
+- **Limits:** G1 follows up a result already seen and did not repeat Gemini at its default, so if 61% was high partly by chance, some of the fall is that. The difference is large, though (interval −0.63 to −0.21). One other model, and the give-up trap only.
+- **Correctness audit:** the 64 live runs differ on 420 of 115,050 requests; no verdict changes on correct answers.
+
+**Predictions: 3 of 6 held.**
+
+| Prediction | Outcome |
+|---|---|
+| Primary: GEMINI_ITSELF | **Missed:** GEMINI_SPECIFIC |
+| Sonnet at `max` STAYS, at most 15% | **Held** (13%) |
+| Gemini at `low` HOLDS, at least 35% | **Missed:** FALLS, 17% |
+| Reasoning moves as intended on both arms | **Held** (Sonnet 1,218, at least 343; Gemini 290, at most 515) |
+| Gemini under "request rejected" at 90% or above at `low` | **Held** (100%) |
+| Each main run within its estimate | **Missed:** Sonnet $1.69 against $1.03–1.50, because it reasoned more than the probe; Gemini $0.79 held |
+
+**Spend:** $2.55 of the approved $4.25: Sonnet $1.73 of $3.00 (pilot $0.04, main run $1.69), Gemini $0.82 of $1.25 (pilot $0.03, main run $0.79).
 
 ## Decisions for the owner
 

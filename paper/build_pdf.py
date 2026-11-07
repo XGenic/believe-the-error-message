@@ -14,6 +14,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 DIR = Path(__file__).resolve().parent
@@ -29,9 +30,9 @@ KEEP_ROWS = 14  # tables of up to this many lines (header and rule included) sta
 NOWRAP = 14  # table cells this short never wrap ("W2-D", "1 of 1 tested")
 
 CSS = """
-@page { size: letter; margin: 0.9in 1in 0.85in;
+@page { size: letter; margin: 0.85in 1in 0.75in;
   @bottom-center { content: counter(page); font: 9pt Cambria, "Times New Roman", serif; color: #444; } }
-html { font: 10.5pt/1.42 Cambria, "Times New Roman", serif; color: #111; }
+html { font: 10.5pt/1.38 Cambria, "Times New Roman", serif; color: #111; }
 body { margin: 0; }
 p { margin: 0 0 0.55em; text-align: justify; hyphens: auto; orphans: 2; widows: 2; }
 a { color: #1a4f8b; text-decoration: none; }
@@ -193,7 +194,7 @@ def browser() -> str:
 
 def main() -> None:
     page = render(SOURCE.read_text(encoding="utf-8"))
-    with tempfile.TemporaryDirectory() as tmp:
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
         src = Path(tmp) / "paper.html"
         src.write_text(page, encoding="utf-8")
         TARGET.unlink(missing_ok=True)
@@ -202,6 +203,14 @@ def main() -> None:
                         f"--user-data-dir={Path(tmp) / 'profile'}", "--no-pdf-header-footer",
                         "--print-to-pdf-no-header", f"--print-to-pdf={TARGET}", src.as_uri()],
                        check=True, timeout=180, capture_output=True)
+        # Edge's launcher can return before the print finishes: wait for the file to appear and stop growing.
+        size, deadline = -1, time.monotonic() + 120
+        while time.monotonic() < deadline:
+            now = TARGET.stat().st_size if TARGET.is_file() else -1
+            if now > 0 and now == size:
+                break
+            size = now
+            time.sleep(1)
     if not TARGET.is_file():
         sys.exit("the browser did not write the PDF")
     pages = len(re.findall(rb"/Type\s*/Page\b(?!s)", TARGET.read_bytes()))
