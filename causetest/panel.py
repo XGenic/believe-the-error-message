@@ -31,6 +31,7 @@ ARMS: List[Tuple[str, str, Dict[str, str]]] = [
     ("Claude Haiku 5.5", "native, thinking on", {"c4": "w2c-c4-claude-haiku-5-5-t1", "e5": "w2c-e5-claude-haiku-5-5-t1",
                                                  "bounded": "w2c-w6-claude-haiku-5-5-t1",
                                                  "three": "w2c-w6-claude-haiku-5-5-t1"}),
+    ("Claude Sonnet 5.5", "native, thinking on, high", {"c4": "w2e-c4-claude-sonnet-5-5", "e5": "w2e-e5-claude-sonnet-5-5"}),
     ("GPT-6-luna", "text, low", {"c4": "live-gpt-6-luna", "e5": "e5-live-gpt-6-luna",
                                  "bounded": "e3-live-gpt-6-luna", "three": "e3-live-gpt-6-luna"}),
     ("GPT-6-luna", "native, none", {"c4": "n1-c4-native-none-gpt-6-luna", "e5": "w5-e5-none-gpt-6-luna"}),
@@ -51,6 +52,7 @@ ARMS: List[Tuple[str, str, Dict[str, str]]] = [
                                    "bounded": "w2b-qwen3-8-27b-r1"}),
     ("gpt-oss-120b", "native, r1", {"c4": "or-c4-gpt-oss-120b-r1-crusoe", "e5": "or-e5-gpt-oss-120b-r1",
                                     "bounded": "w2b-gpt-oss-120b-r1", "three": "w6-gpt-oss-120b-r1"}),
+    ("Gemini 3.8 Flash", "native, medium, flex", {"c4": "w2e-c4-gemini-3-8-flash", "e5": "w2e-e5-gemini-3-8-flash"}),
 ]
 
 

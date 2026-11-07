@@ -1,0 +1,129 @@
+{
+  "ci": {
+    "none_minus_cleared|after_calls": [
+      -2.1999999999999997,
+      -1.1333333333333333
+    ],
+    "none_minus_cleared|stop": [
+      0.0,
+      0.06666666666666667
+    ],
+    "none_minus_cleared|target_calls": [
+      -0.5166666666666666,
+      -0.21666666666666679
+    ],
+    "none_minus_cleared|target_success": [
+      -0.5,
+      -0.2
+    ],
+    "none_minus_not_cleared|after_calls": [
+      -0.8166666666666667,
+      -0.1333333333333333
+    ],
+    "none_minus_not_cleared|stop": [
+      0.0,
+      0.06666666666666667
+    ],
+    "none_minus_not_cleared|target_calls": [
+      -0.1499999999999999,
+      0.06666666666666687
+    ],
+    "none_minus_not_cleared|target_success": [
+      -0.11666666666666667,
+      0.08333333333333334
+    ],
+    "not_cleared_minus_cleared|after_calls": [
+      -1.7333333333333334,
+      -0.6666666666666665
+    ],
+    "not_cleared_minus_cleared|stop": [
+      0.0,
+      0.0
+    ],
+    "not_cleared_minus_cleared|target_calls": [
+      -0.4833333333333334,
+      -0.19999999999999973
+    ],
+    "not_cleared_minus_cleared|target_success": [
+      -0.4833333333333334,
+      -0.19999999999999998
+    ]
+  },
+  "contrast_verdicts": {
+    "primary": "NOT_CONFIRMED",
+    "secondary": "NOT_APPLICABLE"
+  },
+  "cost": {
+    "agent_calls": 1984,
+    "equiv_usd": 1.3633,
+    "from_cache": 0,
+    "runs_recorded": 180
+  },
+  "design": "E5",
+  "estimates": {
+    "none_minus_cleared|after_calls": -1.6499999999999997,
+    "none_minus_cleared|stop": 0.016666666666666666,
+    "none_minus_cleared|target_calls": -0.36666666666666625,
+    "none_minus_cleared|target_success": -0.35000000000000003,
+    "none_minus_not_cleared|after_calls": -0.46666666666666656,
+    "none_minus_not_cleared|stop": 0.016666666666666666,
+    "none_minus_not_cleared|target_calls": -0.033333333333333215,
+    "none_minus_not_cleared|target_success": -0.016666666666666677,
+    "not_cleared_minus_cleared|after_calls": -1.1833333333333331,
+    "not_cleared_minus_cleared|stop": 0.0,
+    "not_cleared_minus_cleared|target_calls": -0.33333333333333304,
+    "not_cleared_minus_cleared|target_success": -0.33333333333333337
+  },
+  "label": "LIVE MODEL RUN (study W2-E: E5, gemini-3.8-flash through OpenRouter, reasoning medium, flex tier)",
+  "model": "google/gemini-3.8-flash",
+  "n_tasks": 3,
+  "per_prime": {
+    "cleared": {
+      "after_calls": 3.433333333333333,
+      "manipulation": 1.0,
+      "runs": 60,
+      "stop": 0.0,
+      "target_calls": 2.433333333333333,
+      "target_success": 0.43333333333333335
+    },
+    "none": {
+      "after_calls": 1.7833333333333334,
+      "manipulation": 1.0,
+      "runs": 60,
+      "stop": 0.016666666666666666,
+      "target_calls": 2.066666666666667,
+      "target_success": 0.08333333333333333
+    },
+    "not_cleared": {
+      "after_calls": 2.25,
+      "manipulation": 1.0,
+      "runs": 60,
+      "stop": 0.0,
+      "target_calls": 2.1,
+      "target_success": 0.1
+    }
+  },
+  "runs_per_cell": 60,
+  "status_counts": {
+    "complete": 180
+  },
+  "transport": "openrouter_chat_native",
+  "validity": {
+    "completion": {
+      "control|primed|cleared": 1.0,
+      "control|primed|none": 1.0,
+      "control|primed|not_cleared": 1.0
+    },
+    "completion_min": 1.0,
+    "engagement_min": 1.0,
+    "manipulation_min": 1.0,
+    "protocol_failure_share": 0.0,
+    "unclassifiable_share": 0.0
+  },
+  "verdict": {
+    "reasons": [
+      "secondary: NOT_APPLICABLE"
+    ],
+    "verdict": "NOT_CONFIRMED"
+  }
+}

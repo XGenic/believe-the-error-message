@@ -26,7 +26,7 @@ TRAPS = {("transient", "fixable"), ("permanent", "transient")}
 BINS = [(0.1, "#f0efec"), (0.3, "#b7d3f6"), (0.5, "#86b6ef"), (0.7, "#5598e7"), (0.9, "#2a78d6"), (1.01, "#184f95")]
 INK, INK2, MUTED, SURFACE, TRAP = "#0b0b0b", "#52514e", "#898781", "#fcfcfb", "#e34948"
 # Three columns and larger type than on screen, so the figure stays legible at a printed page's width.
-CW, CH, LW, TOP, GAPX, GAPY, COLS = 58, 30, 96, 140, 30, 56, 3
+CW, CH, LW, TOP, GAPX, GAPY, COLS = 58, 30, 96, 140, 30, 46, 3
 
 
 def fill(p):
@@ -60,7 +60,7 @@ def svg(gs):
          '<desc id="d">One grid per model and setting. Rows: the cause the error message states; columns: the true '
          'fault. Red outlines mark the two traps. Data in stated_true_grid.csv.</desc>',
          f'<rect width="{W}" height="{H}" fill="{SURFACE}"/>',
-         f'<text x="24" y="26" font-size="18" font-weight="600" fill="{INK}">Every model follows the stated cause into both traps</text>',
+         f'<text x="24" y="26" font-size="18" font-weight="600" fill="{INK}">The stated cause steers every model, and most fall into both traps</text>',
          f'<text x="24" y="48" font-size="13" fill="{INK2}">Share of requests solved, by the cause the error states (rows) and the true fault (columns).</text>',
          f'<text x="24" y="66" font-size="13" fill="{INK2}">Red outline: the two traps. C4 grid, 30 runs of 6 requests per cell.</text>']
     lx = 24

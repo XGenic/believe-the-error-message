@@ -9,20 +9,20 @@
       9
     ],
     "credulous (C4 verdict CONTINUE_CREDULOUS)": [
-      11,
-      15
+      13,
+      17
     ],
     "first-encounter effect (E5 CONFIRMED; INVALID runs left out)": [
       11,
-      13
+      15
     ],
     "give-up trap holds (success at most 10%)": [
-      13,
-      15
+      14,
+      17
     ],
     "retry trap holds (success at most 10%)": [
-      14,
-      15
+      16,
+      17
     ]
   },
   "rows": [
@@ -171,6 +171,47 @@
         "est": 1.0,
         "verdict": "W6: RECOMMENDABLE"
       }
+    },
+    {
+      "bounded": null,
+      "c4": {
+        "S": 0.6666666666666666,
+        "S_ci": [
+          0.6666666666666666,
+          0.6666666666666666
+        ],
+        "give_up_trap": {
+          "est": 0.06666666666666667,
+          "wilson": [
+            0.018477023624516822,
+            0.21323458516874166
+          ]
+        },
+        "retry_trap": {
+          "est": 0.05555555555555555,
+          "wilson": [
+            0.013804042453314028,
+            0.19820786400131002
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 0.0,
+        "D1_ci": [
+          0.0,
+          0.0
+        ],
+        "verdict": "NOT_CONFIRMED"
+      },
+      "model": "Claude Sonnet 5.5",
+      "setting": "native, thinking on, high",
+      "sources": {
+        "c4": "w2e-c4-claude-sonnet-5-5",
+        "e5": "w2e-e5-claude-sonnet-5-5"
+      },
+      "three": null
     },
     {
       "bounded": {
@@ -783,6 +824,47 @@
         "est": 0.6888888888888889,
         "verdict": "W6: RECOMMENDABLE"
       }
+    },
+    {
+      "bounded": null,
+      "c4": {
+        "S": 0.6277777777777778,
+        "S_ci": [
+          0.6,
+          0.6555555555555556
+        ],
+        "give_up_trap": {
+          "est": 0.6055555555555555,
+          "wilson": [
+            0.4284761820085075,
+            0.7586709902085194
+          ]
+        },
+        "retry_trap": {
+          "est": 0.011111111111111112,
+          "wilson": [
+            0.0008266920666251815,
+            0.13238640503346127
+          ]
+        },
+        "runs_per_cell": 30,
+        "verdict": "CONTINUE_CREDULOUS"
+      },
+      "e5": {
+        "D1": 0.016666666666666666,
+        "D1_ci": [
+          0.0,
+          0.06666666666666667
+        ],
+        "verdict": "NOT_CONFIRMED"
+      },
+      "model": "Gemini 3.8 Flash",
+      "setting": "native, medium, flex",
+      "sources": {
+        "c4": "w2e-c4-gemini-3-8-flash",
+        "e5": "w2e-e5-gemini-3-8-flash"
+      },
+      "three": null
     }
   ]
 }

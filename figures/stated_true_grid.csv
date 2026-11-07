@@ -35,6 +35,18 @@ Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,permanent,perm
 Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,neutral,fixable,0.044444444444444446
 Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,neutral,transient,0.4666666666666666
 Claude Haiku 5.5,"native, thinking on",w2c-c4-claude-haiku-5-5-t1,neutral,permanent,0.0
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,format,fixable,0.9888888888888889
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,format,transient,1.0
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,format,permanent,0.0
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,transient,fixable,0.05555555555555555
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,transient,transient,1.0
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,transient,permanent,0.0
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,permanent,fixable,0.022222222222222223
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,permanent,transient,0.06666666666666667
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,permanent,permanent,0.0
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,neutral,fixable,0.18888888888888888
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,neutral,transient,1.0
+Claude Sonnet 5.5,"native, thinking on, high",w2e-c4-claude-sonnet-5-5,neutral,permanent,0.0
 GPT-6-luna,"text, low",live-gpt-6-luna,format,fixable,0.9555555555555556
 GPT-6-luna,"text, low",live-gpt-6-luna,format,transient,0.9944444444444445
 GPT-6-luna,"text, low",live-gpt-6-luna,format,permanent,0.0
@@ -179,3 +191,15 @@ gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,permanent,permanent,0.0
 gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,neutral,fixable,0.02777777777777778
 gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,neutral,transient,1.0
 gpt-oss-120b,"native, r1",or-c4-gpt-oss-120b-r1-crusoe,neutral,permanent,0.0
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,format,fixable,0.9611111111111111
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,format,transient,0.9944444444444445
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,format,permanent,0.0
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,transient,fixable,0.011111111111111112
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,transient,transient,1.0
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,transient,permanent,0.0
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,permanent,fixable,0.0
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,permanent,transient,0.6055555555555555
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,permanent,permanent,0.0
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,neutral,fixable,0.3611111111111111
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,neutral,transient,0.9888888888888889
+Gemini 3.8 Flash,"native, medium, flex",w2e-c4-gemini-3-8-flash,neutral,permanent,0.0

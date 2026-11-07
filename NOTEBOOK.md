@@ -28,6 +28,7 @@ This folder holds everything for the experiment: code, configs, tests, mock vali
 - **Preprint draft:** [`paper/PAPER.md`](paper/PAPER.md).
 - **Anthropic External Researcher Access:** a proposal for $1,000 to run Claude Sonnet 5.5, Opus 5.5 and Fable 5.1; the owner submits it before the November 2 review.
 - **Keeping the two in step:** this folder is the source. Changes are made here, then copied to the public repository.
+- **Study W2-E (Claude Sonnet 5.5 and Gemini 3.8 Flash) is done,** registered publicly before any W2-E call ([OSF](https://osf.io/2kf35), and the GitHub release `w2e-protocol`). Both are credulous. Sonnet solves 7% of the give-up trap and Gemini 61%, decided mostly on request 1. E5 is NOT_CONFIRMED on both, because neither stops at once. Predictions held 1 of 6. Spend $25.18, plus $2.00 for the cost probes.
 - **Study P1 (rewordings of the error message) is done,** registered publicly before any call ([OSF](https://osf.io/fmxaz), and the GitHub release `p1-protocol`). The give-up effect survived three rewordings on Sol, Luna and Haiku (GENERALIZES). On DeepSeek with reasoning it weakened, and vanished for a status-code wording ("ERROR 404"), under which it kept trying as if the request were at fault (PARTIAL). Spend $4.82. See "P1 results" and `REPORT.md` §4.16. Branch `c4-p1-results`.
 - **Study R1 (recovery times and a retry in code) is done,** registered publicly before any call ([OSF](https://osf.io/d64ju), and the GitHub release `r1-protocol`). On all four subjects the counted instruction was WORSE_THAN_CODE: a retry of the same count in the tool's client rescued the give-up trap as well, without giving up on accurate "temporary" faults that took longer. The caution sentence added nothing to the rule. Spend $14.11 of the $22.50 approved. See "R1 results" and `REPORT.md` §4.15. Branch `c4-r1-results`.
 - **Study W2-D (GPT-6.1 Sol) is done,** registered publicly before any call ([OSF](https://osf.io/z2pwa), and the GitHub release `w2d-protocol`). Sol is credulous at reasoning `low` and `high`, solves neither trap (0%), shows the first-encounter effect at full size, and every stopping-rule wording is RECOMMENDABLE on it. Spend $44.19 of the $80 approved. See "W2-D results" and `REPORT.md` §4.14. Branch `c4-w2d-results`.
@@ -1685,6 +1686,44 @@ No Anthropic credits have arrived, so the owner asked for a better cost estimate
 
 The owner asked for a protocol after the cost probes. `PROTOCOL_W2E.md` runs C4 and E5, with no W6 and one setting per model, the model's default: Claude Sonnet 5.5 (adaptive thinking, effort `high`) and Gemini 3.8 Flash (reasoning `medium`, flex tier, through OpenRouter). The shape follows GPT's advice, which the owner shared and I agreed with: the stopping rule is already well tested, and the open questions are whether the core pattern and the first-encounter effect hold. **Approved by the owner on 2026-11-06, before any W2-E call ("Caps approved, go ahead and publish it"): $16.50 for Sonnet, on the owner's Anthropic account, and $16.00 for Gemini, from OpenRouter credit ($14.47 that day, the binding limit).** The protocol discloses the cost probes. No W2-E call has been made.
 
+**Registered before any W2-E call.** Public release `w2e-protocol` at public commit 0266ad2, published 2026-11-07 02:19 UTC. **OSF registration https://osf.io/2kf35**, registered 2026-11-07 02:23 UTC, public, no embargo; the API shows that all six archived files' SHA-256 match the release. `PROTOCOL_W2E.md` stays byte-identical to the registered copy, so this note is the record of it.
+
+### W2-E results: both models are credulous; Gemini escapes most of the give-up trap, and neither stops at once
+
+All four runs are VALID: complete in every cell, one protocol failure in 9,421 Gemini calls and none on Sonnet, the tool called on request 1 in every run, no refusals, no reply at its output limit, every response from the pinned model and host, and three retried Gemini calls. Reports: `runs/w2e-<design>-<model>/analysis/VERDICT.md`; comparison in `runs/w2e-comparison/`.
+
+| Subject | C4 verdict | S | Retry trap (non-diagnostic) | Give-up trap (non-diagnostic) | E5 verdict | Solved after no earlier error / a cleared one |
+|---|---|---|---|---|---|---|
+| Claude Sonnet 5.5, adaptive, effort `high` | CONTINUE_CREDULOUS | +0.67 | 0.06 (0.19) | 0.07 (1.00) | NOT_CONFIRMED | 0.12 / 0.43 |
+| Gemini 3.8 Flash, reasoning `medium`, flex | CONTINUE_CREDULOUS | +0.63 | 0.01 (0.36) | 0.61 (0.99) | NOT_CONFIRMED | 0.08 / 0.43 |
+
+- **Primary: CONTINUE_CREDULOUS on both.** Sonnet: S +0.667 [+0.667, +0.667], L\* −0.145 [−0.218, −0.068]. Gemini: S +0.628 [+0.600, +0.656], L\* −0.059 [−0.169, +0.059].
+- **The surprise is Gemini's give-up trap: 61% solved** (109 of 180 requests; 107 by correct answer), against my prediction of at most 15%. The message still costs it 38 points against the neutral message.
+- **Exploratory, from the raw rows: request 1 decides the run.**
+  - Both models rewrite the depot on their second call in 29 of 30 runs, usually from code to name.
+  - Sonnet then answers UNKNOWN in 28 of 30. Gemini makes a third call in 18 of 30, each in a new form of the depot or SKU, and it works.
+  - After a first solved request, later ones are solved 96% of the time on Gemini (90 of 94) and 100% on Sonnet (10 of 10). Before one, 22% (19 of 86) and 1% (2 of 170).
+  - Gemini's runs: 17 solve all six requests, 11 none, 2 in between.
+- **Reasoning does not obviously explain it.** Gemini's runs that ever solved the trap used 664 reasoning tokens on request 1, and those that never did 725. One setting per model cannot separate reasoning from the model.
+- **E5 NOT_CONFIRMED on both, and my prediction was wrong.** Neither model stops at once: 0 of 60 and 1 of 60 with no earlier error, so D1 has nothing to remove. They give up a call later. Target success still moves: 0.12 to 0.43 on Sonnet (−0.317 [−0.467, −0.167]) and 0.08 to 0.43 on Gemini (−0.350 [−0.500, −0.200]). That contrast is a recorded measure, not the primary. E5's primary measure does not fit agents that retry before giving up.
+- **Sonnet − Haiku with thinking on:** SAME on S (+0.06), the retry trap (+0.06), the give-up trap (+0.07) and D1. L\* is DIFFERENT (−0.19), and so is the fixable fault under "format" (+0.21).
+- **Reasoning tokens per call on C4:** Sonnet mean 5.0, median 0, 90th percentile 23, on 12% of calls. Gemini mean 158, median 27, 90th percentile 395, maximum 12,877, on 90% of calls: most after "format" (199–449 by cell), least after "temporary" (29–41) and "unavailable" (59–74). Seven Gemini calls reasoned for more than 8,000 tokens, so raising the limit to 16,000 mattered.
+- **Correctness audit:** the 62 live runs differ on 417 of 114,510 requests; no verdict changes on correct answers, and no trap rate moves by more than 0.011. Gemini's 26 are mostly neutral-over-fixable requests (20), where it could fetch another depot's figure and then answer UNKNOWN. Its neutral rate there falls from 0.36 to 0.25.
+- **Across all 17 arms:** a false "unavailable" lowers success by 64 points on average (range 0 to 100) and a false "temporary" by 14 (0 to 35). Credulous on 13 of 17; retry trap at most 10% on 16 of 17; give-up trap at most 10% on 14 of 17; E5 CONFIRMED on 11 of 15 arms with a valid test.
+
+**Predictions: 1 of 6 held.**
+
+| Prediction | Outcome |
+|---|---|
+| Sonnet CONTINUE_CREDULOUS, both traps at most 10% | **Held** (6%, 7%) |
+| Gemini CONTINUE_CREDULOUS, give-up trap at most 15%, retry trap at most 25% | **Missed:** credulous and 1% on the retry trap, but 61% on the give-up trap |
+| E5 CONFIRMED on both | **Missed:** NOT_CONFIRMED on both |
+| Sonnet − Haiku: SAME on both traps, D1 DIFFERENT | **Missed:** traps SAME, but D1 SAME too |
+| Reasoning on C4: Sonnet at most 30, Gemini at least 171 | **Missed:** Sonnet 5.0 held, Gemini 158 fell short |
+| Each main run within its estimate | **Missed:** Sonnet C4 $9.94 held; Sonnet E5 $2.04, Gemini C4 $11.03 and Gemini E5 $1.36 ran over. Accurate cells probably missed the short E5 runs' larger share of cache writes, and the rest of the grid |
+
+**Spend:** $25.18 of the approved $32.50: Sonnet $12.37 of $16.50 (pilots $0.39, C4 $9.94, E5 $2.04), Gemini $12.81 of $16.00 (pilots $0.42, C4 $11.03, E5 $1.36). OpenRouter credit left: $1.67.
+
 ## Decisions for the owner
 
 0. **Next steps toward a paper are in [`PAPER_PLAN.md`](PAPER_PLAN.md).** Phase 1 (reproducibility fixes, native tool calling and an audit of real misleading errors) costs under $5 and is ready for approval. E5 (above) has confirmed the E4 mechanism. The items below are kept for reference.
@@ -1891,4 +1930,8 @@ Pre-freeze differences from the handoff are listed at the end of `PROTOCOL.md`.
   - the 10 requests in flight at the stop got no response, so their cost (about a cent at most) is not recorded;
   - the other four configs had not started; they ran after C4 `low`, in the protocol's order, and all five finished at 23:40 UTC.
   - **Bias risk: none expected.** The owner chose when to stop, a minute in, and each of the 360 runs is counted once.
+  - No design element, threshold or agent-facing text changed.
+- **W2E-1 (Sonnet's E5 main run at 3 workers, not 10; decided after its pilot, before its first main call).** The registered `live_w2e_e5_sonnet.json` sets 10 workers, a $3.00 cap and a $0.10 worst case per call. The spend guard holds back the worst case for every call in flight, so at 10 workers the run would stop at about $1.90, and the pilot's estimate is $2.31. At 3 workers it would stop at about $2.60, under the same cap. The owner was told before the run; the cap is unchanged, so this needed no new approval. If the run still reaches the limit it stops, and more money needs the owner's word.
+  - The registered config file is unchanged; the run's own `config.json` records 3 workers.
+  - **Bias risk: none expected.** Workers set how many conversations run at once, and each conversation is independent. Cache reads may be slightly more frequent, which affects cost and not what the model sees.
   - No design element, threshold or agent-facing text changed.
