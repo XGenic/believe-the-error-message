@@ -2,7 +2,7 @@
 
 **Denis Gurskiy** · independent researcher · 7 November 2026
 
-*Preprint draft, not peer reviewed. Code, protocols and every raw log: [github.com/XGenic/believe-the-error-message](https://github.com/XGenic/believe-the-error-message).*
+*Preprint, not peer reviewed. Code, protocols and every raw log: [github.com/XGenic/believe-the-error-message](https://github.com/XGenic/believe-the-error-message).*
 
 ## Abstract
 

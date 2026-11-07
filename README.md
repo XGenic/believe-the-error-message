@@ -4,7 +4,7 @@ When a tool call fails, the error message usually states a cause: "invalid forma
 
 **Short answer: they act on the stated cause and rarely revise it, and two traps follow.** A brief caution paired with a counted stopping rule fixes the worse of the two on every model tested, in this environment; for read-only calls, retrying in the tool's client does the same without giving up on real transient faults.
 
-Results to 2026-11-07: 18 pre-specified studies on 8 models from 5 developers (17 model-and-setting arms), about $158 of API spend. The five latest, W2-D, R1, P1, W2-E and G1, were registered publicly before their first call. **Paper draft:** [`paper/PAPER.md`](paper/PAPER.md) (preprint draft, not peer reviewed). The consolidated write-up is [`REPORT.md`](REPORT.md).
+Results to 2026-11-07: 18 pre-specified studies on 8 models from 5 developers (17 model-and-setting arms), about $158 of API spend. The five latest, W2-D, R1, P1, W2-E and G1, were registered publicly before their first call. **Preprint:** [`paper/PAPER.pdf`](paper/PAPER.pdf) ([source](paper/PAPER.md); not peer reviewed). This is a candidate for v1, out for outside review. The consolidated write-up is [`REPORT.md`](REPORT.md).
 
 ## The two traps
 
@@ -101,8 +101,8 @@ python -m causetest panel                                     # the cross-model 
 | `tests/` | unit tests |
 | `figures/` | the two figures above, with their data as CSV and the scripts that draw them |
 | `PROTOCOL*.md` | the frozen protocols |
-| `paper/PAPER.md` | the preprint draft |
-| `paper/PAPER.pdf` | the same draft as a PDF, built by `python paper/build_pdf.py` (needs Edge or Chrome) |
+| `paper/PAPER.md` | the preprint |
+| `paper/PAPER.pdf` | the same text as a PDF, built by `python paper/build_pdf.py` (needs Edge or Chrome) |
 | `REPORT.md`, `NOTEBOOK.md`, `DATA_CARD.md`, `ERROR_AUDIT.md` | the write-up, the lab notebook, the data card, the audit of real errors |
 
 The per-run response caches used while the runs were in progress are left out of this release: `results.jsonl` holds the same rows. So is `PAPER_PLAN.md`, the author's private planning document. Older files link to it and name workstreams (W1–W6) after it; those links do not resolve here, and each workstream's protocol states its full design.

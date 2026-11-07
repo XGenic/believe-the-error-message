@@ -1767,6 +1767,10 @@ Both runs are VALID: complete in every cell, no protocol failures, the tool call
 
 **Spend:** $2.55 of the approved $4.25: Sonnet $1.73 of $3.00 (pilot $0.04, main run $1.69), Gemini $0.82 of $1.25 (pilot $0.03, main run $0.79).
 
+## Preprint v1: candidate, out for review (2026-11-07)
+
+After G1, the owner decided to work toward arXiv, and to have others check this candidate before committing to v1. No `preprint-v1` tag or release exists yet. Checked against arXiv's rules for a PDF not made from TeX: one file, all fonts embedded, no Type 3 fonts, no JavaScript, extractable text with ligatures that read correctly, tagged structure. The title and abstract are plain ASCII, and the abstract is 1,738 characters of the 1,920 allowed. Significant AI use is disclosed in the paper, and no AI is listed as an author. Every citation has a reference and every section reference resolves. The only change to the text is dropping "draft". Changes that come out of the review are recorded here. Once v1 is tagged, a change to the paper needs a reason and a new version.
+
 ## Decisions for the owner
 
 0. **Next steps toward a paper are in [`PAPER_PLAN.md`](PAPER_PLAN.md).** Phase 1 (reproducibility fixes, native tool calling and an audit of real misleading errors) costs under $5 and is ready for approval. E5 (above) has confirmed the E4 mechanism. The items below are kept for reference.
