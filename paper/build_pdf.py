@@ -49,7 +49,7 @@ li { margin: 0 0 0.25em; }
 ul.refs { list-style: none; padding-left: 1.5em; text-indent: -1.5em; font-size: 9.5pt; }
 figure { margin: 0.9em 0 1em; break-inside: avoid; }
 figure svg { display: block; width: 100%; height: auto; max-height: 8.5in; }
-figcaption { font-size: 9pt; line-height: 1.35; margin: 0.4em 0 0; }
+figcaption { font-size: 9pt; line-height: 1.35; margin: 0.4em 0 0; break-inside: avoid; }
 figure.table figcaption { margin: 0 0 0.4em; break-after: avoid; }
 figure.table { break-inside: auto; }
 figure.table.keep { break-inside: avoid; }

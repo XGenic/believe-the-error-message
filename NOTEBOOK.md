@@ -1771,6 +1771,15 @@ Both runs are VALID: complete in every cell, no protocol failures, the tool call
 
 After G1, the owner decided to work toward arXiv, and to have others check this candidate before committing to v1. No `preprint-v1` tag or release exists yet. Checked against arXiv's rules for a PDF not made from TeX: one file, all fonts embedded, no Type 3 fonts, no JavaScript, extractable text with ligatures that read correctly, tagged structure. The title and abstract are plain ASCII, and the abstract is 1,738 characters of the 1,920 allowed. Significant AI use is disclosed in the paper, and no AI is listed as an author. Every citation has a reference and every section reference resolves. The only change to the text is dropping "draft". Changes that come out of the review are recorded here. Once v1 is tagged, a change to the paper needs a reason and a new version.
 
+## Fourth outside review, of the v1 candidate (2026-11-07)
+
+The owner shared another reading, of the candidate. It found no contradiction or statistical error in the claims it checked, and recommended no further experiments. Its checkable points were checked first:
+
+- **Two related papers (both confirmed from arXiv):** Yang et al., arXiv:2609.05587, and Jeffries, arXiv:2610.32110. Neither varies the cause a tool error states, so the stated contribution stands. Both are now in §2.
+- **G1 was buried in a paragraph (agreed).** It now has a table, and the paragraph is shorter. §4.1 is reordered so tables stay in sequence, and the later tables are renumbered.
+- **"A failure to calibrate trust" claimed too much (agreed).** An agent does not know a third call would work, and a second identical error does not contradict "unavailable". Whether stopping is the right choice depends on message reliability, retry cost and what the agent knows, none of which this design establishes. §1 and the abstract now say what the design does show: the stated cause changes recovery decisions and, when wrong, can greatly reduce how many requests get solved. "Premature abandonment" is gone. This reverses the calibration framing added after the review of 2026-10-28.
+- **Sonnet's uncertainty and the GEMINI_SPECIFIC label (agreed).** The paper said the same reasoning "is not enough on Sonnet", and that more reasoning "does not help". The interval reaches +23 points, so it now says no large, reliable gain in this experiment. The label is described as a classification by fixed thresholds, not a mechanism. The registered protocol's wording stays as registered.
+
 ## Decisions for the owner
 
 0. **Next steps toward a paper are in [`PAPER_PLAN.md`](PAPER_PLAN.md).** Phase 1 (reproducibility fixes, native tool calling and an audit of real misleading errors) costs under $5 and is ready for approval. E5 (above) has confirmed the E4 mechanism. The items below are kept for reference.

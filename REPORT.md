@@ -82,10 +82,10 @@ When a tool call fails, the error message usually states a cause. We varied the 
    - E5 is NOT_CONFIRMED on both, because neither model stops at once. One cleared error still raises success on the next request (0.12 to 0.43 on Sonnet; 0.08 to 0.43 on Gemini).
    - Across all 17 arms, a false "unavailable" lowers success by 64 points on average and a false "temporary" by 14.
 
-19. **Reasoning alone does not explain Gemini's result** (G1, registered publicly before any call; the give-up trap).
+19. **The reasoning setting matters on Gemini, and more reasoning did not reproduce its result on Sonnet** (G1, registered publicly before any call; the give-up trap).
    - At reasoning `low`, Gemini solves 17% of the trap, against 61% at its default, while still solving 100% under "request rejected".
    - Sonnet at effort `max` reasons nearly twice as much as Gemini and solves 13%, against 7% at its default (SAME).
-   - The verdict is GEMINI_SPECIFIC: the setting matters on Gemini, and the same reasoning is not enough on Sonnet.
+   - The verdict is GEMINI_SPECIFIC, a classification by fixed thresholds, not a finding about a mechanism inside Gemini. Sonnet's interval allows a rise of up to 23 points.
 
 Total spend was about $158.16 API-equivalent: $33.07 on Haiku ($3.34 of it through the Anthropic API), $17.60 on Luna (OpenAI), $60.57 on Sol (OpenAI API credit), $17.19 of OpenRouter credit for the open-weight models, $14.89 on Sonnet (the owner's Anthropic account) and $14.84 on Gemini (OpenRouter credit). The last two include the cost probes.
 
@@ -563,7 +563,7 @@ W2-E could not separate reasoning from the model: on the trap's first request Ge
 | Claude Sonnet 5.5, effort `max` | 61 → 1,218 | 2 → 4 of 30 | 0.07 → 0.13 | +0.07 [−0.07, +0.23] | SAME | STAYS |
 | Gemini 3.8 Flash, reasoning `low` | 686 → 290 | 18 → 6 of 30 | 0.61 → 0.17 | −0.43 [−0.63, −0.21] | DIFFERENT | FALLS |
 
-- **Primary: GEMINI_SPECIFIC.** On Gemini the reasoning setting matters, but the same amount of reasoning is not enough on Sonnet. I predicted GEMINI_ITSELF.
+- **Primary: GEMINI_SPECIFIC,** a classification by fixed thresholds, not a finding about a mechanism inside Gemini. The reasoning setting made a large difference on Gemini; Sonnet showed no large, reliable gain in this experiment, though its interval allows a rise of up to 23 points. I predicted GEMINI_ITSELF.
 - **The lower setting makes Gemini more obedient, not less persistent.** Under "request rejected" it solved 100% at `low` (0.99 at its default; SAME), so the message's effect grew from −0.38 to −0.83.
 - **Sonnet at `max` reasons twenty times as much as at its default and nearly twice as much as Gemini,** and still gives up on the second call in 26 of 30 runs. Of its 4 third calls, 3 repeat an earlier call.
 - **Within any one setting, reasoning length does not separate the runs that solved the trap** (Gemini 306 and 286 tokens at `low`, 664 and 725 at its default; Sonnet 1,342 and 1,199 at `max`). A setting may change more than its token count.
