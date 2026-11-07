@@ -273,13 +273,16 @@ def size_runs(target_usd: float, pilot_usd: float, per_run_usd: float, n_cells: 
 
 def pilot(cfg: Dict[str, Any], run_dir: Path, live: bool) -> Dict[str, Any]:
     """Pre-registered development pilot: one run per cell on development seeds. It measures the
-    per-call cost (to set the cap) and checks the protocol; its data never enter the verdict."""
+    per-call cost (to set the cap) and checks the protocol; its data never enter the verdict.
+    A config may name several seeds in `dev_seeds` (the cost probes in causetest/probe.py)."""
     transport = make_transport(cfg, run_dir, live)
     out_dir = run_dir / "pilot"
     out_dir.mkdir(parents=True, exist_ok=True)
     session = _Session(cfg, out_dir, transport, _guard(cfg, run_dir))
-    rows = _run_all(session, cfg, [cfg["dev_seed"]])
-    check = dict(pilot_check(rows), model=cfg["model"], label=cfg.get("label", ""), dev_seed=cfg["dev_seed"])
+    seeds = cfg.get("dev_seeds") or [cfg["dev_seed"]]
+    rows = _run_all(session, cfg, seeds)
+    check = dict(pilot_check(rows), model=cfg["model"], label=cfg.get("label", ""),
+                 dev_seed=seeds if cfg.get("dev_seeds") else cfg["dev_seed"])
     n_cells = len(cells_for(cfg))
     per_run = (check["cost_equiv_usd"] / check["complete"]) if check["complete"] else 0.0
     check["kill_test_estimate_equiv_usd"] = round(n_cells * cfg["runs_per_cell"] * per_run, 2)
@@ -288,7 +291,7 @@ def pilot(cfg: Dict[str, Any], run_dir: Path, live: bool) -> Dict[str, Any]:
                                                  cfg["runs_per_cell"])
     (out_dir / "pilot.json").write_text(json.dumps(check, indent=2), encoding="utf-8", newline="\n")
     lines = [f"# C4 development pilot: {cfg['model']}", "",
-             f"**{check['label']}**. One run per cell on development seed {cfg['dev_seed']}; not evidence.", ""]
+             f"**{check['label']}**. One run per cell on development seed {check['dev_seed']}; not evidence.", ""]
     lines += [f"- {k}: {v}" for k, v in check.items() if k not in ("label", "model", "dev_seed")]
     (out_dir / "PILOT.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     return check

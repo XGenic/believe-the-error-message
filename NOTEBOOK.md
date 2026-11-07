@@ -1640,6 +1640,51 @@ The owner shared a reading of the paper by Gemini. No new experiments; its check
 - **Not adopted:** the suggested abstract sentence ("whether it ever learns to doubt it") brings back learning language the first review removed. "Proves that reasoning deepens the trap" from thought traces would overclaim: traces are summaries, and the causal test is reasoning on against off, which the design already has.
 - **For the Claude panel, if it runs:** report reasoning tokens per arm in the protocol; include an arm meant to reason at length (a large thinking budget or high effort); any reading of thinking summaries is exploratory. A fixable fault that needs a semantic choice is a candidate study, not for this paper.
 
+## Cost probes (approved 2026-11-06)
+
+No Anthropic credits have arrived, so the owner asked for a better cost estimate before deciding whether to pay for Claude Sonnet 5.5, and whether Gemini 3.8 Flash could run through OpenRouter. These are not studies. No trap data, no verdict, no panel entry.
+
+- **What runs:** the three accurate cells (`format|fixable`, `transient|transient`, `permanent|permanent`) on three development seeds used nowhere else (20262931–33): 9 runs per setting, through `python -m causetest pilot`. `python -m causetest probe` reports token use, cost and transport health, and shows no answers, success rates or next actions.
+- **Why accurate cells only:** public registration has come before a study's first call since W2-D, and seeing a model in the traps before writing its predictions would defeat that. Accurate cells still contain errors, so they measure tokens after an error without showing how a model treats a false cause. If a study follows, its protocol must disclose the probe, and it still gets its own registration, seeds and full pilot.
+- **Settings:** Sonnet 5.5 at thinking off (`between_tools`; `disabled` is a 400 on this model), adaptive at effort `high` (its default), and adaptive at `max` (the longest reasoning on offer, for the gap the third review raised). Gemini 3.8 Flash through OpenRouter, pinned to Google AI Studio, at reasoning `low` and `high` (reasoning cannot be turned off; OpenRouter lists it as mandatory) and `low` on the half-price flex tier. Thought signatures go back through `reasoning_details`, which the OpenRouter transport already supports. No server-side fallback on Sonnet: a refusal must stay a refusal, not an answer from another model.
+- **Prices, read 2026-11-06:** Sonnet 5.5 $2 in, $2.50 cache write, $0.10 cache read, $10 out (Anthropic's pricing page; cache reads are 0.05x input). Gemini 3.8 Flash on AI Studio $0.75 in, $0.075 cached, $3.75 out; flex half that (OpenRouter's listing). OpenRouter credit left: $7.72.
+- **Approved by the owner on 2026-11-06, before any call ("go", answering the caps below and the order of probe before registration): $6.50 for Sonnet, on the owner's Anthropic account, and $1.75 for Gemini, from OpenRouter credit.** Frozen at $0 in commit 530f81f1.
+
+| Config | Expected | Proposed cap | Paid from |
+|---|---|---|---|
+| `live_probe_sonnet_t0` | $0.20–0.30 | $1.00 | owner's Anthropic account |
+| `live_probe_sonnet_t1` | $0.25–0.50 | $1.50 | owner's Anthropic account |
+| `live_probe_sonnet_t2` | unknown, up to about $2.40 | $4.00 | owner's Anthropic account |
+| `live_probe_gemini_low` | about $0.10 | $0.50 | OpenRouter credit |
+| `live_probe_gemini_high` | about $0.30 | $0.75 | OpenRouter credit |
+| `live_probe_gemini_low_flex` | about $0.05 | $0.50 | OpenRouter credit |
+
+- **Backtest (free, on finished runs):** the same 9-run sample from earlier C4 runs, projected at each model's real call volume, against that run's real cost: Haiku thinking off 1.13x, thinking on 0.97x, Luna high 0.97x, DeepSeek r1 0.97x, Qwen r1 0.96x, Sol low 1.38x, Sol high 1.34x. Accurate cells understate reasoning per call: Luna high 5.6 against 11.0, Sol high 1.5 against 5.2, DeepSeek r1 25.5 against 33.4. The other unknown is how many calls a model makes, so the report brackets it with Haiku's and Sol's measured volumes.
+- **Floor before any probe:** Haiku's measured tokens at Sonnet's prices come to $44.83 for both settings of C4, E5 and W6 ($16.83 thinking off, $28.00 thinking on). Haiku gives up early and reasons little, so Sonnet is likely to cost more.
+
+**Results (2026-11-06; `runs/probe/PROBE.md`).** Logged spend $0.79 on Sonnet and $1.02 on Gemini; the OpenRouter balance fell $1.06, from $7.72 to $6.66. The $0.04 gap is unexplained. One Gemini call was cut at the 60 s deadline and retried, and such a call may be billed though the transport assumes not. No refusals, no response cut off at `max_tokens`, no protocol failures, and every call served by the pinned model and host. Gemini at `high` stopped at its $0.75 cap with 7 of 9 runs complete, so its figures are understated.
+
+| Setting | Reasoning tokens per call: mean, median, p90, max | Calls with reasoning | Input per call | Cost per call | C4, E5 and W6, projected |
+|---|---|---|---|---|---|
+| Sonnet 5.5, thinking off | 0, 0, 0, 0 | 0% | 1,725 | $0.0011 | $19–30 |
+| Sonnet 5.5, adaptive `high` | 5, 0, 29, 61 | 13% | 1,681 | $0.0011 | $18–28 |
+| Sonnet 5.5, adaptive `max` | 94, 0, 300, 2,691 | 47% | 2,833 | $0.0022 | $39–58 |
+| Gemini 3.8 Flash, `low` | 48, 11, 93, 1,350 | 68% | 1,461 | $0.0012 | $20–34 |
+| Gemini 3.8 Flash, `high` (cap reached) | 387, 55, 499, 7,678 | 89% | 7,493 | $0.0042 | $63–100, likely more |
+| Gemini 3.8 Flash, `low`, flex | 34, 9, 95, 554 | 64% | 1,226 | $0.0006 | $10–16 |
+
+- **The first draft of the projection was wrong and was corrected before any figure was reported.** It borrowed input volume from Haiku and Sol, which understates settings whose replayed reasoning lengthens the history. Input per call now comes from the probe, and the earlier subjects give only calls and relative conversation length. The backtest does not change, because a model's own volumes reduce to its real input either way.
+- **Long reasoning is now reachable.** Earlier arms averaged at most 35 reasoning tokens per call. Sonnet at `max` averages 94 and Gemini at `high` 387, in accurate cells, which understate reasoning on earlier models. Sonnet at its default effort barely reasons here (5), so it costs the same as thinking off.
+- **Caching:** 93–94% of Sonnet's input is read from cache. Gemini's is 17% at `low`, 69% at `high` and 0% on flex, so Gemini's input is mostly full price, and flex's saving comes from its lower rates.
+- **Flex showed no queueing:** a median of 1.9 s and p95 of 3.4 s, but only 178 calls at 3 workers.
+- **A seventh probe, approved by the owner on 2026-11-06 before any call ("go ahead", answering a $0.50 cap):** `live_probe_gemini_medium_flex`, Gemini's default reasoning effort on flex, same cells and seeds, from OpenRouter credit. The estimate it replaces was a midpoint between low and high: $6–12 for C4 and E5 on flex.
+- **Result of the seventh probe:** $0.19 ($0.00104 per call; the OpenRouter balance fell to $6.48), 9 of 9 runs, no refusal, nothing cut off, every call on the pinned host. Reasoning per call: mean 171, median 21, p90 439, max 4,222, on 85% of calls. Input per call 3,430, 53% cached. Latency: median 2.0 s, p95 6.5 s. Projected on flex: $6–12 for C4 and E5, $18–29 with W6. Gemini's default therefore reasons more per call than Sonnet at `max` (94) and costs less for C4 and E5 than Sonnet at `max` ($13.50–24), so it is the cheaper way to reach long reasoning, not Sonnet.
+- These probes are not evidence and enter no verdict or panel. A study of either model still needs its own protocol, approval, public registration and pilot, and its protocol must disclose these probes.
+
+## Study W2-E: approved (2026-11-06)
+
+The owner asked for a protocol after the cost probes. `PROTOCOL_W2E.md` runs C4 and E5, with no W6 and one setting per model, the model's default: Claude Sonnet 5.5 (adaptive thinking, effort `high`) and Gemini 3.8 Flash (reasoning `medium`, flex tier, through OpenRouter). The shape follows GPT's advice, which the owner shared and I agreed with: the stopping rule is already well tested, and the open questions are whether the core pattern and the first-encounter effect hold. **Approved by the owner on 2026-11-06, before any W2-E call ("Caps approved, go ahead and publish it"): $16.50 for Sonnet, on the owner's Anthropic account, and $16.00 for Gemini, from OpenRouter credit ($14.47 that day, the binding limit).** The protocol discloses the cost probes. No W2-E call has been made.
+
 ## Decisions for the owner
 
 0. **Next steps toward a paper are in [`PAPER_PLAN.md`](PAPER_PLAN.md).** Phase 1 (reproducibility fixes, native tool calling and an audit of real misleading errors) costs under $5 and is ready for approval. E5 (above) has confirmed the E4 mechanism. The items below are kept for reference.
@@ -1714,6 +1759,7 @@ A run writes the following to `runs/<run_name>/`:
 | `causetest/h1.py` | study H1: training and test schedules, the scheduled environment, withdrawal measures, decision rule and report |
 | `causetest/w6.py` | study W6: wording contrasts, the per-wording decision rule, the varied-call count and report |
 | `causetest/panel.py` | the panel table: every model and setting side by side, from committed summaries (descriptive; `python -m causetest panel`) |
+| `causetest/probe.py` | cost probes: token use, cost and transport health of a small pilot, and what they imply for the full design (`python -m causetest probe`); not evidence |
 | `causetest/compare.py` | study N1: one run minus another for the same design, with bootstrap intervals and fixed verdicts |
 | `figures/stated_true_grid.py` | paper figure: share of requests solved by stated cause × true fault, one grid per model and setting; writes `stated_true_grid.svg` and `.csv` |
 | `figures/rescue_cost.py` | paper figure: give-up rescue against outage-call cost per model and wording (E3, W6); writes `rescue_cost.svg` and its data `rescue_cost.csv` |

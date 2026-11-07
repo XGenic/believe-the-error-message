@@ -1,0 +1,18 @@
+{
+  "runs": 9,
+  "complete": 9,
+  "agent_calls": 178,
+  "cost_equiv_usd": 0.1,
+  "usd_per_call": 0.00056,
+  "calls_per_run": 19.78,
+  "protocol_failure_share": 0.0,
+  "engaged_request1": 1.0,
+  "model": "google/gemini-3.8-flash",
+  "label": "LIVE MODEL RUN (cost probe: gemini-3.8-flash through OpenRouter, reasoning low, flex tier, half price, may queue)",
+  "dev_seed": [
+    20262931,
+    20262932,
+    20262933
+  ],
+  "kill_test_estimate_equiv_usd": 0.0
+}

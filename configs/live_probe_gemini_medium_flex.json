@@ -1,0 +1,69 @@
+{
+  "bootstrap_reps": 2000,
+  "thresholds": {
+    "min_completion": 0.95,
+    "max_protocol_failure": 0.1,
+    "min_engagement": 0.9,
+    "max_unclassifiable": 0.1,
+    "kill_s_max": 0.1,
+    "kill_s_ci_hi": 0.2,
+    "cont_s_min": 0.25,
+    "cont_s_ci_lo": 0.1,
+    "cred_l_max": 0.1,
+    "cred_l_ci_hi": 0.2,
+    "self_l_min": 0.15,
+    "self_l_ci_lo": 0.0,
+    "kill_s_ci_lo": -0.2
+  },
+  "base_seed": 20262301,
+  "bootstrap_seed": 20262301,
+  "runs_per_cell": 0,
+  "dev_seed": 20262931,
+  "dev_seeds": [
+    20262931,
+    20262932,
+    20262933
+  ],
+  "workers": 3,
+  "max_equiv_usd": 0.5,
+  "max_calls": 450,
+  "cells": [
+    "format|fixable",
+    "transient|transient",
+    "permanent|permanent"
+  ],
+  "run_name": "probe-gemini-3-8-flash-medium-flex",
+  "transport": "openrouter_chat_native",
+  "model": "google/gemini-3.8-flash",
+  "label": "LIVE MODEL RUN (cost probe: gemini-3.8-flash through OpenRouter, reasoning medium, flex tier, half price, may queue)",
+  "request_options": {
+    "max_tokens": 8000,
+    "reasoning": {
+      "effort": "medium"
+    }
+  },
+  "prices_usd_per_mtok": {
+    "input": 0.375,
+    "output": 1.875,
+    "cache_read": 0.0375,
+    "cache_write": 0.021,
+    "source": "OpenRouter endpoints listing, read 2026-11-06. Planning and fallback only; recorded cost is OpenRouter's billed usage.cost."
+  },
+  "worst_case_usd_per_call": 0.02,
+  "provider": {
+    "order": [
+      "google-ai-studio/flex"
+    ]
+  },
+  "expected_host": "Google AI Studio",
+  "pass_reasoning_back": true,
+  "timeout_seconds": 150,
+  "deadline_seconds": 150,
+  "planning": {
+    "calls_per_run": 20,
+    "usd_per_call": 0.00111,
+    "estimate_usd": 0.2,
+    "proposed_cap_usd": 0.5
+  },
+  "cost_note": "Cost probe (NOTEBOOK.md, Cost probes): the three accurate cells on three development seeds, 9 runs. No trap, no misleading cell, no main run (runs_per_cell 0). Frozen at $0 until the owner approves the proposed cap. Reasoning cannot be turned off on this model (OpenRouter lists it as mandatory, with efforts low, medium and high). Thought signatures go back through reasoning_details."
+}

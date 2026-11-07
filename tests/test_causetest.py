@@ -1592,6 +1592,148 @@ class TestStudyR1(unittest.TestCase):
         self.assertEqual(calls_label(None, (None, None), th), "NOT_ESTIMABLE")
 
 
+class TestCostProbes(unittest.TestCase):
+    """The cost probes (NOTEBOOK.md, Cost probes): accurate cells only, seeds used nowhere else, no spend until approved."""
+
+    @staticmethod
+    def _paths():
+        return sorted((DIR / "configs").glob("live_probe_*.json"))
+
+    def test_configs(self):
+        from causetest.runner import cells_for
+        self.assertEqual([p.stem for p in self._paths()],
+                         ["live_probe_gemini_high", "live_probe_gemini_low", "live_probe_gemini_low_flex",
+                          "live_probe_gemini_medium_flex", "live_probe_sonnet_t0", "live_probe_sonnet_t1", "live_probe_sonnet_t2"])
+        others = [load_config(p) for p in (DIR / "configs").glob("*.json") if "_probe_" not in p.name]
+        taken = {c.get("dev_seed") for c in others} | {c.get("base_seed") for c in others}
+        for path in self._paths():
+            cfg = load_config(path)
+            self.assertEqual(cells_for(cfg), [("format", "fixable"), ("transient", "transient"), ("permanent", "permanent")])
+            self.assertEqual(cfg["runs_per_cell"], 0)  # a probe has no main run
+            self.assertFalse(taken & set(cfg["dev_seeds"]))
+            self.assertNotIn("fallbacks", cfg["request_options"])  # a refusal stays a refusal
+            self.assertGreater(cfg["planning"]["proposed_cap_usd"], cfg["workers"] * cfg["worst_case_usd_per_call"])
+        caps = {p.stem: load_config(p)["max_equiv_usd"] for p in self._paths()}
+        self.assertLessEqual(round(sum(v for k, v in caps.items() if "sonnet" in k), 2), 6.50)  # owner's approval of 2026-11-06
+        self.assertLessEqual(round(sum(v for k, v in caps.items() if "gemini" in k), 2), 2.25)  # the same, plus $0.50 for medium
+
+    def test_zero_cap_sends_nothing(self):
+        from unittest import mock
+        from causetest.runner import pilot
+        with tempfile.TemporaryDirectory() as tmp, mock.patch("urllib.request.urlopen") as urlopen:
+            for path in self._paths():
+                with self.assertRaisesRegex(RuntimeError, "not authorized"):
+                    pilot(dict(load_config(path), max_equiv_usd=0.0), Path(tmp) / "r", live=True)
+            urlopen.assert_not_called()
+
+    def test_sonnet_request_and_history(self):
+        """Thinking off is between_tools; progress notes come back as thinking blocks and go back unchanged."""
+        import io
+        from unittest import mock
+        from causetest.runner import make_transport
+        sent, note = [], {"type": "thinking", "thinking": "Looking it up.", "signature": "sig"}
+
+        class Resp(io.BytesIO):
+            headers = {"request-id": "req_test"}
+
+        def urlopen(req, timeout=None, context=None):
+            sent.append(json.loads(req.data.decode()))
+            return Resp(json.dumps({"id": "msg_1", "model": "claude-sonnet-5-5", "stop_reason": "tool_use", "usage": {
+                "input_tokens": 3, "cache_read_input_tokens": 1000, "cache_creation_input_tokens": 100, "output_tokens": 40},
+                "content": [note, {"type": "tool_use", "id": "toolu_1", "name": "stock_lookup",
+                                   "input": {"site": "Penrith", "sku": "wm-9610"}}]}).encode())
+        cfg = dict(load_config(DIR / "configs" / "live_probe_sonnet_t0.json"), max_equiv_usd=1.0)
+        with tempfile.TemporaryDirectory() as tmp, mock.patch("urllib.request.urlopen", urlopen),                 mock.patch.dict(os.environ, {"ANTHROPIC_API_KEY": "test"}):
+            conv = make_transport(cfg, Path(tmp), live=True).open("k", "sys")
+            line, meta = conv.say("New request: how many?")
+            conv.say("RESULT stock_lookup: ERROR: temporary service problem.")
+        self.assertTrue(line.startswith("CALL stock_lookup"))  # the note is not read as the agent's text
+        self.assertEqual(sent[0]["thinking"], {"type": "between_tools"})
+        self.assertEqual(sent[0]["output_config"], {"effort": "high"})
+        self.assertEqual(sent[1]["messages"][1]["content"][0], note)
+        self.assertAlmostEqual(meta["cost_usd"], (3 * 2.0 + 1000 * 0.1 + 100 * 2.5 + 40 * 10.0) / 1e6)
+
+    def test_gemini_keeps_thought_signatures(self):
+        for name in ("low", "high", "low_flex", "medium_flex"):
+            cfg = load_config(DIR / "configs" / f"live_probe_gemini_{name}.json")
+            self.assertTrue(cfg["pass_reasoning_back"])
+            self.assertEqual(len(cfg["provider"]["order"]), 1)
+            self.assertNotIn("temperature", cfg["request_options"])
+
+    def test_token_reading_and_projection(self):
+        from causetest.probe import measure, project, tokens
+        self.assertEqual(tokens({"input_tokens": 2, "cache_read_input_tokens": 90, "cache_creation_input_tokens": 8,
+                                 "output_tokens": 50, "output_tokens_details": {"thinking_tokens": 30}}),
+                         {"input": 100, "cached": 90, "written": 8, "output": 50, "reasoning": 30})
+        self.assertEqual(tokens({"prompt_tokens": 100, "completion_tokens": 50,
+                                 "prompt_tokens_details": {"cached_tokens": 90, "cache_write_tokens": 8},
+                                 "completion_tokens_details": {"reasoning_tokens": 30}}),
+                         {"input": 100, "cached": 90, "written": 8, "output": 50, "reasoning": 30})
+        turn = {"meta": {"cost_usd": 0.001, "stop_reason": "tool_use", "latency_seconds": 1.0,
+                         "usage": {"input_tokens": 100, "output_tokens": 50}}}
+        m = measure([{"status": "complete", "tasks": [{"turns": [turn, turn]}]}, {"status": "failed", "tasks": []}])
+        self.assertEqual((m["runs"], m["complete"], m["calls"], m["refused"]), (2, 1, 2, 0))
+        self.assertEqual((m["output_per_call"], m["calls_per_run"]), (50, 2))
+        p = project(m, 10.0, {"C4": {"calls": 1000, "length": 1.5}})
+        # 0.002 spent, 0.001 of it output, over 200 input tokens: $5 per million input; 100 input per call, 1.5x as long
+        self.assertAlmostEqual(p["C4"], 1000 * (100 * 1.5 * 5 / 1e6 + 50 * 10 / 1e6))
+        self.assertAlmostEqual(p["total"], p["C4"])
+
+
+class TestStudyW2E(unittest.TestCase):
+    """Study W2-E: Claude Sonnet 5.5 and Gemini 3.8 Flash on C4 and E5 (PROTOCOL_W2E.md)."""
+    SOURCES = {"c4": "live_n1_c4_native_low.json", "e5": "live_n1_e5_native_low.json"}
+
+    def test_configs(self):
+        paths = sorted((DIR / "configs").glob("live_w2e_*.json"))
+        self.assertEqual([p.stem for p in paths], ["live_w2e_c4_gemini", "live_w2e_c4_sonnet", "live_w2e_e5_gemini",
+                                                   "live_w2e_e5_sonnet"])
+        probes = load_config(DIR / "configs" / "live_probe_sonnet_t1.json")
+        for path in paths:
+            cfg = load_config(path)
+            design = path.stem.split("_")[2]
+            src = load_config(DIR / "configs" / self.SOURCES[design])
+            for k in ("design", "cells", "n_tasks", "base_seed", "dev_seed", "runs_per_cell", "thresholds",
+                      "bootstrap_seed", "bootstrap_reps"):
+                self.assertEqual(cfg.get(k), src.get(k), f"{path.name}: {k} differs from {self.SOURCES[design]}")
+            self.assertFalse(set(probes["dev_seeds"]) & {cfg["dev_seed"], cfg["base_seed"]})  # no probe seed is reused
+            self.assertGreaterEqual(cfg["max_calls"], len(cells_for(cfg)) * cfg["runs_per_cell"] * cfg.get("n_tasks", 6) * 6)
+            self.assertGreater(cfg["planning"]["proposed_cap_usd"], cfg["planning"]["estimate_usd"]
+                               + cfg["workers"] * cfg["worst_case_usd_per_call"])  # the guard's reserve fits under the cap
+            self.assertEqual(cfg["max_equiv_usd"], cfg["planning"]["proposed_cap_usd"])
+            with tempfile.TemporaryDirectory() as tmp:
+                with self.assertRaises(RuntimeError):
+                    make_transport(cfg, Path(tmp), live=False)
+                with self.assertRaises(RuntimeError):
+                    make_transport(dict(cfg, max_equiv_usd=0.0), Path(tmp), live=True)
+        caps = {p.stem: load_config(p)["max_equiv_usd"] for p in paths}
+        self.assertLessEqual(round(sum(v for k, v in caps.items() if k.endswith("sonnet")), 2), 16.50)  # owner's approval of 2026-11-06
+        self.assertLessEqual(round(sum(v for k, v in caps.items() if k.endswith("gemini")), 2), 16.00)  # the same approval
+
+    def test_one_default_setting_per_model(self):
+        for design in ("c4", "e5"):
+            sonnet = load_config(DIR / "configs" / f"live_w2e_{design}_sonnet.json")
+            self.assertEqual((sonnet["model"], sonnet["transport"]), ("claude-sonnet-5-5", "anthropic_messages_native"))
+            self.assertEqual(sonnet["request_options"], {"max_tokens": 8000, "thinking": {"type": "adaptive"},
+                                                         "output_config": {"effort": "high"},
+                                                         "cache_control": {"type": "ephemeral"}})
+            gemini = load_config(DIR / "configs" / f"live_w2e_{design}_gemini.json")
+            self.assertEqual((gemini["model"], gemini["transport"]), ("google/gemini-3.8-flash", "openrouter_chat_native"))
+            self.assertEqual(gemini["request_options"], {"max_tokens": 16000, "reasoning": {"effort": "medium"}})
+            self.assertEqual(gemini["provider"], {"order": ["google-ai-studio/flex"]})  # one host, no fallback
+            self.assertTrue(gemini["pass_reasoning_back"])  # thought signatures
+
+    def test_scripted_dry_run(self):
+        """Each config's cells, seeds and worlds run through the harness on a scripted agent; nothing is sent."""
+        for name in ("live_w2e_c4_sonnet", "live_w2e_e5_gemini"):
+            cfg = dict(load_config(DIR / "configs" / f"{name}.json"), transport="mock",
+                       mock={"kind": "credulous", "params": {}}, max_equiv_usd=1.0)
+            with tempfile.TemporaryDirectory() as tmp:
+                check = pilot(cfg, Path(tmp) / cfg["run_name"], live=False)
+            self.assertEqual(check["complete"], check["runs"])
+            self.assertEqual(check["runs"], len(cells_for(cfg)))
+
+
 class TestStudyP1(unittest.TestCase):
     """Study P1: rewordings of the "unavailable" and neutral error texts (PROTOCOL_P1.md)."""
 
