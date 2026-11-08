@@ -1,6 +1,6 @@
 """Build `PAPER.pdf` from `PAPER.md`: a small Markdown-to-HTML converter for the subset the paper uses (headings,
 paragraphs, lists, pipe tables, captions, SVG figures, links, emphasis, code spans), printed to PDF by a headless
-Chromium browser (Edge or Chrome). Standard library only; edit PAPER.md and re-run to rebuild. Run from the
+Chromium browser (Edge or Chrome; Caladea stands in for Cambria where it is missing). Standard library only; edit PAPER.md and re-run to rebuild. Run from the
 experiment folder:
 
     python paper/build_pdf.py
@@ -31,8 +31,8 @@ NOWRAP = 14  # table cells this short never wrap ("W2-D", "1 of 1 tested")
 
 CSS = """
 @page { size: letter; margin: 0.85in 1in 0.75in;
-  @bottom-center { content: counter(page); font: 9pt Cambria, "Times New Roman", serif; color: #444; } }
-html { font: 10.5pt/1.38 Cambria, "Times New Roman", serif; color: #111; }
+  @bottom-center { content: counter(page); font: 9pt Cambria, Caladea, "Times New Roman", serif; color: #444; } }
+html { font: 10.5pt/1.38 Cambria, Caladea, "Times New Roman", serif; color: #111; }
 body { margin: 0; }
 p { margin: 0 0 0.55em; text-align: justify; hyphens: auto; orphans: 2; widows: 2; }
 a { color: #1a4f8b; text-decoration: none; }
@@ -59,6 +59,7 @@ tbody tr:last-child td { border-bottom: 1.2px solid #111; }
 th, td { padding: 2.5px 6px 2.5px 0; vertical-align: top; }
 td.nw { white-space: nowrap; }
 tr { break-inside: avoid; }
+div.keep { break-inside: avoid; }
 """
 
 
@@ -167,7 +168,7 @@ def render(md: str) -> str:
             parts.append(f'<figure class="{cls}">{caption(content)}{table(nxt[1])}</figure>')
             k += 1
         elif kind == "table":
-            parts.append(table(content))
+            parts.append(f'<div class="keep">{table(content)}</div>')  # uncaptioned reference tables stay whole
         elif kind in ("ul", "ol"):
             cls = ' class="refs"' if section == "References" else ""
             parts.append(f"<{kind}{cls}>" + "".join(f"<li>{inline(x)}</li>" for x in content) + f"</{kind}>")
