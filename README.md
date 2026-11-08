@@ -4,7 +4,7 @@ When a tool call fails, the error message usually states a cause: "invalid forma
 
 **Short answer: they act on the stated cause and rarely revise it, and two traps follow.** A brief caution paired with a counted stopping rule fixes the worse of the two on every model tested, in this environment; for read-only calls, retrying in the tool's client does the same without giving up on real transient faults.
 
-Results to 2026-11-07: 18 pre-specified studies on 8 models from 5 developers (17 model-and-setting arms), about $158 of API spend. The five latest, W2-D, R1, P1, W2-E and G1, were registered publicly before their first call. **Preprint:** [`paper/PAPER.pdf`](paper/PAPER.pdf) ([source](paper/PAPER.md); not peer reviewed). This is a candidate for v1, out for outside review. The consolidated write-up is [`REPORT.md`](REPORT.md).
+Results to 2026-11-07: 18 pre-specified studies on 8 models from 5 developers (17 model-and-setting arms), about $158 of API spend. The five latest, W2-D, R1, P1, W2-E and G1, were registered publicly before their first call. **Preprint:** [`paper/PAPER.pdf`](paper/PAPER.pdf) ([source](paper/PAPER.md); not peer reviewed), frozen as `preprint-v1`. The consolidated write-up is [`REPORT.md`](REPORT.md).
 
 ## The two traps
 

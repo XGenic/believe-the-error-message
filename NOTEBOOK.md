@@ -1767,9 +1767,9 @@ Both runs are VALID: complete in every cell, no protocol failures, the tool call
 
 **Spend:** $2.55 of the approved $4.25: Sonnet $1.73 of $3.00 (pilot $0.04, main run $1.69), Gemini $0.82 of $1.25 (pilot $0.03, main run $0.79).
 
-## Preprint v1: candidate, out for review (2026-11-07)
+## Preprint v1 (2026-11-07, frozen 2026-11-08)
 
-After G1, the owner decided to work toward arXiv, and to have others check this candidate before committing to v1. No `preprint-v1` tag or release exists yet. Checked against arXiv's rules for a PDF not made from TeX: one file, all fonts embedded, no Type 3 fonts, no JavaScript, extractable text with ligatures that read correctly, tagged structure. The title and abstract are plain ASCII, and the abstract is 1,738 characters of the 1,920 allowed. Significant AI use is disclosed in the paper, and no AI is listed as an author. Every citation has a reference and every section reference resolves. The only change to the text is dropping "draft". Changes that come out of the review are recorded here. Once v1 is tagged, a change to the paper needs a reason and a new version.
+After G1, the owner decided to work toward arXiv, and to have others check the candidate before committing to v1. Two outside reviews followed (below); the owner then froze it as the release `preprint-v1`. Checked against arXiv's rules for a PDF not made from TeX: one file, all fonts embedded, no Type 3 fonts, no JavaScript, extractable text with ligatures that read correctly, tagged structure. The title and abstract are plain ASCII, and the abstract is 1,738 characters of the 1,920 allowed. Significant AI use is disclosed in the paper, and no AI is listed as an author. Every citation has a reference and every section reference resolves. The only change to the text is dropping "draft". Changes that came out of the reviews are recorded below. From here, a change to the paper needs a reason and a new version.
 
 ## Fourth outside review, of the v1 candidate (2026-11-07)
 
@@ -1779,6 +1779,16 @@ The owner shared another reading, of the candidate. It found no contradiction or
 - **G1 was buried in a paragraph (agreed).** It now has a table, and the paragraph is shorter. §4.1 is reordered so tables stay in sequence, and the later tables are renumbered.
 - **"A failure to calibrate trust" claimed too much (agreed).** An agent does not know a third call would work, and a second identical error does not contradict "unavailable". Whether stopping is the right choice depends on message reliability, retry cost and what the agent knows, none of which this design establishes. §1 and the abstract now say what the design does show: the stated cause changes recovery decisions and, when wrong, can greatly reduce how many requests get solved. "Premature abandonment" is gone. This reverses the calibration framing added after the review of 2026-10-28.
 - **Sonnet's uncertainty and the GEMINI_SPECIFIC label (agreed).** The paper said the same reasoning "is not enough on Sonnet", and that more reasoning "does not help". The interval reaches +23 points, so it now says no large, reliable gain in this experiment. The label is described as a classification by fixed thresholds, not a mechanism. The registered protocol's wording stays as registered.
+
+## Fifth outside review, of the v1 candidate (2026-11-08)
+
+The owner had a second reading of the candidate done, and merged its fixes in the public repository (its PR #1, public commit 759fd89); they are now in this repository too. Every number it adds was checked against the raw rows first, and all five hold:
+
+- **The 0.011 ceiling covers the panel's trap rates, not every cell.** Scored on correct answers, the largest move among the four trap rates is 0.011, but two non-diagnostic baselines move further: gpt-oss-120b over a transient fault 1.000 to 0.833, and Gemini over a fixable fault 0.361 to 0.250. §3.2 and Table 1's note now say so.
+- **Gemini's retry-trap message effect** is 35 points on lookup success and 24 on correct answers, where DeepSeek with reasoning and GPT-6-luna at high effort (both 31) are larger. §4.1 no longer calls it the largest under that scoring.
+- **One correction of my own:** the review's new sentence said those effects "shrink by the same amounts". gpt-oss's shrinks by 0.161 against a baseline fall of 0.167, because its trap rate moves as well, so it now reads "by about as much".
+- **Also in that commit:** the R1 sentence in Limitations, whose "Its" had lost its referent, and a shorter AI-assistance statement that drops the clause about other models reading the draft. The disclosure of substantial AI assistance stands; NOTEBOOK keeps the full record of the outside readings.
+- **The PDF build** now falls back to Caladea where Cambria is missing, and keeps uncaptioned tables whole. Both builds paginate the same: 17 pages. `PAPER.pdf` here is the Windows build, with Cambria embedded.
 
 ## Decisions for the owner
 
